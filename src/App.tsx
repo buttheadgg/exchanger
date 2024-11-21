@@ -1,10 +1,16 @@
 import React from 'react';
 import Exchanger from './application/pages/Exchanger';
+import Header from './application/components/Header/Header';
+import Footer from './application/components/Footer/Footer';
 import './App.module.scss';
+
 
 const App = () => {
   return (
-    <Exchanger/>
+    <body>
+      <Header/>
+      <Footer/>
+    </body>
   );
 };
 
