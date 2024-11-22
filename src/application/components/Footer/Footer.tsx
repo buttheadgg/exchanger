@@ -1,5 +1,5 @@
 import React from 'react';
-
+import mainLogo from '../../image/main-logo.svg';
 import styles from './Footer.module.scss'
 
 const Footer = () => {
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className={styles.header}>
           <div className={styles.container}>
             <div className={styles.header__innerFooterMain}>
-              <a href="#" className="logo"><p className={styles.logo__text}>FRBP</p></a>
+              <img src={mainLogo} alt='Main logo'/>
               <nav className={styles.menu}>
                 <ul className={styles.menu__listHeader}>
                   <li className={styles.menu__listItem}>
@@ -155,7 +155,7 @@ const Footer = () => {
                     placeholder="youremail@domain.com"
                     className={styles.footer__inputForm}
                   />
-                  <button className={styles.footer__contactButton}>Sent</button>
+                  <button className={styles.footer__contactButton}>SENT</button>
                 </div>
               </div>
               <div className={styles.footer__contactItem}>

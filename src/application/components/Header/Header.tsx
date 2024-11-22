@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import styles from "./Header.module.scss";
+import mainLogo from '../../image/main-logo.svg';
 
 
 const Header = () => {
@@ -26,7 +27,7 @@ const Header = () => {
         <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.header__inner}>
-            <img src={'../../image/main-logo.svg'} alt='mainImage'/>
+            <img src={mainLogo} alt='mainImage'/>
             <nav className={styles.menu}>
               <div className={styles.burger} ref={burgerRef}>
                 <span></span>
