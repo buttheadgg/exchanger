@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from '../rate_coin/RateCoin.module.scss'
+import styles from '../RateCoin/RateCoin.module.scss'
 
 interface RateCoinProps{
     image: string;

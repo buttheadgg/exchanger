@@ -1,14 +1,17 @@
 import React from 'react';
-import mainLogo from '../../image/main-logo.svg';
 import styles from './Footer.module.scss'
+import { PUBLIC_IMAGE } from '../../constants';
 
 const Footer = () => {
+
+  const mainLogoPath = PUBLIC_IMAGE+'main-logo.svg';
+  
     return (
     <footer className={styles.footer}>
         <div className={styles.header}>
           <div className={styles.container}>
             <div className={styles.header__innerFooterMain}>
-              <img src={mainLogo} alt='Main logo'/>
+              <img src={mainLogoPath} alt='Main logo'/>
               <nav className={styles.menu}>
                 <ul className={styles.menu__listHeader}>
                   <li className={styles.menu__listItem}>

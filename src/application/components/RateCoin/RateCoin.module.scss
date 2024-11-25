@@ -1,18 +1,4 @@
-@font-face {
-  font-family: "Gilroy";
-  src: url("../../fonts/GilroyMedium.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Gilroy";
-  src: url("../../fonts/GilroyBold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('../../styles/_fonts.scss');
 
 .coin__main {
   padding: 16px 2px;

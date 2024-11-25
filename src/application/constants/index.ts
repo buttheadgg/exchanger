@@ -1,1 +1,1 @@
-export const PUBLIC_IMAGE = "../../../public/image/";
+export const PUBLIC_IMAGE = "/image/";

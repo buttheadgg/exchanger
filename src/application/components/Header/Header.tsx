@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import styles from "./Header.module.scss";
-import mainLogo from '../../image/main-logo.svg';
+import { PUBLIC_IMAGE } from '../../constants';
 
 
 const Header = () => {
+  
+  const mainLogoPath = PUBLIC_IMAGE+'main-logo.svg';
 
   const burgerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -27,7 +29,7 @@ const Header = () => {
         <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.header__inner}>
-            <img src={mainLogo} alt='mainImage'/>
+            <img src={mainLogoPath} alt='mainImage'/>
             <nav className={styles.menu}>
               <div className={styles.burger} ref={burgerRef}>
                 <span></span>
