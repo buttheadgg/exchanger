@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './Exchanger.module.scss'
 import FormExchanger from '../../components/FormExchanger/MultiStepForm/MultiStepForm';
 import { PUBLIC_IMAGE } from '../../constants';
+import MultiStepForm from '../../components/FormExchanger/MultiStepForm/MultiStepForm';
+import { StepProvider } from '../../components/FormExchanger/StepContext/StepContext';
 
 
 const Exchanger = () => {
@@ -11,9 +13,12 @@ const Exchanger = () => {
         <main className={styles.main}>
             <div className={styles.main__wrapper}>
                 <div className={styles.from__wrapper}>
-                    <div className={styles.form__imageWrapper}></div>
-                    <img src={formImage} alt="formImage" />
-                    <FormExchanger/>
+                    <div className={styles.form__imageWrapper}>
+                        <img src={formImage} alt="formImage" />
+                    </div>
+                    <StepProvider>
+                        <MultiStepForm/>
+                    </StepProvider>
                 </div>
             </div>
         </main>
