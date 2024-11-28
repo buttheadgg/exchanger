@@ -1,0 +1,47 @@
+@import url("../../styles/_fonts.scss");
+
+.form__exchanger {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+  max-width: 782px;
+  width: 100%;
+  border: 3px solid #334679;
+  border-radius: 40px;
+}
+
+.form__wrapper{
+  max-width: 782px;
+  width: 100%;
+}
+
+.form__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 36px;
+  padding-bottom: 42px;
+}
+
+.form__headerPay {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #2ef2ff;
+}
+
+.form__headerReceive {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #eaedff;
+}
+
+.form__headerLine{
+  width: 100%;
+  height: 1px;
+  background-color: #0e1434;
+}
