@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./FormBodyCash.module.scss";
+import styles from "./FormBodyCashStep1.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 
 const FormBodyCash = () => {

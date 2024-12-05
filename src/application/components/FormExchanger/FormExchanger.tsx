@@ -2,8 +2,9 @@ import React, { FC, useRef, useState } from "react";
 import styles from "./FormExchanger.module.scss";
 import MyButton from "../UI/MyButton/MyButton";
 import MyInput from "../UI/MyInput/MyInput";
-import FormBodyCash from "./FormBody/FormBodyCash";
 import { PUBLIC_IMAGE } from "../../constants";
+import FormBodyCashStep1 from "./FormBodyCashStep1/FormBodyCashStep1";
+import FormBodyCashStep2 from "./FormBodyCashStep2/FormBodyCashStep2";
 
 interface MyData {
   paySelect: string;
@@ -75,7 +76,7 @@ const FormExchanger: FC = () => {
             </div>
           </div>
         </div>
-        <FormBodyCash></FormBodyCash>
+        <FormBodyCashStep2></FormBodyCashStep2>
       </div>
       <MyButton onClick={handleNext} className={styles.form__button}>
         EXCHANGE
