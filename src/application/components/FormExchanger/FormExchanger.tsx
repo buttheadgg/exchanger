@@ -3,8 +3,7 @@ import styles from "./FormExchanger.module.scss";
 import MyButton from "../UI/MyButton/MyButton";
 import MyInput from "../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../constants";
-import FormBodyCashStep1 from "./FormBodyCashStep1/FormBodyCashStep1";
-import FormBodyCashStep2 from "./FormBodyCashStep2/FormBodyCashStep2";
+import FormBodyCryprtoBank from "./FormBodyCryprtoBank/FormBodyCryprtoBank";
 
 interface MyData {
   paySelect: string;
@@ -62,7 +61,7 @@ const FormExchanger: FC = () => {
           <div className={styles.form__pay}>
             <div className={styles.form__payValue}>
               <MyInput className={styles.form__paySelect} />
-              <MyInput name="paySelect" className={`${invalidInput ? styles.form__payInvalidInput : styles.form__payInputValue}`} onChange={handleChange}  placeHolder="0" />
+              <MyInput name="paySelect" className={styles.form__payInputValue}  onChange={handleChange}  placeHolder="0" />
             </div>
             <div className={styles.form__payLimits}>
               <div>min.: 100 EUR</div>
@@ -72,11 +71,11 @@ const FormExchanger: FC = () => {
           <div className={styles.form__receive}>
             <div className={styles.form__receiveValue}>
               <MyInput className={styles.form__receiveSelect} />
-              <MyInput name="receiveSelect" className={`${invalidInput ? styles.form__receiveInvalidInput : styles.form__receiveInputValue}`} onChange={handleChange} placeHolder="0"/>
+              <MyInput name="receiveSelect" className={styles.form__receiveInputValue} onChange={handleChange} placeHolder="0"/>
             </div>
           </div>
         </div>
-        <FormBodyCashStep2></FormBodyCashStep2>
+        <FormBodyCryprtoBank></FormBodyCryprtoBank>
       </div>
       <MyButton onClick={handleNext} className={styles.form__button}>
         EXCHANGE

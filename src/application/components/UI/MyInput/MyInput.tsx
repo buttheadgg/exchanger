@@ -8,6 +8,7 @@ interface InputProps {
   type?: React.HTMLInputTypeAttribute;
   placeHolder?: string;
   name?: string;
+  isInvalid?: boolean;
 }
 
 const MyInput: FC<InputProps> = ({
@@ -16,20 +17,19 @@ const MyInput: FC<InputProps> = ({
   className,
   type,
   placeHolder,
-  name
+  name,
+  isInvalid
 }) => {
   return (
-    <div className={styles.myInput__wrapper}>
-      <div>
+    <div className={`${styles.myInput__wrapper} ${className || ""}`}>
         <input
           value={value}
           onChange={onChange}
-          className={`${styles.myInput} ${className || ""}`}
+          className={`${isInvalid ? styles.myInputInvalid : styles.myInput} ${className || ""}`}
           type={type}
           placeholder={placeHolder}
           name={name}
         />
-      </div>
     </div>
   );
 };
