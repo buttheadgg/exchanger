@@ -1,46 +1,119 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import styles from "./FormExchanger.module.scss";
 import MyButton from "../UI/MyButton/MyButton";
 import MyInput from "../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../constants";
 import FormBodyCryprtoBank from "./FormBodyCryprtoBank/FormBodyCryprtoBank";
+import FormBodyCryptoCash from "./FormBodyCryptoCash/FormBodyCryptoCash";
+import { ComponentData, FormExchangerInterface } from "../types/types";
 
-interface MyData {
-  paySelect: string;
-  receiveSelect: string;
-}
+
 
 const FormExchanger: FC = () => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
-  const [formData, setFormData] = useState<MyData>({
-    paySelect: '',
-    receiveSelect: '',
-  });
   const [invalidInput, setInvalidInput] = useState(false);
   
+  const [formData, setFormData] = useState<FormExchangerInterface>({
+    paySelect: "",
+    receiveSelect: "",
+  });
+
+  const [invalidInputs, setInvalidInputs] = useState<{ [key: string]: boolean }>({
+    paySelect: false,
+    receiveSelect: false,
+    country: false,
+    city: false,
+    phone: false,
+    email: false,
+    agreeToRules: false,
+    rememberData: false
+  });
+
+  const [componentData, setComponentData] = useState<ComponentData>({});
+
+  const handleInputChange = (name: string, value: string | boolean) => {
+    setComponentData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFormData(prevData => ({ ...prevData, [name]: value }));
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleNext = () => {
-    if(formData.paySelect){
-      const parsedValue = parseInt(formData.paySelect as string, 10);
-      if(isNaN(parsedValue) || parseInt(formData.paySelect)  < 100 || parseInt(formData.paySelect)  > 100000 ){
-        setInvalidInput(true);
-        console.log(invalidInput);
-      }
-      else{
-        setInvalidInput(false);
-        console.log(invalidInput);
-      }
+  const validateEmail = (email: string) => {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+  };
+
+  const validationData = () => {
+    const newValidation = { ...invalidInputs };
+
+    if (
+      !formData.paySelect ||
+      isNaN(Number(formData.paySelect)) ||
+      Number(formData.paySelect) < 100 ||
+      Number(formData.paySelect) > 100000
+    ) {
+      newValidation.paySelect = true;
+    } else {
+      newValidation.paySelect = false;
     }
-    // Валидация данных
+
+    if (
+      !formData.receiveSelect ||
+      isNaN(Number(formData.receiveSelect)) ||
+      Number(formData.receiveSelect) < 100 ||
+      Number(formData.receiveSelect) > 100000
+    ) {
+      newValidation.receiveSelect = true;
+    } else {
+      newValidation.receiveSelect = false;
+    }
+
+    if (!componentData.country) {
+      newValidation.country = true;
+    } else {
+      newValidation.country = false;
+    }
+
+    if (!componentData.city) {
+      newValidation.city = true;
+    } else {
+      newValidation.city = false;
+    }
+
+    if (!componentData.email) {
+      newValidation.email = true; 
+    } else {
+      newValidation.email = false;
+    }
+
+    if (!componentData.agreeToRules) {
+      newValidation.agreeToRules = true;
+    } else {
+      newValidation.agreeToRules = false;
+    }
+
+    setInvalidInputs(newValidation);
+
+    return Object.values(newValidation).every((isValid) => !isValid);
   };
 
   const handleSubmit = () => {
-    //Отправка данных
+
+    const isValid = validationData(); 
+
+    setInvalidInput(!isValid); 
+
+    if (validationData()) {
+      const allData = { ...formData, ...componentData };
+      console.log("Данные формы:", allData);
+      setInvalidInput(!validationData());
+      // Отправка данных
+    } else {
+      setInvalidInput(!validationData());
+      console.log("Некорректные данные");
+    }
   };
 
   return (
@@ -61,7 +134,13 @@ const FormExchanger: FC = () => {
           <div className={styles.form__pay}>
             <div className={styles.form__payValue}>
               <MyInput className={styles.form__paySelect} />
-              <MyInput name="paySelect" className={styles.form__payInputValue}  onChange={handleChange}  placeHolder="0" />
+              <MyInput
+                name="paySelect"
+                className={styles.form__payInputValue}
+                onChange={handleChange}
+                placeHolder="0"
+                isInvalid={invalidInputs.paySelect}
+              />
             </div>
             <div className={styles.form__payLimits}>
               <div>min.: 100 EUR</div>
@@ -71,16 +150,30 @@ const FormExchanger: FC = () => {
           <div className={styles.form__receive}>
             <div className={styles.form__receiveValue}>
               <MyInput className={styles.form__receiveSelect} />
-              <MyInput name="receiveSelect" className={styles.form__receiveInputValue} onChange={handleChange} placeHolder="0"/>
+              <MyInput
+                name="receiveSelect"
+                className={styles.form__receiveInputValue}
+                onChange={handleChange}
+                placeHolder="0"
+                isInvalid={invalidInputs.receiveSelect}
+              />
             </div>
           </div>
         </div>
-        <FormBodyCryprtoBank></FormBodyCryprtoBank>
+        <FormBodyCryptoCash invalidInputs={invalidInputs} handleInputChange={handleInputChange} ></FormBodyCryptoCash>
       </div>
-      <MyButton onClick={handleNext} className={styles.form__button}>
+      <MyButton onClick={handleSubmit} className={styles.form__button}>
         EXCHANGE
       </MyButton>
-      <div className={`${invalidInput ? styles.form__formBottomText : styles.form__formBottomTextNone}`}>The amount of cash must be at least $ 150,00</div>
+      <div
+        className={`${
+          invalidInput
+            ? styles.form__formBottomText
+            : styles.form__formBottomTextNone
+        }`}
+      >
+        The amount of cash must be at least $ 150,00
+      </div>
     </div>
   );
 };

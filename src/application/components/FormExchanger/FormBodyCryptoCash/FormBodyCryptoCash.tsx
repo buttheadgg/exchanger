@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import MyInput from "../../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../../constants";
 import styles from "./FormBodyCryptoCash.module.scss";
 
+type HandleInputChange = (name: string, value: string | boolean) => void;
+
 interface FormBodyCryptoCashProps {
-  onChange: (name: string, value: string | boolean) => void;
   invalidInputs: { [key: string]: boolean };
+  handleInputChange: HandleInputChange;
 }
 
-const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
-  onChange,
+const FormBodyCryptoCash: FC<FormBodyCryptoCashProps> = ({
   invalidInputs,
+  handleInputChange,
 }) => {
-  const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
-
-  
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = event.target;
-    onChange(name, type === "checkbox" ? checked : value);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    handleInputChange(name, value);
   };
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target; 
+    handleInputChange(name, checked); 
+  };
+  const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
 
   return (
     <div className={styles.form__body}>
@@ -30,24 +33,18 @@ const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
               <p className={styles.form__receiveInputLable}>Country*</p>
               <MyInput
                 name="country"
-                className={`${
-                  invalidInputs.country
-                    ? styles.form__inputCountryInvalid
-                    : styles.form__inputCountry
-                }`}
-                onChange={handleInputChange}
+                className={styles.form__inputCountry}
+                onChange={handleChange}
+                isInvalid={invalidInputs.country}
               />
             </div>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>City*</p>
               <MyInput
                 name="city"
-                className={`${
-                  invalidInputs.city
-                    ? styles.form__inputCityInvalid
-                    : styles.form__inputCity
-                }`}
-                onChange={handleInputChange}
+                className={styles.form__inputCity}
+                onChange={handleChange}
+                isInvalid={invalidInputs.city}
               />
             </div>
           </div>
@@ -57,7 +54,7 @@ const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
               name="name"
               className={styles.form__inputName}
               placeHolder="Name"
-              onChange={handleInputChange}
+              onChange={handleChange}
             />
           </div>
           <div className={styles.form__inputSurnameWrapper}>
@@ -66,7 +63,7 @@ const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
               name="surname"
               className={styles.form__inputSurname}
               placeHolder="Name"
-              onChange={handleInputChange}
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -78,20 +75,17 @@ const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
                 name="phone"
                 className={styles.form__PhoneInput}
                 placeHolder="Phone number"
-                onChange={handleInputChange}
+                onChange={handleChange}
               />
             </div>
             <div className={styles.form__EmailInputWrapper}>
               <p className={styles.form__EmailInputLabel}>E-mail*</p>
               <MyInput
                 name="email"
-                className={`${
-                  invalidInputs.email
-                    ? styles.form__EmailInputInvalid
-                    : styles.form__EmailInput
-                }`}
+                className={styles.form__EmailInput}
                 placeHolder="E-mail"
-                onChange={handleInputChange}
+                onChange={handleChange}
+                isInvalid={invalidInputs.email}
               />
             </div>
             <div className={styles.form__payInput}>
@@ -100,7 +94,7 @@ const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
                 name="telegram"
                 className={styles.form__payInputTelegram}
                 placeHolder="Telegram"
-                onChange={handleInputChange}
+                onChange={handleChange}
               />
             </div>
             <div className={styles.form__receiveCheckbox}>
@@ -110,7 +104,7 @@ const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
                   type="checkbox"
                   className={styles.form__checkbox}
                   id="checkbox1"
-                  onChange={handleInputChange}
+                  onChange={handleCheckboxChange}
                 />
                 <div className={styles.form__checkboxText}>
                   Do not remember data
@@ -121,7 +115,7 @@ const FormBodyCryptoCash: React.FC<FormBodyCryptoCashProps> = ({
                   name="agreeToRules"
                   type="checkbox"
                   className={styles.form__checkbox}
-                  onChange={handleInputChange}
+                  onChange={handleCheckboxChange}
                 />
                 <div className={styles.form__checkboxText}>
                   By clicking the Exchange button,<br></br>I agree to the{" "}

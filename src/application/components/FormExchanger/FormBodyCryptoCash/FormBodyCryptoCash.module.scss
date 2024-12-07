@@ -113,22 +113,11 @@
 
 .form__inputCountry {
   width: 158px;
-  border: none;
 }
 
-.form__inputCountryInvalid {
-  width: 158px;
-  border-color: #F8005B;
-}
 
 .form__inputCity {
   width: 158px;
-  border: none;
-}
-
-.form__inputCityInvalid {
-  width: 158px;
-  border-color: #F8005B;
 }
 
 .form__receiveWrapper {
@@ -172,12 +161,6 @@
 
 .form__EmailInput {
   width: 340px;
-  border: none;
-}
-
-.form__EmailInputInvalid {
-  width: 340px;
-  border-color: #F8005B;
 }
 
 .form__payInput {

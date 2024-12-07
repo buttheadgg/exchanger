@@ -3,18 +3,8 @@ import styles from "./FormBodyCashCrypto.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../../constants";
 
-interface Props {
-  onChange: (name: string, value: any) => void;
-  invalidInputs: { [key: string]: boolean };
-}
-
-const FormBodyCashCrypto: FC<Props> = ({ onChange }) => {
+const FormBodyCashCrypto = () => {
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    onChange(name, type === "checkbox" ? checked : value);
-  };
 
   return (
     <div className={styles.form__body}>
@@ -29,25 +19,16 @@ const FormBodyCashCrypto: FC<Props> = ({ onChange }) => {
               placeHolder="Wallet address"
               className={styles.form__walletInput}
               name="walletAddress"
-              onChange={handleInputChange}
             />
           </div>
           <div className={styles.form__receiveInputWrapper}>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>Country*</p>
-              <MyInput
-                className={styles.form__inputCountry}
-                name="country"
-                onChange={handleInputChange}
-              />
+              <MyInput className={styles.form__inputCountry} name="country" />
             </div>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>City*</p>
-              <MyInput
-                className={styles.form__inputCity}
-                name="city"
-                onChange={handleInputChange}
-              />
+              <MyInput className={styles.form__inputCity} name="city" />
             </div>
           </div>
           <div className={styles.form__payInput}>
@@ -56,7 +37,6 @@ const FormBodyCashCrypto: FC<Props> = ({ onChange }) => {
               className={styles.form__payInputTelegram}
               placeHolder="Telegram"
               name="telegram"
-              onChange={handleInputChange}
             />
           </div>
         </div>
@@ -68,7 +48,6 @@ const FormBodyCashCrypto: FC<Props> = ({ onChange }) => {
                 className={styles.form__PhoneInput}
                 placeHolder="Phone number"
                 name="phone"
-                onChange={handleInputChange}
               />
             </div>
             <div className={styles.form__EmailInputWrapper}>
@@ -77,7 +56,6 @@ const FormBodyCashCrypto: FC<Props> = ({ onChange }) => {
                 className={styles.form__EmailInput}
                 placeHolder="E-mail"
                 name="email"
-                onChange={handleInputChange}
               />
             </div>
             <div className={styles.form__receiveCheckbox}>
@@ -87,7 +65,6 @@ const FormBodyCashCrypto: FC<Props> = ({ onChange }) => {
                   className={styles.form__checkbox}
                   id="checkbox1"
                   name="rememberData"
-                  onChange={handleInputChange}
                 />
                 <div className={styles.form__checkboxText}>
                   Do not remember data
@@ -98,7 +75,6 @@ const FormBodyCashCrypto: FC<Props> = ({ onChange }) => {
                   type="checkbox"
                   className={styles.form__checkbox}
                   name="agreeToRules"
-                  onChange={handleInputChange}
                 />
                 <div className={styles.form__checkboxText}>
                   By clicking the Exchange button,<br></br>I agree to the{" "}
