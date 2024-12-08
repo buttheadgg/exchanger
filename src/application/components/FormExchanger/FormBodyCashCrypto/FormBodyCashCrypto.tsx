@@ -1,9 +1,30 @@
-import React, { FC } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import styles from "./FormBodyCashCrypto.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../../constants";
 
-const FormBodyCashCrypto = () => {
+type HandleInputChange = (name: string, value: string | boolean) => void;
+
+interface FormBodyCashCryptoProps {
+  invalidInputs: { [key: string]: boolean | undefined };
+  handleInputChange: HandleInputChange;
+}
+
+const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
+  invalidInputs,
+  handleInputChange,
+}) => {
+
+  const  [isWalletValid , setIsWalletValid] = useState(false);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+      handleInputChange(name, value);      
+  };
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target;
+    handleInputChange(name, checked);
+  };
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
 
   return (
@@ -19,16 +40,28 @@ const FormBodyCashCrypto = () => {
               placeHolder="Wallet address"
               className={styles.form__walletInput}
               name="walletAddress"
+              onChange={handleChange}
+              isInvalid={invalidInputs.walletAddress}
             />
           </div>
           <div className={styles.form__receiveInputWrapper}>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>Country*</p>
-              <MyInput className={styles.form__inputCountry} name="country" />
+              <MyInput
+                className={styles.form__inputCountry}
+                name="country"
+                onChange={handleChange}
+                isInvalid={invalidInputs.country}
+              />
             </div>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>City*</p>
-              <MyInput className={styles.form__inputCity} name="city" />
+              <MyInput
+                className={styles.form__inputCity}
+                name="city"
+                onChange={handleChange}
+                isInvalid={invalidInputs.city}
+              />
             </div>
           </div>
           <div className={styles.form__payInput}>
@@ -37,6 +70,7 @@ const FormBodyCashCrypto = () => {
               className={styles.form__payInputTelegram}
               placeHolder="Telegram"
               name="telegram"
+              onChange={handleChange}
             />
           </div>
         </div>
@@ -48,6 +82,7 @@ const FormBodyCashCrypto = () => {
                 className={styles.form__PhoneInput}
                 placeHolder="Phone number"
                 name="phone"
+                onChange={handleChange}
               />
             </div>
             <div className={styles.form__EmailInputWrapper}>
@@ -56,6 +91,8 @@ const FormBodyCashCrypto = () => {
                 className={styles.form__EmailInput}
                 placeHolder="E-mail"
                 name="email"
+                onChange={handleChange}
+                isInvalid={invalidInputs.email}
               />
             </div>
             <div className={styles.form__receiveCheckbox}>
@@ -65,6 +102,7 @@ const FormBodyCashCrypto = () => {
                   className={styles.form__checkbox}
                   id="checkbox1"
                   name="rememberData"
+                  onChange={handleCheckboxChange}
                 />
                 <div className={styles.form__checkboxText}>
                   Do not remember data
@@ -75,6 +113,7 @@ const FormBodyCashCrypto = () => {
                   type="checkbox"
                   className={styles.form__checkbox}
                   name="agreeToRules"
+                  onChange={handleCheckboxChange}
                 />
                 <div className={styles.form__checkboxText}>
                   By clicking the Exchange button,<br></br>I agree to the{" "}

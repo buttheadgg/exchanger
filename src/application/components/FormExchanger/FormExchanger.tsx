@@ -6,6 +6,7 @@ import { PUBLIC_IMAGE } from "../../constants";
 import FormBodyCryprtoBank from "./FormBodyCryprtoBank/FormBodyCryprtoBank";
 import FormBodyCryptoCash from "./FormBodyCryptoCash/FormBodyCryptoCash";
 import { ComponentData, FormExchangerInterface } from "../types/types";
+import FormBodyCashCrypto from "./FormBodyCashCrypto/FormBodyCashCrypto";
 
 
 
@@ -18,7 +19,7 @@ const FormExchanger: FC = () => {
     receiveSelect: "",
   });
 
-  const [invalidInputs, setInvalidInputs] = useState<{ [key: string]: boolean }>({
+  const [invalidInputs, setInvalidInputs] = useState<{ [key: string]: boolean | undefined }>({
     paySelect: false,
     receiveSelect: false,
     country: false,
@@ -30,7 +31,6 @@ const FormExchanger: FC = () => {
   });
 
   const [componentData, setComponentData] = useState<ComponentData>({});
-
   const handleInputChange = (name: string, value: string | boolean) => {
     setComponentData((prevData) => ({ ...prevData, [name]: value }));
   };
@@ -82,7 +82,7 @@ const FormExchanger: FC = () => {
       newValidation.city = false;
     }
 
-    if (!componentData.email) {
+    if (!componentData.email || !validateEmail(componentData.email)) {
       newValidation.email = true; 
     } else {
       newValidation.email = false;
@@ -99,18 +99,22 @@ const FormExchanger: FC = () => {
     return Object.values(newValidation).every((isValid) => !isValid);
   };
 
+
   const handleSubmit = () => {
 
     const isValid = validationData(); 
-
     setInvalidInput(!isValid); 
 
+    let allData: Record<string, any> = {};
+
     if (validationData()) {
-      const allData = { ...formData, ...componentData };
+      console.log("Данные новой формы:",componentData)
+      allData = { ...formData, ...componentData };
       console.log("Данные формы:", allData);
       setInvalidInput(!validationData());
       // Отправка данных
     } else {
+      console.log("Данные новой формы:",componentData)
       setInvalidInput(!validationData());
       console.log("Некорректные данные");
     }
@@ -160,7 +164,7 @@ const FormExchanger: FC = () => {
             </div>
           </div>
         </div>
-        <FormBodyCryptoCash invalidInputs={invalidInputs} handleInputChange={handleInputChange} ></FormBodyCryptoCash>
+        <FormBodyCashCrypto invalidInputs={invalidInputs} handleInputChange={handleInputChange} ></FormBodyCashCrypto>
       </div>
       <MyButton onClick={handleSubmit} className={styles.form__button}>
         EXCHANGE

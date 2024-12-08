@@ -11,6 +11,7 @@ export interface ComponentData {
   phone?: string;
   email?: string;
   telegram?: string;
+  walletAddress?:string;
   rememberData?: boolean;
   agreeToRules?: boolean;
 }

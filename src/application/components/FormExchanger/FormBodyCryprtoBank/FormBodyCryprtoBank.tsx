@@ -1,33 +1,29 @@
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { PUBLIC_IMAGE } from "../../../constants";
 import styles from "./FormBodyCryprtoBank.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 
+type HandleInputChange = (name: string, value: string | boolean) => void;
 
-const FormBodyCryprtoBank = () => {
+interface FormBodyCryprtoBankProps {
+  invalidInputs: { [key: string]: boolean };
+  handleInputChange: HandleInputChange;
+}
+
+const FormBodyCryprtoBank: FC<FormBodyCryprtoBankProps> = ({
+  invalidInputs,
+  handleInputChange
+}) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    handleInputChange(name, value);
+  };
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target;
+    handleInputChange(name, checked);
+  };
+
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
-
-  const [formData, setFormData] = useState({
-    country: '',
-    city: '',
-    name: '',
-    surname: '',
-    email: '',
-    phone: '',
-    rememberData: false,
-    agreeToRules: false,
-  });
-
-  const [invalidInputs, setInvalidInputs] = useState<{ [key: string]: boolean }>({
-    country: false,
-    city: false,
-    name: false,
-    surname: false,
-    email: false,
-    phone: false,
-    rememberData: false,
-    agreeToRules: false,
-  });
 
   return (
     <div className={styles.form__body}>
@@ -37,9 +33,10 @@ const FormBodyCryprtoBank = () => {
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>Country*</p>
               <MyInput
-                className={styles.form__inputCountryInvalid}
+                className={styles.form__inputCountry}
                 name="country"
                 isInvalid={invalidInputs.country}
+                onChange={handleChange}
               />
             </div>
             <div className={styles.form__receiveInput}>
@@ -48,6 +45,7 @@ const FormBodyCryprtoBank = () => {
                 className={styles.form__inputCity}
                 name="city"
                 isInvalid={invalidInputs.city}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -57,6 +55,7 @@ const FormBodyCryprtoBank = () => {
               className={styles.form__inputName}
               placeHolder="Name"
               name="name"
+              onChange={handleChange}
             ></MyInput>
           </div>
           <div className={styles.form__inputSurnameWrapper}>
@@ -65,6 +64,7 @@ const FormBodyCryprtoBank = () => {
               className={styles.form__inputSurname}
               placeHolder="Name"
               name="surname"
+              onChange={handleChange}
             ></MyInput>
           </div>
         </div>
@@ -76,6 +76,7 @@ const FormBodyCryprtoBank = () => {
                 className={styles.form__PhoneInput}
                 placeHolder="Phone number"
                 name="phone"
+                onChange={handleChange}
               />
             </div>
             <div className={styles.form__EmailInputWrapper}>
@@ -84,8 +85,8 @@ const FormBodyCryprtoBank = () => {
                 className={styles.form__EmailInput}
                 placeHolder="E-mail"
                 name="email"
-
                 isInvalid={invalidInputs.email}
+                onChange={handleChange}
               />
             </div>
             <div className={styles.form__receiveCheckbox}>
@@ -95,6 +96,7 @@ const FormBodyCryprtoBank = () => {
                   className={styles.form__checkbox}
                   id="checkbox1"
                   name="rememberData"
+                  onChange={handleCheckboxChange}
                 />
                 <div className={styles.form__checkboxText}>
                   Do not remember data
@@ -105,6 +107,7 @@ const FormBodyCryprtoBank = () => {
                   type="checkbox"
                   className={styles.form__checkbox}
                   name="agreeToRules"
+                  onChange={handleCheckboxChange}
                 />
                 <div className={styles.form__checkboxText}>
                   By clicking the Exchange button,<br></br>I agree to the{" "}
