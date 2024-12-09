@@ -5,10 +5,11 @@ import Exchanger from './application/pages/exchanger/Exchanger';
 import Header from './application/components/Header/Header';
 import Footer from './application/components/Footer/Footer';
 import RunningLine from './application/components/RunningLine/RunningLine';
+import { observer } from 'mobx-react-lite';
 
 
 
-const App = () => {
+const App = observer(() => {
   return (
     <body>
       <Header/>
@@ -17,6 +18,6 @@ const App = () => {
       <Footer/>
     </body>
   );
-};
+});
 
 export default App;

@@ -1,9 +1,6 @@
-export interface FormExchangerInterface {
-    paySelect: string;
-    receiveSelect: string;
-  }
-
-export interface ComponentData {
+export interface formDataInterface {
+  paySelect?: string;
+  receiveSelect?: string;
   country?: string;
   city?: string;
   name?: string;
@@ -12,6 +9,7 @@ export interface ComponentData {
   email?: string;
   telegram?: string;
   walletAddress?:string;
+  btcWalletAddress?:string;
   rememberData?: boolean;
   agreeToRules?: boolean;
 }

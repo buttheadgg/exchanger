@@ -2,29 +2,19 @@ import React, { ChangeEvent, FC, useState } from "react";
 import styles from "./FormBodyCashCrypto.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../../constants";
+import formStore from "../../stores/formStore";
+import { observer } from "mobx-react-lite";
 
-type HandleInputChange = (name: string, value: string | boolean) => void;
 
-interface FormBodyCashCryptoProps {
-  invalidInputs: { [key: string]: boolean | undefined };
-  handleInputChange: HandleInputChange;
-}
 
-const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
-  invalidInputs,
-  handleInputChange,
+const FormBodyCashCrypto: FC = observer(({
 }) => {
-
-  const  [isWalletValid , setIsWalletValid] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-      handleInputChange(name, value);      
+    formStore.updateField(name, value);
   };
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = event.target;
-    handleInputChange(name, checked);
-  };
+
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
 
   return (
@@ -41,7 +31,7 @@ const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
               className={styles.form__walletInput}
               name="walletAddress"
               onChange={handleChange}
-              isInvalid={invalidInputs.walletAddress}
+              isInvalid={formStore.invalidInputs.walletAddress}
             />
           </div>
           <div className={styles.form__receiveInputWrapper}>
@@ -51,7 +41,7 @@ const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
                 className={styles.form__inputCountry}
                 name="country"
                 onChange={handleChange}
-                isInvalid={invalidInputs.country}
+                isInvalid={formStore.invalidInputs.country}
               />
             </div>
             <div className={styles.form__receiveInput}>
@@ -60,7 +50,7 @@ const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
                 className={styles.form__inputCity}
                 name="city"
                 onChange={handleChange}
-                isInvalid={invalidInputs.city}
+                isInvalid={formStore.invalidInputs.city}
               />
             </div>
           </div>
@@ -92,7 +82,7 @@ const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
                 placeHolder="E-mail"
                 name="email"
                 onChange={handleChange}
-                isInvalid={invalidInputs.email}
+                isInvalid={formStore.invalidInputs.email}
               />
             </div>
             <div className={styles.form__receiveCheckbox}>
@@ -102,7 +92,7 @@ const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
                   className={styles.form__checkbox}
                   id="checkbox1"
                   name="rememberData"
-                  onChange={handleCheckboxChange}
+                  onChange={handleChange}
                 />
                 <div className={styles.form__checkboxText}>
                   Do not remember data
@@ -113,7 +103,7 @@ const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
                   type="checkbox"
                   className={styles.form__checkbox}
                   name="agreeToRules"
-                  onChange={handleCheckboxChange}
+                  onChange={handleChange}
                 />
                 <div className={styles.form__checkboxText}>
                   By clicking the Exchange button,<br></br>I agree to the{" "}
@@ -131,6 +121,6 @@ const FormBodyCashCrypto: FC<FormBodyCashCryptoProps> = ({
       </div>
     </div>
   );
-};
+});
 
 export default FormBodyCashCrypto;

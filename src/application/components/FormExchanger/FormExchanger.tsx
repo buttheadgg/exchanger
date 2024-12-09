@@ -1,122 +1,31 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import styles from "./FormExchanger.module.scss";
 import MyButton from "../UI/MyButton/MyButton";
 import MyInput from "../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../constants";
 import FormBodyCryprtoBank from "./FormBodyCryprtoBank/FormBodyCryprtoBank";
 import FormBodyCryptoCash from "./FormBodyCryptoCash/FormBodyCryptoCash";
-import { ComponentData, FormExchangerInterface } from "../types/types";
 import FormBodyCashCrypto from "./FormBodyCashCrypto/FormBodyCashCrypto";
+import FormBodyBankCrypto from "./FormBodyBankCrypto/FormBodyBankCrypto";
+import formStore from "../stores/formStore";
+import { observer } from "mobx-react-lite";
 
-
-
-const FormExchanger: FC = () => {
+const FormExchanger: FC = observer(() => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
-  const [invalidInput, setInvalidInput] = useState(false);
-  
-  const [formData, setFormData] = useState<FormExchangerInterface>({
-    paySelect: "",
-    receiveSelect: "",
-  });
+  const [isValid, setIsValid] = useState<boolean>(true);
 
-  const [invalidInputs, setInvalidInputs] = useState<{ [key: string]: boolean | undefined }>({
-    paySelect: false,
-    receiveSelect: false,
-    country: false,
-    city: false,
-    phone: false,
-    email: false,
-    agreeToRules: false,
-    rememberData: false
-  });
-
-  const [componentData, setComponentData] = useState<ComponentData>({});
-  const handleInputChange = (name: string, value: string | boolean) => {
-    setComponentData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    formStore.updateField(name, value);
   };
-
-  const validateEmail = (email: string) => {
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailPattern.test(email);
-  };
-
-  const validationData = () => {
-    const newValidation = { ...invalidInputs };
-
-    if (
-      !formData.paySelect ||
-      isNaN(Number(formData.paySelect)) ||
-      Number(formData.paySelect) < 100 ||
-      Number(formData.paySelect) > 100000
-    ) {
-      newValidation.paySelect = true;
-    } else {
-      newValidation.paySelect = false;
-    }
-
-    if (
-      !formData.receiveSelect ||
-      isNaN(Number(formData.receiveSelect)) ||
-      Number(formData.receiveSelect) < 100 ||
-      Number(formData.receiveSelect) > 100000
-    ) {
-      newValidation.receiveSelect = true;
-    } else {
-      newValidation.receiveSelect = false;
-    }
-
-    if (!componentData.country) {
-      newValidation.country = true;
-    } else {
-      newValidation.country = false;
-    }
-
-    if (!componentData.city) {
-      newValidation.city = true;
-    } else {
-      newValidation.city = false;
-    }
-
-    if (!componentData.email || !validateEmail(componentData.email)) {
-      newValidation.email = true; 
-    } else {
-      newValidation.email = false;
-    }
-
-    if (!componentData.agreeToRules) {
-      newValidation.agreeToRules = true;
-    } else {
-      newValidation.agreeToRules = false;
-    }
-
-    setInvalidInputs(newValidation);
-
-    return Object.values(newValidation).every((isValid) => !isValid);
-  };
-
 
   const handleSubmit = () => {
-
-    const isValid = validationData(); 
-    setInvalidInput(!isValid); 
-
-    let allData: Record<string, any> = {};
-
-    if (validationData()) {
-      console.log("Данные новой формы:",componentData)
-      allData = { ...formData, ...componentData };
-      console.log("Данные формы:", allData);
-      setInvalidInput(!validationData());
-      // Отправка данных
+    const validationResult = formStore.validateFields();
+    setIsValid(validationResult);
+    if (validationResult) {
+      console.log("Форма валидна, данные:", formStore.formData);
     } else {
-      console.log("Данные новой формы:",componentData)
-      setInvalidInput(!validationData());
-      console.log("Некорректные данные");
+      console.log("Ошибки валидации:", formStore.invalidInputs);
     }
   };
 
@@ -143,7 +52,7 @@ const FormExchanger: FC = () => {
                 className={styles.form__payInputValue}
                 onChange={handleChange}
                 placeHolder="0"
-                isInvalid={invalidInputs.paySelect}
+                isInvalid={formStore.invalidInputs.paySelect}
               />
             </div>
             <div className={styles.form__payLimits}>
@@ -159,19 +68,22 @@ const FormExchanger: FC = () => {
                 className={styles.form__receiveInputValue}
                 onChange={handleChange}
                 placeHolder="0"
-                isInvalid={invalidInputs.receiveSelect}
+                isInvalid={formStore.invalidInputs.receiveSelect}
               />
             </div>
           </div>
         </div>
-        <FormBodyCashCrypto invalidInputs={invalidInputs} handleInputChange={handleInputChange} ></FormBodyCashCrypto>
+        {formStore.activeComponent === 'cashCrypto' && <FormBodyCashCrypto />}
+        {formStore.activeComponent === 'bankCrypto' && <FormBodyBankCrypto />}
+        {formStore.activeComponent === 'cryptoBank' && <FormBodyCryprtoBank />}
+        {formStore.activeComponent === 'cryptoCash' && <FormBodyCryptoCash />}
       </div>
       <MyButton onClick={handleSubmit} className={styles.form__button}>
         EXCHANGE
       </MyButton>
       <div
         className={`${
-          invalidInput
+          formStore.activeComponent === 'cashCrypto' && formStore.invalidInputs.paySelect
             ? styles.form__formBottomText
             : styles.form__formBottomTextNone
         }`}
@@ -180,6 +92,6 @@ const FormExchanger: FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default FormExchanger;

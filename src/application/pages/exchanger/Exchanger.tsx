@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Exchanger.module.scss'
 import { PUBLIC_IMAGE } from '../../constants';
 import FormExchanger from '../../components/FormExchanger/FormExchanger';
+import { observer } from 'mobx-react-lite';
 
 
 const Exchanger = () => {
