@@ -12,6 +12,11 @@
     gap: 44px;
 }
 
+.modal__windowNone{
+    display: none;
+}
+
+
 .modal__windowWrapper{
     display: flex;
     flex-direction: column;

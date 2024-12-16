@@ -1,19 +1,40 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import { PUBLIC_IMAGE } from "../../../constants";
 import styles from "./FormBodyCryprtoBank.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 import { observer } from "mobx-react-lite";
-import formStore from "../../stores/formStore";
+import formStore from "../../../stores/formStore";
+import locationStore from "../../../stores/locationStore";
 
+const FormBodyCryprtoBank: FC = observer(({}) => {
+  const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
+    locationStore;
 
-const FormBodyCryprtoBank: FC = observer(({
-}) => {
+  useEffect(() => {
+    locationStore.initializeDefaults();
+  }, []);
+
+  const countryOptions = Object.keys(locationData);
+  const cityOptions = locationStore.cityOptions;
+
+  const handleCountrySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    setCountry(value);
+    formStore.updateField(name, value);
+  };
+
+  const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    setCity(value);
+    formStore.updateField(name, value);
+  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
   };
-
 
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
 
@@ -24,21 +45,33 @@ const FormBodyCryprtoBank: FC = observer(({
           <div className={styles.form__receiveInputWrapper}>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>Country*</p>
-              <MyInput
-                className={styles.form__inputCountry}
+              <select
+                value={selectedCountry}
+                onChange={handleCountrySelectChange}
                 name="country"
-                isInvalid={formStore.invalidInputs.country}
-                onChange={handleChange}
-              />
+                className={styles.form__inputCountry}
+              >
+                {countryOptions.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>City*</p>
-              <MyInput
+              <select
+                value={selectedCity}
+                onChange={handleCitySelectChange}
                 className={styles.form__inputCity}
                 name="city"
-                isInvalid={formStore.invalidInputs.city}
-                onChange={handleChange}
-              />
+              >
+                {cityOptions.map((city) => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className={styles.form__inputNameWrapper}>
@@ -62,15 +95,6 @@ const FormBodyCryprtoBank: FC = observer(({
         </div>
         <div className={styles.form__receive}>
           <div className={styles.form__receiveWrapper}>
-            <div className={styles.form__PhoneInputWrapper}>
-              <p className={styles.form__PhoneInputLabel}>Phone number</p>
-              <MyInput
-                className={styles.form__PhoneInput}
-                placeHolder="Phone number"
-                name="phone"
-                onChange={handleChange}
-              />
-            </div>
             <div className={styles.form__EmailInputWrapper}>
               <p className={styles.form__EmailInputLabel}>E-mail*</p>
               <MyInput
@@ -78,6 +102,15 @@ const FormBodyCryprtoBank: FC = observer(({
                 placeHolder="E-mail"
                 name="email"
                 isInvalid={formStore.invalidInputs.email}
+                onChange={handleChange}
+              />
+            </div>
+            <div className={styles.form__PhoneInputWrapper}>
+              <p className={styles.form__PhoneInputLabel}>Phone number</p>
+              <MyInput
+                className={styles.form__PhoneInput}
+                placeHolder="Phone number"
+                name="phone"
                 onChange={handleChange}
               />
             </div>

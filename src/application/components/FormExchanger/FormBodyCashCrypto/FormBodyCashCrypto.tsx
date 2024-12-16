@@ -1,14 +1,36 @@
-import React, { ChangeEvent, FC, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useMemo, useState } from "react";
 import styles from "./FormBodyCashCrypto.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 import { PUBLIC_IMAGE } from "../../../constants";
-import formStore from "../../stores/formStore";
+import formStore from "../../../stores/formStore";
 import { observer } from "mobx-react-lite";
+import locationStore from "../../../stores/locationStore";
+import { LocationData } from "../../types/types";
 
+const FormBodyCashCrypto: FC = observer(({}) => {
+  const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
+    locationStore;
 
+  useEffect(() => {
+    locationStore.initializeDefaults();
+  }, []);
 
-const FormBodyCashCrypto: FC = observer(({
-}) => {
+  const countryOptions = Object.keys(locationData);
+  const cityOptions = locationStore.cityOptions;
+
+  const handleCountrySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    setCountry(value);
+    formStore.updateField(name, value);
+  };
+
+  const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    setCity(value);
+    formStore.updateField(name, value);
+  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -37,21 +59,33 @@ const FormBodyCashCrypto: FC = observer(({
           <div className={styles.form__receiveInputWrapper}>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>Country*</p>
-              <MyInput
-                className={styles.form__inputCountry}
+              <select
+                value={selectedCountry}
+                onChange={handleCountrySelectChange}
                 name="country"
-                onChange={handleChange}
-                isInvalid={formStore.invalidInputs.country}
-              />
+                className={styles.form__inputCountry}
+              >
+                {countryOptions.map((country) => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className={styles.form__receiveInput}>
               <p className={styles.form__receiveInputLable}>City*</p>
-              <MyInput
+              <select
+                value={selectedCity}
+                onChange={handleCitySelectChange}
                 className={styles.form__inputCity}
                 name="city"
-                onChange={handleChange}
-                isInvalid={formStore.invalidInputs.city}
-              />
+              >
+                {cityOptions.map((city) => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className={styles.form__payInput}>

@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC } from "react";
 import MyInput from "../../UI/MyInput/MyInput";
 import styles from "./FormBodyBankCrypto.module.scss";
 import { PUBLIC_IMAGE } from "../../../constants";
-import formStore from "../../stores/formStore";
+import formStore from "../../../stores/formStore";
 import { observer } from "mobx-react-lite";
 
 

@@ -1,13 +1,15 @@
-import React from "react";
+import React, { FC, useState } from "react";
 import styles from "./FormModalWindow.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
 import MyButton from "../UI/MyButton/MyButton";
+import formStore from "../../stores/formStore";
+import { observer } from "mobx-react-lite";
 
-const FormModalWindow = () => {
+
+const FormModalWindow:FC = () => {
   const qrImage = PUBLIC_IMAGE + "modal-qr.png";
-
   return (
-    <div className={styles.modal__window}>
+    <div className={`${formStore.dataValid ? styles.modal__window : styles.modal__windowNone}`}>
       <div className={styles.modal__windowWrapper}>
         <div className={styles.modal__howToPlay}>How to pay</div>
         <div className={styles.modal__canceled}>

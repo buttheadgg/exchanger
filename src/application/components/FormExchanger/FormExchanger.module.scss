@@ -54,18 +54,66 @@
   justify-content: space-between;
 }
 
+.form__pay {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .form__payValue {
   display: flex;
   gap: 4px;
 }
 
 .form__paySelect {
+  display: flex;
   width: 168px;
+  border-radius: 14px;
+  padding: 12px 0px 12px 16px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.04);
   border: none;
 }
 
+.form__paySelect option {
+  display: flex;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.45);
+  background-color: #060A1D;
+  border-top: 2px solid #2EF2FF;
+}
+
+
+
 .form__payInputValue {
   width: 168px;
+}
+
+.form__payBottomInput {
+  display: flex;
+  gap: 110px;
+  margin-bottom: 24px;
+}
+
+.form__payExchangeRate {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+}
+
+.form__payExchangeRateText {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
 }
 
 .form__payLimits {
@@ -81,6 +129,12 @@
   color: #c4cbf5;
 }
 
+.form__receive {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .form__receiveValue {
   display: flex;
   flex-direction: row;
@@ -88,8 +142,28 @@
 }
 
 .form__receiveSelect {
+  display: flex;
   width: 172px;
+  border-radius: 14px;
+  padding: 12px 0px 12px 16px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.45);
+  background-color: rgba(255, 255, 255, 0.04);
   border: none;
+}
+
+.form__receiveSelect option{
+  display: flex;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.45);
+  background-color: #060A1D;
+  border-top: 2px solid #2EF2FF;
 }
 
 .form__receiveInputValue {
@@ -135,25 +209,25 @@
   transform: translate(-50%, -50%);
 }
 
-.form__payInvalidInput{
+.form__payInvalidInput {
   width: 168px;
-  border-color: #F8005B;
+  border-color: #f8005b;
 }
 
-.form__receiveInvalidInput{
+.form__receiveInvalidInput {
   width: 143px;
-  border-color: #F8005B;
+  border-color: #f8005b;
 }
 
-.form__formBottomText{
+.form__formBottomText {
   display: visible;
-  font-family: 'Popins';
+  font-family: "Popins";
   font-size: 20px;
   font-weight: 600;
-  color: #C8EA80;
+  color: #c8ea80;
   margin-bottom: 34px;
 }
 
-.form__formBottomTextNone{
+.form__formBottomTextNone {
   display: none;
 }

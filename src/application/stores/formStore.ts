@@ -3,7 +3,8 @@ import { makeAutoObservable, observable } from "mobx";
 class FormStore {
    formData: { [key: string]: any } = {};
    invalidInputs: { [key: string]: boolean } = {};
-   activeComponent: string = "cashCrypto";
+   activeComponent: string = "cryptoBank";
+   dataValid: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -15,6 +16,10 @@ class FormStore {
   
   setActiveComponent(component: string) {
     this.activeComponent = component;
+  }
+
+  setDataValid(component: boolean) {
+    this.dataValid = component;
   }
   
   validateFields() {
@@ -99,3 +104,4 @@ class FormStore {
 
 const formStore = new FormStore();
 export default formStore;
+
