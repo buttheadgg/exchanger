@@ -1,0 +1,274 @@
+@import url('../../styles/_fonts.scss');
+
+
+.recentExchanges__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1061px;
+    width: 100%;
+    gap: 28px;
+  }
+  
+  .recentExchangesText {
+    font-family: "Popins";
+    font-size: 48px;
+    font-weight: 700;
+    color: #eaedff;
+  }
+  
+  .recentExchanges__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px 48px;
+    border-radius: 16px;
+    border: 1px solid #334679;
+    background: linear-gradient(180deg, #000000 0%, #0f1431 95.83%);
+  }
+  
+  .recentExchanges__headerStat {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .headerStat__countVolume {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .headerStat__count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    max-width: 426px;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid #334679;
+    background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+  }
+  
+  .headerStat__leftData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .headerStat__rightData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .headerStat__volume {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    max-width: 426px;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid #334679;
+    background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+  }
+  
+  .headerStat__name {
+    font-family: "Popins";
+    font-size: 16px;
+    font-weight: 600;
+    color: #eaedff;
+  }
+  
+  .headerStat__totalValue {
+    font-family: "Popins";
+    font-size: 24px;
+    font-weight: 700;
+    color: #eaedff;
+  }
+  
+  .headerStat__total {
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  
+  .headerStat__more {
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(234, 237, 255, 0.45);
+    text-align: end;
+  }
+  
+  .headerStat__yesterdayValue {
+    font-family: "Popins";
+    font-size: 24px;
+    font-weight: 700;
+    color: #c8ea80;
+  }
+  
+  .headerStat__yesterday {
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+  }
+  
+  .headerStat__dailyDistribution {
+  }
+  
+  .headerStat__dailyDistributionImg {
+    max-width: 531px;
+  }
+  
+  .recentExchanges__sortLine {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    width: 100%;
+    border-radius: 16px;
+    background: rgba(217, 217, 217, 0.05);
+    font-family: "Gilroy";
+    font-size: 12px;
+    font-weight: 500;
+    color: #2ef2ff;
+    margin-top: 20px;
+  }
+  
+  .recentExchanges__dataInformationWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .dataInformation__arrow{
+      position: absolute;
+      left: 22%;
+  }
+  
+  .recentExchanges__dataInformation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 16px;
+    border: 1px solid #172662;
+    padding: 1px 12px;
+  }
+  
+  .dataInformation__name {
+    font-family: "Gilroy";
+    font-size: 12px;
+    font-weight: 500;
+    color: #c4cbf5;
+  }
+  
+  .dataInformation__wrapper{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+  
+  
+  .dataInformation__img{
+      display: flex;
+      align-items: center;
+  }
+  
+  .dataInformation__value {
+    font-family: "Gilroy";
+    font-size: 12px;
+    font-weight: 700;
+    color: #c4cbf5;
+  }
+  
+  .dataInformation__cryptoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    gap: 10px;
+  }
+  
+  .cryptoWrapper__cryptoNameWrapepr {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .cryptoWrapper__cryptoName {
+    font-family: "Gilroy";
+    font-size: 16px;
+    font-weight: 700;
+    color: #c4cbf5;
+  }
+  
+  .cryptoWrapper__cryptoSecName {
+    font-family: "Gilroy";
+    font-size: 12px;
+    font-weight: 500;
+    color: #c4cbf5;
+  }
+  
+  .cryptoWrapper__value {
+    font-family: "Gilroy";
+    font-size: 16px;
+    font-weight: 700;
+    color: #c4cbf5;
+  }
+  
+  .dataInformation__txHashWrapper {
+    display: flex;
+    gap: 10px;
+  }
+  .xHashWrapper__image {
+    max-width: 109px;
+  }
+  
+  .txHashWrapper__value {
+    font-family: "Gilroy";
+    font-size: 12px;
+    font-weight: 500;
+    color: #c4cbf5;
+  }
+  
+  .dataInformation__time {
+    font-family: "Gilroy";
+    font-size: 12px;
+    font-weight: 500;
+    color: #c4cbf5;
+  }
+  
+  .recentExchanges__steps{
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin-top: 20px;
+  }
+  
+  .steps__itemsWrapper{
+      display: flex;
+      gap: 8px;
+  }
+  
+  .steps__item{
+      font-family: 'Inter';
+      font-size: 14px;
+      font-weight: 400;
+      color: #FFFFFF;
+      padding: 12px 16px;
+  }
+  
+  .steps__select{
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.08);
+  }

@@ -12,6 +12,7 @@ import { JsonData } from "../types/types";
 
 const FormExchanger: FC = () => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
+  const [isValid, setIsValid] = useState<boolean>(true);
   const [selectedPay, setSelectedPay] = useState<string>("");
   const [selectedReceive, setSelectedReceive] = useState<string>("");
 
@@ -4501,6 +4502,7 @@ const FormExchanger: FC = () => {
 
   const handleSubmit = () => {
     const validationResult = formStore.validateFields();
+    setIsValid(validationResult);
     if (validationResult) {
       console.log("Форма валидна, данные:", formStore.formData);
       formStore.setDataValid(true);
