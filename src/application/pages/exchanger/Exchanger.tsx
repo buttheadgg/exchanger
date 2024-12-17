@@ -7,6 +7,7 @@ import FormModalWindow from "../../components/FormModalWindow/FormModalWindow";
 import formStore from "../../stores/formStore";
 import RecentExchanges from "../../components/RecentExchanges/RecentExchanges";
 import Advantages from "../../components/Advantages/Advantages";
+import Reliability from "../../components/Reliability/Reliability";
 
 const Exchanger: React.FC = observer(() => {
   const formImage = PUBLIC_IMAGE + "Exchanger-form-img.svg";
@@ -21,7 +22,8 @@ const Exchanger: React.FC = observer(() => {
           <FormModalWindow />
         </div>
         <RecentExchanges />
-        <Advantages/>
+        <Advantages />
+        <Reliability />
       </div>
     </main>
   );
