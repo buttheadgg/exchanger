@@ -7,6 +7,15 @@
   width: 100%;
 }
 
+.reliability__wrapperNone {
+  display: none;
+  justify-content: center;
+  border-top: 1px solid #0c1838;
+  border-bottom: 1px solid #0c1838;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
 .reliability__imageWrapper {
   display: flex;
   z-index: 1;

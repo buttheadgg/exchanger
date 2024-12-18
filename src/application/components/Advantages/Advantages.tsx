@@ -2,10 +2,18 @@ import React from "react";
 import styles from "./Advantages.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
 import MyButton from "../UI/MyButton/MyButton";
+import { observer } from "mobx-react-lite";
+import formStore from "../../stores/formStore";
 
-const Advantages = () => {
+const Advantages = observer(() => {
   return (
-    <div className={styles.advantages__wraper}>
+    <div
+      className={`${
+        formStore.dataValid
+          ? styles.advantages__wraperNone
+          : styles.advantages__wraper
+      }`}
+    >
       <div className={styles.advantages__text}>Advantages</div>
       <div className={styles.advantages__сontent}>
         <div className={styles.content__leftWrapper}>
@@ -101,6 +109,6 @@ const Advantages = () => {
       <MyButton className={styles.advantages__button}>Create account</MyButton>
     </div>
   );
-};
+});
 
 export default Advantages;

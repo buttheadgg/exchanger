@@ -2,10 +2,18 @@ import React from "react";
 import styles from "./Reliability.module.scss";
 import MyButton from "../UI/MyButton/MyButton";
 import { PUBLIC_IMAGE } from "../../constants";
+import { observer } from "mobx-react-lite";
+import formStore from "../../stores/formStore";
 
-const Reliability = () => {
+const Reliability = observer(() => {
   return (
-    <div className={styles.reliability__wrapper}>
+    <div
+      className={`${
+        formStore.dataValid
+          ? styles.reliability__wrapperNone
+          : styles.reliability__wrapper
+      }`}
+    >
       <div className={styles.reliability__imageWrapper}>
         <img src={PUBLIC_IMAGE + "ReliabilityImg.svg"} />
       </div>
@@ -32,6 +40,6 @@ const Reliability = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Reliability;

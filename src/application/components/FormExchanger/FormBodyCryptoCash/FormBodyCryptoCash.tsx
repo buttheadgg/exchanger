@@ -6,7 +6,7 @@ import { observer } from "mobx-react-lite";
 import formStore from "../../../stores/formStore";
 import locationStore from "../../../stores/locationStore";
 
-const FormBodyCryptoCash: FC = observer(({}) => {
+const FormBodyCryptoCash: FC = ({}) => {
   const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
     locationStore;
 
@@ -159,6 +159,6 @@ const FormBodyCryptoCash: FC = observer(({}) => {
       </div>
     </div>
   );
-});
+};
 
 export default FormBodyCryptoCash;

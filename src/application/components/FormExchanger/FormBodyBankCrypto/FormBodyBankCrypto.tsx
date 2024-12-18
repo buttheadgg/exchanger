@@ -6,7 +6,7 @@ import formStore from "../../../stores/formStore";
 import { observer } from "mobx-react-lite";
 
 
-const FormBodyBankCrypto: FC = observer(({
+const FormBodyBankCrypto: FC = ({
 }) => {
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
 
@@ -109,6 +109,6 @@ const FormBodyBankCrypto: FC = observer(({
       </div>
     </div>
   );
-});
+};
 
 export default FormBodyBankCrypto;

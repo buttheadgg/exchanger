@@ -9,6 +9,15 @@
     width: 100%;
     gap: 28px;
   }
+
+  .recentExchanges__wrapperNone {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1061px;
+    width: 100%;
+    gap: 28px;
+  }
   
   .recentExchangesText {
     font-family: "Popins";

@@ -7,6 +7,15 @@
   gap: 42px;
 }
 
+.advantages__wraperNone {
+  max-width: 950px;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 42px;
+}
+
 .advantages__text {
   font-family: "Popins";
   font-size: 48px;

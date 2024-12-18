@@ -1,10 +1,12 @@
 import React from 'react';
 import styles from './RecentExchanges.module.scss'
 import { PUBLIC_IMAGE } from '../../constants';
+import { observer } from 'mobx-react-lite';
+import formStore from '../../stores/formStore';
 
-const RecentExchanges = () => {
+const RecentExchanges = observer(() => {
     return (
-        <div className={styles.recentExchanges__wrapper}>
+        <div className={`${formStore.dataValid ? styles.recentExchanges__wrapperNone : styles.recentExchanges__wrapper}`}>
           <div className={styles.recentExchangesText}>
             Recent exchanges of our customers
           </div>
@@ -425,6 +427,6 @@ const RecentExchanges = () => {
           </div>
         </div>
     );
-};
+});
 
 export default RecentExchanges;

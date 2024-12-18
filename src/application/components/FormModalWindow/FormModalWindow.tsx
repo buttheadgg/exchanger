@@ -4,12 +4,38 @@ import { PUBLIC_IMAGE } from "../../constants";
 import MyButton from "../UI/MyButton/MyButton";
 import formStore from "../../stores/formStore";
 import { observer } from "mobx-react-lite";
+import SliderCaptcha from "./SliderCaptcha/SliderCaptcha";
 
-
-const FormModalWindow:FC = () => {
+const FormModalWindow: FC = observer(() => {
   const qrImage = PUBLIC_IMAGE + "modal-qr.png";
+  const [captchaDone, setCaptchaDone] = useState(false);
+
+  const handleCaptchaSuccess = () => {
+    setCaptchaDone(true);
+  };
+
+  const handleCaptchaFailure = () => {
+    setCaptchaDone(false);
+  };
+
+  const handleButtonPaid = () => {
+    if (captchaDone) {
+      formStore.setIsPaid(true);
+    } else {
+      alert("The Captcha has not been solved");
+    }
+  };
+
+  const handleButtonCancel = () => {
+    formStore.setIsPaid(false);
+  };
+
+  const handleReload = () => {
+    window.location.reload();
+  };
+
   return (
-    <div className={`${formStore.dataValid ? styles.modal__window : styles.modal__windowNone}`}>
+    <div className={styles.modal__window}>
       <div className={styles.modal__windowWrapper}>
         <div className={styles.modal__howToPlay}>How to pay</div>
         <div className={styles.modal__canceled}>
@@ -24,7 +50,12 @@ const FormModalWindow:FC = () => {
             application in Bitcoin (BTC) to this wallet
           </div>
         </div>
-        <div></div>
+        <div>
+          <SliderCaptcha
+            onSuccess={handleCaptchaSuccess}
+            onFailure={handleCaptchaFailure}
+          />
+        </div>
         <div className={styles.modal__afterPayment}>
           After payment. Click on the "I paid the application" button. <br></br>
           Wait for the operator to process the application
@@ -55,8 +86,18 @@ const FormModalWindow:FC = () => {
         </div>
       </div>
       <div className={styles.modal__buttonGroup}>
-        <MyButton className={styles.modal__buttonCancel}>cancel</MyButton>
-        <MyButton className={styles.modal__buttonPaid}>I paid </MyButton>
+        <MyButton
+          className={styles.modal__buttonCancel}
+          onClick={handleButtonCancel}
+        >
+          cancel
+        </MyButton>
+        <MyButton
+          className={styles.modal__buttonPaid}
+          onClick={handleButtonPaid}
+        >
+          I paid{" "}
+        </MyButton>
       </div>
       <div className={styles.modal__timeStatus}>
         <div className={styles.timestatus__wrapper}>
@@ -67,20 +108,22 @@ const FormModalWindow:FC = () => {
         </div>
         <div className={styles.timestatus__line}></div>
         <div className={styles.timestatus__wrapper}>
-          <div className={styles.timestatus__statusText}>Application status</div>
+          <div className={styles.timestatus__statusText}>
+            Application status
+          </div>
           <div className={styles.timestatus__dateTime}>
             2024 - 10 - 01 19:21
           </div>
         </div>
       </div>
       <div className={styles.modal__attention}>
-      Attention! Click on the "Refresh page" button if you want to activate the automatic page update.
-      The page will be updated every 30 seconds
+        Attention! Click on the "Refresh page" button if you want to activate
+        the automatic page update. The page will be updated every 30 seconds
       </div>
-      <button className={styles.modal__buttonRefresh}>Refresh page</button>
+      <button className={styles.modal__buttonRefresh} onClick={handleReload} >Refresh page</button>
       <div className={styles.modal__bottomLine}></div>
     </div>
   );
-};
+});
 
 export default FormModalWindow;

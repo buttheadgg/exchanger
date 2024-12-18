@@ -8,8 +8,9 @@ import formStore from "../../stores/formStore";
 import RecentExchanges from "../../components/RecentExchanges/RecentExchanges";
 import Advantages from "../../components/Advantages/Advantages";
 import Reliability from "../../components/Reliability/Reliability";
+import Footer from "../../components/Footer/Footer";
 
-const Exchanger: React.FC = observer(() => {
+const Exchanger: FC = observer(() => {
   const formImage = PUBLIC_IMAGE + "Exchanger-form-img.svg";
   return (
     <main className={styles.main}>
@@ -19,7 +20,6 @@ const Exchanger: React.FC = observer(() => {
             <img src={formImage} alt="formImage" />
           </div>
           <FormExchanger />
-          <FormModalWindow />
         </div>
         <RecentExchanges />
         <Advantages />
@@ -28,5 +28,4 @@ const Exchanger: React.FC = observer(() => {
     </main>
   );
 });
-
 export default Exchanger;
