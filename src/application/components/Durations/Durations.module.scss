@@ -1,0 +1,232 @@
+@import url("../../styles/_fonts.scss");
+
+.durations__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.durations__title {
+  font-family: "Popins";
+  font-size: 48px;
+  font-weight: 700;
+  color: #eaedff;
+}
+
+.durations__text {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+}
+
+.durations__search {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.durations__searchInput {
+  max-width: 340px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: rgba(196, 203, 245, 0.6);
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  padding: 16px 48px;
+  border-radius: 14px;
+  border: none;
+  position: relative;
+}
+
+.durations__searchInputImg {
+  position: absolute;
+  transform: translate(50%, -135%);
+}
+
+.durations__searchSelect {
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  select {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #c4cbf5;
+  }
+}
+
+.durations__searchSelect option {
+  background-color: #060a1d;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  color: #c4cbf5;
+  width: 100%;
+}
+
+.durations__searchCheckbox {
+  display: flex;
+  gap: 8px;
+}
+
+.durations__checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.04);
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.durations__checkbox:checked::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #2ef2ff;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../public/image/checkboxAfter.svg");
+  background-size: contain;
+}
+
+.durations__checkboxText {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 500;
+  color: #eaedff;
+  line-height: 16px;
+}
+
+.durations__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.durations__bodyHeaderLine {
+  display: flex;
+  align-items: center;
+  background-color: rgba(217, 217, 217, 0.05);
+  border-radius: 16px;
+  width: 981px;
+  padding: 12px;
+  gap: 190px;
+}
+
+.durations__bodyHeaderCoin {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #2ef2ff;
+}
+
+.durations__bodyHeaderArp {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #2ef2ff;
+}
+
+.durations__bodyHeaderDuration {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #2ef2ff;
+}
+
+.durations__bodyHeaderLineZero {
+  content: "";
+}
+
+.durations__bodyLine {
+  display: flex;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(37, 53, 117, 1);
+  gap: 120px;
+}
+
+.durations__bodyLineCoinWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.durations__bodyLineCoin {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+
+.durations__bodyLineProcentWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.durations__bodyLineProcent {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c8ea80;
+}
+
+.durations__bodyLineEarn {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+}
+
+.durations__bodyLineDurationWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  padding-left: 50px;
+}
+
+.durations__bodyLineDuration {
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(46, 242, 255, 0.5);
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(46, 242, 255, 0.3);
+}
+
+.durations__bodyLineDurationActive {
+  color: #2ef2ff;
+  border: 1px solid rgba(46, 242, 255, 0.5);
+}
+
+.durations__bodyLineButton {
+  padding: 10px 24px;
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 700;
+  color: #eaedff;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #253575 0%, #172662 100%);
+  cursor: pointer;
+  border-top: 1px solid rgba(200, 234, 128, 1);
+  border-left: 1px solid rgb(140, 165, 88);
+  border-right: 1px solid rgb(140, 165, 88);
+  border-bottom: 1px solid rgba(30, 37, 14, 1);
+  box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
+}

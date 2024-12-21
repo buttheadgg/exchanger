@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./App.module.scss";
 import "./application/styles/global.scss";
-import Exchanger from "./application/pages/exchanger/Exchanger";
 import Header from "./application/components/Header/Header";
 import Footer from "./application/components/Footer/Footer";
 import RunningLine from "./application/components/RunningLine/RunningLine";
@@ -11,6 +10,7 @@ import ModalWindow from "./application/components/ModalWindow/ModalWindow";
 import formStore from "./application/stores/formStore";
 import FormModalWindowDone from "./application/components/FormModalWindow/FormModalWindowDone/FormModalWindowDone";
 import FormModalWindowСanceled from "./application/components/FormModalWindow/FormModalWindowСanceled/FormModalWindowСanceled";
+import Pools from "./application/pages/pools/Pools";
 
 const App = () => {
   let modalContent;
@@ -33,7 +33,7 @@ const App = () => {
       <RunningLine />
       <div className={styles.page__wrapper}>
         <ModalWindow>{modalContent}</ModalWindow>
-        <Exchanger />
+        <Pools />
         <Footer />
       </div>
     </body>

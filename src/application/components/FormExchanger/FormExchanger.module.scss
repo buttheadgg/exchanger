@@ -18,12 +18,25 @@
   width: 100%;
 }
 
+.pay__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 108px;
+}
+
+.receive__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 108px;
+}
+
 .form__header {
   display: flex;
-  align-items: center;
   justify-content: space-around;
   padding-top: 36px;
-  padding-bottom: 42px;
+  position: relative;
 }
 
 .form__headerPay {
@@ -46,6 +59,17 @@
   width: 100%;
   height: 1px;
   background-color: #0e1434;
+  position: absolute;
+  top: 25%;
+  transform: translate(0, 50%);
+}
+
+.form__headerLine2 {
+  display: none;
+}
+
+.form__headerLine3 {
+  display: none;
 }
 
 .form__body {
@@ -70,7 +94,7 @@
   width: 168px;
   border-radius: 14px;
   padding: 12px 0px 12px 16px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -81,16 +105,14 @@
 
 .form__paySelect option {
   display: flex;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: rgba(255, 255, 255, 0.45);
-  background-color: #060A1D;
-  border-top: 2px solid #2EF2FF;
+  background-color: #060a1d;
+  border-top: 2px solid #2ef2ff;
 }
-
-
 
 .form__payInputValue {
   width: 168px;
@@ -146,7 +168,7 @@
   width: 172px;
   border-radius: 14px;
   padding: 12px 0px 12px 16px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
@@ -155,15 +177,15 @@
   border: none;
 }
 
-.form__receiveSelect option{
+.form__receiveSelect option {
   display: flex;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: rgba(255, 255, 255, 0.45);
-  background-color: #060A1D;
-  border-top: 2px solid #2EF2FF;
+  background-color: #060a1d;
+  border-top: 2px solid #2ef2ff;
 }
 
 .form__receiveInputValue {
@@ -230,4 +252,41 @@
 
 .form__formBottomTextNone {
   display: none;
+}
+
+@media (max-width: 763px) {
+  .form__header {
+    flex-direction: column;
+  }
+  .information__line {
+    display: none;
+  }
+  .form__headerLine {
+    top: 18%;
+  }
+  .form__headerLine2 {
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: #0e1434;
+    position: absolute;
+    top: 57%;
+    transform: translate(0, 50%);
+  }
+
+  .form__headerLine3 {
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: #0e1434;
+    position: absolute;
+    top: 66%;
+    transform: translate(0, 50%);
+  }
+  .pay__wrapper{
+    gap: 20px;
+  }
+  .receive__wrapper{
+    gap: 20px;
+  }
 }

@@ -21,5 +21,17 @@
   width: 100%;
 }
 
-.form__imageWrapper {
+.form__imageWrapper img{
+  max-width: 373px;
+  width: 100%;
+}
+
+
+@media (max-width: 1177px) {
+  .from__wrapper {
+    flex-direction: column;
+  }
+  .form__imageWrapper{
+    order: 2;
+  }
 }

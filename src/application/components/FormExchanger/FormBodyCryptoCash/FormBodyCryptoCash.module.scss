@@ -286,3 +286,11 @@
   margin-top: 24px;
   margin-bottom: 44px;
 }
+
+@media (max-width: 763px){
+  .form__bodyWrapper{
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

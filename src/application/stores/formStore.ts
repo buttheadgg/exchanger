@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 class FormStore {
   formData: { [key: string]: any } = {};
   invalidInputs: { [key: string]: boolean } = {};
-  activeComponent: string = "cryptoBank";
+  activeComponent: string = "cashCrypto";
   dataValid: boolean = false;
   isPaid: boolean | undefined = undefined;
 

@@ -1,0 +1,222 @@
+.window__wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 40px;
+  border: 1px solid #334679;
+  background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
+  position: relative;
+}
+
+.window__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.window__body {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 26px;
+  gap: 24px;
+}
+
+.window__subscribe {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #2ef2ff;
+}
+
+.window__line {
+  content: "";
+  position: relative;
+  width: 2px;
+  height: 70px;
+  background-color: #0c1838;
+}
+
+.window__lineInside {
+  position: absolute;
+  height: 11px;
+  width: 2px;
+  background: #2ef2ff;
+  top: 50%;
+}
+
+.window__productRules {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #eaedff;
+}
+
+.window__bottomLine {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background: #0c1838;
+  top: 37%;
+}
+
+.duration__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper__durationElem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border-radius: 14px;
+  border: 1px solid rgba(46, 242, 255, 0.5);
+  padding: 20px 68px 20px 20px;
+}
+
+.wrapper__durationTitle {
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+}
+
+.wrapper__durationProcent {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c8ea80;
+}
+
+.wrapper__durationImg {
+  position: absolute;
+  right: 10%;
+}
+
+.amount__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.amount__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount__checkbox {
+  display: flex;
+  gap: 8px;
+}
+
+.amount__checkbox1 {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.04);
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.amount__checkbox1:checked::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #2ef2ff;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../../public/image/checkboxAfter.svg");
+  background-size: contain;
+}
+
+.amount__text {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #eaedff;
+}
+.durations__checkboxText {
+  font-family: "Popins";
+  font-size: 12px;
+  font-weight: 500;
+  color: #eaedff;
+}
+
+.amount__inputWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.amount__input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  border: none;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  padding: 16px;
+}
+
+.amount__inputButton {
+  position: absolute;
+  top: 17%;
+  right: 3%;
+  border: 1px solid #2ef2ff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: transparent;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  color: #2ef2ff;
+  cursor: pointer;
+}
+
+.available__wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.available__wrapperHead {
+  display: flex;
+  gap: 17px;
+}
+
+.available__text {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+}
+
+.available__spot {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c4cbf5;
+}
+
+.personal {
+  display: flex;
+  gap: 5px;
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+}
+
+.personal__text{
+    text-decoration:underline
+}
