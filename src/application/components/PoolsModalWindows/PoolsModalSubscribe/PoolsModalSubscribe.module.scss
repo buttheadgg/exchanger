@@ -34,7 +34,7 @@
   content: "";
   position: relative;
   width: 2px;
-  height: 70px;
+  height: 76px;
   background-color: #0c1838;
 }
 
@@ -59,7 +59,7 @@
   height: 1px;
   width: 100%;
   background: #0c1838;
-  top: 37%;
+  top: 10%;
 }
 
 .duration__wrapper {
@@ -145,6 +145,8 @@
   color: #eaedff;
 }
 .durations__checkboxText {
+  display: flex;
+  justify-content: start;
   font-family: "Popins";
   font-size: 12px;
   font-weight: 500;
@@ -183,10 +185,10 @@
   cursor: pointer;
 }
 
-.available__wrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.available__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .available__wrapperHead {
@@ -217,6 +219,145 @@
   color: #c4cbf5;
 }
 
-.personal__text{
-    text-decoration:underline
+.personal__text {
+  text-decoration: underline;
+}
+
+.summary_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.summary__title {
+  font-family: "Popins";
+  font-size: 20px;
+  font-weight: 600;
+  color: #eaedff;
+}
+
+.summary__body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary__leftText {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.summary__rightText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary__textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary__discrib {
+  display: flex;
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+  align-items: center;
+  gap: 10px;
+}
+
+.summary__discribRules {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c8ea80;
+}
+
+.summary__sub {
+  font-family: "Popins";
+  font-size: 14px;
+  font-weight: 400;
+  color: #c4cbf5;
+}
+
+.summary__rightText {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 600;
+  color: #c4cbf5;
+}
+
+.remarks__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Popins";
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(196, 203, 245, 0.4);
+}
+
+.checkbox__agreeAndRead {
+  display: flex;
+  gap: 8px;
+  justify-content: start;
+  padding-top: 50px;
+}
+
+.durations__checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.04);
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.durations__checkbox:checked::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #2ef2ff;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../../public/image/checkboxAfter.svg");
+  background-size: contain;
+}
+
+.durations__checkboxText {
+  display: flex;
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 500;
+  color: #eaedff;
+  line-height: 16px;
+  gap: 3px;
+}
+
+.durations__checkboxTextRules {
+  color: #c8ea80;
+}
+.durations__checkboxTextConditions {
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 500;
+  color: #c8ea80;
+}
+
+.window__buttonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+.window__button {
+  box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
 }

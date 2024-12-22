@@ -10,7 +10,8 @@ import ModalWindow from "./application/components/ModalWindow/ModalWindow";
 import formStore from "./application/stores/formStore";
 import FormModalWindowDone from "./application/components/FormModalWindow/FormModalWindowDone/FormModalWindowDone";
 import FormModalWindowСanceled from "./application/components/FormModalWindow/FormModalWindowСanceled/FormModalWindowСanceled";
-import Pools from "./application/pages/pools/Pools";
+import Pools from "./application/pages/Pools/Pools";
+import Exchanger from "./application/pages/Exchanger/Exchanger";
 
 const App = () => {
   let modalContent;
@@ -33,7 +34,7 @@ const App = () => {
       <RunningLine />
       <div className={styles.page__wrapper}>
         <ModalWindow>{modalContent}</ModalWindow>
-        <Pools />
+        <Exchanger />
         <Footer />
       </div>
     </body>

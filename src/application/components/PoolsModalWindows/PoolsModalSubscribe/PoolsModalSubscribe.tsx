@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./PoolsModalSubscribe.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../../constants";
+import MyButton from "../../UI/MyButton/MyButton";
 
 const PoolsModalSubscribe = () => {
   return (
@@ -81,11 +82,70 @@ const PoolsModalSubscribe = () => {
               </div>
             </div>
             <div className={styles.personal}>
-                <div className={styles.personal__text}>Personal Remaining Quota: </div>
-                <div className={styles.personal__value}>300 GMX</div>
+              <div className={styles.personal__text}>
+                Personal Remaining Quota:{" "}
+              </div>
+              <div className={styles.personal__value}>300 GMX</div>
+            </div>
+          </div>
+          <div className={styles.summary_wrapper}>
+            <div className={styles.summary__title}>Summary</div>
+            <div className={styles.summary__body}>
+              <div className={styles.summary__leftText}>
+                <div className={styles.summary__img}>
+                  <img src={PUBLIC_IMAGE + "sliderWindow.svg"} alt="" />
+                </div>
+                <div className={styles.summary__textWrapper}>
+                  <div className={styles.summary__discrib}>
+                    ETH Discribution Date{" "}
+                    <div className={styles.summary__discribRules}>
+                      View Rules
+                    </div>
+                  </div>
+                  <div className={styles.summary__sub}>
+                    Next Subscription Date
+                  </div>
+                </div>
+              </div>
+              <div className={styles.summary__rightText}>
+                <div className={styles.disc__data}>2025-01-30 03:00</div>
+                <div className={styles.sub__data}>2025-01-30 03:00</div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.remarks__wrapper}>
+            <div className={styles.remarks__simple}>
+              *The Simple Earn Apr is subject to change on a daily basic. APR
+              does not mean the actual or predicted returns in fiat currency.
+            </div>
+            <div className={styles.remarks__early}>
+              *Early redemption will return your assets to your Spot Wallet
+              within 48-72 hours.
+            </div>
+          </div>
+          <div className={styles.checkbox__agreeAndRead}>
+            <input
+              name="rememberData"
+              type="checkbox"
+              className={styles.durations__checkbox}
+              id="checkboxDuration"
+            />
+            <div className={styles.durations__checkboxTextWrapper}>
+              <div className={styles.durations__checkboxText}>
+                I have read and agreed to{" "}
+                <span className={styles.durations__checkboxTextRules}>
+                  Binance Simple Earn Service Terms & <br />{" "}
+                </span>
+              </div>
+              <span className={styles.durations__checkboxTextConditions}>
+                Conditions
+              </span>
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles.window__buttonWrapper}>
+        <MyButton className={styles.window__button}>Confirm</MyButton>
       </div>
     </div>
   );

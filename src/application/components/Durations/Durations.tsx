@@ -33,7 +33,7 @@ const Durations = () => {
             name="rememberData"
             type="checkbox"
             className={styles.durations__checkbox}
-            id="checkbox1"
+            id="checkboxDuration"
           />
           <div className={styles.durations__checkboxText}>
             Do not remember data
@@ -61,12 +61,20 @@ const Durations = () => {
             <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
           </div>
           <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>Flexible</div>
+            <div className={`${styles.durations__bodyLineDuration} `}>
+              Flexible
+            </div>
             <div className={`${styles.durations__bodyLineDuration} `}>30</div>
             <div className={`${styles.durations__bodyLineDuration} `}>60</div>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>120</div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              120
+            </div>
           </div>
-          <button className={styles.durations__bodyLineButton}>Subscribe</button>
+          <button className={styles.durations__bodyLineButton}>
+            Subscribe
+          </button>
         </div>
         <div className={styles.durations__bodyLine}>
           <div className={styles.durations__bodyLineCoinWrapper}>
@@ -80,12 +88,22 @@ const Durations = () => {
             <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
           </div>
           <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>Flexible</div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              Flexible
+            </div>
             <div className={`${styles.durations__bodyLineDuration} `}>30</div>
             <div className={`${styles.durations__bodyLineDuration} `}>60</div>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>120</div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              120
+            </div>
           </div>
-          <button className={styles.durations__bodyLineButton}>Subscribe</button>
+          <button className={styles.durations__bodyLineButton}>
+            Subscribe
+          </button>
         </div>
         <div className={styles.durations__bodyLine}>
           <div className={styles.durations__bodyLineCoinWrapper}>
@@ -99,9 +117,15 @@ const Durations = () => {
             <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
           </div>
           <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>Flexible</div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              Flexible
+            </div>
           </div>
-          <button className={styles.durations__bodyLineButton}>Subscribe</button>
+          <button className={styles.durations__bodyLineButton}>
+            Subscribe
+          </button>
         </div>
         <div className={styles.durations__bodyLine}>
           <div className={styles.durations__bodyLineCoinWrapper}>
@@ -115,12 +139,20 @@ const Durations = () => {
             <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
           </div>
           <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>Flexible</div>
+            <div className={`${styles.durations__bodyLineDuration} `}>
+              Flexible
+            </div>
             <div className={`${styles.durations__bodyLineDuration} `}>30</div>
             <div className={`${styles.durations__bodyLineDuration} `}>60</div>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>120</div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              120
+            </div>
           </div>
-          <button className={styles.durations__bodyLineButton}>Subscribe</button>
+          <button className={styles.durations__bodyLineButton}>
+            Subscribe
+          </button>
         </div>
         <div className={styles.durations__bodyLine}>
           <div className={styles.durations__bodyLineCoinWrapper}>
@@ -134,12 +166,20 @@ const Durations = () => {
             <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
           </div>
           <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>Flexible</div>
+            <div className={`${styles.durations__bodyLineDuration} `}>
+              Flexible
+            </div>
             <div className={`${styles.durations__bodyLineDuration} `}>30</div>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>60</div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              60
+            </div>
             <div className={`${styles.durations__bodyLineDuration} `}>120</div>
           </div>
-          <button className={styles.durations__bodyLineButton}>Subscribe</button>
+          <button className={styles.durations__bodyLineButton}>
+            Subscribe
+          </button>
         </div>
         <div className={styles.durations__bodyLine}>
           <div className={styles.durations__bodyLineCoinWrapper}>
@@ -153,9 +193,15 @@ const Durations = () => {
             <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
           </div>
           <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>Flexible</div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              Flexible
+            </div>
           </div>
-          <button className={styles.durations__bodyLineButton}>Subscribe</button>
+          <button className={styles.durations__bodyLineButton}>
+            Subscribe
+          </button>
         </div>
         <div className={styles.durations__bodyLine}>
           <div className={styles.durations__bodyLineCoinWrapper}>
@@ -169,12 +215,20 @@ const Durations = () => {
             <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
           </div>
           <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>Flexible</div>
-            <div className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}>30</div>
+            <div className={`${styles.durations__bodyLineDuration} `}>
+              Flexible
+            </div>
+            <div
+              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
+            >
+              30
+            </div>
             <div className={`${styles.durations__bodyLineDuration} `}>60</div>
             <div className={`${styles.durations__bodyLineDuration} `}>120</div>
           </div>
-          <button className={styles.durations__bodyLineButton}>Subscribe</button>
+          <button className={styles.durations__bodyLineButton}>
+            Subscribe
+          </button>
         </div>
       </div>
     </div>

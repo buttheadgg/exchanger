@@ -14,8 +14,9 @@ import { observer } from "mobx-react-lite";
 const FormExchanger: FC = observer(() => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
   const [isValid, setIsValid] = useState<boolean>(true);
-  const [selectedPay, setSelectedPay] = useState<string>("");
-  const [selectedReceive, setSelectedReceive] = useState<string>("");
+  const [selectedPay, setSelectedPay] = useState("");
+  const [selectedReceive, setSelectedReceive] = useState("");
+
 
   const jsonData: JsonData = {
     Bitcoin: {
@@ -4443,6 +4444,10 @@ const FormExchanger: FC = observer(() => {
       const defaultPay = payOptions[0];
       setSelectedPay(defaultPay);
       formStore.updateField("pay", defaultPay);
+      formStore.updateField("payId", jsonData[defaultPay].id);
+      formStore.updateForm("pay", defaultPay);
+      formStore.updateForm("payId", jsonData[defaultPay].id);
+      
     }
   }, [payOptions]);
 
@@ -4451,6 +4456,9 @@ const FormExchanger: FC = observer(() => {
       const defaultReceive = receiveOptions[0];
       setSelectedReceive(defaultReceive);
       formStore.updateField("receive", defaultReceive);
+      formStore.updateField("receiveId", jsonData[defaultReceive].id);
+      formStore.updateForm("receive", defaultReceive);
+      formStore.updateForm("receiveId", jsonData[defaultReceive].id);
     }
   }, [selectedPay, receiveOptions]);
 
@@ -4462,44 +4470,102 @@ const FormExchanger: FC = observer(() => {
   const handlePaySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     const name = event.target.name;
+    const selectedPay = jsonData[value];
     setSelectedPay(value);
     formStore.updateField(name, value);
+    formStore.updateField("payId", selectedPay.id);
+    formStore.updateForm(name, value);
+    formStore.updateForm("payId", selectedPay.id);
 
     const firstReceiveOption = Object.keys(jsonData[value]?.directions)[0];
+    const firstReceiveType = jsonData[firstReceiveOption].type;
     setSelectedReceive(firstReceiveOption);
-    formStore.updateField("receive", firstReceiveOption);
+    formStore.updateField("receive", firstReceiveOption);    
+    formStore.updateForm("receive", firstReceiveOption);   
+    
+    let activeComponent = "";
+    let direction = "";
+
+    if (
+      firstReceiveType === "crypto" &&
+      selectedPay.type === "cash"
+    ) {
+      activeComponent = "cash-crypto";
+      direction = "cash-crypto";
+    } else if (
+      firstReceiveType === "cash" &&
+      selectedPay.type === "crypto"
+    ) {
+      activeComponent = "crypto-cash";
+      direction = "crypto-cash";
+    } else if (
+      firstReceiveType === "bank" &&
+      selectedPay.type === "crypto"
+    ) {
+      activeComponent = "crypto-bank";
+      direction = "crypto-bank";
+    } else if (
+      firstReceiveType === "crypto" &&
+      selectedPay.type === "bank"
+    ) {
+      activeComponent = "bank-crypto";
+      direction = "bank-crypto";
+    }
+
+    if (activeComponent && direction) {
+      formStore.setActiveComponent(activeComponent);
+      formStore.updateField("direction", direction);
+      formStore.updateForm("direction", direction);
+    }
+
   };
 
   const handleReceiveSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     const name = event.target.name;
     formStore.updateField(name, value);
+
     setSelectedReceive(value);
 
     const selectedDirection = jsonData[selectedPay]?.directions[value];
+    formStore.updateField("receiveId", selectedDirection.id);
+    formStore.updateForm("receiveId", selectedDirection.id);
     if (selectedDirection) {
       setSelectedReceive(value);
+
+      let activeComponent = "";
+      let direction = "";
 
       if (
         selectedDirection.type === "crypto" &&
         jsonData[selectedPay].type === "cash"
       ) {
-        formStore.setActiveComponent("cashCrypto");
+        activeComponent = "cash-crypto";
+        direction = "cash-crypto";
       } else if (
         selectedDirection.type === "cash" &&
         jsonData[selectedPay].type === "crypto"
       ) {
-        formStore.setActiveComponent("cryptoCash");
+        activeComponent = "crypto-cash";
+        direction = "crypto-cash";
       } else if (
         selectedDirection.type === "bank" &&
         jsonData[selectedPay].type === "crypto"
       ) {
-        formStore.setActiveComponent("cryptoBank");
+        activeComponent = "crypto-bank";
+        direction = "crypto-bank";
       } else if (
         selectedDirection.type === "crypto" &&
         jsonData[selectedPay].type === "bank"
       ) {
-        formStore.setActiveComponent("bankCrypto");
+        activeComponent = "bank-crypto";
+        direction = "bank-crypto";
+      }
+
+      if (activeComponent && direction) {
+        formStore.setActiveComponent(activeComponent);
+        formStore.updateField("direction", direction);
+        formStore.updateForm("direction", direction);
       }
     }
   };
@@ -4510,8 +4576,7 @@ const FormExchanger: FC = observer(() => {
     if (validationResult) {
       console.log("Форма валидна, данные:", formStore.formData);
       formStore.setDataValid(true);
-      console.log(formStore.dataValid);
-      //передача данных
+      console.log(jsonData[selectedPay]);
     } else {
       console.log("Ошибки валидации:", formStore.invalidInputs);
       formStore.dataValid = false;
@@ -4570,7 +4635,6 @@ const FormExchanger: FC = observer(() => {
           <div className={styles.form__headerLine2}></div>
           <div className={styles.form__headerLine3}></div>
           <div className={styles.receive__wrapper}>
-
             <div className={styles.form__headerReceive}>Receive</div>
             <div className={styles.form__receive}>
               <div className={styles.form__receiveValue}>
@@ -4603,10 +4667,10 @@ const FormExchanger: FC = observer(() => {
           </div>
         </div>
         <div className={styles.form__body}></div>
-        {formStore.activeComponent === "cashCrypto" && <FormBodyCashCrypto />}
-        {formStore.activeComponent === "bankCrypto" && <FormBodyBankCrypto />}
-        {formStore.activeComponent === "cryptoBank" && <FormBodyCryprtoBank />}
-        {formStore.activeComponent === "cryptoCash" && <FormBodyCryptoCash />}
+        {formStore.activeComponent === "cash-crypto" && <FormBodyCashCrypto />}
+        {formStore.activeComponent === "bank-crypto" && <FormBodyBankCrypto />}
+        {formStore.activeComponent === "crypto-bank" && <FormBodyCryprtoBank />}
+        {formStore.activeComponent === "crypto-cash" && <FormBodyCryptoCash />}
       </div>
       <MyButton onClick={handleSubmit} className={styles.form__button}>
         EXCHANGE

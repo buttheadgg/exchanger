@@ -1,9 +1,42 @@
 import { makeAutoObservable } from "mobx";
 
 class FormStore {
-  formData: { [key: string]: any } = {};
+  formData: { [key: string]: any } = {
+    pay: "",
+    payId: "",
+    receive: "",
+    receiveId:"",
+    paySelect: "",
+    receiveSelect: "",
+    country: "",
+    countryId: "",
+    city: "",
+    cityId:"",
+    name: "",
+    surname: "",
+    phone: "",
+    email: "",
+    telegram: "",
+    walletAddress: "",
+    btcWalletAddress: "",
+    rememberData: "",
+    agreeToRules: "",
+    direction:""
+  };
+  formCourse: { [key: string]: any } = {
+    pay: "",
+    payId: "",
+    receive: "",
+    receiveId:"",
+    country: "",
+    countryId: "",
+    city: "",
+    cityId:"",
+    direction:""
+  };
+
   invalidInputs: { [key: string]: boolean } = {};
-  activeComponent: string = "cashCrypto";
+  activeComponent: string = "cash-crypto";
   dataValid: boolean = false;
   isPaid: boolean | undefined = undefined;
 
@@ -12,6 +45,9 @@ class FormStore {
   }
 
   updateField(name: string, value: string | boolean) {
+    this.formData[name] = value;
+  }
+  updateForm(name: string, value: string | boolean) {
     this.formData[name] = value;
   }
 
@@ -59,7 +95,7 @@ class FormStore {
       newInvalidInputs.receiveSelect = true;
     }
 
-    if (this.activeComponent === "cashCrypto") {
+    if (this.activeComponent === "cash-crypto") {
       if (!this.formData.walletAddress) {
         newInvalidInputs.walletAddress = true;
       }
@@ -71,7 +107,7 @@ class FormStore {
       }
     }
 
-    if (this.activeComponent === "bankCrypto") {
+    if (this.activeComponent === "bank-crypto") {
       if (!this.formData.btcWalletAddress) {
         newInvalidInputs.btcWalletAddress = true;
       }
@@ -80,7 +116,7 @@ class FormStore {
       }
     }
 
-    if (this.activeComponent === "cryptoBank") {
+    if (this.activeComponent === "crypto-bank") {
       if (!this.formData.country) {
         newInvalidInputs.country = true;
       }
@@ -89,7 +125,7 @@ class FormStore {
       }
     }
 
-    if (this.activeComponent === "cryptoCash") {
+    if (this.activeComponent === "crypto-cash") {
       if (!this.formData.country) {
         newInvalidInputs.country = true;
       }
