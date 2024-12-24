@@ -1,29 +1,52 @@
-import React, { ChangeEvent, FC } from "react";
+import React, { ChangeEvent, FC, useEffect } from "react";
 import MyInput from "../../UI/MyInput/MyInput";
 import styles from "./FormBodyBankCrypto.module.scss";
 import { PUBLIC_IMAGE } from "../../../constants";
 import formStore from "../../../stores/formStore";
 import { observer } from "mobx-react-lite";
+import locationStore from "../../../stores/locationStore";
 
+const FormBodyBankCrypto: FC = ({}) => {
+  const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
+    locationStore;
 
-const FormBodyBankCrypto: FC = ({
-}) => {
-  const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
+  useEffect(() => {
+    locationStore.fetchLocationData();
+    locationStore.initializeDefaults();
+  }, []);
+
+  const countryOptions = Object.keys(locationData);
+  const cityOptions = locationStore.cityOptions;
+
+  useEffect(() => {
+    setCountry(countryOptions[0]);
+  }, [countryOptions]);
+
+  const handleCountrySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    setCountry(value);
+    console.log(selectedCountry);
+  };
+
+  const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    setCity(value);
+  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
   };
 
+  const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
   return (
     <div className={styles.form__body}>
       <div className={styles.form__bodyWrapper}>
         <div className={styles.form__pay}>
           <div className={styles.form__walletInputWrapper}>
-            <p className={styles.form__walleyInputLable}>
-              {" "}
-              Card number*{" "}
-            </p>
+            <p className={styles.form__walleyInputLable}> Card number* </p>
             <MyInput
               placeHolder="Card number"
               className={styles.form__walletInput}
@@ -111,4 +134,4 @@ const FormBodyBankCrypto: FC = ({
   );
 };
 
-export default FormBodyBankCrypto;
+export default observer(FormBodyBankCrypto);

@@ -5,13 +5,13 @@ class FormStore {
     pay: "",
     payId: "",
     receive: "",
-    receiveId:"",
+    receiveId: "",
     paySelect: "",
     receiveSelect: "",
     country: "",
     countryId: "",
     city: "",
-    cityId:"",
+    cityId: "",
     name: "",
     surname: "",
     phone: "",
@@ -21,22 +21,27 @@ class FormStore {
     btcWalletAddress: "",
     rememberData: "",
     agreeToRules: "",
-    direction:""
+    direction: "",
+    changer_id: "",
+    isPayd: "no",
+    idOperation: "",
   };
   formCourse: { [key: string]: any } = {
     pay: "",
+    payValue: "",
+    receiveValue: "",
     payId: "",
     receive: "",
-    receiveId:"",
+    receiveId: "",
     country: "",
-    countryId: "",
     city: "",
     cityId:"",
-    direction:""
+    direction: "crypto-cash",
   };
+  formConvert: { [key: string]: any } = {};
 
   invalidInputs: { [key: string]: boolean } = {};
-  activeComponent: string = "cash-crypto";
+  activeComponent: string = "crypto-cash";
   dataValid: boolean = false;
   isPaid: boolean | undefined = undefined;
 
@@ -48,7 +53,23 @@ class FormStore {
     this.formData[name] = value;
   }
   updateForm(name: string, value: string | boolean) {
+    this.formCourse[name] = value;
+  }
+
+  updateConvert(name: string, value: string | boolean | Record<string, any>) {
+    if (typeof value === "object" && value !== null) {
+      this.formConvert = {
+        ...this.formConvert,
+        ...value,
+      };
+    } else {
+      this.formConvert[name] = value;
+    }
+  }
+
+  updateInput(name: string, value: string | number) {
     this.formData[name] = value;
+    this.formCourse[name] = value;
   }
 
   setActiveComponent(component: string) {
@@ -81,7 +102,7 @@ class FormStore {
       !this.formData.paySelect ||
       isNaN(Number(this.formData.paySelect)) ||
       Number(this.formData.paySelect) < 100 ||
-      Number(this.formData.paySelect) > 100000
+      Number(this.formData.paySelect) > 1000000000
     ) {
       newInvalidInputs.paySelect = true;
     }
@@ -90,7 +111,7 @@ class FormStore {
       !this.formData.receiveSelect ||
       isNaN(Number(this.formData.receiveSelect)) ||
       Number(this.formData.receiveSelect) < 100 ||
-      Number(this.formData.receiveSelect) > 100000
+      Number(this.formData.receiveSelect) > 100000000
     ) {
       newInvalidInputs.receiveSelect = true;
     }

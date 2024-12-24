@@ -35,7 +35,6 @@ const FormBodyCryprtoBank: FC = ({}) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
   };
-
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
 
   return (
@@ -152,4 +151,4 @@ const FormBodyCryprtoBank: FC = ({}) => {
   );
 };
 
-export default FormBodyCryprtoBank;
+export default observer(FormBodyCryprtoBank);

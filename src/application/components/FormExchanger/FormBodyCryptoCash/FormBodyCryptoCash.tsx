@@ -30,7 +30,6 @@ const FormBodyCryptoCash: FC = ({}) => {
     setCity(value);
     formStore.updateField(name, value);
   };
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
@@ -161,4 +160,4 @@ const FormBodyCryptoCash: FC = ({}) => {
   );
 };
 
-export default FormBodyCryptoCash;
+export default observer(FormBodyCryptoCash);

@@ -7,16 +7,18 @@ import { observer } from "mobx-react-lite";
 import locationStore from "../../../stores/locationStore";
 import { LocationData } from "../../types/types";
 
-const FormBodyCashCrypto: FC = ({}) => {
+const FormBodyCashCrypto: React.FC = () => {
   const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
     locationStore;
 
   useEffect(() => {
+    
     locationStore.initializeDefaults();
   }, []);
 
   const countryOptions = Object.keys(locationData);
   const cityOptions = locationStore.cityOptions;
+
 
   const handleCountrySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -157,4 +159,4 @@ const FormBodyCashCrypto: FC = ({}) => {
   );
 };
 
-export default FormBodyCashCrypto;
+export default observer(FormBodyCashCrypto);
