@@ -1,8 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./FormModalWindowDone.module.scss";
 import { PUBLIC_IMAGE } from "../../../constants";
+import formStore from "../../../stores/formStore";
 
 const FormModalWindowDone = () => {
+  const [isExchanged, setIsExchanged] = useState(false);
+
+  const handleStatusCheck = async () => {
+    try {
+      const res = await fetch(
+        "http://alfa-crypto.com/api/v1/exchange/checkPayd",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formStore.formData),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error(`Ошибка сервера: ${res.status}`);
+      }
+
+      const result = await res.json();
+
+      if (result.status !== "no") {
+        setIsExchanged(true);
+      }
+    } catch {
+      console.error("Ошибка при выполнении fetch-запроса checkPayd:");
+    }
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleStatusCheck();
+    }, 30000);
+    return () => clearInterval(intervalId);
+  }, []);
+
   const handleReload = () => {
     window.location.reload();
   };
@@ -31,10 +68,10 @@ const FormModalWindowDone = () => {
           </div>
           <div className={styles.amount__value}>
             <div className={styles.amount__valueWeaving}>
-              98765456789 Bitcoin BTC
+              {formStore.formData.paySelect} {formStore.formData.pay}
             </div>
             <div className={styles.amount__valueReceived}>
-              99999.01000000 Visa USD
+              {formStore.formData.receiveSelect} {formStore.formData.receive}
             </div>
             <div className={styles.amount__valueReceipt}>987654567893456</div>
           </div>
@@ -44,7 +81,7 @@ const FormModalWindowDone = () => {
         <div className={styles.timestatus__wrapper}>
           <div className={styles.timestatus__timeText}>Creation time</div>
           <div className={styles.timestatus__dateTime}>
-            2024 - 10 - 01 19:21
+            {formStore.finalData.datetime}
           </div>
         </div>
         <div className={styles.timestatus__line}></div>
@@ -52,11 +89,36 @@ const FormModalWindowDone = () => {
           <div className={styles.timestatus__statusText}>
             Application status
           </div>
-          <div className={styles.timestatus__dateTimeCanceled}>In proccess</div>
+          <div
+            className={`${
+              isExchanged
+                ? styles.timestatus__dateTimeCanceledDone
+                : styles.timestatus__dateTimeCanceled
+            }`}
+          >
+            In proccess
+          </div>
+          <div
+            className={`${
+              isExchanged
+                ? styles.timestatus__ExchangeDone
+                : styles.timestatus__ExchangeDefault
+            }`}
+          >
+            Done
+          </div>
         </div>
       </div>
-      <div className={styles.wallet__images}>
-        <img src={PUBLIC_IMAGE + "modalWalletLeft.svg"} alt="left wallet" />
+      <div
+        className={`${
+          isExchanged ? styles.wallet__imagesDone : styles.wallet__images
+        }`}
+      >
+        <img
+          src={PUBLIC_IMAGE + "modalWalletLeft.svg"}
+          alt="left wallet"
+          className={styles.wallet__imagesLeft}
+        />
         <img src={PUBLIC_IMAGE + "modalWalletRight.svg"} alt="right wallet" />
       </div>
       <div className={styles.modal__attention}>

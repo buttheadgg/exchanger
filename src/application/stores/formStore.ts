@@ -21,10 +21,10 @@ class FormStore {
     btcWalletAddress: "",
     rememberData: "",
     agreeToRules: "",
-    direction: "",
+    direction: "crypto-crypto",
     changer_id: "",
     isPayd: "no",
-    idOperation: "",
+    transactionId: "",
   };
   formCourse: { [key: string]: any } = {
     pay: "",
@@ -33,15 +33,15 @@ class FormStore {
     payId: "",
     receive: "",
     receiveId: "",
-    country: "",
-    city: "",
-    cityId:"",
-    direction: "crypto-cash",
+    cityId: "",
+    direction: "crypto-crypto",
   };
   formConvert: { [key: string]: any } = {};
+  finalData: { [key: string]: any } = {};
 
+  receiveMin: string = "";
   invalidInputs: { [key: string]: boolean } = {};
-  activeComponent: string = "crypto-cash";
+  activeComponent: string = "crypto-crypto";
   dataValid: boolean = false;
   isPaid: boolean | undefined = undefined;
 
@@ -67,9 +67,24 @@ class FormStore {
     }
   }
 
+  updateFinalData(name: string, value: string | boolean | Record<string, any>) {
+    if (typeof value === "object" && value !== null) {
+      this.finalData = {
+        ...this.finalData,
+        ...value,
+      };
+    } else {
+      this.finalData[name] = value;
+    }
+  }
+
   updateInput(name: string, value: string | number) {
     this.formData[name] = value;
     this.formCourse[name] = value;
+  }
+
+  setReceiveMin(component: string) {
+    this.receiveMin = component;
   }
 
   setActiveComponent(component: string) {
@@ -100,18 +115,20 @@ class FormStore {
 
     if (
       !this.formData.paySelect ||
-      isNaN(Number(this.formData.paySelect)) ||
-      Number(this.formData.paySelect) < 100 ||
-      Number(this.formData.paySelect) > 1000000000
+      isNaN(parseFloat(this.formData.paySelect)) ||
+      parseFloat(this.formData.paySelect) < this.formConvert.inmin ||
+      parseFloat(this.formData.paySelect) > this.formConvert.inmax ||
+      parseFloat(this.formData.paySelect) === 0
     ) {
       newInvalidInputs.paySelect = true;
     }
 
     if (
       !this.formData.receiveSelect ||
-      isNaN(Number(this.formData.receiveSelect)) ||
-      Number(this.formData.receiveSelect) < 100 ||
-      Number(this.formData.receiveSelect) > 100000000
+      isNaN(parseFloat(this.formData.receiveSelect)) ||
+      parseFloat(this.formData.receiveSelect) < parseFloat(this.receiveMin) ||
+      parseFloat(this.formData.receiveSelect) > this.formConvert.max_reserve ||
+      parseFloat(this.formData.paySelect) === 0
     ) {
       newInvalidInputs.receiveSelect = true;
     }

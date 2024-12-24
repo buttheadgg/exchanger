@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./FormModalWindowСanceled.module.scss";
+import formStore from "../../../stores/formStore";
 
 const FormModalWindowСanceled = () => {
 
@@ -31,10 +32,10 @@ const FormModalWindowСanceled = () => {
           </div>
           <div className={styles.amount__value}>
             <div className={styles.amount__valueWeaving}>
-              98765456789 Bitcoin BTC
+            {formStore.formData.paySelect} {formStore.formData.pay}
             </div>
             <div className={styles.amount__valueReceived}>
-              99999.01000000 Visa USD
+            {formStore.formData.receiveSelect} {formStore.formData.receive}
             </div>
             <div className={styles.amount__valueReceipt}>987654567893456</div>
           </div>
@@ -44,7 +45,7 @@ const FormModalWindowСanceled = () => {
         <div className={styles.timestatus__wrapper}>
           <div className={styles.timestatus__timeText}>Creation time</div>
           <div className={styles.timestatus__dateTime}>
-            2024 - 10 - 01 19:21
+          {formStore.finalData.datetime}
           </div>
         </div>
         <div className={styles.timestatus__line}></div>

@@ -133,10 +133,26 @@
 }
 
 .timestatus__dateTimeCanceled{
+    display: visible;
     font-family: 'Popins';
     font-size: 20px;
     font-weight: 600;
     color: #2EF2FF;
+}
+
+.timestatus__dateTimeCanceledDone{
+    display: none;
+}
+
+.timestatus__ExchangeDefault{
+    display: none;
+}
+
+.timestatus__ExchangeDone{
+    font-family: 'Popins';
+    font-size: 20px;
+    font-weight: 600;
+    color: #C4CBF5;
 }
 
 
@@ -179,3 +195,12 @@
     display: flex;
     gap: 62px;
 }
+
+.wallet__imagesDone {
+    justify-content: center;
+}
+
+.wallet__imagesDone .wallet__imagesLeft{
+    display: none;
+}
+

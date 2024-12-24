@@ -41,7 +41,6 @@ class LocationStore {
       formStore.updateForm("cityId", cityId);
     }
     formStore.updateField("country", country);
-    formStore.updateForm("country", country);
   }
 
   setCity(city: string) {
@@ -49,7 +48,6 @@ class LocationStore {
     const cityId = this.findCityId(this.selectedCountry, city);
     formStore.updateField("city", city);
     formStore.updateField("cityId", cityId);
-    formStore.updateForm("city", city);
    formStore.updateForm("cityId", cityId);
   }
 

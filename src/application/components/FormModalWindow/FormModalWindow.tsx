@@ -18,9 +18,24 @@ const FormModalWindow: FC = observer(() => {
     setCaptchaDone(false);
   };
 
-  const handleButtonPaid = () => {
+  const handleButtonPaid = async () => {
     if (captchaDone) {
       formStore.setIsPaid(true);
+      formStore.updateField("isPayd", "yes");
+      try {
+        const res = await fetch("http://alfa-crypto.com/api/v1/exchange/payd", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formStore.formData),
+        });
+        if (res.ok) {
+          formStore.setIsPaid(true);
+        } else {
+          Error(`Ошибка передачи post payd: ${res.status}`);
+        }
+      } catch {}
     } else {
       alert("The Captcha has not been solved");
     }
@@ -72,10 +87,10 @@ const FormModalWindow: FC = observer(() => {
           </div>
           <div className={styles.amount__value}>
             <div className={styles.amount__valueWeaving}>
-              98765456789 Bitcoin BTC
+              {formStore.formData.paySelect} {formStore.formData.pay}
             </div>
             <div className={styles.amount__valueReceived}>
-              99999.01000000 Visa USD
+              {formStore.formData.receiveSelect} {formStore.formData.receive}
             </div>
             <div className={styles.amount__valueReceipt}>987654567893456</div>
           </div>
@@ -103,7 +118,7 @@ const FormModalWindow: FC = observer(() => {
         <div className={styles.timestatus__wrapper}>
           <div className={styles.timestatus__timeText}>Creation time</div>
           <div className={styles.timestatus__dateTime}>
-            2024 - 10 - 01 19:21
+            {formStore.finalData.datetime}
           </div>
         </div>
         <div className={styles.timestatus__line}></div>
@@ -112,7 +127,7 @@ const FormModalWindow: FC = observer(() => {
             Application status
           </div>
           <div className={styles.timestatus__dateTime}>
-            2024 - 10 - 01 19:21
+            {formStore.finalData.datetime}
           </div>
         </div>
       </div>
@@ -120,7 +135,9 @@ const FormModalWindow: FC = observer(() => {
         Attention! Click on the "Refresh page" button if you want to activate
         the automatic page update. The page will be updated every 30 seconds
       </div>
-      <button className={styles.modal__buttonRefresh} onClick={handleReload} >Refresh page</button>
+      <button className={styles.modal__buttonRefresh} onClick={handleReload}>
+        Refresh page
+      </button>
       <div className={styles.modal__bottomLine}></div>
     </div>
   );

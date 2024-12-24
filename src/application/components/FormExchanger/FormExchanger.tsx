@@ -10,13 +10,17 @@ import FormBodyBankCrypto from "./FormBodyBankCrypto/FormBodyBankCrypto";
 import formStore from "../../stores/formStore";
 import { JsonData } from "../types/types";
 import { observer } from "mobx-react-lite";
+import FormBodyCryptoCrypto from "./FormBodyCryptoCrypto/FormBodyCryptoCrypto";
 
 const FormExchanger: FC = observer(() => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
   const [isValid, setIsValid] = useState<boolean>(true);
   const [selectedPay, setSelectedPay] = useState("");
   const [selectedReceive, setSelectedReceive] = useState("");
-  const [limits, setLimits] = useState({ min: "", max: "" });
+  const [limitsPay, setLimitsPay] = useState({ min: "", max: "" });
+  const [limitsReceive, setLimitsReceive] = useState({ min: "", max: "" });
+  const [reductionCurr, setReductionCurr] = useState({ pay: "", receive: "" });
+  const [curseRate, setCourseRate] = useState();
 
   const jsonData: JsonData = {
     Bitcoin: {
@@ -4416,6 +4420,10 @@ const FormExchanger: FC = observer(() => {
       : [];
   }, [selectedPay]);
 
+  useEffect(() => {
+    getCourse();
+  }, [formStore.formCourse]);
+
   const getCourse = async () => {
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/exchange/rate", {
@@ -4428,13 +4436,63 @@ const FormExchanger: FC = observer(() => {
 
       const result = await res.json();
 
+      let minReserve = result.inmin * result.rate;
+      setLimitsPay({ min: result.inmin || "", max: result.inmax || "" });
+      setReductionCurr({
+        pay: result.from_cur_code,
+        receive: result.to_cur_code,
+      });
+      setCourseRate(result.rate);
+      formStore.setReceiveMin(
+        minReserve.toString() ? minReserve.toString() : "0"
+      );
       formStore.updateConvert("response", result);
       formStore.updateField("changer_id", result.changer_id);
-      setLimits({ min: result.min || "", max: result.max || "" });
+      setLimitsReceive({
+        min: minReserve.toString() || "",
+        max: result.max_reserve || "",
+      });
     } catch {
-      console.error("Ошибка при выполнении fetch-запроса:");
+      console.error("Ошибка при выполнении fetch-запроса rate:");
     }
   };
+
+  const sendData = async () => {
+    try {
+      // Отправка запроса
+      const res = await fetch(
+        "http://alfa-crypto.com/api/v1/exchange/confirm",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formStore.formData),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error(`Ошибка сервера: ${res.status}`);
+      }
+
+      const result = await res.json();
+
+      if (result.transactionId) {
+        formStore.updateField("transactionId", result.transactionId);
+        console.log(`Transaction ID записан:`, formStore.formData);
+      } else {
+        console.warn("Transaction ID отсутствует в ответе.");
+      }
+
+      formStore.updateFinalData("response", result);
+    } catch (error) {
+      console.error("Ошибка при выполнении fetch-запроса confirm:", error);
+    }
+  };
+
+  useEffect(() => {
+    getCourse();
+  }, [formStore.formCourse]);
 
   useEffect(() => {
     if (payOptions.length > 0 && !selectedPay) {
@@ -4443,7 +4501,7 @@ const FormExchanger: FC = observer(() => {
       formStore.updateField("pay", defaultPay);
       formStore.updateField("payId", jsonData[defaultPay].id);
       formStore.updateForm("pay", defaultPay);
-      formStore.updateForm("padId", jsonData[defaultPay].id);
+      formStore.updateForm("payId", jsonData[defaultPay].id);
       getCourse();
       console.log("Полученный курс", formStore.formConvert);
     }
@@ -4462,42 +4520,31 @@ const FormExchanger: FC = observer(() => {
     }
   }, [selectedPay, receiveOptions]);
 
-  const payLimits = useMemo(() => {
-    if (selectedPay) {
-      const selectedPayData = formStore.formConvert;
-      return {
-        min: selectedPayData?.min || "",
-        max: selectedPayData?.max || "",
-      };
-    }
-    return { min: "", max: "" };
-  }, [selectedPay, selectedReceive]);
-
-  const receiveLimits = useMemo(() => {
-    if (selectedPay && selectedReceive) {
-      const selectedReceiveData = formStore.formConvert;
-      return {
-        min: selectedReceiveData?.min || "",
-        max: selectedReceiveData?.max || "",
-      };
-    }
-    return { min: "", max: "" };
-  }, [selectedPay, selectedReceive]);
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
-    const numericValue = parseFloat(value) || 0;
+
+    const numericValue = value;
     if (name === "paySelect") {
+      formStore.updateForm("payValue", value);
+      getCourse();
       formStore.updateInput("paySelect", numericValue);
-
-      const calculatedValue = numericValue * formStore.formConvert.rate;
-      formStore.updateInput("receiveSelect", calculatedValue);
+      const calculatedValue =
+        parseFloat(numericValue) * formStore.formConvert.rate;
+      console.log(calculatedValue);
+      console.log(formStore.formConvert.rate);
+      formStore.updateInput("receiveSelect", calculatedValue.toString());
     } else if (name === "receiveSelect") {
-      formStore.updateInput("receiveSelect", numericValue);
-
-      const calculatedValue = numericValue / formStore.formConvert.rate;
-      formStore.updateInput("paySelect", calculatedValue);
+      formStore.updateForm("receiveValue", value);
+      getCourse();
+      formStore.updateInput("paySelect", numericValue);
+      if (parseFloat(numericValue)) {
+        formStore.updateInput("paySelect", 0);
+      } else {
+        const calculatedValue =
+          formStore.formConvert.rate / parseFloat(numericValue);
+        formStore.updateInput("paySelect", calculatedValue);
+      }
     }
   };
 
@@ -4509,7 +4556,7 @@ const FormExchanger: FC = observer(() => {
     formStore.updateField(name, value);
     formStore.updateField("payId", selectedPay.id);
     formStore.updateForm(name, value);
-    formStore.updateForm("padId", selectedPay.id);
+    formStore.updateForm("payId", selectedPay.id);
 
     const firstReceiveOption = Object.keys(jsonData[value]?.directions)[0];
     const firstReceiveType = jsonData[firstReceiveOption].type;
@@ -4532,6 +4579,9 @@ const FormExchanger: FC = observer(() => {
     } else if (firstReceiveType === "crypto" && selectedPay.type === "bank") {
       activeComponent = "bank-crypto";
       direction = "bank-crypto";
+    } else if (firstReceiveType === "crypto" && selectedPay.type === "crypto") {
+      activeComponent = "crypto-crypto";
+      direction = "crypto-crypto";
     }
 
     if (activeComponent && direction) {
@@ -4600,12 +4650,13 @@ const FormExchanger: FC = observer(() => {
 
   const handleSubmit = () => {
     const validationResult = formStore.validateFields();
-    setIsValid(validationResult);
+
     if (validationResult) {
       console.log("Форма валидна, данные:", formStore.formData);
       console.log("Данные на курс:", formStore.formCourse);
       console.log("Полученный курс", formStore.formConvert);
       formStore.setDataValid(true);
+      sendData();
     } else {
       console.log("Ошибки валидации:", formStore.invalidInputs);
       formStore.dataValid = false;
@@ -4644,19 +4695,24 @@ const FormExchanger: FC = observer(() => {
                   onChange={handleChange}
                   placeHolder="0"
                   isInvalid={formStore.invalidInputs.paySelect}
-                  value={formStore.formCourse.paySelect || ""}
+                  value={formStore.formCourse.paySelect}
                 />
               </div>
               <div className={styles.form__payBottomInput}>
                 <div className={styles.form__payExchangeRate}>
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
-                    1 BTC = 56 841,94 EUR
+                    1 {reductionCurr.pay} = <br></br> {curseRate}{" "}
+                    {reductionCurr.receive}
                   </div>
                 </div>
                 <div className={styles.form__payLimits}>
-                  <div>min.: {limits.min} EUR</div>
-                  <div>max.: {limits.max} EUR</div>
+                  <div>
+                    min.: {limitsPay.min} {reductionCurr.pay}
+                  </div>
+                  <div>
+                    max.: {limitsPay.max} {reductionCurr.pay}
+                  </div>
                 </div>
               </div>
             </div>
@@ -4687,12 +4743,16 @@ const FormExchanger: FC = observer(() => {
                   onChange={handleChange}
                   placeHolder="0"
                   isInvalid={formStore.invalidInputs.receiveSelect}
-                  value={formStore.formCourse.receiveSelect || ""}
+                  value={formStore.formCourse.receiveSelect}
                 />
               </div>
               <div className={styles.form__payLimits}>
-                <div>min.: {limits.min} EUR</div>
-                <div>max.: {limits.max} EUR</div>
+                <div>
+                  min.: {limitsReceive.min} {reductionCurr.receive}
+                </div>
+                <div>
+                  max.: {limitsReceive.max} {reductionCurr.receive}
+                </div>
               </div>
             </div>
           </div>
@@ -4702,6 +4762,9 @@ const FormExchanger: FC = observer(() => {
         {formStore.activeComponent === "bank-crypto" && <FormBodyBankCrypto />}
         {formStore.activeComponent === "crypto-bank" && <FormBodyCryprtoBank />}
         {formStore.activeComponent === "crypto-cash" && <FormBodyCryptoCash />}
+        {formStore.activeComponent === "crypto-crypto" && (
+          <FormBodyCryptoCrypto />
+        )}
       </div>
       <MyButton onClick={handleSubmit} className={styles.form__button}>
         EXCHANGE
