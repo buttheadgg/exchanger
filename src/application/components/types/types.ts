@@ -1,6 +1,7 @@
 export interface Direction {
   id: string;
   name: string;
+  icon: string;
   min: string;
   max: string;
   reserve: string;
@@ -14,6 +15,7 @@ export interface Directions {
 export interface Currency {
   directions: Directions;
   cur_name: string;
+  icon: string;
   id: string;
   min: string;
   max: string;

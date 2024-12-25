@@ -5,7 +5,7 @@
   align-items: center;
   flex-direction: column;
   background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
-  max-width: 782px;
+  max-width: 830px;
   width: 100%;
   border: 3px solid #334679;
   border-radius: 40px;
@@ -87,12 +87,12 @@
 .form__payValue {
   display: flex;
   gap: 24px;
-  padding-left: 10px;
 }
 
 .form__paySelect {
+  position: relative;
   display: flex;
-  width: 168px;
+  width: 200px;
   border-radius: 14px;
   padding: 12px 0px 12px 16px;
   font-family: "Roboto";
@@ -102,6 +102,15 @@
   color: rgba(255, 255, 255, 0.45);
   background-color: rgba(255, 255, 255, 0.04);
   border: none;
+}
+
+.form__paySelectImg{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 60%;
+  left: 21%;
+  transform: translate(-50%, -50%);
 }
 
 .form__paySelect option {
@@ -123,7 +132,6 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
-  padding-left: 10px;
 }
 
 .form__payExchangeRate {
@@ -156,6 +164,22 @@
   color: #c4cbf5;
 }
 
+.form__receiveLimits {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: end;
+  gap: 8px;
+  margin-top: 5px;
+  padding-right: 24px;
+  font-family: "Gilroy";
+  font-size: 12px;
+  font-weight: 500;
+  color: #c4cbf5;
+}
+
+
+
 .form__receive {
   display: flex;
   flex-direction: column;
@@ -166,12 +190,13 @@
   display: flex;
   flex-direction: row;
   gap: 24px;
-  padding-right: 10px;
+  padding-right: 24px;
 }
 
 .form__receiveSelect {
+  position: relative;
   display: flex;
-  width: 172px;
+  width: 200px;
   border-radius: 14px;
   padding: 12px 0px 12px 16px;
   font-family: "Roboto";
@@ -181,6 +206,15 @@
   color: rgba(255, 255, 255, 0.45);
   background-color: rgba(255, 255, 255, 0.04);
   border: none;
+}
+
+.form__receiveSelectImg{
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 60%;
+  right: 25%;
+  transform: translate(-50%, -50%);
 }
 
 .form__receiveSelect option {
@@ -294,5 +328,8 @@
   }
   .receive__wrapper{
     gap: 20px;
+  }
+  .form__receiveSelectImg{
+    top: 25%;
   }
 }

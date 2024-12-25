@@ -31,6 +31,9 @@ const FormModalWindow: FC = observer(() => {
           body: JSON.stringify(formStore.formData),
         });
         if (res.ok) {
+          const timerId = setTimeout(() => {
+          }, 1000)
+          console.log(timerId);
           formStore.setIsPaid(true);
         } else {
           Error(`Ошибка передачи post payd: ${res.status}`);
