@@ -46,7 +46,7 @@ const Footer = observer(() => {
                       className={`${styles.menu__dropdownContent} ${styles.dropdown__sheepyBurger} ${styles.dropdown__sheepyFooter}`}
                     >
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src={"./image/dropdown-iconImage.svg"} alt="" />
+                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             About us/Company
@@ -105,19 +105,19 @@ const Footer = observer(() => {
                     </div>
                   </a>
                   <img
-                    src="./image/Header-arrowImageDown.svg"
+                    src={PUBLIC_IMAGE+"Header-arrowImageDown.svg"}
                     alt=""
                     className={styles.menu__itemArrow}
                   />
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="#" className="menu__list-link ">
+                  <a href="#" className={styles.menu__listLink}>
                     Company
                     <div
                       className={`${styles.menu__dropdownContent} ${styles.dropdown__companyBurger} ${styles.dropdown__companyFooter}`}
                     >
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src="./image/dropdown-iconImage.svg" alt="" />
+                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             About us/Company
@@ -128,7 +128,7 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src="./image/dropdown-iconImage.svg" alt="" />
+                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             Road map
@@ -140,7 +140,7 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src="./image/dropdown-iconImage.svg" alt="" />
+                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             White papper
@@ -152,7 +152,7 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src="./image/dropdown-iconImage.svg" alt="" />
+                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             Vacancies
@@ -164,7 +164,7 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src="./image/dropdown-iconImage.svg" alt="" />
+                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>FAQ</div>
                           <div className={styles.menu__dropdownText}>
@@ -176,7 +176,7 @@ const Footer = observer(() => {
                     </div>
                   </a>
                   <img
-                    src="./image/Header-arrowImageDown.svg"
+                    src={PUBLIC_IMAGE+"Header-arrowImageDown.svg"}
                     alt=""
                     className={styles.menu__itemArrow}
                   />
@@ -262,16 +262,16 @@ const Footer = observer(() => {
               </div>
               <div className={styles.footer__contactItem}>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src="./image/X.svg" alt="" />
+                  <img src={PUBLIC_IMAGE+"X.svg"} alt="" />
                 </a>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src="./image/thred.svg" alt="" />
+                  <img src={PUBLIC_IMAGE+"thred.svg"} alt="" />
                 </a>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src="./image/inst.svg" alt="" />
+                  <img src={PUBLIC_IMAGE+"inst.svg"} alt="" />
                 </a>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src="./image/discord.svg" alt="" />
+                  <img src={PUBLIC_IMAGE+"discord.svg"} alt="" />
                 </a>
               </div>
             </div>

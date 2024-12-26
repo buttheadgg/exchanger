@@ -21,7 +21,7 @@ const FormModalWindow: FC = observer(() => {
   const handleButtonPaid = async () => {
     if (captchaDone) {
       formStore.setIsPaid(true);
-      formStore.updateField("isPayd", "yes");
+      await formStore.updateField("isPayd", "yes");
       try {
         const res = await fetch("http://alfa-crypto.com/api/v1/exchange/payd", {
           method: "POST",
@@ -31,8 +31,7 @@ const FormModalWindow: FC = observer(() => {
           body: JSON.stringify(formStore.formData),
         });
         if (res.ok) {
-          const timerId = setTimeout(() => {
-          }, 1000)
+          const timerId = setTimeout(() => {}, 1000);
           console.log(timerId);
           formStore.setIsPaid(true);
         } else {

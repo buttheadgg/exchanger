@@ -133,7 +133,6 @@
 }
 
 .headerStat__dailyDistribution img {
-  
   width: 100%;
 }
 
@@ -281,6 +280,110 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 
+.recentExchanges__dataInformationMob {
+  display: none;
+}
+
+.recentExchanges__TimeMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #c4cbf5;
+  margin-left: auto;
+}
+.recentExchanges__PayMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #2ef2ff;
+}
+.recentExchanges__CountryTextMob {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+.recentExchanges__CountryValueMob {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+.recentExchanges__wrapperCountryMob {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-right: 20px;
+}
+.recentExchanges__wrapperCountryMob1 {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.recentExchanges__wrapperCoinMob1 {
+  display: flex;
+  gap: 10px;
+}
+.dataInformation__arrowMob img {
+  transform: rotate(90deg);
+}
+.recentExchanges__ReceiveMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #2ef2ff;
+}
+.recentExchanges__wrapperCoinMob {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.recentExchanges__CoinWrapperMob {
+  font-family: "Gilroy";
+  color: #c4cbf5;
+}
+.recentExchanges__CoinTextMob {
+  font-size: 16px;
+  font-weight: 700;
+}
+.recentExchanges__CoinNameMob {
+  font-size: 12px;
+  font-weight: 500;
+}
+.recentExchanges__CoinValueMob {
+  font-family: "Gilroy";
+  font-size: 16px;
+  font-weight: 700;
+  color: #c4cbf5;
+}
+.recentExchanges__dataInformationMobWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  align-items: center;
+}
+.recentExchanges__wrapeprHashMob {
+  display: flex;
+  gap: 7px;
+}
+.recentExchanges__txHashMob {
+  font-size: 12px;
+  font-family: "Gilroy";
+  font-weight: 500;
+  color: #2ef2ff;
+  margin-right: auto;
+}
+
+.recentExchanges__HashTextMob {
+  font-family: "Gilroy";
+  color: #c4cbf5;
+  font-size: 12px;
+  font-weight: 500;
+}
+.recentExchanges__dataInformationMobButton{
+  display: none;
+}
+
 @media (max-width: 833px) {
   .recentExchanges__headerStat {
     flex-direction: column;
@@ -288,7 +391,7 @@
   .headerStat__count {
     flex-direction: column;
     position: relative;
-    padding:10px 10px 10px 0px;
+    padding: 10px 10px 10px 0px;
   }
   .headerStat__volume {
     flex-direction: column;
@@ -302,13 +405,38 @@
   }
 }
 
-@media (max-width: 580px){
-  .recentExchanges__sortLine{
+@media (max-width: 780px) {
+  .recentExchanges__sortLine {
+    display: none;
+  }
+  .recentExchanges__dataInformation {
+    display: none;
+  }
+  .recentExchanges__dataInformationMob {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: linear-gradient(
+      180deg,
+      rgba(27, 39, 90, 0.2) 0%,
+      rgba(15, 21, 53, 0.2) 100%
+    );
+    border-radius: 16px;
+    border: 1px solid #253575;
+    padding: 10px;
+  }
+  .recentExchanges__dataInformationMobButton{
+    display: flex;
+  }
+}
+
+@media (max-width: 580px) {
+  .recentExchanges__sortLine {
     display: none;
   }
 }
 
-@media (max-width: 530px){
+@media (max-width: 530px) {
   .recentExchangesText {
     font-family: "Popins";
     font-size: 32px;

@@ -4958,6 +4958,21 @@ const FormExchanger: FC = observer(() => {
       : [];
   }, [selectedPay]);
 
+
+  const options = payOptions.map((option: string) => ({
+    value: option,
+    label: (
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={jsonData[option]?.icon}
+          alt={jsonData[option]?.cur_name}
+          style={{ width: "24px", height: "24px", marginRight: "8px" }}
+        />
+        {option}
+      </div>
+    ),
+  }));
+
   useEffect(() => {
     getCourse();
   }, [formStore.formCourse]);
@@ -5223,6 +5238,7 @@ const FormExchanger: FC = observer(() => {
                   {payOptions.map((option) => (
                     <option key={option} value={option}>
                       {option}
+                      {<img  src={jsonData[selectedPay]?.icon}/>}
                     </option>
                   ))}
                 </select>

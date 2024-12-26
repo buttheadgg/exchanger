@@ -44,7 +44,7 @@ const FormBodyCryptoCrypto = () => {
           <div className={styles.form__walletInputWrapper}>
             <p className={styles.form__walleyInputLable}>
               {" "}
-              Wallet Tether TRC20 for receiver*{" "}
+              Wallet {formStore.formData.receive} for receiver*{" "}
             </p>
             <MyInput
               placeHolder="Wallet address"

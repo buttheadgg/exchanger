@@ -1,4 +1,4 @@
-@import url('../../styles/_fonts.scss');
+@import url("../../styles/_fonts.scss");
 
 $main-bg-color: #05091d;
 $text-color: rgba(234, 237, 255, 1);
@@ -11,6 +11,7 @@ header {
   background-color: #05091d;
   display: flex;
   position: relative;
+  z-index: 9999;
 }
 
 .container {
@@ -67,7 +68,9 @@ header {
   opacity: 0.6;
   position: relative;
 
-  &.menu__dropdown-text:hover{
+  &.menu__dropdownText {
+  }
+  &:hover {
     opacity: 1;
   }
 }
@@ -79,14 +82,14 @@ header {
   justify-content: center;
   gap: 5px;
 
-  &.En{
+  &.En {
     font-family: "Inter", sans-serif;
     font-size: 14px;
     font-weight: 400;
     color: #eaedff;
   }
 
-  &:hover .menu__itemArrow{
+  &:hover .menu__itemArrow {
     transform: rotate(180deg);
     transform-origin: center;
   }
@@ -108,19 +111,20 @@ header {
   transform: translateY(-5px);
   position: absolute;
   background-color: #060a1d;
-  max-width: 261px;
+  width: 261px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+
   padding: 0px 24px;
-  top: 100%;
+  top: 110%;
+  left: -150%;
 }
 .menu__dropdownContent.dropdown__company-footer {
   top: -311px;
-  z-index: 11;
+  z-index: 999;
 }
 .menu__dropdownContent.dropdown__sheepy-footer {
   top: -311px;
-  z-index: 11;
+  z-index: 999;
 }
 .menu__dropdownWrapper {
   display: flex;
@@ -128,10 +132,13 @@ header {
   padding: 12px 0px;
   color: #eaedff;
 }
-.menu__dropdown-wrapper:hover {
-  opacity: 1;
-  color: #8f92a5;
+.menu__dropdownWrapper {
+  &:hover {
+    opacity: 1;
+    color: #8f92a5;
+  }
 }
+
 .menu__dropdownTitle {
   font-family: "Arial", sans-serif;
   font-weight: 400;
@@ -207,7 +214,7 @@ header {
   .burger {
     display: flex;
   }
-  .menu__listHeader{
+  .menu__listHeader {
     display: none;
     flex-direction: column;
     position: fixed;
@@ -215,7 +222,7 @@ header {
     width: 100%;
     top: 7%;
     left: 0;
-    z-index: 2;
+    z-index: 999;
     overflow: hidden;
     padding: 50px 40px;
     backdrop-filter: blur(10px);
@@ -239,7 +246,7 @@ header {
     width: 90px;
   }
   .menu__listHeader {
-    &.open{
+    &.open {
       gap: 20px;
       display: flex;
       align-items: center;
@@ -259,7 +266,7 @@ header {
 }
 
 @media (max-width: 335px) {
-  .menu__listItem{
+  .menu__listItem {
     max-width: 57px;
   }
 }
