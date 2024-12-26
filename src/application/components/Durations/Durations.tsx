@@ -1,8 +1,28 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import styles from "./Durations.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../constants";
+import poolsStore from "../../stores/poolsStore";
+import { runInAction } from "mobx";
+import { observer } from "mobx-react-lite";
 
 const Durations = () => {
+  const handleSelectPeriod = (coin: string, period: string) => {
+    runInAction(() => {
+      poolsStore.updateField("coin", coin);
+      poolsStore.updateField("period", period);
+    });
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    poolsStore.updateField(name, value);
+  };
+
+  const handleSubscribe = () => {
+    console.log(poolsStore.formDataPools);
+    poolsStore.setIsSubscribe(true);
+  };
+
   return (
     <div className={styles.durations__wrapper}>
       <div className={styles.durations__title}>
@@ -34,6 +54,7 @@ const Durations = () => {
             type="checkbox"
             className={styles.durations__checkbox}
             id="checkboxDuration"
+            onChange={handleChange}
           />
           <div className={styles.durations__checkboxText}>
             Do not remember data
@@ -49,190 +70,67 @@ const Durations = () => {
           </div>
           <div className={styles.durations__bodyHeaderZero}></div>
         </div>
-        <div className={styles.durations__bodyLine}>
-          <div className={styles.durations__bodyLineCoinWrapper}>
-            <div className={styles.durations__bodyLineCoinImg}>
-              <img src={PUBLIC_ICON + "bnb.svg"} alt="" />
+        {Object.entries(poolsStore.formData).map(([coin, { detail }]) => {
+          const isActiveCoin = poolsStore.formDataPools.coin === coin;
+          const selectedPeriod = isActiveCoin
+            ? poolsStore.formDataPools.period
+            : null;
+          return (
+            <div key={coin} className={styles.durations__bodyLine}>
+              <div className={styles.durations__bodyLineCoinWrapper}>
+                <div className={styles.durations__bodyLineCoinImg}>
+                  <img
+                    src={`${PUBLIC_ICON}${coin.toLowerCase()}.svg`}
+                    alt={coin}
+                  />
+                </div>
+                <div className={styles.durations__bodyLineCoin}>{coin}</div>
+              </div>
+
+              <div className={styles.durations__bodyLineProcentWrapper}>
+                <div className={styles.durations__bodyLineProcent}>
+                  {detail.apyRange.length === 2
+                    ? `${parseFloat(detail.apyRange[0]).toFixed(4)}%-${parseFloat(detail.apyRange[1]).toFixed(4)}%`
+                    : `${parseFloat(detail.highestApy).toFixed(4)}%`}
+                </div>
+                <div className={styles.durations__bodyLineEarn}>
+                  Earn {coin}
+                </div>
+              </div>
+
+              <div className={styles.durations__bodyLineDurationWrapper}>
+                {detail.periods.map((period, index) => (
+                  <div
+                    key={index}
+                    onClick={() => handleSelectPeriod(coin, period.period)}
+                    className={`${
+                      selectedPeriod === period.period
+                        ? styles.durations__bodyLineDurationActive
+                        : styles.durations__bodyLineDuration
+                    }`}
+                  >
+                    {period.period === "0" ? "Flexible" : period.period}
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className={`${styles.durations__bodyLineButton} ${
+                  isActiveCoin && selectedPeriod
+                    ? styles.durations__bodyLineDurationActive
+                    : ""
+                }`}
+                disabled={!isActiveCoin || !selectedPeriod}
+                onClick={handleSubscribe}
+              >
+                Subscribe
+              </button>
             </div>
-            <div className={styles.durations__bodyLineCoin}>BNB</div>
-          </div>
-          <div className={styles.durations__bodyLineProcentWrapper}>
-            <div className={styles.durations__bodyLineProcent}>1%</div>
-            <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
-          </div>
-          <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>
-              Flexible
-            </div>
-            <div className={`${styles.durations__bodyLineDuration} `}>30</div>
-            <div className={`${styles.durations__bodyLineDuration} `}>60</div>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              120
-            </div>
-          </div>
-          <button className={styles.durations__bodyLineButton}>
-            Subscribe
-          </button>
-        </div>
-        <div className={styles.durations__bodyLine}>
-          <div className={styles.durations__bodyLineCoinWrapper}>
-            <div className={styles.durations__bodyLineCoinImg}>
-              <img src={PUBLIC_ICON + "bnb.svg"} alt="" />
-            </div>
-            <div className={styles.durations__bodyLineCoin}>BNB</div>
-          </div>
-          <div className={styles.durations__bodyLineProcentWrapper}>
-            <div className={styles.durations__bodyLineProcent}>1%</div>
-            <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
-          </div>
-          <div className={styles.durations__bodyLineDurationWrapper}>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              Flexible
-            </div>
-            <div className={`${styles.durations__bodyLineDuration} `}>30</div>
-            <div className={`${styles.durations__bodyLineDuration} `}>60</div>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              120
-            </div>
-          </div>
-          <button className={styles.durations__bodyLineButton}>
-            Subscribe
-          </button>
-        </div>
-        <div className={styles.durations__bodyLine}>
-          <div className={styles.durations__bodyLineCoinWrapper}>
-            <div className={styles.durations__bodyLineCoinImg}>
-              <img src={PUBLIC_ICON + "bnb.svg"} alt="" />
-            </div>
-            <div className={styles.durations__bodyLineCoin}>BNB</div>
-          </div>
-          <div className={styles.durations__bodyLineProcentWrapper}>
-            <div className={styles.durations__bodyLineProcent}>1%</div>
-            <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
-          </div>
-          <div className={styles.durations__bodyLineDurationWrapper}>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              Flexible
-            </div>
-          </div>
-          <button className={styles.durations__bodyLineButton}>
-            Subscribe
-          </button>
-        </div>
-        <div className={styles.durations__bodyLine}>
-          <div className={styles.durations__bodyLineCoinWrapper}>
-            <div className={styles.durations__bodyLineCoinImg}>
-              <img src={PUBLIC_ICON + "bnb.svg"} alt="" />
-            </div>
-            <div className={styles.durations__bodyLineCoin}>BNB</div>
-          </div>
-          <div className={styles.durations__bodyLineProcentWrapper}>
-            <div className={styles.durations__bodyLineProcent}>1%</div>
-            <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
-          </div>
-          <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>
-              Flexible
-            </div>
-            <div className={`${styles.durations__bodyLineDuration} `}>30</div>
-            <div className={`${styles.durations__bodyLineDuration} `}>60</div>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              120
-            </div>
-          </div>
-          <button className={styles.durations__bodyLineButton}>
-            Subscribe
-          </button>
-        </div>
-        <div className={styles.durations__bodyLine}>
-          <div className={styles.durations__bodyLineCoinWrapper}>
-            <div className={styles.durations__bodyLineCoinImg}>
-              <img src={PUBLIC_ICON + "bnb.svg"} alt="" />
-            </div>
-            <div className={styles.durations__bodyLineCoin}>BNB</div>
-          </div>
-          <div className={styles.durations__bodyLineProcentWrapper}>
-            <div className={styles.durations__bodyLineProcent}>1%</div>
-            <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
-          </div>
-          <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>
-              Flexible
-            </div>
-            <div className={`${styles.durations__bodyLineDuration} `}>30</div>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              60
-            </div>
-            <div className={`${styles.durations__bodyLineDuration} `}>120</div>
-          </div>
-          <button className={styles.durations__bodyLineButton}>
-            Subscribe
-          </button>
-        </div>
-        <div className={styles.durations__bodyLine}>
-          <div className={styles.durations__bodyLineCoinWrapper}>
-            <div className={styles.durations__bodyLineCoinImg}>
-              <img src={PUBLIC_ICON + "bnb.svg"} alt="" />
-            </div>
-            <div className={styles.durations__bodyLineCoin}>BNB</div>
-          </div>
-          <div className={styles.durations__bodyLineProcentWrapper}>
-            <div className={styles.durations__bodyLineProcent}>1%</div>
-            <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
-          </div>
-          <div className={styles.durations__bodyLineDurationWrapper}>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              Flexible
-            </div>
-          </div>
-          <button className={styles.durations__bodyLineButton}>
-            Subscribe
-          </button>
-        </div>
-        <div className={styles.durations__bodyLine}>
-          <div className={styles.durations__bodyLineCoinWrapper}>
-            <div className={styles.durations__bodyLineCoinImg}>
-              <img src={PUBLIC_ICON + "bnb.svg"} alt="" />
-            </div>
-            <div className={styles.durations__bodyLineCoin}>BNB</div>
-          </div>
-          <div className={styles.durations__bodyLineProcentWrapper}>
-            <div className={styles.durations__bodyLineProcent}>1%</div>
-            <div className={styles.durations__bodyLineEarn}>Earn ETH</div>
-          </div>
-          <div className={styles.durations__bodyLineDurationWrapper}>
-            <div className={`${styles.durations__bodyLineDuration} `}>
-              Flexible
-            </div>
-            <div
-              className={`${styles.durations__bodyLineDuration} ${styles.durations__bodyLineDurationActive}`}
-            >
-              30
-            </div>
-            <div className={`${styles.durations__bodyLineDuration} `}>60</div>
-            <div className={`${styles.durations__bodyLineDuration} `}>120</div>
-          </div>
-          <button className={styles.durations__bodyLineButton}>
-            Subscribe
-          </button>
-        </div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-export default Durations;
+export default observer(Durations);

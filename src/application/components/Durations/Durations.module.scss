@@ -121,7 +121,8 @@
   align-items: center;
   background-color: rgba(217, 217, 217, 0.05);
   border-radius: 16px;
-  width: 981px;
+  max-width: 1059px;
+  width: 100%;
   padding: 12px;
   gap: 190px;
 }
@@ -163,6 +164,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 86px;
 }
 
 .durations__bodyLineCoin {
@@ -174,8 +176,8 @@
 
 .durations__bodyLineProcentWrapper {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  width: 100px;  
 }
 
 .durations__bodyLineProcent {
@@ -195,9 +197,11 @@
 .durations__bodyLineDurationWrapper {
   display: flex;
   align-items: center;
-  justify-content: end;
   gap: 10px;
-  padding-left: 50px;
+}
+
+.durations__bodyLineDurationWrapperValue{
+  display: flex;
 }
 
 .durations__bodyLineDuration {
@@ -208,11 +212,18 @@
   font-size: 16px;
   font-weight: 700;
   color: rgba(46, 242, 255, 0.3);
+  cursor: pointer;
 }
 
 .durations__bodyLineDurationActive {
+  padding: 10px 16px;
+  border-radius: 14px;
   color: #2ef2ff;
   border: 1px solid rgba(46, 242, 255, 0.5);
+  font-family: "Popins";
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .durations__bodyLineButton {
@@ -229,4 +240,5 @@
   border-right: 1px solid rgb(140, 165, 88);
   border-bottom: 1px solid rgba(30, 37, 14, 1);
   box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
+  margin-left: auto;
 }

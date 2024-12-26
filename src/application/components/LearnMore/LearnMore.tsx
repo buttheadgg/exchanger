@@ -1,14 +1,19 @@
-
 import styles from "./LearnMore.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
+import poolsStore from "../../stores/poolsStore";
+import { observer } from "mobx-react-lite";
 
 const LearnMore = () => {
   return (
-    <div className={styles.LearnMore}>
+    <div
+      className={`${
+        poolsStore.isSubscribe ? styles.LearnMoreNone : styles.LearnMore
+      }`}
+    >
       <div className={styles.LearnMore__borderTop}></div>
       <div className={styles.LearnMore__content}>
         <div className={styles.LearnMore__image}>
-          <img src={PUBLIC_IMAGE + "learnMoreImg.svg"}  alt=''/>
+          <img src={PUBLIC_IMAGE + "learnMoreImg.svg"} alt="" />
         </div>
         <div className={styles.LearnMore__line}>
           <div
@@ -58,4 +63,4 @@ const LearnMore = () => {
   );
 };
 
-export default LearnMore;
+export default observer(LearnMore);

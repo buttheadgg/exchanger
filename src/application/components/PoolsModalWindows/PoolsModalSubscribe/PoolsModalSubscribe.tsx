@@ -1,9 +1,40 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import styles from "./PoolsModalSubscribe.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../../constants";
 import MyButton from "../../UI/MyButton/MyButton";
+import MyInput from "../../UI/MyInput/MyInput";
+import poolsStore from "../../../stores/poolsStore";
+import { observer } from "mobx-react-lite";
 
 const PoolsModalSubscribe = () => {
+  const { formData, formDataPools } = poolsStore;
+
+  const selectedCoin = formDataPools.coin;
+  const selectedPeriod = formDataPools.period;
+
+  const coinData = formData[selectedCoin]?.detail;
+
+  if (!coinData) {
+    return <div>Выберите валюту</div>; // Сообщение, если данных нет
+  }
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    poolsStore.updateField(name, value);
+  };
+
+  const handleConfirm = () => {
+    const validationResult = poolsStore.validateFields();
+
+    if (validationResult) {
+      poolsStore.setDataValid(true);
+      poolsStore.setIsConfirm(1);
+      console.log(poolsStore.formDataPools);
+    } else {
+      console.log("Ошибки валидации:", poolsStore.invalidInputs);
+      poolsStore.setDataValid(false);
+    }
+  };
+
   return (
     <div className={styles.window__wrapper}>
       <div className={styles.window__header}>
@@ -17,31 +48,32 @@ const PoolsModalSubscribe = () => {
       <div className={styles.window__bottomLine}></div>
       <div className={styles.window__body}>
         <div className={styles.duration__wrapper}>
-          <div className={styles.wrapper__durationElem}>
-            <div className={styles.wrapper__durationTitle}>Flexible</div>
-            <div className={styles.wrapper__durationProcent}>0.52%</div>
-          </div>
-          <div className={styles.wrapper__durationElem}>
-            <div className={styles.wrapper__durationTitle}>Flexible</div>
-            <div className={styles.wrapper__durationProcent}>0.52%</div>
-            <div className={styles.wrapper__durationImg}>
-              <img src={PUBLIC_ICON + "BinanceMini.svg"} alt="" />
-            </div>
-          </div>
-          <div className={styles.wrapper__durationElem}>
-            <div className={styles.wrapper__durationTitle}>Flexible</div>
-            <div className={styles.wrapper__durationProcent}>0.52%</div>
-            <div className={styles.wrapper__durationImg}>
-              <img src={PUBLIC_ICON + "BinanceMini.svg"} alt="" />
-            </div>
-          </div>
-          <div className={styles.wrapper__durationElem}>
-            <div className={styles.wrapper__durationTitle}>Flexible</div>
-            <div className={styles.wrapper__durationProcent}>0.52%</div>
-            <div className={styles.wrapper__durationImg}>
-              <img src={PUBLIC_ICON + "BinanceMini.svg"} alt="" />
-            </div>
-          </div>
+          {coinData.periods && coinData.periods.length > 0 ? (
+            coinData.periods.map((period, index) => (
+              <div
+                key={index}
+                className={`${styles.wrapper__durationElem} ${
+                  selectedPeriod === period.period ? styles.selectedPeriod : ""
+                }`}
+                onClick={() => poolsStore.updateField("period", period.period)}
+              >
+                <div className={styles.wrapper__durationTitle}>
+                  {period.period === "0" ? "Flexible" : period.period}
+                </div>
+                <div className={styles.wrapper__durationProcent}>
+                  {(parseFloat(period.apy)).toFixed(4)}%
+                </div>
+                <div className={styles.wrapper__durationImg}>
+                  <img
+                    src={`${PUBLIC_ICON}${selectedCoin.toLowerCase()}.svg`}
+                    alt={selectedCoin}
+                  />
+                </div>
+              </div>
+            ))
+          ) : (
+            <div>""</div> 
+          )}
         </div>
         <div className={styles.amount__wrapper}>
           <div className={styles.amount__head}>
@@ -50,10 +82,11 @@ const PoolsModalSubscribe = () => {
             <div className={styles.amount__checkbox}>
               {" "}
               <input
-                name="rememberData"
+                name="autoSubscribe"
                 type="checkbox"
                 className={styles.amount__checkbox1}
                 id="checkbox1"
+                onChange={handleChange}
               />
               <div className={styles.durations__checkboxText}>
                 Auto-Subscribe
@@ -61,10 +94,13 @@ const PoolsModalSubscribe = () => {
             </div>
           </div>
           <div className={styles.amount__inputWrapper}>
-            <input
+            <MyInput
               className={styles.amount__input}
-              placeholder="Min 0.01 GMX"
-            ></input>
+              placeHolder="Min 0.01 GMX"
+              name="amount"
+              onChange={handleChange}
+              isInvalid={poolsStore.invalidInputs.amount}
+            />
             <button className={styles.amount__inputButton}>MAX</button>
           </div>
           <div className={styles.available__wrapper}>
@@ -125,10 +161,11 @@ const PoolsModalSubscribe = () => {
           </div>
           <div className={styles.checkbox__agreeAndRead}>
             <input
-              name="rememberData"
+              name="agreeConditions"
               type="checkbox"
               className={styles.durations__checkbox}
               id="checkboxDuration"
+              onChange={handleChange}
             />
             <div className={styles.durations__checkboxTextWrapper}>
               <div className={styles.durations__checkboxText}>
@@ -145,10 +182,12 @@ const PoolsModalSubscribe = () => {
         </div>
       </div>
       <div className={styles.window__buttonWrapper}>
-        <MyButton className={styles.window__button}>Confirm</MyButton>
+        <MyButton onClick={handleConfirm} className={styles.window__button}>
+          Confirm
+        </MyButton>
       </div>
     </div>
   );
 };
 
-export default PoolsModalSubscribe;
+export default observer(PoolsModalSubscribe);

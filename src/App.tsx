@@ -12,6 +12,11 @@ import FormModalWindowDone from "./application/components/FormModalWindow/FormMo
 import FormModalWindowСanceled from "./application/components/FormModalWindow/FormModalWindowСanceled/FormModalWindowСanceled";
 import Pools from "./application/pages/Pools/Pools";
 import Exchanger from "./application/pages/Exchanger/Exchanger";
+import ModalWindowPools from "./application/components/ModalWindowPools/ModalWindowPools";
+import poolsStore from "./application/stores/poolsStore";
+import PoolsModalSubscribe from "./application/components/PoolsModalWindows/PoolsModalSubscribe/PoolsModalSubscribe";
+import PoolsModalSuccessful from "./application/components/PoolsModalWindows/PoolsModalSuccessful/PoolsModalSuccessful";
+import PoolsModalHoldings from "./application/components/PoolsModalWindows/PoolsModalHoldings/PoolsModalHoldings";
 
 const App = () => {
   let modalContent;
@@ -28,13 +33,26 @@ const App = () => {
       break;
   }
 
+  switch (poolsStore.isConfirm) {
+    case 1:
+      modalContent = <PoolsModalSuccessful />;
+      break;
+    case 2:
+      modalContent = <PoolsModalHoldings />;
+      break;
+    default:
+      modalContent = <PoolsModalSubscribe />;
+      break;
+  }
+
   return (
     <body>
       <Header />
       <RunningLine />
       <div className={styles.page__wrapper}>
         <ModalWindow>{modalContent}</ModalWindow>
-        <Exchanger />
+        <ModalWindowPools>{modalContent}</ModalWindowPools>
+        <Pools />
         <Footer />
       </div>
     </body>

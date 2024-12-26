@@ -7,13 +7,13 @@
     border: 3px solid #334679;
     background: linear-gradient(180deg, #243474 0%, #0F1434 100%);
     gap: 40px;
-    padding-top: 30px;
 }
 
 .window__img{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 15px;
 }
 
 .window__body{
@@ -74,7 +74,7 @@
     display: flex;
     justify-content: center;
     gap: 42px;
-    padding-bottom: 20px;
+    padding: 0px 10px 20px 10px;
 }
 
 .window__buttonBack{

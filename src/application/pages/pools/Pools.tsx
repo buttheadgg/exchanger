@@ -5,6 +5,7 @@ import FrequentlyQuestions from "../../components/FrequentlyQuestions/Frequently
 import Durations from "../../components/Durations/Durations";
 import PoolsModalSubscribe from "../../components/PoolsModalWindows/PoolsModalSubscribe/PoolsModalSubscribe";
 import PoolsModalSuccessful from "../../components/PoolsModalWindows/PoolsModalSuccessful/PoolsModalSuccessful";
+import PoolsModalHoldings from "../../components/PoolsModalWindows/PoolsModalHoldings/PoolsModalHoldings";
 
 const Pools = () => {
   return (
@@ -13,8 +14,6 @@ const Pools = () => {
         <Durations />
         <LearnMore />
         <FrequentlyQuestions/>
-        <PoolsModalSubscribe/>
-        <PoolsModalSuccessful/>
       </div>
     </div>
   );

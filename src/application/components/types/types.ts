@@ -50,3 +50,22 @@ export interface City {
 export interface LocationData {
   [country: string]: City;
 }
+
+export interface Period {
+  period: string;
+  apy: string;
+  minPurchaseAmount: string;
+  maxPurchaseAmountPerUser: string;
+}
+
+export interface Detail {
+  apyRange: string[];
+  duration: string;
+  highestApy: string;
+  periods: Period[];
+}
+export interface Pools {
+  [key: string]: {
+    detail: Detail;
+  };
+}

@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./FrequentlyQuestions.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
+import poolsStore from "../../stores/poolsStore";
+import { observer } from "mobx-react-lite";
 const FrequentlyQuestions = () => {
   return (
-    <div className={styles.faq}>
+    <div className={`${poolsStore.isSubscribe ? styles.faqNone : styles.faq}`}>
       <div className={styles.faq__content}>
         <h2 className={styles.faq__title}>FAQ</h2>
         <details className={styles.faq__details}>
@@ -159,4 +161,4 @@ const FrequentlyQuestions = () => {
   );
 };
 
-export default FrequentlyQuestions;
+export default observer(FrequentlyQuestions);

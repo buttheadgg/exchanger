@@ -2,8 +2,18 @@ import React from "react";
 import styles from "./PoolsModalSuccessful.module.scss";
 import { PUBLIC_IMAGE } from "../../../constants";
 import MyButton from "../../UI/MyButton/MyButton";
+import poolsStore from "../../../stores/poolsStore";
 
 const PoolsModalSuccessful = () => {
+
+  const handleButtonBack = () => {
+    poolsStore.setIsConfirm(0);
+  }
+
+  const handleButtonHoldings = () => {
+    poolsStore.setIsConfirm(2);
+  }
+
   return (
     <div className={styles.window__wrapper}>
       <div className={styles.window__img}>
@@ -29,8 +39,8 @@ const PoolsModalSuccessful = () => {
         </div>
       </div>
       <div className={styles.window__buttonWrapper}>
-            <MyButton className={styles.window__buttonBack}>Back</MyButton>
-            <MyButton className={styles.window__buttonView}>View holdings</MyButton>
+            <MyButton onClick={handleButtonBack} className={styles.window__buttonBack}>Back</MyButton>
+            <MyButton onClick={handleButtonHoldings} className={styles.window__buttonView}>View holdings</MyButton>
         </div>
     </div>
   );

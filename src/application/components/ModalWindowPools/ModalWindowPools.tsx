@@ -1,18 +1,18 @@
 import React, { Children, FC } from "react";
-import styles from "./ModalWindow.module.scss";
 import { observer } from "mobx-react-lite";
-import formStore from "../../stores/formStore";
+import poolsStore from "../../stores/poolsStore";
+import styles from './ModalWindowPools.module.scss'
 
 interface ModalWindowProps {
   children: React.ReactNode;
 }
 
-const ModalWindow: FC<ModalWindowProps> = observer(({ children }) => {
+const ModalWindowPools: FC<ModalWindowProps> = observer(({ children }) => {
   return (
     <>
       <div
         className={`${
-          formStore.dataValid
+          poolsStore.isSubscribe
             ? styles.modal__wrapper
             : styles.modal__wrapperNone
         }` }
@@ -22,7 +22,7 @@ const ModalWindow: FC<ModalWindowProps> = observer(({ children }) => {
       </div>
       <div
         className={`${
-          formStore.dataValid
+            poolsStore.isSubscribe
             ? styles.modal__overlay
             : styles.modal__overlayNone
         }`}
@@ -31,4 +31,4 @@ const ModalWindow: FC<ModalWindowProps> = observer(({ children }) => {
   );
 });
 
-export default ModalWindow;
+export default ModalWindowPools;
