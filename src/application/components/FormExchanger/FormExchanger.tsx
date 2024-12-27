@@ -28,7 +28,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -37,7 +37,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -46,7 +46,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -55,7 +55,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -64,7 +64,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -73,7 +73,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -81,26 +81,26 @@ const FormExchanger: FC = observer(() => {
         },
         "Альфа-банк": {
           id: "52",
+          icon: `${PUBLIC_ICON}Bank.svg`,
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
-          type: "bank",
           min: "1",
           max: "100",
           reserve: "999",
+          type: "bank",
         },
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
-          type: "bank",
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
+          type: "bank",
         },
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -109,7 +109,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -118,7 +118,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -127,7 +127,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -156,7 +156,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -165,7 +165,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -174,7 +174,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -183,7 +183,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -192,7 +192,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -201,7 +201,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -210,7 +210,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -219,7 +219,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -228,7 +228,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -237,7 +237,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -246,7 +246,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -254,7 +254,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Bitcoin BEP20 (BTCB)",
-      icon: `${ PUBLIC_ICON }bitcoin.svg`,
+      icon: `${PUBLIC_ICON}bitcoin.svg`,
       id: "43",
       min: "1",
       max: "100",
@@ -266,7 +266,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -275,7 +275,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -284,7 +284,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -293,7 +293,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -302,7 +302,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -311,7 +311,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -320,7 +320,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -328,7 +328,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Monero (XMR)",
-      icon: `${ PUBLIC_ICON }Monero (XMR).svg`,
+      icon: `${PUBLIC_ICON}Monero (XMR).svg`,
       id: "149",
       min: "1",
       max: "100",
@@ -340,7 +340,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -348,7 +348,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Toncoin (TON)",
-      icon: `${ PUBLIC_ICON }toncoin.svg`,
+      icon: `${PUBLIC_ICON}toncoin.svg`,
       id: "209",
       min: "1",
       max: "100",
@@ -360,7 +360,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -369,7 +369,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -378,7 +378,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -387,7 +387,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -397,7 +397,7 @@ const FormExchanger: FC = observer(() => {
           id: "91",
           name: "Cash RUB",
           min: "1",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           max: "100",
           reserve: "999",
           type: "cash",
@@ -405,7 +405,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -414,7 +414,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -423,7 +423,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -432,7 +432,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -441,7 +441,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -450,7 +450,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -459,7 +459,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -467,7 +467,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Ethereum (ETH)",
-      icon: `${ PUBLIC_ICON }ethereum.svg`,
+      icon: `${PUBLIC_ICON}ethereum.svg`,
       id: "139",
       min: "1",
       max: "100",
@@ -479,7 +479,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -488,7 +488,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -497,7 +497,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -506,7 +506,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -516,7 +516,7 @@ const FormExchanger: FC = observer(() => {
           id: "91",
           name: "Cash RUB",
           min: "1",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           max: "100",
           reserve: "999",
           type: "cash",
@@ -524,7 +524,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -533,7 +533,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -542,7 +542,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -551,7 +551,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -560,7 +560,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -569,7 +569,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -578,7 +578,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -586,7 +586,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Ethereum BEP20 (ETH)",
-      icon: `${ PUBLIC_ICON }ethereum.svg`,
+      icon: `${PUBLIC_ICON}ethereum.svg`,
       id: "212",
       min: "1",
       max: "100",
@@ -598,7 +598,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -607,7 +607,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -616,7 +616,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -625,7 +625,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -634,7 +634,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -643,7 +643,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -652,7 +652,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -661,7 +661,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -670,7 +670,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -679,7 +679,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -687,7 +687,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Tether ERC20 (USDT)",
-      icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+      icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
       id: "36",
       min: "1",
       max: "100",
@@ -699,7 +699,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -708,7 +708,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -717,7 +717,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -725,7 +725,7 @@ const FormExchanger: FC = observer(() => {
         },
         "Наличные USD": {
           id: "89",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           name: "Cash USD",
           min: "1",
           max: "100",
@@ -735,7 +735,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -744,7 +744,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -753,7 +753,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -762,7 +762,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -771,7 +771,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -780,7 +780,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -788,7 +788,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Tether TRC20 (USDT)",
-      icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+      icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
       id: "10",
       min: "1",
       max: "100",
@@ -800,7 +800,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -809,7 +809,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -818,7 +818,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -827,7 +827,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -836,7 +836,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -845,7 +845,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -854,7 +854,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -863,7 +863,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -872,7 +872,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -881,7 +881,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -889,7 +889,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Tether BEP20 (USDT)",
-      icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+      icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
       id: "208",
       min: "1",
       max: "100",
@@ -901,7 +901,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -910,7 +910,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -919,7 +919,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -928,7 +928,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -937,7 +937,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -946,7 +946,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -955,7 +955,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -964,7 +964,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -973,7 +973,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -981,7 +981,7 @@ const FormExchanger: FC = observer(() => {
         },
         "Любой Банк": {
           id: "0",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           name: "Other bank",
           type: "bank",
           min: "1",
@@ -990,7 +990,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Tether SOL (USDT)",
-      icon: `${ PUBLIC_ICON }solana.svg`,
+      icon: `${PUBLIC_ICON}solana.svg`,
       id: "180",
       min: "1",
       max: "100",
@@ -1002,7 +1002,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1011,7 +1011,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1021,7 +1021,7 @@ const FormExchanger: FC = observer(() => {
           id: "91",
           name: "Cash RUB",
           min: "1",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           max: "100",
           reserve: "999",
           type: "cash",
@@ -1029,7 +1029,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1038,7 +1038,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1047,7 +1047,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1056,7 +1056,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1065,7 +1065,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1074,7 +1074,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1083,7 +1083,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1091,7 +1091,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "USDC ERC20 (USDC)",
-      icon: `${ PUBLIC_ICON }USDCoin(USDC)(2).svg`,
+      icon: `${PUBLIC_ICON}USDCoin(USDC)(2).svg`,
       id: "23",
       min: "1",
       max: "100",
@@ -1103,7 +1103,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1112,7 +1112,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1121,7 +1121,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1131,7 +1131,7 @@ const FormExchanger: FC = observer(() => {
           id: "89",
           name: "Cash USD",
           min: "1",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           max: "100",
           reserve: "999",
           type: "cash",
@@ -1139,7 +1139,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1148,7 +1148,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1157,7 +1157,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1166,7 +1166,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1175,7 +1175,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1184,7 +1184,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1192,7 +1192,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "USDC BEP20 (USDC)",
-      icon: `${ PUBLIC_ICON }USDCoin(USDC)(2).svg`,
+      icon: `${PUBLIC_ICON}USDCoin(USDC)(2).svg`,
       id: "235",
       min: "1",
       max: "100",
@@ -1204,7 +1204,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1213,7 +1213,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1222,7 +1222,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1231,7 +1231,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1240,7 +1240,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1249,7 +1249,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1258,7 +1258,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1267,7 +1267,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1276,7 +1276,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1286,14 +1286,14 @@ const FormExchanger: FC = observer(() => {
           id: "0",
           name: "Other bank",
           type: "bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
         },
       },
       cur_name: "USDC SOL (USDC)",
-      icon: `${ PUBLIC_ICON }USD Coin Solana.svg`,
+      icon: `${PUBLIC_ICON}USD Coin Solana.svg`,
       id: "228",
       min: "1",
       max: "100",
@@ -1305,7 +1305,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1314,7 +1314,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1323,7 +1323,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1332,7 +1332,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1341,7 +1341,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1350,7 +1350,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1359,7 +1359,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1368,7 +1368,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1377,7 +1377,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1386,7 +1386,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1395,7 +1395,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1404,7 +1404,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1412,7 +1412,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Litecoin (LTC)",
-      icon: `${ PUBLIC_ICON }Litecoin (LTC).svg`,
+      icon: `${PUBLIC_ICON}Litecoin (LTC).svg`,
       id: "99",
       min: "1",
       max: "100",
@@ -1424,7 +1424,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1433,7 +1433,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1442,7 +1442,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1451,7 +1451,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1461,7 +1461,7 @@ const FormExchanger: FC = observer(() => {
           id: "91",
           name: "Cash RUB",
           min: "1",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           max: "100",
           reserve: "999",
           type: "cash",
@@ -1469,7 +1469,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1478,7 +1478,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1487,7 +1487,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1496,7 +1496,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1505,7 +1505,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1514,7 +1514,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1523,7 +1523,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1531,7 +1531,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Bitcoin Cash (BCH)",
-      icon: `${ PUBLIC_ICON }Bitcoin Cash (BCH).svg`,
+      icon: `${PUBLIC_ICON}Bitcoin Cash (BCH).svg`,
       id: "172",
       min: "1",
       max: "100",
@@ -1543,7 +1543,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1552,7 +1552,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1561,7 +1561,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1570,7 +1570,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1579,7 +1579,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1588,7 +1588,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1597,7 +1597,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1606,7 +1606,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1615,7 +1615,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1624,7 +1624,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1633,7 +1633,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1642,7 +1642,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1650,7 +1650,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Dash (DASH)",
-      icon: `${ PUBLIC_ICON }Dash (DASH).svg`,
+      icon: `${PUBLIC_ICON}Dash (DASH).svg`,
       id: "140",
       min: "1",
       max: "100",
@@ -1662,7 +1662,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1671,7 +1671,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1680,7 +1680,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1689,7 +1689,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1697,7 +1697,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Zcash (ZEC)",
-      icon: `${ PUBLIC_ICON }Zcash (ZEC).svg`,
+      icon: `${PUBLIC_ICON}Zcash (ZEC).svg`,
       id: "162",
       min: "1",
       max: "100",
@@ -1709,7 +1709,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1718,7 +1718,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1727,7 +1727,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1736,7 +1736,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1745,7 +1745,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1754,7 +1754,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1763,7 +1763,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1772,7 +1772,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1781,7 +1781,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1790,7 +1790,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1798,7 +1798,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Ethereum Classic (ETC)",
-      icon: `${ PUBLIC_ICON }ethereum.svg`,
+      icon: `${PUBLIC_ICON}ethereum.svg`,
       id: "160",
       min: "1",
       max: "100",
@@ -1810,7 +1810,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1819,7 +1819,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1828,7 +1828,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1837,7 +1837,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1846,7 +1846,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1855,7 +1855,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1864,7 +1864,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1873,7 +1873,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1882,7 +1882,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1891,7 +1891,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1899,7 +1899,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "TRON (TRX)",
-      icon: `${ PUBLIC_ICON }TRON (TRX) (1).svg`,
+      icon: `${PUBLIC_ICON}TRON (TRX) (1).svg`,
       id: "185",
       min: "1",
       max: "100",
@@ -1911,7 +1911,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1920,7 +1920,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1929,7 +1929,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1938,7 +1938,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -1947,7 +1947,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1956,7 +1956,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1965,7 +1965,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1974,7 +1974,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1983,7 +1983,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -1992,7 +1992,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2000,7 +2000,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Cardano (ADA)",
-      icon: `${ PUBLIC_ICON }Cardano (ADA).svg`,
+      icon: `${PUBLIC_ICON}Cardano (ADA).svg`,
       id: "181",
       min: "1",
       max: "100",
@@ -2012,7 +2012,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2021,7 +2021,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2030,7 +2030,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2039,7 +2039,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2048,7 +2048,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2057,7 +2057,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2066,7 +2066,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2075,7 +2075,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2084,7 +2084,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2093,7 +2093,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2101,7 +2101,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Dogecoin (DOGE)",
-      icon: `${ PUBLIC_ICON }Dogecoin (DOGE) (1).svg`,
+      icon: `${PUBLIC_ICON}Dogecoin (DOGE) (1).svg`,
       id: "115",
       min: "1",
       max: "100",
@@ -2113,7 +2113,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2122,7 +2122,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2131,7 +2131,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2140,7 +2140,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2149,7 +2149,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2158,7 +2158,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2167,7 +2167,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2176,7 +2176,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2185,7 +2185,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2194,7 +2194,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2202,7 +2202,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "BinanceCoin BEP20 (BNB)",
-      icon: `${ PUBLIC_ICON }Binance Coin (BNB) (3).svg`,
+      icon: `${PUBLIC_ICON}Binance Coin (BNB) (3).svg`,
       id: "19",
       min: "1",
       max: "100",
@@ -2214,7 +2214,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2223,7 +2223,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2232,7 +2232,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2241,7 +2241,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2250,7 +2250,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2259,7 +2259,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2268,7 +2268,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2277,7 +2277,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2286,7 +2286,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2295,7 +2295,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2303,7 +2303,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Chainlink (LINK)",
-      icon: `${ PUBLIC_ICON }Chainlink (LINK) (1).svg`,
+      icon: `${PUBLIC_ICON}Chainlink (LINK) (1).svg`,
       id: "197",
       min: "1",
       max: "100",
@@ -2315,7 +2315,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2324,7 +2324,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2333,7 +2333,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2342,7 +2342,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2351,7 +2351,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2360,7 +2360,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2369,7 +2369,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2378,7 +2378,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2387,7 +2387,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2396,7 +2396,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2404,7 +2404,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Uniswap (UNI)",
-      icon: `${ PUBLIC_ICON }Uniswap (UNI).svg`,
+      icon: `${PUBLIC_ICON}Uniswap (UNI).svg`,
       id: "202",
       min: "1",
       max: "100",
@@ -2416,7 +2416,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2425,7 +2425,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2434,7 +2434,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2443,7 +2443,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2452,7 +2452,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2461,7 +2461,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2470,7 +2470,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2479,7 +2479,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2488,7 +2488,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2497,7 +2497,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2505,7 +2505,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Polkadot (DOT)",
-      icon: `${ PUBLIC_ICON }Polkadot (DOT).svg`,
+      icon: `${PUBLIC_ICON}Polkadot (DOT).svg`,
       id: "201",
       min: "1",
       max: "100",
@@ -2517,7 +2517,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2526,7 +2526,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2536,7 +2536,7 @@ const FormExchanger: FC = observer(() => {
           id: "91",
           name: "Cash RUB",
           min: "1",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           max: "100",
           reserve: "999",
           type: "cash",
@@ -2544,7 +2544,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2553,7 +2553,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2562,7 +2562,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2571,7 +2571,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2580,7 +2580,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2589,7 +2589,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2598,7 +2598,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2606,7 +2606,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Polygon (POL)",
-      icon: `${ PUBLIC_ICON }Polygon (MATIC).svg`,
+      icon: `${PUBLIC_ICON}Polygon (MATIC).svg`,
       id: "138",
       min: "1",
       max: "100",
@@ -2618,7 +2618,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2627,7 +2627,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2636,7 +2636,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2645,7 +2645,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2654,7 +2654,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2663,7 +2663,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2672,7 +2672,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2681,7 +2681,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2690,7 +2690,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2699,7 +2699,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2707,7 +2707,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Solana (SOL)",
-      icon: `${ PUBLIC_ICON }solana.svg`,
+      icon: `${PUBLIC_ICON}solana.svg`,
       id: "82",
       min: "1",
       max: "100",
@@ -2719,7 +2719,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2728,7 +2728,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2737,7 +2737,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2746,7 +2746,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2755,7 +2755,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2764,7 +2764,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2773,7 +2773,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2782,7 +2782,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2791,7 +2791,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2800,7 +2800,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2808,7 +2808,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Shiba BEP20 (SHIB)",
-      icon: `${ PUBLIC_ICON }SHIBA INU (SHIB).svg`,
+      icon: `${PUBLIC_ICON}SHIBA INU (SHIB).svg`,
       id: "32",
       min: "1",
       max: "100",
@@ -2820,7 +2820,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2829,7 +2829,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2838,7 +2838,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2847,7 +2847,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2856,7 +2856,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2865,7 +2865,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2874,7 +2874,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2883,7 +2883,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2892,7 +2892,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2901,7 +2901,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2909,7 +2909,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Tezos (XTZ)",
-      icon: `${ PUBLIC_ICON }Tezos (XTZ).svg`,
+      icon: `${PUBLIC_ICON}Tezos (XTZ).svg`,
       id: "175",
       min: "1",
       max: "100",
@@ -2921,7 +2921,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2930,7 +2930,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2939,7 +2939,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2948,7 +2948,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -2957,7 +2957,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2966,7 +2966,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2975,7 +2975,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2984,7 +2984,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -2993,7 +2993,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3002,7 +3002,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3010,7 +3010,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Algorand (ALGO)",
-      icon: `${ PUBLIC_ICON }Algorand (ALGO).svg`,
+      icon: `${PUBLIC_ICON}Algorand (ALGO).svg`,
       id: "216",
       min: "1",
       max: "100",
@@ -3022,7 +3022,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3031,7 +3031,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3040,7 +3040,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3049,7 +3049,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3058,7 +3058,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3067,7 +3067,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3076,7 +3076,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3085,7 +3085,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3094,7 +3094,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3103,7 +3103,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3111,7 +3111,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Tether AVALANCHE (USDT)",
-      icon: `${ PUBLIC_ICON }Avalanche (AVAX).svg`,
+      icon: `${PUBLIC_ICON}Avalanche (AVAX).svg`,
       id: "169",
       min: "1",
       max: "100",
@@ -3123,7 +3123,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3132,7 +3132,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3141,7 +3141,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3150,7 +3150,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3159,7 +3159,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3168,7 +3168,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3177,7 +3177,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3186,7 +3186,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3195,7 +3195,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3204,7 +3204,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3212,7 +3212,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "VeChain (VET)",
-      icon: `${ PUBLIC_ICON }VeChain (VET).svg`,
+      icon: `${PUBLIC_ICON}VeChain (VET).svg`,
       id: "8",
       min: "1",
       max: "100",
@@ -3224,7 +3224,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3233,7 +3233,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3242,7 +3242,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3251,7 +3251,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3260,7 +3260,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3269,7 +3269,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3278,7 +3278,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3287,7 +3287,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3296,7 +3296,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3305,7 +3305,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3313,7 +3313,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "NEO (NEO)",
-      icon: `${ PUBLIC_ICON }Neo (NEO).svg`,
+      icon: `${PUBLIC_ICON}Neo (NEO).svg`,
       id: "177",
       min: "1",
       max: "100",
@@ -3325,7 +3325,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3334,7 +3334,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3343,7 +3343,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3352,7 +3352,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3361,7 +3361,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3370,7 +3370,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3379,7 +3379,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3388,7 +3388,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3397,7 +3397,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3406,7 +3406,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3414,7 +3414,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "NEAR Protocol (NEAR)",
-      icon: `${ PUBLIC_ICON }NEAR Protocol (NEAR).svg`,
+      icon: `${PUBLIC_ICON}NEAR Protocol (NEAR).svg`,
       id: "76",
       min: "1",
       max: "100",
@@ -3426,7 +3426,7 @@ const FormExchanger: FC = observer(() => {
         Сбербанк: {
           id: "42",
           name: "Sberbank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3435,7 +3435,7 @@ const FormExchanger: FC = observer(() => {
         "Tinkoff-банк": {
           id: "105",
           name: "T-Bank (Tinkoff) RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3444,7 +3444,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3453,7 +3453,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3462,7 +3462,7 @@ const FormExchanger: FC = observer(() => {
         "Альфа-банк": {
           id: "52",
           name: "Alfa-Bank RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3471,7 +3471,7 @@ const FormExchanger: FC = observer(() => {
         Райффайзен: {
           id: "157",
           name: "Raiffeisen RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3480,7 +3480,7 @@ const FormExchanger: FC = observer(() => {
         "Карта Мир": {
           id: "17",
           name: "Mir сard RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3489,7 +3489,7 @@ const FormExchanger: FC = observer(() => {
         "Visa/Mastercard RUB": {
           id: "59",
           name: "Bank card RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3498,7 +3498,7 @@ const FormExchanger: FC = observer(() => {
         СБП: {
           id: "21",
           name: "SBP RUB",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3507,7 +3507,7 @@ const FormExchanger: FC = observer(() => {
         "Любой Банк": {
           id: "0",
           name: "Other bank",
-          icon: `${ PUBLIC_ICON }Bank.svg`,
+          icon: `${PUBLIC_ICON}Bank.svg`,
           type: "bank",
           min: "1",
           max: "100",
@@ -3515,7 +3515,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Verge (XVG)",
-      icon: `${ PUBLIC_ICON }Verge (XVG).svg`,
+      icon: `${PUBLIC_ICON}Verge (XVG).svg`,
       id: "124",
       min: "1",
       max: "100",
@@ -3527,7 +3527,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3536,7 +3536,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3545,7 +3545,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3554,7 +3554,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3562,7 +3562,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Ripple (XRP)",
-      icon: `${ PUBLIC_ICON }XRP (XRP).svg`,
+      icon: `${PUBLIC_ICON}XRP (XRP).svg`,
       id: "161",
       min: "1",
       max: "100",
@@ -3574,7 +3574,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3583,7 +3583,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3592,7 +3592,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3601,7 +3601,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3609,7 +3609,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Stellar (XLM)",
-      icon: `${ PUBLIC_ICON }Stellar (XLM).svg`,
+      icon: `${PUBLIC_ICON}Stellar (XLM).svg`,
       id: "182",
       min: "1",
       max: "100",
@@ -3621,7 +3621,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3630,7 +3630,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3639,7 +3639,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные RUB": {
           id: "91",
           name: "Cash RUB",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3648,7 +3648,7 @@ const FormExchanger: FC = observer(() => {
         "Наличные USD": {
           id: "89",
           name: "Cash USD",
-          icon: `${ PUBLIC_ICON }Cash.svg`,
+          icon: `${PUBLIC_ICON}Cash.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3656,7 +3656,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Cosmos (ATOM)",
-      icon: `${ PUBLIC_ICON }Cosmos (ATOM).svg`,
+      icon: `${PUBLIC_ICON}Cosmos (ATOM).svg`,
       id: "198",
       min: "1",
       max: "100",
@@ -3668,7 +3668,7 @@ const FormExchanger: FC = observer(() => {
         Bitcoin: {
           id: "93",
           name: "Bitcoin (BTC)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3677,7 +3677,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin BEP20": {
           id: "43",
           name: "Bitcoin BEP20 (BTCB)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3686,7 +3686,7 @@ const FormExchanger: FC = observer(() => {
         Monero: {
           id: "149",
           name: "Monero (XMR)",
-          icon: `${ PUBLIC_ICON }Monero (XMR).svg`,
+          icon: `${PUBLIC_ICON}Monero (XMR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3695,7 +3695,7 @@ const FormExchanger: FC = observer(() => {
         Ethereum: {
           id: "139",
           name: "Ethereum (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3704,7 +3704,7 @@ const FormExchanger: FC = observer(() => {
         "Ethereum BEP20": {
           id: "212",
           name: "Ethereum BEP20 (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3713,7 +3713,7 @@ const FormExchanger: FC = observer(() => {
         "Tether ERC20": {
           id: "36",
           name: "Tether ERC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3722,7 +3722,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3731,7 +3731,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3740,7 +3740,7 @@ const FormExchanger: FC = observer(() => {
         "Tether Solana": {
           id: "180",
           name: "Tether SOL (USDT)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3749,7 +3749,7 @@ const FormExchanger: FC = observer(() => {
         "USD Coin ERC20": {
           id: "23",
           name: "USDC ERC20 (USDC)",
-          icon: `${ PUBLIC_ICON }USDCoin(USDC)(2).svg`,
+          icon: `${PUBLIC_ICON}USDCoin(USDC)(2).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3758,7 +3758,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin Cash": {
           id: "172",
           name: "Bitcoin Cash (BCH)",
-          icon: `${ PUBLIC_ICON }Bitcoin Cash (BCH).svg`,
+          icon: `${PUBLIC_ICON}Bitcoin Cash (BCH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3767,7 +3767,7 @@ const FormExchanger: FC = observer(() => {
         Dash: {
           id: "140",
           name: "Dash (DASH)",
-          icon: `${ PUBLIC_ICON }Dash (DASH).svg`,
+          icon: `${PUBLIC_ICON}Dash (DASH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3776,7 +3776,7 @@ const FormExchanger: FC = observer(() => {
         Zcash: {
           id: "162",
           name: "Zcash (ZEC)",
-          icon: `${ PUBLIC_ICON }Zcash (ZEC).svg`,
+          icon: `${PUBLIC_ICON}Zcash (ZEC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3785,7 +3785,7 @@ const FormExchanger: FC = observer(() => {
         "Ether Classic": {
           id: "160",
           name: "Ethereum Classic (ETC)",
-          icon: `${ PUBLIC_ICON }Ethereum Classic (ETC).svg`,
+          icon: `${PUBLIC_ICON}Ethereum Classic (ETC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3794,7 +3794,7 @@ const FormExchanger: FC = observer(() => {
         Tron: {
           id: "185",
           name: "TRON (TRX)",
-          icon: `${ PUBLIC_ICON }TRON (TRX) (1).svg`,
+          icon: `${PUBLIC_ICON}TRON (TRX) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3803,7 +3803,7 @@ const FormExchanger: FC = observer(() => {
         Cardano: {
           id: "181",
           name: "Cardano (ADA)",
-          icon: `${ PUBLIC_ICON }Cardano (ADA).svg`,
+          icon: `${PUBLIC_ICON}Cardano (ADA).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3812,7 +3812,7 @@ const FormExchanger: FC = observer(() => {
         Dogecoin: {
           id: "115",
           name: "Dogecoin (DOGE)",
-          icon: `${ PUBLIC_ICON }Dogecoin (DOGE) (1).svg`,
+          icon: `${PUBLIC_ICON}Dogecoin (DOGE) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3821,7 +3821,7 @@ const FormExchanger: FC = observer(() => {
         "Binance Coin BEP20": {
           id: "19",
           name: "BinanceCoin BEP20 (BNB)",
-          icon: `${ PUBLIC_ICON }Binance Coin (BNB) (3).svg`,
+          icon: `${PUBLIC_ICON}Binance Coin (BNB) (3).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3830,7 +3830,7 @@ const FormExchanger: FC = observer(() => {
         "Chainlink BEP20": {
           id: "197",
           name: "Chainlink (LINK)",
-          icon: `${ PUBLIC_ICON }Chainlink (LINK) (1).svg`,
+          icon: `${PUBLIC_ICON}Chainlink (LINK) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3839,7 +3839,7 @@ const FormExchanger: FC = observer(() => {
         "Uniswap BEP20": {
           id: "202",
           name: "Uniswap (UNI)",
-          icon: `${ PUBLIC_ICON }Uniswap (UNI).svg`,
+          icon: `${PUBLIC_ICON}Uniswap (UNI).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3848,7 +3848,7 @@ const FormExchanger: FC = observer(() => {
         Polkadot: {
           id: "201",
           name: "Polkadot (DOT)",
-          icon: `${ PUBLIC_ICON }Polkadot (DOT).svg`,
+          icon: `${PUBLIC_ICON}Polkadot (DOT).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3857,7 +3857,7 @@ const FormExchanger: FC = observer(() => {
         Polygon: {
           id: "138",
           name: "Polygon (POL)",
-          icon: `${ PUBLIC_ICON }Polygon (MATIC).svg`,
+          icon: `${PUBLIC_ICON}Polygon (MATIC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3866,7 +3866,7 @@ const FormExchanger: FC = observer(() => {
         Solana: {
           id: "82",
           name: "Solana (SOL)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3875,7 +3875,7 @@ const FormExchanger: FC = observer(() => {
         "SHIBA INU ERC20": {
           id: "32",
           name: "Shiba BEP20 (SHIB)",
-          icon: `${ PUBLIC_ICON }SHIBA INU (SHIB).svg`,
+          icon: `${PUBLIC_ICON}SHIBA INU (SHIB).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3884,7 +3884,7 @@ const FormExchanger: FC = observer(() => {
         Tezos: {
           id: "175",
           name: "Tezos (XTZ)",
-          icon: `${ PUBLIC_ICON }Tezos (XTZ).svg`,
+          icon: `${PUBLIC_ICON}Tezos (XTZ).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3893,7 +3893,7 @@ const FormExchanger: FC = observer(() => {
         Algorand: {
           id: "216",
           name: "Algorand (ALGO)",
-          icon: `${ PUBLIC_ICON }Algorand (ALGO).svg`,
+          icon: `${PUBLIC_ICON}Algorand (ALGO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3902,7 +3902,7 @@ const FormExchanger: FC = observer(() => {
         Avalanche: {
           id: "169",
           name: "Tether AVALANCHE (USDT)",
-          icon: `${ PUBLIC_ICON }Avalanche (AVAX).svg`,
+          icon: `${PUBLIC_ICON}Avalanche (AVAX).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3911,7 +3911,7 @@ const FormExchanger: FC = observer(() => {
         NEO: {
           id: "177",
           name: "NEO (NEO)",
-          icon: `${ PUBLIC_ICON }Neo (NEO).svg`,
+          icon: `${PUBLIC_ICON}Neo (NEO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3920,7 +3920,7 @@ const FormExchanger: FC = observer(() => {
         "NEAR Protocol": {
           id: "76",
           name: "NEAR Protocol (NEAR)",
-          icon: `${ PUBLIC_ICON }NEAR Protocol (NEAR).svg`,
+          icon: `${PUBLIC_ICON}NEAR Protocol (NEAR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3929,7 +3929,7 @@ const FormExchanger: FC = observer(() => {
         Verge: {
           id: "124",
           name: "Verge (XVG)",
-          icon: `${ PUBLIC_ICON }Verge (XVG).svg`,
+          icon: `${PUBLIC_ICON}Verge (XVG).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3938,7 +3938,7 @@ const FormExchanger: FC = observer(() => {
         Ripple: {
           id: "161",
           name: "Ripple (XRP)",
-          icon: `${ PUBLIC_ICON }XRP (XRP).svg`,
+          icon: `${PUBLIC_ICON}XRP (XRP).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3947,7 +3947,7 @@ const FormExchanger: FC = observer(() => {
         Stellar: {
           id: "182",
           name: "Stellar (XLM)",
-          icon: `${ PUBLIC_ICON }Stellar (XLM).svg`,
+          icon: `${PUBLIC_ICON}Stellar (XLM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3956,7 +3956,7 @@ const FormExchanger: FC = observer(() => {
         Cosmos: {
           id: "198",
           name: "Cosmos (ATOM)",
-          icon: `${ PUBLIC_ICON }Cosmos (ATOM).svg`,
+          icon: `${PUBLIC_ICON}Cosmos (ATOM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3964,7 +3964,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Sberbank RUB",
-      icon: `${ PUBLIC_ICON }Bank.svg`,
+      icon: `${PUBLIC_ICON}Bank.svg`,
       id: "42",
       min: "1",
       max: "100",
@@ -3976,7 +3976,7 @@ const FormExchanger: FC = observer(() => {
         Bitcoin: {
           id: "93",
           name: "Bitcoin (BTC)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3985,7 +3985,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin BEP20": {
           id: "43",
           name: "Bitcoin BEP20 (BTCB)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -3994,7 +3994,7 @@ const FormExchanger: FC = observer(() => {
         Monero: {
           id: "149",
           name: "Monero (XMR)",
-          icon: `${ PUBLIC_ICON }Monero (XMR).svg`,
+          icon: `${PUBLIC_ICON}Monero (XMR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4003,7 +4003,7 @@ const FormExchanger: FC = observer(() => {
         Ethereum: {
           id: "139",
           name: "Ethereum (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4012,7 +4012,7 @@ const FormExchanger: FC = observer(() => {
         "Ethereum BEP20": {
           id: "212",
           name: "Ethereum BEP20 (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4021,7 +4021,7 @@ const FormExchanger: FC = observer(() => {
         "Tether ERC20": {
           id: "36",
           name: "Tether ERC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4030,7 +4030,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4039,7 +4039,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4048,7 +4048,7 @@ const FormExchanger: FC = observer(() => {
         "Tether Solana": {
           id: "180",
           name: "Tether SOL (USDT)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4057,7 +4057,7 @@ const FormExchanger: FC = observer(() => {
         "USD Coin ERC20": {
           id: "23",
           name: "USDC ERC20 (USDC)",
-          icon: `${ PUBLIC_ICON }USDCoin(USDC)(2).svg`,
+          icon: `${PUBLIC_ICON}USDCoin(USDC)(2).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4066,7 +4066,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin Cash": {
           id: "172",
           name: "Bitcoin Cash (BCH)",
-          icon: `${ PUBLIC_ICON }Bitcoin Cash (BCH).svg`,
+          icon: `${PUBLIC_ICON}Bitcoin Cash (BCH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4075,7 +4075,7 @@ const FormExchanger: FC = observer(() => {
         Dash: {
           id: "140",
           name: "Dash (DASH)",
-          icon: `${ PUBLIC_ICON }Dash (DASH).svg`,
+          icon: `${PUBLIC_ICON}Dash (DASH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4084,7 +4084,7 @@ const FormExchanger: FC = observer(() => {
         Zcash: {
           id: "162",
           name: "Zcash (ZEC)",
-          icon: `${ PUBLIC_ICON }Zcash (ZEC).svg`,
+          icon: `${PUBLIC_ICON}Zcash (ZEC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4093,7 +4093,7 @@ const FormExchanger: FC = observer(() => {
         "Ether Classic": {
           id: "160",
           name: "Ethereum Classic (ETC)",
-          icon: `${ PUBLIC_ICON }Ethereum Classic (ETC).svg`,
+          icon: `${PUBLIC_ICON}Ethereum Classic (ETC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4102,7 +4102,7 @@ const FormExchanger: FC = observer(() => {
         Tron: {
           id: "185",
           name: "TRON (TRX)",
-          icon: `${ PUBLIC_ICON }TRON (TRX) (1).svg`,
+          icon: `${PUBLIC_ICON}TRON (TRX) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4111,7 +4111,7 @@ const FormExchanger: FC = observer(() => {
         Cardano: {
           id: "181",
           name: "Cardano (ADA)",
-          icon: `${ PUBLIC_ICON }Cardano (ADA).svg`,
+          icon: `${PUBLIC_ICON}Cardano (ADA).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4120,7 +4120,7 @@ const FormExchanger: FC = observer(() => {
         Dogecoin: {
           id: "115",
           name: "Dogecoin (DOGE)",
-          icon: `${ PUBLIC_ICON }Dogecoin (DOGE) (1).svg`,
+          icon: `${PUBLIC_ICON}Dogecoin (DOGE) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4129,7 +4129,7 @@ const FormExchanger: FC = observer(() => {
         "Binance Coin BEP20": {
           id: "19",
           name: "BinanceCoin BEP20 (BNB)",
-          icon: `${ PUBLIC_ICON }Binance Coin (BNB) (3).svg`,
+          icon: `${PUBLIC_ICON}Binance Coin (BNB) (3).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4138,7 +4138,7 @@ const FormExchanger: FC = observer(() => {
         "Chainlink BEP20": {
           id: "197",
           name: "Chainlink (LINK)",
-          icon: `${ PUBLIC_ICON }Chainlink (LINK) (1).svg`,
+          icon: `${PUBLIC_ICON}Chainlink (LINK) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4147,7 +4147,7 @@ const FormExchanger: FC = observer(() => {
         "Uniswap BEP20": {
           id: "202",
           name: "Uniswap (UNI)",
-          icon: `${ PUBLIC_ICON }Uniswap (UNI).svg`,
+          icon: `${PUBLIC_ICON}Uniswap (UNI).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4156,7 +4156,7 @@ const FormExchanger: FC = observer(() => {
         Polkadot: {
           id: "201",
           name: "Polkadot (DOT)",
-          icon: `${ PUBLIC_ICON }Polkadot (DOT).svg`,
+          icon: `${PUBLIC_ICON}Polkadot (DOT).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4165,7 +4165,7 @@ const FormExchanger: FC = observer(() => {
         Polygon: {
           id: "138",
           name: "Polygon (POL)",
-          icon: `${ PUBLIC_ICON }Polygon (MATIC).svg`,
+          icon: `${PUBLIC_ICON}Polygon (MATIC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4174,7 +4174,7 @@ const FormExchanger: FC = observer(() => {
         Solana: {
           id: "82",
           name: "Solana (SOL)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4183,7 +4183,7 @@ const FormExchanger: FC = observer(() => {
         "SHIBA INU ERC20": {
           id: "32",
           name: "Shiba BEP20 (SHIB)",
-          icon: `${ PUBLIC_ICON }SHIBA INU (SHIB).svg`,
+          icon: `${PUBLIC_ICON}SHIBA INU (SHIB).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4192,7 +4192,7 @@ const FormExchanger: FC = observer(() => {
         Tezos: {
           id: "175",
           name: "Tezos (XTZ)",
-          icon: `${ PUBLIC_ICON }Tezos (XTZ).svg`,
+          icon: `${PUBLIC_ICON}Tezos (XTZ).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4201,7 +4201,7 @@ const FormExchanger: FC = observer(() => {
         Algorand: {
           id: "216",
           name: "Algorand (ALGO)",
-          icon: `${ PUBLIC_ICON }Algorand (ALGO).svg`,
+          icon: `${PUBLIC_ICON}Algorand (ALGO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4210,7 +4210,7 @@ const FormExchanger: FC = observer(() => {
         Avalanche: {
           id: "169",
           name: "Tether AVALANCHE (USDT)",
-          icon: `${ PUBLIC_ICON }Avalanche (AVAX).svg`,
+          icon: `${PUBLIC_ICON}Avalanche (AVAX).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4219,7 +4219,7 @@ const FormExchanger: FC = observer(() => {
         NEO: {
           id: "177",
           name: "NEO (NEO)",
-          icon: `${ PUBLIC_ICON }Neo (NEO).svg`,
+          icon: `${PUBLIC_ICON}Neo (NEO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4228,7 +4228,7 @@ const FormExchanger: FC = observer(() => {
         "NEAR Protocol": {
           id: "76",
           name: "NEAR Protocol (NEAR)",
-          icon: `${ PUBLIC_ICON }NEAR Protocol (NEAR).svg`,
+          icon: `${PUBLIC_ICON}NEAR Protocol (NEAR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4237,7 +4237,7 @@ const FormExchanger: FC = observer(() => {
         Verge: {
           id: "124",
           name: "Verge (XVG)",
-          icon: `${ PUBLIC_ICON }Verge (XVG).svg`,
+          icon: `${PUBLIC_ICON}Verge (XVG).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4246,7 +4246,7 @@ const FormExchanger: FC = observer(() => {
         Ripple: {
           id: "161",
           name: "Ripple (XRP)",
-          icon: `${ PUBLIC_ICON }XRP (XRP).svg`,
+          icon: `${PUBLIC_ICON}XRP (XRP).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4255,7 +4255,7 @@ const FormExchanger: FC = observer(() => {
         Stellar: {
           id: "182",
           name: "Stellar (XLM)",
-          icon: `${ PUBLIC_ICON }Stellar (XLM).svg`,
+          icon: `${PUBLIC_ICON}Stellar (XLM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4264,7 +4264,7 @@ const FormExchanger: FC = observer(() => {
         Cosmos: {
           id: "198",
           name: "Cosmos (ATOM)",
-          icon: `${ PUBLIC_ICON }Cosmos (ATOM).svg`,
+          icon: `${PUBLIC_ICON}Cosmos (ATOM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4272,7 +4272,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "T-Bank (Tinkoff) RUB",
-      icon: `${ PUBLIC_ICON }Bank.svg`,
+      icon: `${PUBLIC_ICON}Bank.svg`,
       id: "105",
       min: "1",
       max: "100",
@@ -4284,7 +4284,7 @@ const FormExchanger: FC = observer(() => {
         Bitcoin: {
           id: "93",
           name: "Bitcoin (BTC)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4293,7 +4293,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin BEP20": {
           id: "43",
           name: "Bitcoin BEP20 (BTCB)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4302,7 +4302,7 @@ const FormExchanger: FC = observer(() => {
         Monero: {
           id: "149",
           name: "Monero (XMR)",
-          icon: `${ PUBLIC_ICON }Monero (XMR).svg`,
+          icon: `${PUBLIC_ICON}Monero (XMR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4311,7 +4311,7 @@ const FormExchanger: FC = observer(() => {
         Toncoin: {
           id: "209",
           name: "Toncoin (TON)",
-          icon: `${ PUBLIC_ICON }toncoin.svg`,
+          icon: `${PUBLIC_ICON}toncoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4320,7 +4320,7 @@ const FormExchanger: FC = observer(() => {
         Ethereum: {
           id: "139",
           name: "Ethereum (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4329,7 +4329,7 @@ const FormExchanger: FC = observer(() => {
         "Ethereum BEP20": {
           id: "212",
           name: "Ethereum BEP20 (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4338,7 +4338,7 @@ const FormExchanger: FC = observer(() => {
         "Tether ERC20": {
           id: "36",
           name: "Tether ERC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4347,7 +4347,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4356,7 +4356,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4365,7 +4365,7 @@ const FormExchanger: FC = observer(() => {
         "Tether Solana": {
           id: "180",
           name: "Tether SOL (USDT)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4374,7 +4374,7 @@ const FormExchanger: FC = observer(() => {
         "USD Coin ERC20": {
           id: "23",
           name: "USDC ERC20 (USDC)",
-          icon: `${ PUBLIC_ICON }USDCoin(USDC)(2).svg`,
+          icon: `${PUBLIC_ICON}USDCoin(USDC)(2).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4383,7 +4383,7 @@ const FormExchanger: FC = observer(() => {
         Litecoin: {
           id: "99",
           name: "Litecoin (LTC)",
-          icon: `${ PUBLIC_ICON }Litecoin (LTC).svg`,
+          icon: `${PUBLIC_ICON}Litecoin (LTC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4392,7 +4392,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin Cash": {
           id: "172",
           name: "Bitcoin Cash (BCH)",
-          icon: `${ PUBLIC_ICON }Bitcoin Cash (BCH).svg`,
+          icon: `${PUBLIC_ICON}Bitcoin Cash (BCH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4401,7 +4401,7 @@ const FormExchanger: FC = observer(() => {
         Dash: {
           id: "140",
           name: "Dash (DASH)",
-          icon: `${ PUBLIC_ICON }Dash (DASH).svg`,
+          icon: `${PUBLIC_ICON}Dash (DASH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4410,7 +4410,7 @@ const FormExchanger: FC = observer(() => {
         Zcash: {
           id: "162",
           name: "Zcash (ZEC)",
-          icon: `${ PUBLIC_ICON }Zcash (ZEC).svg`,
+          icon: `${PUBLIC_ICON}Zcash (ZEC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4419,7 +4419,7 @@ const FormExchanger: FC = observer(() => {
         "Ether Classic": {
           id: "160",
           name: "Ethereum Classic (ETC)",
-          icon: `${ PUBLIC_ICON }Ethereum Classic (ETC).svg`,
+          icon: `${PUBLIC_ICON}Ethereum Classic (ETC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4428,7 +4428,7 @@ const FormExchanger: FC = observer(() => {
         Tron: {
           id: "185",
           name: "TRON (TRX)",
-          icon: `${ PUBLIC_ICON }TRON (TRX) (1).svg`,
+          icon: `${PUBLIC_ICON}TRON (TRX) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4437,7 +4437,7 @@ const FormExchanger: FC = observer(() => {
         Cardano: {
           id: "181",
           name: "Cardano (ADA)",
-          icon: `${ PUBLIC_ICON }Cardano (ADA).svg`,
+          icon: `${PUBLIC_ICON}Cardano (ADA).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4446,7 +4446,7 @@ const FormExchanger: FC = observer(() => {
         Dogecoin: {
           id: "115",
           name: "Dogecoin (DOGE)",
-          icon: `${ PUBLIC_ICON }Dogecoin (DOGE) (1).svg`,
+          icon: `${PUBLIC_ICON}Dogecoin (DOGE) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4455,7 +4455,7 @@ const FormExchanger: FC = observer(() => {
         "Binance Coin BEP20": {
           id: "19",
           name: "BinanceCoin BEP20 (BNB)",
-          icon: `${ PUBLIC_ICON }Binance Coin (BNB) (3).svg`,
+          icon: `${PUBLIC_ICON}Binance Coin (BNB) (3).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4464,7 +4464,7 @@ const FormExchanger: FC = observer(() => {
         "Chainlink BEP20": {
           id: "197",
           name: "Chainlink (LINK)",
-          icon: `${ PUBLIC_ICON }Chainlink (LINK) (1).svg`,
+          icon: `${PUBLIC_ICON}Chainlink (LINK) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4473,7 +4473,7 @@ const FormExchanger: FC = observer(() => {
         "Uniswap BEP20": {
           id: "202",
           name: "Uniswap (UNI)",
-          icon: `${ PUBLIC_ICON }Uniswap (UNI).svg`,
+          icon: `${PUBLIC_ICON}Uniswap (UNI).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4482,7 +4482,7 @@ const FormExchanger: FC = observer(() => {
         Polkadot: {
           id: "201",
           name: "Polkadot (DOT)",
-          icon: `${ PUBLIC_ICON }Polkadot (DOT).svg`,
+          icon: `${PUBLIC_ICON}Polkadot (DOT).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4491,7 +4491,7 @@ const FormExchanger: FC = observer(() => {
         Polygon: {
           id: "138",
           name: "Polygon (POL)",
-          icon: `${ PUBLIC_ICON }Polygon (MATIC).svg`,
+          icon: `${PUBLIC_ICON}Polygon (MATIC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4500,7 +4500,7 @@ const FormExchanger: FC = observer(() => {
         Solana: {
           id: "82",
           name: "Solana (SOL)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4509,7 +4509,7 @@ const FormExchanger: FC = observer(() => {
         "SHIBA INU ERC20": {
           id: "32",
           name: "Shiba BEP20 (SHIB)",
-          icon: `${ PUBLIC_ICON }SHIBA INU (SHIB).svg`,
+          icon: `${PUBLIC_ICON}SHIBA INU (SHIB).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4518,7 +4518,7 @@ const FormExchanger: FC = observer(() => {
         Tezos: {
           id: "175",
           name: "Tezos (XTZ)",
-          icon: `${ PUBLIC_ICON }Tezos (XTZ).svg`,
+          icon: `${PUBLIC_ICON}Tezos (XTZ).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4527,7 +4527,7 @@ const FormExchanger: FC = observer(() => {
         Algorand: {
           id: "216",
           name: "Algorand (ALGO)",
-          icon: `${ PUBLIC_ICON }Algorand (ALGO).svg`,
+          icon: `${PUBLIC_ICON}Algorand (ALGO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4536,7 +4536,7 @@ const FormExchanger: FC = observer(() => {
         Avalanche: {
           id: "169",
           name: "Tether AVALANCHE (USDT)",
-          icon: `${ PUBLIC_ICON }Avalanche (AVAX).svg`,
+          icon: `${PUBLIC_ICON}Avalanche (AVAX).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4545,7 +4545,7 @@ const FormExchanger: FC = observer(() => {
         VeChain: {
           id: "8",
           name: "VeChain (VET)",
-          icon: `${ PUBLIC_ICON }VeChain (VET).svg`,
+          icon: `${PUBLIC_ICON}VeChain (VET).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4554,7 +4554,7 @@ const FormExchanger: FC = observer(() => {
         NEO: {
           id: "177",
           name: "NEO (NEO)",
-          icon: `${ PUBLIC_ICON }Neo (NEO).svg`,
+          icon: `${PUBLIC_ICON}Neo (NEO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4563,7 +4563,7 @@ const FormExchanger: FC = observer(() => {
         "NEAR Protocol": {
           id: "76",
           name: "NEAR Protocol (NEAR)",
-          icon: `${ PUBLIC_ICON }NEAR Protocol (NEAR).svg`,
+          icon: `${PUBLIC_ICON}NEAR Protocol (NEAR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4572,7 +4572,7 @@ const FormExchanger: FC = observer(() => {
         Verge: {
           id: "124",
           name: "Verge (XVG)",
-          icon: `${ PUBLIC_ICON }Verge (XVG).svg`,
+          icon: `${PUBLIC_ICON}Verge (XVG).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4581,7 +4581,7 @@ const FormExchanger: FC = observer(() => {
         Ripple: {
           id: "161",
           name: "Ripple (XRP)",
-          icon: `${ PUBLIC_ICON }XRP (XRP).svg`,
+          icon: `${PUBLIC_ICON}XRP (XRP).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4590,7 +4590,7 @@ const FormExchanger: FC = observer(() => {
         Stellar: {
           id: "182",
           name: "Stellar (XLM)",
-          icon: `${ PUBLIC_ICON }Stellar (XLM).svg`,
+          icon: `${PUBLIC_ICON}Stellar (XLM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4599,7 +4599,7 @@ const FormExchanger: FC = observer(() => {
         Cosmos: {
           id: "198",
           name: "Cosmos (ATOM)",
-          icon: `${ PUBLIC_ICON }Cosmos (ATOM).svg`,
+          icon: `${PUBLIC_ICON}Cosmos (ATOM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4607,7 +4607,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Cash RUB",
-      icon: `${ PUBLIC_ICON }Cash.svg`,
+      icon: `${PUBLIC_ICON}Cash.svg`,
       id: "91",
       min: "1",
       max: "100",
@@ -4619,7 +4619,7 @@ const FormExchanger: FC = observer(() => {
         Bitcoin: {
           id: "93",
           name: "Bitcoin (BTC)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4628,7 +4628,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin BEP20": {
           id: "43",
           name: "Bitcoin BEP20 (BTCB)",
-          icon: `${ PUBLIC_ICON }bitcoin.svg`,
+          icon: `${PUBLIC_ICON}bitcoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4637,7 +4637,7 @@ const FormExchanger: FC = observer(() => {
         Monero: {
           id: "149",
           name: "Monero (XMR)",
-          icon: `${ PUBLIC_ICON }Monero (XMR).svg`,
+          icon: `${PUBLIC_ICON}Monero (XMR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4646,7 +4646,7 @@ const FormExchanger: FC = observer(() => {
         Toncoin: {
           id: "209",
           name: "Toncoin (TON)",
-          icon: `${ PUBLIC_ICON }toncoin.svg`,
+          icon: `${PUBLIC_ICON}toncoin.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4655,7 +4655,7 @@ const FormExchanger: FC = observer(() => {
         Ethereum: {
           id: "139",
           name: "Ethereum (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4664,7 +4664,7 @@ const FormExchanger: FC = observer(() => {
         "Ethereum BEP20": {
           id: "212",
           name: "Ethereum BEP20 (ETH)",
-          icon: `${ PUBLIC_ICON }ethereum.svg`,
+          icon: `${PUBLIC_ICON}ethereum.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4673,7 +4673,7 @@ const FormExchanger: FC = observer(() => {
         "Tether ERC20": {
           id: "36",
           name: "Tether ERC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4682,7 +4682,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4691,7 +4691,7 @@ const FormExchanger: FC = observer(() => {
         "Tether BEP20": {
           id: "208",
           name: "Tether BEP20 (USDT)",
-          icon: `${ PUBLIC_ICON }Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4700,7 +4700,7 @@ const FormExchanger: FC = observer(() => {
         "Tether Solana": {
           id: "180",
           name: "Tether SOL (USDT)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4709,7 +4709,7 @@ const FormExchanger: FC = observer(() => {
         "USD Coin ERC20": {
           id: "23",
           name: "USDC ERC20 (USDC)",
-          icon: `${ PUBLIC_ICON }USDCoin(USDC)(2).svg`,
+          icon: `${PUBLIC_ICON}USDCoin(USDC)(2).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4718,7 +4718,7 @@ const FormExchanger: FC = observer(() => {
         Litecoin: {
           id: "99",
           name: "Litecoin (LTC)",
-          icon: `${ PUBLIC_ICON }Litecoin (LTC).svg`,
+          icon: `${PUBLIC_ICON}Litecoin (LTC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4727,7 +4727,7 @@ const FormExchanger: FC = observer(() => {
         "Bitcoin Cash": {
           id: "172",
           name: "Bitcoin Cash (BCH)",
-          icon: `${ PUBLIC_ICON }Bitcoin Cash (BCH).svg`,
+          icon: `${PUBLIC_ICON}Bitcoin Cash (BCH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4736,7 +4736,7 @@ const FormExchanger: FC = observer(() => {
         Dash: {
           id: "140",
           name: "Dash (DASH)",
-          icon: `${ PUBLIC_ICON }Dash (DASH).svg`,
+          icon: `${PUBLIC_ICON}Dash (DASH).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4745,7 +4745,7 @@ const FormExchanger: FC = observer(() => {
         Zcash: {
           id: "162",
           name: "Zcash (ZEC)",
-          icon: `${ PUBLIC_ICON }Zcash (ZEC).svg`,
+          icon: `${PUBLIC_ICON}Zcash (ZEC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4754,7 +4754,7 @@ const FormExchanger: FC = observer(() => {
         "Ether Classic": {
           id: "160",
           name: "Ethereum Classic (ETC)",
-          icon: `${ PUBLIC_ICON }Ethereum Classic (ETC).svg`,
+          icon: `${PUBLIC_ICON}Ethereum Classic (ETC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4763,7 +4763,7 @@ const FormExchanger: FC = observer(() => {
         Tron: {
           id: "185",
           name: "TRON (TRX)",
-          icon: `${ PUBLIC_ICON }TRON (TRX) (1).svg`,
+          icon: `${PUBLIC_ICON}TRON (TRX) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4772,7 +4772,7 @@ const FormExchanger: FC = observer(() => {
         Cardano: {
           id: "181",
           name: "Cardano (ADA)",
-          icon: `${ PUBLIC_ICON }Cardano (ADA).svg`,
+          icon: `${PUBLIC_ICON}Cardano (ADA).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4781,7 +4781,7 @@ const FormExchanger: FC = observer(() => {
         Dogecoin: {
           id: "115",
           name: "Dogecoin (DOGE)",
-          icon: `${ PUBLIC_ICON }Dogecoin (DOGE) (1).svg`,
+          icon: `${PUBLIC_ICON}Dogecoin (DOGE) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4790,7 +4790,7 @@ const FormExchanger: FC = observer(() => {
         "Binance Coin BEP20": {
           id: "19",
           name: "BinanceCoin BEP20 (BNB)",
-          icon: `${ PUBLIC_ICON }Binance Coin (BNB) (3).svg`,
+          icon: `${PUBLIC_ICON}Binance Coin (BNB) (3).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4799,7 +4799,7 @@ const FormExchanger: FC = observer(() => {
         "Chainlink BEP20": {
           id: "197",
           name: "Chainlink (LINK)",
-          icon: `${ PUBLIC_ICON }Chainlink (LINK) (1).svg`,
+          icon: `${PUBLIC_ICON}Chainlink (LINK) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4808,7 +4808,7 @@ const FormExchanger: FC = observer(() => {
         "Uniswap BEP20": {
           id: "202",
           name: "Uniswap (UNI)",
-          icon: `${ PUBLIC_ICON }Uniswap (UNI).svg`,
+          icon: `${PUBLIC_ICON}Uniswap (UNI).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4817,7 +4817,7 @@ const FormExchanger: FC = observer(() => {
         Polkadot: {
           id: "201",
           name: "Polkadot (DOT)",
-          icon: `${ PUBLIC_ICON }Polkadot (DOT).svg`,
+          icon: `${PUBLIC_ICON}Polkadot (DOT).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4826,7 +4826,7 @@ const FormExchanger: FC = observer(() => {
         Polygon: {
           id: "138",
           name: "Polygon (POL)",
-          icon: `${ PUBLIC_ICON }Polygon (MATIC).svg`,
+          icon: `${PUBLIC_ICON}Polygon (MATIC).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4835,7 +4835,7 @@ const FormExchanger: FC = observer(() => {
         Solana: {
           id: "82",
           name: "Solana (SOL)",
-          icon: `${ PUBLIC_ICON }solana.svg`,
+          icon: `${PUBLIC_ICON}solana.svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4844,7 +4844,7 @@ const FormExchanger: FC = observer(() => {
         "SHIBA INU ERC20": {
           id: "32",
           name: "Shiba BEP20 (SHIB)",
-          icon: `${ PUBLIC_ICON }SHIBA INU (SHIB).svg`,
+          icon: `${PUBLIC_ICON}SHIBA INU (SHIB).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4853,7 +4853,7 @@ const FormExchanger: FC = observer(() => {
         Tezos: {
           id: "175",
           name: "Tezos (XTZ)",
-          icon: `${ PUBLIC_ICON }Tezos (XTZ).svg`,
+          icon: `${PUBLIC_ICON}Tezos (XTZ).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4862,7 +4862,7 @@ const FormExchanger: FC = observer(() => {
         Algorand: {
           id: "216",
           name: "Algorand (ALGO)",
-          icon: `${ PUBLIC_ICON }Algorand (ALGO).svg`,
+          icon: `${PUBLIC_ICON}Algorand (ALGO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4871,7 +4871,7 @@ const FormExchanger: FC = observer(() => {
         Avalanche: {
           id: "169",
           name: "Tether AVALANCHE (USDT)",
-          icon: `${ PUBLIC_ICON }Avalanche (AVAX).svg`,
+          icon: `${PUBLIC_ICON}Avalanche (AVAX).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4880,7 +4880,7 @@ const FormExchanger: FC = observer(() => {
         VeChain: {
           id: "8",
           name: "VeChain (VET)",
-          icon: `${ PUBLIC_ICON }VeChain (VET).svg`,
+          icon: `${PUBLIC_ICON}VeChain (VET).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4889,7 +4889,7 @@ const FormExchanger: FC = observer(() => {
         NEO: {
           id: "177",
           name: "NEO (NEO)",
-          icon: `${ PUBLIC_ICON }(NEO).svg`,
+          icon: `${PUBLIC_ICON}(NEO).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4898,7 +4898,7 @@ const FormExchanger: FC = observer(() => {
         "NEAR Protocol": {
           id: "76",
           name: "NEAR Protocol (NEAR)",
-          icon: `${ PUBLIC_ICON }NEAR Protocol (NEAR).svg`,
+          icon: `${PUBLIC_ICON}NEAR Protocol (NEAR).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4907,7 +4907,7 @@ const FormExchanger: FC = observer(() => {
         Verge: {
           id: "124",
           name: "Verge (XVG)",
-          icon: `${ PUBLIC_ICON }Verge (XVG).svg`,
+          icon: `${PUBLIC_ICON}Verge (XVG).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4916,7 +4916,7 @@ const FormExchanger: FC = observer(() => {
         Ripple: {
           id: "161",
           name: "Ripple (XRP)",
-          icon: `${ PUBLIC_ICON }XRP (XRP).svg`,
+          icon: `${PUBLIC_ICON}XRP (XRP).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4925,7 +4925,7 @@ const FormExchanger: FC = observer(() => {
         Stellar: {
           id: "182",
           name: "Stellar (XLM)",
-          icon: `${ PUBLIC_ICON }Stellar (XLM).svg`,
+          icon: `${PUBLIC_ICON}Stellar (XLM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4934,7 +4934,7 @@ const FormExchanger: FC = observer(() => {
         Cosmos: {
           id: "198",
           name: "Cosmos (ATOM)",
-          icon: `${ PUBLIC_ICON }Cosmos (ATOM).svg`,
+          icon: `${PUBLIC_ICON}Cosmos (ATOM).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4942,7 +4942,7 @@ const FormExchanger: FC = observer(() => {
         },
       },
       cur_name: "Cash USD",
-      icon: `${ PUBLIC_ICON }Cash.svg`,
+      icon: `${PUBLIC_ICON}Cash.svg`,
       id: "89",
       min: "1",
       max: "100",
@@ -4951,13 +4951,15 @@ const FormExchanger: FC = observer(() => {
     },
   };
 
+  console.log("путь сбер "+jsonData["Сбербанк"]?.icon)
+  console.log("путь райф "+jsonData["Райффайзен"])
+
   const payOptions = Object.keys(jsonData);
   const receiveOptions = useMemo(() => {
     return selectedPay
       ? Object.keys(jsonData[selectedPay]?.directions || {})
       : [];
   }, [selectedPay]);
-
 
   const options = payOptions.map((option: string) => ({
     value: option,
@@ -5238,7 +5240,7 @@ const FormExchanger: FC = observer(() => {
                   {payOptions.map((option) => (
                     <option key={option} value={option}>
                       {option}
-                      {<img  src={jsonData[selectedPay]?.icon}/>}
+                      {<img src={jsonData[selectedPay]?.icon} />}
                     </option>
                   ))}
                 </select>
@@ -5247,7 +5249,6 @@ const FormExchanger: FC = observer(() => {
                     src={jsonData[selectedPay]?.icon}
                     alt={jsonData[selectedPay]?.cur_name}
                     className={styles.form__paySelectImg}
-                    
                   />
                 )}
                 <MyInput
@@ -5300,10 +5301,9 @@ const FormExchanger: FC = observer(() => {
                 </select>
                 {selectedReceive && (
                   <img
-                    src={jsonData[selectedReceive]?.icon}
-                    alt={jsonData[selectedReceive]?.cur_name}
+                    src={jsonData[selectedPay]?.directions[selectedReceive]?.icon}
+                    alt={jsonData[selectedPay]?.directions[selectedReceive]?.name}
                     className={styles.form__receiveSelectImg}
-                    
                   />
                 )}
                 <MyInput

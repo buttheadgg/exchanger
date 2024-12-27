@@ -60,14 +60,14 @@
   height: 1px;
   width: 100%;
   background: #0c1838;
-  top: 10%;
+  top: 100%;
 }
 
 .duration__wrapper {
   display: flex;
   align-items: center;
-  justify-content:flex-start;
-  flex-wrap: wrap; 
+  justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 7px;
 }
 
@@ -169,12 +169,13 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.45);
   padding: 16px;
+  position: relative;
 }
 
 .amount__inputButton {
   position: absolute;
   top: 30%;
-  right: 5%;
+  right: 10%;
   border: 1px solid #2ef2ff;
   border-radius: 8px;
   padding: 8px 12px;
@@ -305,6 +306,7 @@
   display: flex;
   gap: 8px;
   justify-content: start;
+  align-items: center;
   padding-top: 50px;
 }
 
@@ -363,6 +365,94 @@
   box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
 }
 
-.selectedPeriod{
+.selectedPeriod {
   border: 1px solid rgba(46, 242, 255, 1);
 }
+
+.durations__checkboxTextWrapperMob{
+  display: none;
+}
+
+@media (max-width: 1217px) {
+  .durations__checkboxTextWrapper {
+    display: none;
+  }
+  .durations__checkboxTextWrapperMob {
+    display: flex;
+    flex-direction: column;
+    font-family: "Popins";
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  .durations__checkboxTextWrapperMob span {
+    font-family: "Popins";
+    font-size: 16px;
+    font-weight: 500;
+    color: #c8ea80;
+  }
+}
+
+@media(max-width: 1200px)
+{
+  .window__wrapper{
+    min-width: 600px;
+  }
+}
+
+@media(max-width: 1062px){
+  .window__bottomLine{
+    
+  }
+}
+
+@media(max-width: 625px)
+{
+  .window__wrapper{
+    min-width: 550px;
+  }
+}
+
+@media(max-width:600px){
+  .durations__checkbox{
+    width: 18px;
+    height: 16px;
+  }
+}
+
+@media(max-width: 571px)
+{
+  .window__wrapper{
+    min-width: 500px;
+  }
+}
+
+@media(max-width: 519px)
+{
+  .window__wrapper{
+    min-width: 450px;
+  }
+  .available__wrapperHead{
+    flex-direction: column;
+    gap: 5px;
+  }
+  .summary__rightText{
+    display: none;
+  }
+}
+
+@media(max-width: 465px)
+{
+  .window__wrapper{
+    min-width: 400px;
+  }
+}
+
+@media(max-width: 419px)
+{
+  .window__wrapper{
+    width: 300px;
+  }
+}
+
+

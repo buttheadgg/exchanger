@@ -6,12 +6,30 @@ import { runInAction } from "mobx";
 import { observer } from "mobx-react-lite";
 
 const Durations = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedDuration, setSelectedDuration] = useState("All Durations");
   const handleSelectPeriod = (coin: string, period: string) => {
     runInAction(() => {
       poolsStore.updateField("coin", coin);
       poolsStore.updateField("period", period);
     });
   };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value.toLowerCase());
+  };
+
+  const handleDurationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedDuration(e.target.value);
+  };
+
+  const filteredCoins = Object.entries(poolsStore.formData)
+    .filter(([coin]) => coin.toLowerCase().includes(searchTerm))
+    .filter(([_, { detail }]) =>
+      selectedDuration === "All Durations"
+        ? true
+        : detail.periods.some((period) => period.period === selectedDuration)
+    );
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -37,28 +55,35 @@ const Durations = () => {
             <input
               className={styles.durations__searchInput}
               placeholder="Search coins"
+              value={searchTerm}
+              onChange={handleSearchChange}
             />
             <div className={styles.durations__searchInputImg}>
-              <img src={PUBLIC_IMAGE + "durationSearch.svg"} alt="" />
+              <img
+                src={PUBLIC_IMAGE + "durationSearch.svg"}
+                alt="иконка лупы"
+              />
             </div>
           </div>
           <div className={styles.durations__searchSelect}>
-            <select>
-              <option>All Durations</option>
-              <option>Option 1</option>
-              <option>Option 2</option>
+            <select value={selectedDuration} onChange={handleDurationChange}>
+              <option value="All Durations">All Durations</option>
+              <option value="0">Flexible</option>
+              <option value="30">30 Days</option>
+              <option value="60">60 Days</option>
+              <option value="120">120 Days</option>
             </select>
           </div>
           <div className={styles.durations__searchCheckbox}>
             <input
-              name="rememberData"
+              name="MatchAssets"
               type="checkbox"
               className={styles.durations__checkbox}
               id="checkboxDuration"
               onChange={handleChange}
             />
             <div className={styles.durations__checkboxText}>
-              Do not remember data
+              Match My Assets
             </div>
           </div>
         </div>
@@ -72,11 +97,12 @@ const Durations = () => {
           </div>
           <div className={styles.durations__bodyHeaderZero}></div>
         </div>
-        {Object.entries(poolsStore.formData).map(([coin, { detail }]) => {
+        {filteredCoins.map(([coin, { detail }]) => {
           const isActiveCoin = poolsStore.formDataPools.coin === coin;
           const selectedPeriod = isActiveCoin
             ? poolsStore.formDataPools.period
             : null;
+
           return (
             <div key={coin} className={styles.durations__bodyLine}>
               <div className={styles.durations__bodyLineCoinWrapper}>
@@ -105,10 +131,10 @@ const Durations = () => {
               <div className={styles.durations__bodyLineDurationWrapper}>
                 {detail.periods.map((period, index) => (
                   <div
-                    key={index}
+                    key={`${coin}-${index}`}
                     onClick={() => handleSelectPeriod(coin, period.period)}
                     className={`${
-                      selectedPeriod === period.period
+                      isActiveCoin && selectedPeriod === period.period
                         ? styles.durations__bodyLineDurationActive
                         : styles.durations__bodyLineDuration
                     }`}
@@ -129,6 +155,75 @@ const Durations = () => {
               >
                 Subscribe
               </button>
+            </div>
+          );
+        })}
+      </div>
+      <div className={styles.durations__bodyMobil}>
+        <div className={styles.durations__bodyHeadMobil}>
+          <div className={styles.durations__headCoinMobil}>Coin</div>
+          <div className={styles.durations__headAPRMobil}>APR</div>
+        </div>
+        {filteredCoins.map(([coin, { detail }]) => {
+          const isActiveCoin = poolsStore.formDataPools.coin === coin;
+          const selectedPeriod = isActiveCoin
+            ? poolsStore.formDataPools.period
+            : null;
+          return (
+            <div className={styles.durations__bodyBoxMobil}>
+              <div className={styles.durations__BoxNameWrapperMobil}>
+                <div key={coin} className={styles.durations__BoxNameMobil}>
+                  <div>
+                    <img src={`${PUBLIC_ICON}${coin.toLowerCase()}.svg`} />
+                  </div>
+                  <div>{coin}</div>
+                </div>
+                <div className={styles.durations__BoxValueMobil}>
+                  <div className={styles.durations__BoxValueProcentMobil}>
+                    {detail.apyRange.length === 2
+                      ? `${parseFloat(detail.apyRange[0]).toFixed(
+                          4
+                        )}%-${parseFloat(detail.apyRange[1]).toFixed(4)}%`
+                      : `${parseFloat(detail.highestApy).toFixed(4)}%`}
+                  </div>
+                  <div className={styles.durations__BoxValueNameMobil}>
+                    Earn {coin}
+                  </div>
+                </div>
+              </div>
+              <div className={styles.durations__BoxNameDurationMobil}>
+                Duration (Days)
+              </div>
+              <div className={styles.durations__BoxDurationWrapperMobil}>
+                <div className={styles.durations__BoxDurationVariantsMobil}>
+                  {detail.periods.map((period, index) => (
+                    <div
+                      key={index}
+                      onClick={() => handleSelectPeriod(coin, period.period)}
+                      className={`${
+                        selectedPeriod === period.period
+                          ? styles.durations__BoxDurationVariantsBoxMobilActive
+                          : styles.durations__BoxDurationVariantsBoxMobil
+                      }`}
+                    >
+                      {period.period === "0" ? "Flexible" : period.period}
+                    </div>
+                  ))}
+                </div>
+                <div className={styles.durations__BoxDurationButtonMobil}>
+                  <button
+                    className={`${styles.durations__bodyLineButton} ${
+                      isActiveCoin && selectedPeriod
+                        ? styles.durations__bodyLineDurationActive
+                        : ""
+                    }`}
+                    disabled={!isActiveCoin || !selectedPeriod}
+                    onClick={handleSubscribe}
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
             </div>
           );
         })}

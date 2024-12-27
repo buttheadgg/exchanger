@@ -1,6 +1,6 @@
 .cancel__wrapper {
   background: linear-gradient(180deg, #243474 0%, #0f1434 100%);
-  max-width: 600px;
+  min-width: 600px;
   width: 100%;
   border-radius: 40px;
   border: 3px solid #334679;
@@ -72,4 +72,22 @@
 
 .cancel__button{
     margin-top: 20px;
+}
+
+@media(max-width:622px){
+  .cancel__wrapper{
+    min-width: 500px;
+  }
+}
+
+@media(max-width:527px){
+  .cancel__wrapper{
+    min-width: 400px;
+  }
+}
+
+@media(max-width:425px){
+  .cancel__wrapper{
+    min-width: 350px;
+  }
 }

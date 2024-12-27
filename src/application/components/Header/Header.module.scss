@@ -28,13 +28,13 @@ header {
   justify-content: space-between;
   width: 100%;
 }
-.header__inner-footer-main {
+.header__inner-footerMain {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
-.header__inner-footer-phone {
+.header__inner-footerPhone {
   display: none;
 }
 .logo__text {
@@ -234,10 +234,10 @@ header {
     opacity: 1;
   }
   .menu__dropdownContent.dropdown__sheepy {
-    top: 45%;
+    top: 100%;
   }
   .menu__dropdownContent.dropdown__company {
-    top: 51%;
+    top: 100%;
   }
 }
 

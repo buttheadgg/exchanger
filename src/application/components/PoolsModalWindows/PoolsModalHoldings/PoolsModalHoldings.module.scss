@@ -185,6 +185,7 @@
 
 .holdings__rerwardValueUSD{
     color: #C8EA80;
+    text-align: end;
 }
 
 .holdings__subscroptionWrapper{
@@ -240,4 +241,67 @@
 
 .holdings__subscroptionValueTop{
     color: #C8EA80;
+}
+
+.holdings__subscroptionWrapperMob{
+  display: none;
+}
+
+.holdings__subscroptionTextWrapperMob{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.holdings__subscroptionTextHeadMob{
+  font-family: 'Popins';
+  font-size: 16px;
+  font-weight: 600;
+  color: #C8EA80;
+}
+
+.holdings__subscroptionTextbodyWrapperMob{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.holdings__subscroptionTextMob{
+  font-family: 'Popins';
+  font-size: 14px;
+  font-weight: 400;
+  color: #C4CBF5;
+}
+
+.holdings__subscroptionTextMob span{
+  font-family: 'Popins';
+  font-size: 16px;
+  font-weight: 600;
+  color: #C4CBF5;
+  white-space: nowrap;
+}
+
+.holdings__subscroptionTextMob1{
+  font-family: 'Popins';
+  font-size: 16px;
+  font-weight: 600;
+  color: #C4CBF5;
+}
+
+@media(max-width: 889px){
+  .holdings__subscroptionWrapper{
+    display: none;
+  }
+  .holdings__subscroptionWrapperMob{
+    display: flex;
+    gap: 10px;
+  }
+}
+
+@media(max-width:400px){
+  .holdings__subscroptionTextWrapperMob{
+  }
+  .holdings__subscroptionTextbodyWrapperMob{
+    gap: 0px;
+  }
 }

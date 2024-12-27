@@ -427,3 +427,501 @@ footer {
     max-width: 57px;
   }
 }
+
+
+
+/*media*/
+@media (max-width: 1275px) {
+  .image_wrapper img {
+    max-width: 687px;
+  }
+  .payments__image-wrapper img{
+    max-width: 500px;
+  }
+  .accept__image-wrapper img{
+    max-width: 350px;
+  }
+}
+@media (max-width: 1200px) {
+  .contact {
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 35px;
+  }
+  .contact__light-box {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (max-width: 1181px) {
+  .faq {
+    max-width: 80vw;
+  }
+  .faq__details {
+    max-width: 80%;
+  }
+  .faq__list-text {
+    max-width: 90%;
+  }
+}
+@media (max-width: 1175px) {
+  .image_wrapper img {
+    max-width: 650px;
+  }
+  .payments__image-wrapper img{
+    max-width: 450px;
+  }
+  .accept__image-wrapper img{
+    max-width: 300px;
+  }
+  .cryptocurrency__list{
+    flex-direction: column;
+  }
+  .cryptocurrency__list-item.cryptocurrency-item-inside {
+    border-right: 0;
+    border-bottom: 5px solid #162561;
+}
+}
+@media (max-width: 1135px) {
+  .about {
+    margin-top: 50px;
+    flex-direction: column;
+    gap: 35px;
+  }
+  .about__content {
+    max-width: fit-content;
+  }
+  .burger {
+    display: flex;
+  }
+  .menu__listHeader{
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 7%;
+    left: 0;
+    z-index: 2;
+    overflow: hidden;
+    padding: 50px 40px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: 5px 0;
+    white-space: nowrap;
+  }
+  .menu__listLink {
+    opacity: 1;
+  }
+  .menu_list {
+    display: none;
+  }
+  .menu_list-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .menu__phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .menu__list-phone {
+    display: flex;
+  }
+  .menu__dropdown-content.dropdown__sheepy {
+    top: 45%;
+  }
+  .menu__dropdown-content.dropdown__company {
+    top: 51%;
+  }
+  .header__innerFooterMain{
+    display: none;
+  }
+  .header__inner-footer-phone{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .payments{
+    flex-direction: column;
+  }
+  .payments__content{
+    margin-top: 50px;
+    align-items: center;
+    padding-left: 0px;
+  }
+  .payments__image-wrapper img{
+    max-width: 500px;
+    padding-right: 0;
+  }
+  .payments__image{
+    order: -1;
+  }
+  .accept{
+    flex-direction: column;
+  }
+  .accept__image-wrapper img{
+    max-width: 400px;
+  }
+  .accept__image{
+    order: -1;
+  }
+}
+@media (max-width: 1030px){
+  .alfacoins__fourelements{
+    flex-direction: column;
+  }
+}
+@media (max-width: 988px) {
+  .triple{
+    flex-direction: column;
+  }
+  .solution{
+    border-bottom: 0;
+  }
+  .solution__content {
+    flex-direction: column;
+    gap: 103px;
+    position: relative;
+    height: fit-content;
+  }
+  .customize__content {
+    flex-direction: column;
+    gap: 103px;
+    position: relative;
+    height: fit-content;
+  }
+  .solution__line{
+    top: -15%;
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+  }
+  .solution__image{
+    z-index: 1;
+  }
+  .customize__image{
+    z-index: 1;
+  }
+  .solution__merchant{
+    z-index: 1;
+  }
+  .solution__border-top{
+    top: -15%;
+  }
+  .customize__border-top{
+    top: -15%;
+  }
+}
+@media (max-width: 854px){
+  .footer__contactWrapper{
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer__contactItem{
+    align-items: center;
+    justify-content: center;
+    padding-left: 0px;
+  }
+}
+@media (max-width: 835px) {
+  .infomation {
+    margin-top: 350px;
+  }
+  .information__content {
+    flex-direction: column;
+    gap: 103px;
+    position: relative;
+    height: fit-content;
+  }
+  .infomation__hiring {
+    z-index: 1;
+  }
+  .infomation__press {
+    z-index: 1;
+  }
+  .information__line {
+    top: -15%;
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+  }
+  .information__line::after {
+    top: 65%;
+  }
+  .information__light-box {
+    filter: blur(110px);
+    -webkit-filter: blur(110px);
+  }
+  .faq {
+    margin-top: 150px;
+  }
+  .contact__form {
+    max-width: 442px;
+    width: 100%;
+  }
+  .contact__form-input {
+    width: 355px;
+  }
+  .accept__content-title{
+    font-size: 54px;
+    line-height: 54px;
+  }
+  .forstart__content-wrapper{
+    flex-direction: column;
+    gap: 16px;
+  }
+  .forstart__text{
+    font-size: 18px;
+  }
+}
+@media (max-width: 700px) {
+  .faq{
+    display: none;
+  }
+  .infomation{
+    margin-bottom: 100px;
+  }
+  .payments__content-title{
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .alfacoins__title{
+    font-size: 42px;
+    line-height: 42px;
+  }
+  .accept__content-title{
+    font-size: 42px;
+    line-height: 42px;
+  }
+  .cryptocurrency__title{
+    font-size: 42px;
+    line-height: 42px;
+  }
+  .forstart__image img{
+    width: 200px;
+  }
+  .contact__button-wrapper.forstart__button{
+    padding: 8px 17px 8px 0px;
+  }
+}
+@media (max-width: 560px) {
+  .contact__content{
+    width: 100%;
+  }
+  .accept__content-title{
+    font-size: 32px;
+    line-height: 32px;
+  }
+  .alfacoins__title{
+    font-size: 32px;
+    line-height: 32px;
+  }
+  .information__title{
+    font-size: 32px;
+    line-height: 32px;
+  }
+  .cryptocurrency__title{
+    font-size: 32px;
+    line-height: 32px;
+  }
+  .customize__image img{
+    max-width: 400px;
+  }
+  .forstart__text{
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 475px) {
+  .menu__listLink.footer_listItem {
+    font-size: 12px;
+  }
+  .menu__listItem {
+    width: 90px;
+  }
+  .menu__listHeader.open {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: rgba(234, 237, 255, 1);
+  }
+  .alfacoins__title{
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+@media (max-width: 455px){
+  .contact__form {
+    max-width:343px;
+    width: 100%;
+  }
+  .contact__form-input {
+    width: 288px;
+  }
+}
+@media (max-width: 430px) {
+  .about {
+    display: none;
+  }
+  .contact__content-filling {
+    display: none;
+  }
+  .contact__image {
+    max-width: 394px;
+  }
+  .contact__content-filling-bottom {
+    max-width: 375px;
+    padding: 0px 24px 0px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .content__button-wrapper-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .contact {
+    gap: 172px;
+  }
+  .contact_input-wrapper {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .infomation {
+    margin-bottom: 58px;
+  }
+  .menu_list-footer{
+    max-width: 344px;
+    gap: 10px;
+  }
+  .menu__listItem {
+    white-space: nowrap;
+    max-width: 70px;
+  }
+  .light__box.light__box-footer{
+    filter: blur(150px);
+    -webkit-filter: blur(150px);
+    z-index: 20;
+    top: 0%;
+  }
+  .footer__contactWrapper{
+    padding: 16px;
+  }
+  .footer__contactLink{
+    width: 40px;
+    height: 40px;
+  }
+  .footer__contactLink img{
+    width: 15px;
+    height: 15px;
+  }
+  .footer__contactText{
+    font-size: 12px;
+  }
+  .footer__input-form{
+    max-width: 251px;
+    font-size: 12px;
+  }
+  .copy__navLink{
+    font-size: 10px;
+  }
+  .copy__navList {
+    max-width: 350px;
+  }
+  .footer__contact {
+    border-bottom: 1px solid #797fa3;
+  }
+  .information__title{
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .payments__image-wrapper img {
+    max-width: 296px;
+  }
+  .payments__image{
+    padding-right: 0;
+  }
+  .solution__image img{
+    max-width: 343px;
+  }
+  .customize__image img{
+    max-width: 343px;
+  }
+  .solution__merchant{
+  }
+  .information__button.solution__button{
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .information__button.payments__button{
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .button-text.contacts.payments{
+    white-space: nowrap;
+  }
+  .solution__border-top{
+    top: -15%;
+  }
+  .customize__border-top{
+    top: -15%;
+  }
+  .accept__content-title{
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .accept__image-wrapper img{
+    max-width: 330px;
+  }
+  .alfacoins__title{
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .cryptocurrency__title{
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .donation__title{
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .cryptocurrency__background-img{
+    display: none;
+  }
+  .cryptocurrency__light-box{
+    display: none;
+  }
+  .donation__background-image img{
+    max-width: 430px;
+  }
+  .forstart__text{
+    font-size: 14px;
+  }
+  .forstart__image img {
+    width: 150px;
+  }
+  .contact__button-wrapper.forstart__button{ 
+    width: 174px;
+    height: 48px;
+  }
+  .info__boxRight{
+    top: 1%;
+  }
+  .info__boxLeft{
+    top: 1%;
+  }
+}
+@media (max-width: 335px) {
+  .menu__listItem{
+    max-width: 57px;
+  }
+}

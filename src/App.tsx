@@ -10,8 +10,6 @@ import ModalWindow from "./application/components/ModalWindow/ModalWindow";
 import formStore from "./application/stores/formStore";
 import FormModalWindowDone from "./application/components/FormModalWindow/FormModalWindowDone/FormModalWindowDone";
 import FormModalWindowСanceled from "./application/components/FormModalWindow/FormModalWindowСanceled/FormModalWindowСanceled";
-import Pools from "./application/pages/Pools/Pools";
-import Exchanger from "./application/pages/Exchanger/Exchanger";
 import ModalWindowPools from "./application/components/ModalWindowPools/ModalWindowPools";
 import poolsStore from "./application/stores/poolsStore";
 import PoolsModalSubscribe from "./application/components/PoolsModalWindows/PoolsModalSubscribe/PoolsModalSubscribe";
@@ -19,6 +17,8 @@ import PoolsModalSuccessful from "./application/components/PoolsModalWindows/Poo
 import PoolsModalHoldings from "./application/components/PoolsModalWindows/PoolsModalHoldings/PoolsModalHoldings";
 import PoolsModalSuccessfulFinal from "./application/components/PoolsModalWindows/PoolsModalSuccessfulFinal/PoolsModalSuccessfulFinal";
 import PoolsModalCancel from "./application/components/PoolsModalWindows/PoolsModalCancel/PoolsModalCancel";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./application/routes/AppRoutes";
 
 const App = () => {
   let modalContent;
@@ -60,7 +60,9 @@ const App = () => {
       <div className={styles.page__wrapper}>
         <ModalWindow>{modalContent}</ModalWindow>
         <ModalWindowPools>{modalContent}</ModalWindowPools>
-        <Pools />
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
         <Footer />
       </div>
     </body>

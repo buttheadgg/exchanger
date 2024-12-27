@@ -128,6 +128,35 @@ const PoolsModalHoldings = () => {
           <div>2025-01-30 03:00</div>
         </div>
       </div>
+      <div className={styles.holdings__subscroptionWrapperMob}>
+        <div className={styles.holdings__subscroptionImgMob}>
+          <img src={PUBLIC_IMAGE + "ProgressLineMob1.svg"} />
+        </div>
+        <div className={styles.holdings__subscroptionTextWrapperMob}>
+          <div className={styles.holdings__subscroptionTextHeadMob}>
+            Subscroption Date <span>2025-01-30 03:00</span>
+          </div>
+          <div className={styles.holdings__subscroptionTextbodyWrapperMob}>
+            <div className={styles.holdings__subscroptionTextMob}>
+              Next Interest Distription Date <span>2025-01-30 03:00</span>{" "}
+            </div>
+            <div className={styles.holdings__subscroptionTextMob}>
+              Interest End Date <span>2025-01-30 03:00</span>
+            </div>
+            <div className={styles.holdings__subscroptionTextMob}>
+              Redeem to <span>2025-01-30 03:00</span>
+            </div>
+            <div className={styles.holdings__subscroptionTextMob1}>
+              {" "}
+              Simple Earn Flexible Products{" "}
+              <img
+                src={PUBLIC_IMAGE + "Header-arrowImageDown.svg"}
+                alt=""
+              />{" "}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

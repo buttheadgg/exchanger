@@ -27,14 +27,14 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.header__inner}>
-          <img src={mainLogoPath} alt="mainImage" />
+          <a href="/"><img src={mainLogoPath} alt="mainImage" /></a>
           <nav className={styles.menu}>
             <div className={styles.burger} ref={burgerRef}>
               <span></span>
             </div>
             <div className={styles.menu__listHeader} ref={menuRef}>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a href="/exchanger" className={styles.menu__listLink}>
                   Exchanger
                 </a>
               </li>
@@ -49,7 +49,7 @@ const Header = () => {
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a href="/pools" className={styles.menu__listLink}>
                   Pools
                 </a>
               </li>

@@ -445,7 +445,7 @@ class PoolsStore {
   formDataPools: { [key: string]: any } = {
     coin: "",
     period: "",
-    rememberData: "",
+    MatchAssets: "",
     amount: "",
     agreeConditions: "",
     autoSubscribe: ""

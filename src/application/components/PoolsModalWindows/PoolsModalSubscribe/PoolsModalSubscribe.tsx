@@ -38,14 +38,13 @@ const PoolsModalSubscribe = () => {
   return (
     <div className={styles.window__wrapper}>
       <div className={styles.window__header}>
-        {" "}
+        <div className={styles.window__bottomLine}></div>{" "}
         <div className={styles.window__subscribe}>Subscribe</div>
         <div className={styles.window__line}>
           <div className={styles.window__lineInside}></div>
         </div>
         <div className={styles.window__productRules}>Product Rules</div>
       </div>
-      <div className={styles.window__bottomLine}></div>
       <div className={styles.window__body}>
         <div className={styles.duration__wrapper}>
           {coinData.periods && coinData.periods.length > 0 ? (
@@ -61,7 +60,7 @@ const PoolsModalSubscribe = () => {
                   {period.period === "0" ? "Flexible" : period.period}
                 </div>
                 <div className={styles.wrapper__durationProcent}>
-                  {(parseFloat(period.apy)).toFixed(4)}%
+                  {parseFloat(period.apy).toFixed(4)}%
                 </div>
                 <div className={styles.wrapper__durationImg}>
                   <img
@@ -72,7 +71,7 @@ const PoolsModalSubscribe = () => {
               </div>
             ))
           ) : (
-            <div>""</div> 
+            <div>""</div>
           )}
         </div>
         <div className={styles.amount__wrapper}>
@@ -177,6 +176,10 @@ const PoolsModalSubscribe = () => {
               <span className={styles.durations__checkboxTextConditions}>
                 Conditions
               </span>
+            </div>
+            <div className={styles.durations__checkboxTextWrapperMob}>
+              I have read and agreed to
+              <span>Binance Simple Earn Service Terms & Conditions</span>
             </div>
           </div>
         </div>

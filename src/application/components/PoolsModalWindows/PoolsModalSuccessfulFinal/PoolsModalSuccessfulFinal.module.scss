@@ -68,28 +68,48 @@
   color: #eaedff;
 }
 
-.window__buttonWrapper{
-    display: flex;
-    justify-content: center;
-    gap: 42px;
-    margin-top: 15px;
-    padding: 0px 10px 20px 10px;
+.window__buttonWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 42px;
+  margin-top: 15px;
+  padding: 0px 10px 20px 10px;
 }
 
-.window__buttonBack{
-    width: 200px;
-    box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
+.window__buttonBack {
+  width: 200px;
+  box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
 }
 
-.window__buttonView{
-    box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
+.window__buttonView {
+  box-shadow: 0px -5px 15px rgba(40, 51, 111, 0.7);
 }
 
-@media(max-width: 500px){
-    .window__buttonWrapper{
-        gap: 10px;
-    }
-    .window__info{
-        font-size: 12px;
-    }
+@media (max-width: 561px) {
+  .window__wrapper{
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 500px) {
+  .window__buttonWrapper {
+    gap: 10px;
+  }
+  .window__info {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 391px) {
+  .window__wrapper{
+    min-width: 350px;
+    width: 100%;
+  }
+  .window__buttonWrapper{
+    flex-direction: column;
+  }
+  .window__buttonBack{
+    max-width: 238px;
+    width: 100%;
+  }
 }
