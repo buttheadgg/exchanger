@@ -25,39 +25,41 @@ const Durations = () => {
 
   return (
     <div className={styles.durations__wrapper}>
-      <div className={styles.durations__title}>
-        Principal-protected Products
-      </div>
-      <div className={styles.durations__text}>
-        Earn Rewards on principal-protectsd products/
-      </div>
-      <div className={styles.durations__search}>
-        <div className={styles.durations__searchInputWrapper}>
-          <input
-            className={styles.durations__searchInput}
-            placeholder="Search coins"
-          />
-          <div className={styles.durations__searchInputImg}>
-            <img src={PUBLIC_IMAGE + "durationSearch.svg"} alt="" />
+      <div className={styles.durations__wrapperHeader}>
+        <div className={styles.durations__title}>
+          Principal-protected Products
+        </div>
+        <div className={styles.durations__text}>
+          Earn Rewards on principal-protectsd products/
+        </div>
+        <div className={styles.durations__search}>
+          <div className={styles.durations__searchInputWrapper}>
+            <input
+              className={styles.durations__searchInput}
+              placeholder="Search coins"
+            />
+            <div className={styles.durations__searchInputImg}>
+              <img src={PUBLIC_IMAGE + "durationSearch.svg"} alt="" />
+            </div>
           </div>
-        </div>
-        <div className={styles.durations__searchSelect}>
-          <select>
-            <option>All Durations</option>
-            <option>Option 1</option>
-            <option>Option 2</option>
-          </select>
-        </div>
-        <div className={styles.durations__searchCheckbox}>
-          <input
-            name="rememberData"
-            type="checkbox"
-            className={styles.durations__checkbox}
-            id="checkboxDuration"
-            onChange={handleChange}
-          />
-          <div className={styles.durations__checkboxText}>
-            Do not remember data
+          <div className={styles.durations__searchSelect}>
+            <select>
+              <option>All Durations</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </div>
+          <div className={styles.durations__searchCheckbox}>
+            <input
+              name="rememberData"
+              type="checkbox"
+              className={styles.durations__checkbox}
+              id="checkboxDuration"
+              onChange={handleChange}
+            />
+            <div className={styles.durations__checkboxText}>
+              Do not remember data
+            </div>
           </div>
         </div>
       </div>
@@ -90,7 +92,9 @@ const Durations = () => {
               <div className={styles.durations__bodyLineProcentWrapper}>
                 <div className={styles.durations__bodyLineProcent}>
                   {detail.apyRange.length === 2
-                    ? `${parseFloat(detail.apyRange[0]).toFixed(4)}%-${parseFloat(detail.apyRange[1]).toFixed(4)}%`
+                    ? `${parseFloat(detail.apyRange[0]).toFixed(
+                        4
+                      )}%-${parseFloat(detail.apyRange[1]).toFixed(4)}%`
                     : `${parseFloat(detail.highestApy).toFixed(4)}%`}
                 </div>
                 <div className={styles.durations__bodyLineEarn}>

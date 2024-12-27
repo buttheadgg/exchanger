@@ -11,7 +11,7 @@ const PoolsModalHoldings = () => {
   };
 
   const handleButtonBack = () => {
-    poolsStore.setIsConfirm(1);
+    poolsStore.setIsConfirm(4);
   };
 
   const handleButtonSubscribe = () => {
@@ -38,13 +38,13 @@ const PoolsModalHoldings = () => {
         </div>
         <div className={styles.holdings__buttonWrapper}>
           <button
-            onClick={handleButtonBack}
+            onClick={handleButtonSubscribe}
             className={styles.holdings__buttonSub}
           >
             Subscribe
           </button>
           <button
-            onClick={handleButtonSubscribe}
+            onClick={handleButtonBack}
             className={styles.holdings__buttonCancel}
           >
             Cancel

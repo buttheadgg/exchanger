@@ -17,6 +17,8 @@ import poolsStore from "./application/stores/poolsStore";
 import PoolsModalSubscribe from "./application/components/PoolsModalWindows/PoolsModalSubscribe/PoolsModalSubscribe";
 import PoolsModalSuccessful from "./application/components/PoolsModalWindows/PoolsModalSuccessful/PoolsModalSuccessful";
 import PoolsModalHoldings from "./application/components/PoolsModalWindows/PoolsModalHoldings/PoolsModalHoldings";
+import PoolsModalSuccessfulFinal from "./application/components/PoolsModalWindows/PoolsModalSuccessfulFinal/PoolsModalSuccessfulFinal";
+import PoolsModalCancel from "./application/components/PoolsModalWindows/PoolsModalCancel/PoolsModalCancel";
 
 const App = () => {
   let modalContent;
@@ -39,6 +41,12 @@ const App = () => {
       break;
     case 2:
       modalContent = <PoolsModalHoldings />;
+      break;
+    case 3:
+      modalContent = <PoolsModalSuccessfulFinal />;
+      break;
+    case 4:
+      modalContent = <PoolsModalCancel />;
       break;
     default:
       modalContent = <PoolsModalSubscribe />;

@@ -6,6 +6,8 @@ import Durations from "../../components/Durations/Durations";
 import PoolsModalSubscribe from "../../components/PoolsModalWindows/PoolsModalSubscribe/PoolsModalSubscribe";
 import PoolsModalSuccessful from "../../components/PoolsModalWindows/PoolsModalSuccessful/PoolsModalSuccessful";
 import PoolsModalHoldings from "../../components/PoolsModalWindows/PoolsModalHoldings/PoolsModalHoldings";
+import PoolsModalCancel from "../../components/PoolsModalWindows/PoolsModalCancel/PoolsModalCancel";
+import PoolsModalSuccessfulFinal from "../../components/PoolsModalWindows/PoolsModalSuccessfulFinal/PoolsModalSuccessfulFinal";
 
 const Pools = () => {
   return (
@@ -13,7 +15,7 @@ const Pools = () => {
       <div className={styles.main__wrapper}>
         <Durations />
         <LearnMore />
-        <FrequentlyQuestions/>
+        <FrequentlyQuestions />
       </div>
     </div>
   );
