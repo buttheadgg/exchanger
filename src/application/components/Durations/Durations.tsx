@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import styles from "./Durations.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../constants";
 import poolsStore from "../../stores/poolsStore";
@@ -6,6 +6,10 @@ import { runInAction } from "mobx";
 import { observer } from "mobx-react-lite";
 
 const Durations = () => {
+  useEffect(() => {
+    poolsStore.fetchFormData();
+  }, []);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDuration, setSelectedDuration] = useState("All Durations");
   const handleSelectPeriod = (coin: string, period: string) => {
@@ -69,6 +73,7 @@ const Durations = () => {
             <select value={selectedDuration} onChange={handleDurationChange}>
               <option value="All Durations">All Durations</option>
               <option value="0">Flexible</option>
+              <option value="21">21 Days</option>
               <option value="30">30 Days</option>
               <option value="60">60 Days</option>
               <option value="120">120 Days</option>
@@ -76,7 +81,7 @@ const Durations = () => {
           </div>
           <div className={styles.durations__searchCheckbox}>
             <input
-              name="MatchAssets"
+              name="мatchAssets"
               type="checkbox"
               className={styles.durations__checkbox}
               id="checkboxDuration"
@@ -118,10 +123,10 @@ const Durations = () => {
               <div className={styles.durations__bodyLineProcentWrapper}>
                 <div className={styles.durations__bodyLineProcent}>
                   {detail.apyRange.length === 2
-                    ? `${parseFloat(detail.apyRange[0]).toFixed(
-                        4
-                      )}%-${parseFloat(detail.apyRange[1]).toFixed(4)}%`
-                    : `${parseFloat(detail.highestApy).toFixed(4)}%`}
+                    ? `${(parseFloat(detail.apyRange[0]) * 100).toFixed(2)}%-${(
+                        parseFloat(detail.apyRange[1]) * 100
+                      ).toFixed(2)}%`
+                    : `${(parseFloat(detail.highestApy) * 100).toFixed(2)}%`}
                 </div>
                 <div className={styles.durations__bodyLineEarn}>
                   Earn {coin}
@@ -132,7 +137,11 @@ const Durations = () => {
                 {detail.periods.map((period, index) => (
                   <div
                     key={`${coin}-${index}`}
-                    onClick={() => handleSelectPeriod(coin, period.period)}
+                    onClick={() => {
+                      handleSelectPeriod(coin, period.period);
+                      poolsStore.updateField("selectedProcent", period.apy);
+                      poolsStore.updateField("minValue", period.minPurchaseAmount);
+                    }}
                     className={`${
                       isActiveCoin && selectedPeriod === period.period
                         ? styles.durations__bodyLineDurationActive
@@ -173,18 +182,23 @@ const Durations = () => {
             <div className={styles.durations__bodyBoxMobil}>
               <div className={styles.durations__BoxNameWrapperMobil}>
                 <div key={coin} className={styles.durations__BoxNameMobil}>
-                  <div>
-                    <img src={`${PUBLIC_ICON}${coin.toLowerCase()}.svg`} />
+                  <div className={styles.durations__BoxNameMobilImg}>
+                    <img
+                      src={`${PUBLIC_ICON}${coin.toLowerCase()}.svg`}
+                      alt={coin}
+                    />
                   </div>
                   <div>{coin}</div>
                 </div>
                 <div className={styles.durations__BoxValueMobil}>
                   <div className={styles.durations__BoxValueProcentMobil}>
                     {detail.apyRange.length === 2
-                      ? `${parseFloat(detail.apyRange[0]).toFixed(
-                          4
-                        )}%-${parseFloat(detail.apyRange[1]).toFixed(4)}%`
-                      : `${parseFloat(detail.highestApy).toFixed(4)}%`}
+                      ? `${(parseFloat(detail.apyRange[0]) * 100).toFixed(
+                          2
+                        )}% - ${(parseFloat(detail.apyRange[1]) * 100).toFixed(
+                          2
+                        )}%`
+                      : `${(parseFloat(detail.highestApy) * 100).toFixed(2)}%`}
                   </div>
                   <div className={styles.durations__BoxValueNameMobil}>
                     Earn {coin}
@@ -199,7 +213,11 @@ const Durations = () => {
                   {detail.periods.map((period, index) => (
                     <div
                       key={index}
-                      onClick={() => handleSelectPeriod(coin, period.period)}
+                      onClick={() => {
+                        handleSelectPeriod(coin, period.period);
+                        poolsStore.updateField("selectedProcent", period.apy);
+                        poolsStore.updateField("minValue", period.minPurchaseAmount);
+                      }}
                       className={`${
                         selectedPeriod === period.period
                           ? styles.durations__BoxDurationVariantsBoxMobilActive

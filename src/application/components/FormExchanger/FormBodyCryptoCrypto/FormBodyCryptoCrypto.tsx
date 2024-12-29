@@ -47,7 +47,7 @@ const FormBodyCryptoCrypto = () => {
               Wallet {formStore.formData.receive} for receiver*{" "}
             </p>
             <MyInput
-              placeHolder="Wallet address"
+              placeHolder={`${formStore.formData.receive} Wallet address`}
               className={styles.form__walletInput}
               name="walletAddress"
               onChange={handleChange}

@@ -3,6 +3,7 @@ import styles from "./PoolsModalSuccessful.module.scss";
 import { PUBLIC_IMAGE } from "../../../constants";
 import MyButton from "../../UI/MyButton/MyButton";
 import poolsStore from "../../../stores/poolsStore";
+import { observer } from "mobx-react-lite";
 
 const PoolsModalSuccessful = () => {
 
@@ -11,7 +12,7 @@ const PoolsModalSuccessful = () => {
   }
 
   const handleButtonHoldings = () => {
-    poolsStore.setIsConfirm(2);
+    poolsStore.setIsConfirm(0);
   }
 
   return (
@@ -21,7 +22,7 @@ const PoolsModalSuccessful = () => {
       </div>
       <div className={styles.window__body}>
         <div className={styles.body__subscription}>Subscription Successful</div>
-        <div className={styles.body__value}>0.1 USDT</div>
+        <div className={styles.body__value}>{poolsStore.formDataPools.predictAmount} {poolsStore.formDataPools.coin}</div>
       </div>
       <div className={styles.widnow__bodyDates}>
         <div className={styles.dates__text}>
@@ -34,8 +35,8 @@ const PoolsModalSuccessful = () => {
           </div>
         </div>
         <div className={styles.dates_dates}>
-          <div>2025-01-30 03:00</div>
-          <div>2025-01-30 03:00</div>
+          <div>{poolsStore.formDataPools.dateTime}</div>
+          <div>{poolsStore.formDataPools.predictDateTime}</div>
         </div>
       </div>
       <div className={styles.window__buttonWrapper}>
@@ -46,4 +47,4 @@ const PoolsModalSuccessful = () => {
   );
 };
 
-export default PoolsModalSuccessful;
+export default observer(PoolsModalSuccessful);

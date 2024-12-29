@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 import styles from "./PoolsModalSubscribe.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../../constants";
 import MyButton from "../../UI/MyButton/MyButton";
@@ -8,24 +8,58 @@ import { observer } from "mobx-react-lite";
 
 const PoolsModalSubscribe = () => {
   const { formData, formDataPools } = poolsStore;
+  const [perdictValue, setPerdictValue] = useState(0);
 
   const selectedCoin = formDataPools.coin;
   const selectedPeriod = formDataPools.period;
 
+  const thisData = new Date().toISOString().slice(0, 19).replace("T", " ");
+  const dateObj = new Date(thisData.replace(" ", "T"));
+  const periodToStr = Number(poolsStore.formDataPools.period);
+  dateObj.setDate(dateObj.getDate() + periodToStr);
+  const newData = dateObj.toISOString().slice(0, 19).replace("T", " ");
+  poolsStore.updateField("predictDateTime", newData);
+
+  poolsStore.updateField("dateTime", thisData);
+
   const coinData = formData[selectedCoin]?.detail;
 
   if (!coinData) {
-    return <div>Выберите валюту</div>; // Сообщение, если данных нет
+    return <div>Выберите валюту</div>;
   }
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    let calculatedValue = 0;
+    if (name == "amount") {
+      calculatedValue =
+        Number(value) +
+        Number(value) * Number(poolsStore.formDataPools.selectedProcent);
+      setPerdictValue(calculatedValue);
+    }
     poolsStore.updateField(name, value);
+  };
+
+  const postFormDataPools = async () => {
+    try {
+      const res = await fetch("http://alfa-crypto.com/api/v1/pool/confirm", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(poolsStore.formDataPools),
+      });
+
+      const result = await res.json();
+    } catch {
+      console.error("Ошибка при выполнении fetch-запроса rate:");
+    }
   };
 
   const handleConfirm = () => {
     const validationResult = poolsStore.validateFields();
-
+    poolsStore.updateField("predictAmount", perdictValue.toString());
     if (validationResult) {
+      postFormDataPools();
       poolsStore.setDataValid(true);
       poolsStore.setIsConfirm(1);
       console.log(poolsStore.formDataPools);
@@ -54,13 +88,17 @@ const PoolsModalSubscribe = () => {
                 className={`${styles.wrapper__durationElem} ${
                   selectedPeriod === period.period ? styles.selectedPeriod : ""
                 }`}
-                onClick={() => poolsStore.updateField("period", period.period)}
+                onClick={() => {
+                  poolsStore.updateField("period", period.period);
+                  poolsStore.updateField("selectedProcent", period.apy);
+                  poolsStore.updateField("minValue", period.minPurchaseAmount);
+                }}
               >
                 <div className={styles.wrapper__durationTitle}>
                   {period.period === "0" ? "Flexible" : period.period}
                 </div>
                 <div className={styles.wrapper__durationProcent}>
-                  {parseFloat(period.apy).toFixed(4)}%
+                  {(parseFloat(period.apy) * 100).toFixed(2)}%
                 </div>
                 <div className={styles.wrapper__durationImg}>
                   <img
@@ -95,11 +133,23 @@ const PoolsModalSubscribe = () => {
           <div className={styles.amount__inputWrapper}>
             <MyInput
               className={styles.amount__input}
-              placeHolder="Min 0.01 GMX"
+              placeHolder={`Min ${parseFloat(
+                poolsStore.formDataPools.minValue
+              ).toFixed(4)} ${poolsStore.formDataPools.coin}`}
               name="amount"
               onChange={handleChange}
               isInvalid={poolsStore.invalidInputs.amount}
             />
+            <MyInput
+              className={styles.amount__input}
+              placeHolder={`Wallet addres`}
+              name="walletAdress"
+              onChange={handleChange}
+              isInvalid={poolsStore.invalidInputs.walletAdress}
+            />
+            <div className={styles.amount__inputImg}>
+              <img src={`${PUBLIC_IMAGE}${selectedCoin}.JPG`} alt="qr" />
+            </div>
             <button className={styles.amount__inputButton}>MAX</button>
           </div>
           <div className={styles.available__wrapper}>
@@ -125,6 +175,23 @@ const PoolsModalSubscribe = () => {
           </div>
           <div className={styles.summary_wrapper}>
             <div className={styles.summary__title}>Summary</div>
+            <div className={styles.summaty__lockedWrapper}>
+              <div className={styles.summaty__lockedTextWrapper}>
+                <div className={styles.summaty__lockedText}>
+                  Locked Est. Rewards{" "}
+                  <span>
+                    {(
+                      parseFloat(poolsStore.formDataPools.selectedProcent) * 100
+                    ).toFixed(4)}
+                    %
+                  </span>
+                </div>
+              </div>
+              <div className={styles.summaty__lockedValue}>
+                {" "}
+                {perdictValue} {poolsStore.formDataPools.coin}
+              </div>
+            </div>
             <div className={styles.summary__body}>
               <div className={styles.summary__leftText}>
                 <div className={styles.summary__img}>
@@ -143,8 +210,10 @@ const PoolsModalSubscribe = () => {
                 </div>
               </div>
               <div className={styles.summary__rightText}>
-                <div className={styles.disc__data}>2025-01-30 03:00</div>
-                <div className={styles.sub__data}>2025-01-30 03:00</div>
+                <div className={styles.disc__data}>
+                  {poolsStore.formDataPools.dateTime}
+                </div>
+                <div className={styles.sub__data}>{newData}</div>
               </div>
             </div>
           </div>

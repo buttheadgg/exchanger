@@ -56,10 +56,10 @@ const FormBodyBankCrypto: FC = ({}) => {
             />
           </div>
           <div className={styles.form__payInput}>
-            <p className={styles.form__payInputLable}>BTC wallet address*</p>
+            <p className={styles.form__payInputLable}> {formStore.formData.receive} wallet address*</p>
             <MyInput
               className={styles.form__payInputTelegram}
-              placeHolder="BTC wallet address"
+              placeHolder={`${formStore.formData.receive} wallet address`}
               onChange={handleChange}
               name="btcWalletAddress"
               isInvalid={formStore.invalidInputs.btcWalletAddress}

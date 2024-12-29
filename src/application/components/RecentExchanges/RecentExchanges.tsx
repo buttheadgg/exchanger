@@ -580,7 +580,7 @@ const RecentExchanges = observer(() => {
             <div className={styles.steps__item}>11</div>
           </div>
           <div className={styles.steps__arrowRight}>
-            <img src={PUBLIC_IMAGE + "arrowright.svg"} />
+            <img src={PUBLIC_IMAGE + "arrowRight.svg"} />
           </div>
         </div>
       </div>

@@ -12,13 +12,11 @@ const FormBodyCashCrypto: React.FC = () => {
     locationStore;
 
   useEffect(() => {
-    
     locationStore.initializeDefaults();
   }, []);
 
   const countryOptions = Object.keys(locationData);
   const cityOptions = locationStore.cityOptions;
-
 
   const handleCountrySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -48,10 +46,10 @@ const FormBodyCashCrypto: React.FC = () => {
           <div className={styles.form__walletInputWrapper}>
             <p className={styles.form__walleyInputLable}>
               {" "}
-              Wallet Tether TRC20 for receiver*{" "}
+              Wallet {formStore.formData.receive} for receiver*{" "}
             </p>
             <MyInput
-              placeHolder="Wallet address"
+              placeHolder={`${formStore.formData.receive} Wallet address`}
               className={styles.form__walletInput}
               name="walletAddress"
               onChange={handleChange}

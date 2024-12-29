@@ -32,7 +32,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
-          type: "bank",
+          type: "crypto",
         },
         "Tether BEP20": {
           id: "208",
@@ -147,7 +147,7 @@ const FormExchanger: FC = observer(() => {
         "Tether TRC20": {
           id: "10",
           name: "Tether TRC20 (USDT)",
-          icon: `${PUBLIC_ICON} + Tether (USDT) (1).svg`,
+          icon: `${PUBLIC_ICON}Tether (USDT) (1).svg`,
           min: "1",
           max: "100",
           reserve: "999",
@@ -4950,9 +4950,6 @@ const FormExchanger: FC = observer(() => {
       rate: "999",
     },
   };
-
-  console.log("путь сбер "+jsonData["Сбербанк"]?.icon)
-  console.log("путь райф "+jsonData["Райффайзен"])
 
   const payOptions = Object.keys(jsonData);
   const receiveOptions = useMemo(() => {
