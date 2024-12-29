@@ -5074,30 +5074,55 @@ const FormExchanger: FC = observer(() => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
+  };
 
+  const handlePaySelect = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    formStore.updateField(name, value);
     const numericValue = value;
     if (name === "paySelect") {
       formStore.updateForm("payValue", value);
       getCourse();
       formStore.updateInput("paySelect", numericValue);
-      const calculatedValue =
-        parseFloat(numericValue) * formStore.formConvert.rate;
-      console.log(calculatedValue);
-      console.log(formStore.formConvert.rate);
-      formStore.updateInput("receiveSelect", calculatedValue.toString());
-    } else if (name === "receiveSelect") {
-      formStore.updateForm("receiveValue", value);
-      getCourse();
-      formStore.updateInput("paySelect", numericValue);
-      if (parseFloat(numericValue)) {
-        formStore.updateInput("paySelect", 0);
-      } else {
+      if(parseFloat(numericValue) !== 0){
         const calculatedValue =
-          formStore.formConvert.rate / parseFloat(numericValue);
-        formStore.updateInput("paySelect", calculatedValue);
+        parseFloat(numericValue) * formStore.formConvert.rate;
+        if(!isNaN(calculatedValue)){
+          formStore.updateInput("receiveSelect", calculatedValue.toString());
+          console.log(formStore.formData.receiveSelect);
+        }else{
+          formStore.updateInput("receiveSelect", 0);
+        }  
+      }else{
+        formStore.updateInput("receiveSelect", 0);
       }
     }
-  };
+  }
+
+  const handleReceiveSelect = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    formStore.updateField(name, value);
+    const numericValue = value;
+    if (name === "receiveSelect") {
+      formStore.updateForm("receiveSelect", value);
+      getCourse();
+      formStore.updateInput("receiveSelect", numericValue);
+      if(parseFloat(numericValue) !== 0){
+        const calculatedValue =
+        formStore.formConvert.rate / parseFloat(numericValue);
+        if(!isNaN(calculatedValue)){
+          formStore.updateInput("paySelect", calculatedValue.toString());
+          console.log(formStore.formData.receiveSelect);
+        }else{
+          formStore.updateInput("paySelect", 0);
+        }  
+      }else{
+        formStore.updateInput("paySelect", 0);
+      }
+    }
+  }
+
+
 
   const handlePaySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -5251,7 +5276,7 @@ const FormExchanger: FC = observer(() => {
                 <MyInput
                   name="paySelect"
                   className={styles.form__payInputValue}
-                  onChange={handleChange}
+                  onChange={handlePaySelect}
                   placeHolder="0"
                   isInvalid={formStore.invalidInputs.paySelect}
                   value={formStore.formCourse.paySelect}
@@ -5298,15 +5323,19 @@ const FormExchanger: FC = observer(() => {
                 </select>
                 {selectedReceive && (
                   <img
-                    src={jsonData[selectedPay]?.directions[selectedReceive]?.icon}
-                    alt={jsonData[selectedPay]?.directions[selectedReceive]?.name}
+                    src={
+                      jsonData[selectedPay]?.directions[selectedReceive]?.icon
+                    }
+                    alt={
+                      jsonData[selectedPay]?.directions[selectedReceive]?.name
+                    }
                     className={styles.form__receiveSelectImg}
                   />
                 )}
                 <MyInput
                   name="receiveSelect"
                   className={styles.form__receiveInputValue}
-                  onChange={handleChange}
+                  onChange={handleReceiveSelect}
                   placeHolder="0"
                   isInvalid={formStore.invalidInputs.receiveSelect}
                   value={formStore.formCourse.receiveSelect}
