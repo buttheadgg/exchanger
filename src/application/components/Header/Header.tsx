@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import styles from "./Header.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
+import { useNavigate } from "react-router-dom";
+import { publicRoutes, RouteNames } from "../../routes/routes";
 
 const Header = () => {
   const mainLogoPath = PUBLIC_IMAGE + "main-logo.svg";
-
+  const navigate = useNavigate();
   const burgerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -27,14 +29,16 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.header__inner}>
-          <a href="/"><img src={mainLogoPath} alt="mainImage" /></a>
+          <a href="/">
+            <img src={mainLogoPath} alt="mainImage" />
+          </a>
           <nav className={styles.menu}>
             <div className={styles.burger} ref={burgerRef}>
               <span></span>
             </div>
             <div className={styles.menu__listHeader} ref={menuRef}>
               <li className={styles.menu__listItem}>
-                <a href="/exchanger" className={styles.menu__listLink}>
+                <a onClick={() => navigate(RouteNames.EXCHANGER_ROUTE)} className={styles.menu__listLink}>
                   Exchanger
                 </a>
               </li>
@@ -49,7 +53,7 @@ const Header = () => {
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a href="/pools" className={styles.menu__listLink}>
+                <a onClick={() => navigate(RouteNames.POOLS_ROUTE)} className={styles.menu__listLink}>
                   Pools
                 </a>
               </li>

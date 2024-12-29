@@ -53,20 +53,17 @@ const App = () => {
       break;
   }
 
-
   return (
-    <body>
+    <BrowserRouter>
       <Header />
       <RunningLine />
       <div className={styles.page__wrapper}>
         <ModalWindow>{modalContent}</ModalWindow>
         <ModalWindowPools>{modalContent}</ModalWindowPools>
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
+        <AppRoutes />
         <Footer />
       </div>
-    </body>
+    </BrowserRouter>
   );
 };
 

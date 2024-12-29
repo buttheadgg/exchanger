@@ -3,8 +3,8 @@ import Pools from '../pages/Pools/Pools'
 import Exchanger from '../pages/Exchanger/Exchanger'
 
 export enum RouteNames {
-    POOLS_ROUTE = "exchanger/pools",
-    EXCHANGER_ROUTE = '/exchanger'
+    POOLS_ROUTE = "/pools",
+    EXCHANGER_ROUTE = '/',
   }
 
   export const publicRoutes = [
