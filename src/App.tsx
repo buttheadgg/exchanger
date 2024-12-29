@@ -48,10 +48,11 @@ const App = () => {
     case 4:
       modalContent = <PoolsModalCancel />;
       break;
-    default:
+    case 0:
       modalContent = <PoolsModalSubscribe />;
       break;
   }
+
 
   return (
     <body>

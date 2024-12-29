@@ -24,9 +24,6 @@ const PoolsModalSubscribe = () => {
 
   const coinData = formData[selectedCoin]?.detail;
 
-  if (!coinData) {
-    return <div>Выберите валюту</div>;
-  }
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     let calculatedValue = 0;
@@ -81,7 +78,7 @@ const PoolsModalSubscribe = () => {
       </div>
       <div className={styles.window__body}>
         <div className={styles.duration__wrapper}>
-          {coinData.periods && coinData.periods.length > 0 ? (
+          {coinData && coinData.periods && coinData.periods.length > 0 ? (
             coinData.periods.map((period, index) => (
               <div
                 key={index}
@@ -109,7 +106,7 @@ const PoolsModalSubscribe = () => {
               </div>
             ))
           ) : (
-            <div>""</div>
+            <div>Выберите валюту или периоды отсутствуют</div>
           )}
         </div>
         <div className={styles.amount__wrapper}>

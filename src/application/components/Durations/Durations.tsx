@@ -43,6 +43,7 @@ const Durations = () => {
   const handleSubscribe = () => {
     console.log(poolsStore.formDataPools);
     poolsStore.setIsSubscribe(true);
+    poolsStore.setIsConfirm(0);
   };
 
   return (

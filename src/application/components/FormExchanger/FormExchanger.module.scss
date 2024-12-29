@@ -34,7 +34,7 @@
 
 .form__header {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   padding-top: 36px;
   position: relative;
 }
@@ -106,7 +106,7 @@
   border: none;
 }
 
-.form__paySelectImg{
+.form__paySelectImg {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -180,8 +180,6 @@
   color: #c4cbf5;
 }
 
-
-
 .form__receive {
   display: flex;
   flex-direction: column;
@@ -208,9 +206,10 @@
   color: rgba(255, 255, 255, 0.45);
   background-color: rgba(255, 255, 255, 0.04);
   border: none;
+  min-width: 190px;
 }
 
-.form__receiveSelectImg{
+.form__receiveSelectImg {
   width: 24px;
   height: 24px;
   position: absolute;
@@ -324,19 +323,37 @@
     top: 66%;
     transform: translate(0, 50%);
   }
-  .pay__wrapper{
+  .pay__wrapper {
     gap: 20px;
   }
-  .receive__wrapper{
+  .receive__wrapper {
     gap: 20px;
   }
-  .form__receiveValue{
+  .form__receiveValue {
     padding: 0;
   }
-  .form__payInputValue{
+  .form__payInputValue {
     width: 145px;
   }
-  .form__pay{
+  .form__pay {
     padding-left: 0px;
+  }
+}
+
+@media (max-width: 391px) {
+  .form__paySelectImg {
+    left: 37%;
+  }
+  .form__paySelectImg {
+    max-width: 190px;
+  }
+  .form__receiveValue {
+    gap: 5px;
+  }
+  .form__receiveSelectImg {
+    left: 40%;
+  }
+  .form__payExchangeRateText {
+    font-size: 15px;
   }
 }

@@ -21,7 +21,7 @@ class PoolsStore {
     predictAmount: ""
   };
   isSubscribe: boolean | undefined = undefined;
-  isConfirm: Number = 0;
+  isConfirm: Number | undefined = undefined;
   invalidInputs: { [key: string]: boolean } = {};
   dataValid: boolean = false;
   periods: {
