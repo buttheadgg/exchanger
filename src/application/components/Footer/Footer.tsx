@@ -2,9 +2,16 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
 import { observer } from "mobx-react-lite";
+import { useNavigate } from "react-router-dom";
+import { publicRoutes, RouteNames } from "../../routes/routes";
 
 const Footer = observer(() => {
   const mainLogoPath = PUBLIC_IMAGE + "main-logo.svg";
+  const navigate = useNavigate();
+
+  const handleLinkClick = (route: string) => {
+    navigate(route); // Переходим на выбранную страницу
+  };
 
   return (
     <footer className={styles.footer}>
@@ -20,33 +27,55 @@ const Footer = observer(() => {
                   </a>
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="#" className={styles.menu__listLink}>
+                  <a
+                    href="http://alfa-crypto.com/#debit-cards"
+                    className={styles.menu__listLink}
+                  >
                     Debit cards
                   </a>
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="#" className={styles.menu__listLink}>
+                  <a
+                    href="http://alfa-crypto.com/#bots"
+                    className={styles.menu__listLink}
+                  >
                     Bots
                   </a>
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="#" className={styles.menu__listLink}>
+                  <a
+                    href="#"
+                    className={styles.menu__listLink}
+                    onClick={() => {
+                      navigate(RouteNames.POOLS_ROUTE);
+                      handleLinkClick(RouteNames.POOLS_ROUTE);
+                    }}
+                  >
                     Pools
                   </a>
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="#" className={styles.menu__listLink}>
+                  <a
+                    href="http://alfa-crypto.com/#credits"
+                    className={styles.menu__listLink}
+                  >
                     Credits
                   </a>
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="http://alfa-crypto.com/sheepy" className={styles.menu__listLink}>
+                  <a
+                    href="http://alfa-crypto.com/sheepy"
+                    className={styles.menu__listLink}
+                  >
                     Sheepy
                     <div
                       className={`${styles.menu__dropdownContent} ${styles.dropdown__sheepyBurger} ${styles.dropdown__sheepyFooter}`}
                     >
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
+                        <img
+                          src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
+                          alt=""
+                        />
                         <a href="http://alfa-crypto.com/company">
                           <div className={styles.menu__dropdownTitle}>
                             About us/Company
@@ -105,19 +134,25 @@ const Footer = observer(() => {
                     </div>
                   </a>
                   <img
-                    src={PUBLIC_IMAGE+"Header-arrowImageDown.svg"}
+                    src={PUBLIC_IMAGE + "Header-arrowImageDown.svg"}
                     alt=""
                     className={styles.menu__itemArrow}
                   />
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="http://alfa-crypto.com/company" className={styles.menu__listLink}>
+                  <a
+                    href="http://alfa-crypto.com/company"
+                    className={styles.menu__listLink}
+                  >
                     Company
                     <div
                       className={`${styles.menu__dropdownContent} ${styles.dropdown__companyBurger} ${styles.dropdown__companyFooter}`}
                     >
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
+                        <img
+                          src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
+                          alt=""
+                        />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             About us/Company
@@ -128,7 +163,10 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
+                        <img
+                          src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
+                          alt=""
+                        />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             Road map
@@ -140,7 +178,10 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
+                        <img
+                          src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
+                          alt=""
+                        />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
                             White papper
@@ -152,7 +193,10 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
+                        <img
+                          src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
+                          alt=""
+                        />
                         <a href="http://alfa-crypto.com/vacancies">
                           <div className={styles.menu__dropdownTitle}>
                             Vacancies
@@ -164,7 +208,10 @@ const Footer = observer(() => {
                         </a>
                       </div>
                       <div className={styles.menu__dropdownWrapper}>
-                        <img src={PUBLIC_IMAGE+"dropdown-iconImage.svg"} alt="" />
+                        <img
+                          src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
+                          alt=""
+                        />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>FAQ</div>
                           <div className={styles.menu__dropdownText}>
@@ -176,18 +223,24 @@ const Footer = observer(() => {
                     </div>
                   </a>
                   <img
-                    src={PUBLIC_IMAGE+"Header-arrowImageDown.svg"}
+                    src={PUBLIC_IMAGE + "Header-arrowImageDown.svg"}
                     alt=""
                     className={styles.menu__itemArrow}
                   />
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="http://alfa-crypto.com/#tokenomics" className={styles.menu__listLink}>
+                  <a
+                    href="http://alfa-crypto.com/#tokenomics"
+                    className={styles.menu__listLink}
+                  >
                     Tokens
                   </a>
                 </li>
                 <li className={styles.menu__listItem}>
-                  <a href="http://alfa-crypto.com/account" className={styles.menu__listLink}>
+                  <a
+                    href="http://alfa-crypto.com/account"
+                    className={styles.menu__listLink}
+                  >
                     Account
                   </a>
                 </li>
@@ -262,16 +315,16 @@ const Footer = observer(() => {
               </div>
               <div className={styles.footer__contactItem}>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src={PUBLIC_IMAGE+"X.svg"} alt="" />
+                  <img src={PUBLIC_IMAGE + "X.svg"} alt="" />
                 </a>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src={PUBLIC_IMAGE+"thred.svg"} alt="" />
+                  <img src={PUBLIC_IMAGE + "thred.svg"} alt="" />
                 </a>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src={PUBLIC_IMAGE+"inst.svg"} alt="" />
+                  <img src={PUBLIC_IMAGE + "inst.svg"} alt="" />
                 </a>
                 <a href="#" className={styles.footer__contactLink}>
-                  <img src={PUBLIC_IMAGE+"discord.svg"} alt="" />
+                  <img src={PUBLIC_IMAGE + "discord.svg"} alt="" />
                 </a>
               </div>
             </div>

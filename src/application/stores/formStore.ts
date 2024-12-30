@@ -44,6 +44,7 @@ class FormStore {
   activeComponent: string = "crypto-crypto";
   dataValid: boolean = false;
   isPaid: boolean | undefined = undefined;
+  newCourse  = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -57,6 +58,7 @@ class FormStore {
   }
 
   updateConvert(name: string, value: string | boolean | Record<string, any>) {
+    
     if (typeof value === "object" && value !== null) {
       this.formConvert = {
         ...this.formConvert,
@@ -64,6 +66,9 @@ class FormStore {
       };
     } else {
       this.formConvert[name] = value;
+    }
+    if(this.formConvert.rate){
+      this.newCourse = 1 / this.formConvert.rate;
     }
   }
 

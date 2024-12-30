@@ -11,6 +11,7 @@ import formStore from "../../stores/formStore";
 import { JsonData } from "../types/types";
 import { observer } from "mobx-react-lite";
 import FormBodyCryptoCrypto from "./FormBodyCryptoCrypto/FormBodyCryptoCrypto";
+import poolsStore from "../../stores/poolsStore";
 
 const FormExchanger: FC = observer(() => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
@@ -21,6 +22,7 @@ const FormExchanger: FC = observer(() => {
   const [limitsReceive, setLimitsReceive] = useState({ min: 0, max: "" });
   const [reductionCurr, setReductionCurr] = useState({ pay: "", receive: "" });
   const [curseRate, setCourseRate] = useState<string>("");
+  //const [updateCourse, setupdateCourse] = useState(0);
 
   const jsonData: JsonData = {
     Bitcoin: {
@@ -5552,6 +5554,7 @@ const FormExchanger: FC = observer(() => {
   };
 
   const sendData = async () => {
+    let newCourse = 0;
     try {
       const res = await fetch(
         "http://alfa-crypto.com/api/v1/exchange/confirm",
@@ -5585,6 +5588,7 @@ const FormExchanger: FC = observer(() => {
 
   useEffect(() => {
     getCourse();
+
   }, [formStore.formCourse]);
 
   useEffect(() => {
@@ -5628,7 +5632,7 @@ const FormExchanger: FC = observer(() => {
       formStore.updateInput("paySelect", numericValue);
       if (parseFloat(numericValue) !== 0) {
         const calculatedValue =
-          parseFloat(numericValue) * formStore.formConvert.rate;
+          parseFloat(numericValue) * formStore.newCourse;
         if (!isNaN(calculatedValue)) {
           formStore.updateInput("receiveSelect", calculatedValue.toString());
           console.log(formStore.formData.receiveSelect);
@@ -5651,7 +5655,7 @@ const FormExchanger: FC = observer(() => {
       formStore.updateInput("receiveSelect", numericValue);
       if (parseFloat(numericValue) !== 0) {
         const calculatedValue =
-          formStore.formConvert.rate / parseFloat(numericValue);
+        parseFloat(numericValue) / formStore.newCourse;
         if (!isNaN(calculatedValue)) {
           formStore.updateInput("paySelect", calculatedValue.toString());
           console.log(formStore.formData.receiveSelect);
@@ -5825,10 +5829,8 @@ const FormExchanger: FC = observer(() => {
                 <div className={styles.form__payExchangeRate}>
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
-                    1 {jsonData[selectedPay]?.code} = <br></br>{" "}
-                    {parseFloat(curseRate)
-                      .toFixed(10)
-                      .replace(/\.?0+$/, "")}{" "}
+                    1 {jsonData[selectedPay]?.code}{" "}
+                    = <br></br> {formStore.newCourse}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                   </div>
                 </div>
