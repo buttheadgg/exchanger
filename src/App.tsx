@@ -54,7 +54,7 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/exchanger">
       <Header />
       <RunningLine />
       <div className={styles.page__wrapper}>

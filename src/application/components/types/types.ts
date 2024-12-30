@@ -6,6 +6,7 @@ export interface Direction {
   max: string;
   reserve: string;
   type: string;
+  code: string;
 }
 
 export interface Directions {
@@ -21,6 +22,7 @@ export interface Currency {
   max: string;
   type: string;
   rate: string;
+  code: string
 }
 
 export interface JsonData {

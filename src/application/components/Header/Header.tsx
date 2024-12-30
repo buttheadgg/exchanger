@@ -10,20 +10,31 @@ const Header = () => {
   const burgerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const handleClick = useCallback(() => {
+  const toggleMenu = useCallback(() => {
     burgerRef.current?.classList.toggle("active");
     menuRef.current?.classList.toggle("open");
     document.body.classList.toggle("active");
   }, []);
 
+  const closeMenu = useCallback(() => {
+    burgerRef.current?.classList.remove("active");
+    menuRef.current?.classList.remove("open");
+    document.body.classList.remove("active");
+  }, []);
+
   useEffect(() => {
-    if (burgerRef.current && menuRef.current) {
-      burgerRef.current.addEventListener("click", handleClick);
+    if (burgerRef.current) {
+      burgerRef.current.addEventListener("click", toggleMenu);
       return () => {
-        burgerRef.current?.removeEventListener("click", handleClick);
+        burgerRef.current?.removeEventListener("click", toggleMenu);
       };
     }
-  }, [handleClick]);
+  }, [toggleMenu]);
+
+  const handleLinkClick = (route: string) => {
+    closeMenu(); // Закрываем меню
+    navigate(route); // Переходим на выбранную страницу
+  };
 
   return (
     <header className={styles.header}>
@@ -38,39 +49,71 @@ const Header = () => {
             </div>
             <div className={styles.menu__listHeader} ref={menuRef}>
               <li className={styles.menu__listItem}>
-                <a onClick={() => navigate(RouteNames.EXCHANGER_ROUTE)} className={styles.menu__listLink}>
+                <a
+                  onClick={() => {
+                    navigate(RouteNames.EXCHANGER_ROUTE);
+                    handleLinkClick(RouteNames.EXCHANGER_ROUTE);
+                  }}
+                  className={styles.menu__listLink}
+                >
                   Exchanger
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a
+                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  href="#"
+                  className={styles.menu__listLink}
+                >
                   Debit cards
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a
+                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  href="#"
+                  className={styles.menu__listLink}
+                >
                   Bots
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a onClick={() => navigate(RouteNames.POOLS_ROUTE)} className={styles.menu__listLink}>
+                <a
+                  onClick={() => {
+                    navigate(RouteNames.POOLS_ROUTE);
+                    handleLinkClick(RouteNames.POOLS_ROUTE);
+                  }}
+                  className={styles.menu__listLink}
+                >
                   Pools
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a
+                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  href="#"
+                  className={styles.menu__listLink}
+                >
                   Credits
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a className={styles.menu__listLink}>
+                <a
+                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  className={styles.menu__listLink}
+                >
                   Sheepy
                   <div
                     className={`${styles.menu__dropdownContent} ${styles.dropdown__sheepy}`}
                   >
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="./Company.html">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="./Company.html"
+                      >
                         <div className={styles.menu__dropdownTitle}>
                           About us/Company
                         </div>
@@ -81,7 +124,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="#">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="#"
+                      >
                         <div className={styles.menu__dropdownTitle}>
                           Business
                         </div>
@@ -93,7 +141,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="./Fundraising.html">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="./Fundraising.html"
+                      >
                         <div className={styles.menu__dropdownTitle}>
                           Fundraising
                         </div>
@@ -105,7 +158,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="./Merchant.html">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="./Merchant.html"
+                      >
                         <div className={styles.menu__dropdownTitle}>
                           Merchant
                         </div>
@@ -117,7 +175,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="#">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="#"
+                      >
                         <div className={styles.menu__dropdownTitle}>Demo</div>
                         <div className={styles.menu__dropdownText}>
                           Send payments to multiple recipients <br></br>{" "}
@@ -134,7 +197,11 @@ const Header = () => {
                 />
               </li>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a
+                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  href="#"
+                  className={styles.menu__listLink}
+                >
                   Company
                   <div
                     className={`${styles.menu__dropdownContent} ${styles.dropdown__company}`}
@@ -152,7 +219,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="#">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="#"
+                      >
                         <div className={styles.menu__dropdownTitle}>
                           Road map
                         </div>
@@ -164,7 +236,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="#">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="#"
+                      >
                         <div className={styles.menu__dropdownTitle}>
                           White papper
                         </div>
@@ -176,7 +253,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="#">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="#"
+                      >
                         <div className={styles.menu__dropdownTitle}>
                           Vacancies
                         </div>
@@ -188,7 +270,12 @@ const Header = () => {
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img src="./image/dropdown-iconImage.svg" alt="" />
-                      <a href="#">
+                      <a
+                        onClick={() =>
+                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
+                        }
+                        href="#"
+                      >
                         <div className={styles.menu__dropdownTitle}>FAQ</div>
                         <div className={styles.menu__dropdownText}>
                           Send payments to multiple recipients <br></br>{" "}
@@ -205,12 +292,20 @@ const Header = () => {
                 />
               </li>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a
+                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  href="#"
+                  className={styles.menu__listLink}
+                >
                   Tokens
                 </a>
               </li>
               <li className={styles.menu__listItem}>
-                <a href="#" className={styles.menu__listLink}>
+                <a
+                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  href="#"
+                  className={styles.menu__listLink}
+                >
                   Account
                 </a>
               </li>

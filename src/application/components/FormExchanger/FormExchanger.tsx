@@ -18,9 +18,9 @@ const FormExchanger: FC = observer(() => {
   const [selectedPay, setSelectedPay] = useState("");
   const [selectedReceive, setSelectedReceive] = useState("");
   const [limitsPay, setLimitsPay] = useState({ min: "", max: "" });
-  const [limitsReceive, setLimitsReceive] = useState({ min: "", max: "" });
+  const [limitsReceive, setLimitsReceive] = useState({ min: 0, max: "" });
   const [reductionCurr, setReductionCurr] = useState({ pay: "", receive: "" });
-  const [curseRate, setCourseRate] = useState();
+  const [curseRate, setCourseRate] = useState<string>("");
 
   const jsonData: JsonData = {
     Bitcoin: {
@@ -33,6 +33,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -42,6 +43,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         Сбербанк: {
           id: "42",
@@ -51,6 +53,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -60,6 +63,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -69,6 +73,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -78,6 +83,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -87,6 +93,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -96,6 +103,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -105,6 +113,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -114,6 +123,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -123,6 +133,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -132,6 +143,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Bitcoin (BTC)",
@@ -141,6 +153,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "BTC",
     },
     "Bitcoin BEP20": {
       directions: {
@@ -152,6 +165,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -161,6 +175,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         Сбербанк: {
           id: "42",
@@ -170,6 +185,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -179,6 +195,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -188,6 +205,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -197,6 +215,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -206,6 +225,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -215,6 +235,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -224,6 +245,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -233,6 +255,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -242,6 +265,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -251,6 +275,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Bitcoin BEP20 (BTCB)",
@@ -260,6 +285,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "BTCB",
     },
     Monero: {
       directions: {
@@ -271,6 +297,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -280,6 +307,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Альфа-банк": {
           id: "52",
@@ -289,6 +317,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -298,6 +327,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -307,6 +337,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -316,6 +347,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -325,6 +357,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Monero (XMR)",
@@ -334,6 +367,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "XMR",
     },
     Toncoin: {
       directions: {
@@ -345,6 +379,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
       },
       cur_name: "Toncoin (TON)",
@@ -354,6 +389,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "TON",
     },
     Ethereum: {
       directions: {
@@ -365,6 +401,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -374,6 +411,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         Сбербанк: {
           id: "42",
@@ -383,6 +421,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -392,6 +431,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -401,6 +441,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -410,6 +451,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -419,6 +461,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -428,6 +471,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -437,6 +481,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -446,6 +491,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -455,6 +501,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -464,6 +511,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Ethereum (ETH)",
@@ -473,6 +521,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "ETH",
     },
     "Ethereum BEP20": {
       directions: {
@@ -484,6 +533,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -493,6 +543,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         Сбербанк: {
           id: "42",
@@ -502,6 +553,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -511,6 +563,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -520,6 +573,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -529,6 +583,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -538,6 +593,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -547,6 +603,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -556,6 +613,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -565,6 +623,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -574,6 +633,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -583,6 +643,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Ethereum BEP20 (ETH)",
@@ -592,6 +653,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "ETH",
     },
     "Tether ERC20": {
       directions: {
@@ -603,6 +665,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -612,6 +675,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -621,6 +685,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -630,6 +695,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -639,6 +705,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -648,6 +715,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -657,6 +725,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -666,6 +735,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -675,6 +745,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -684,6 +755,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Tether ERC20 (USDT)",
@@ -693,6 +765,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDT",
     },
     "Tether TRC20": {
       directions: {
@@ -704,6 +777,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -713,6 +787,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -722,6 +797,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -731,6 +807,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -740,6 +817,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -749,6 +827,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -758,6 +837,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -767,6 +847,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -776,6 +857,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -785,6 +867,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Tether TRC20 (USDT)",
@@ -794,6 +877,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDT",
     },
     "Tether BEP20": {
       directions: {
@@ -805,6 +889,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -814,6 +899,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -823,6 +909,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -832,6 +919,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -841,6 +929,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -850,6 +939,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -859,6 +949,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -868,6 +959,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -877,6 +969,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -886,6 +979,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Tether BEP20 (USDT)",
@@ -895,6 +989,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDT",
     },
     "Tether Solana": {
       directions: {
@@ -906,6 +1001,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -915,6 +1011,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -924,6 +1021,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -933,6 +1031,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -942,6 +1041,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -951,6 +1051,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -960,6 +1061,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -969,6 +1071,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -978,6 +1081,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -987,6 +1091,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Tether SOL (USDT)",
@@ -996,6 +1101,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDT",
     },
     "USD Coin ERC20": {
       directions: {
@@ -1007,6 +1113,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1016,6 +1123,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1025,6 +1133,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1034,6 +1143,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1043,6 +1153,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1052,6 +1163,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1061,6 +1173,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1070,6 +1183,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1079,6 +1193,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1088,6 +1203,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "USDC ERC20 (USDC)",
@@ -1097,6 +1213,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDC",
     },
     "USD Coin BEP20": {
       directions: {
@@ -1108,6 +1225,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1117,6 +1235,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1126,6 +1245,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1135,6 +1255,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1144,6 +1265,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1153,6 +1275,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1162,6 +1285,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1171,6 +1295,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1180,6 +1305,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1189,6 +1315,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "USDC BEP20 (USDC)",
@@ -1198,6 +1325,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDC",
     },
     "USD Coin Solana": {
       directions: {
@@ -1209,6 +1337,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1218,6 +1347,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1227,6 +1357,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1236,6 +1367,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1245,6 +1377,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1254,6 +1387,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1263,6 +1397,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1272,6 +1407,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1281,6 +1417,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1290,6 +1427,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "USDC SOL (USDC)",
@@ -1299,6 +1437,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDC",
     },
     Litecoin: {
       directions: {
@@ -1310,6 +1449,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -1319,6 +1459,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         Сбербанк: {
           id: "42",
@@ -1328,6 +1469,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1337,6 +1479,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1346,6 +1489,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1355,6 +1499,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1364,6 +1509,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1373,6 +1519,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1382,6 +1529,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1391,6 +1539,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1400,6 +1549,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1409,6 +1559,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Litecoin (LTC)",
@@ -1418,6 +1569,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "LTC",
     },
     "Bitcoin Cash": {
       directions: {
@@ -1429,6 +1581,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -1438,6 +1591,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         Сбербанк: {
           id: "42",
@@ -1447,6 +1601,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1456,6 +1611,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1465,6 +1621,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1474,6 +1631,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1483,6 +1641,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1492,6 +1651,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1501,6 +1661,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1510,6 +1671,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1519,6 +1681,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1528,6 +1691,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Bitcoin Cash (BCH)",
@@ -1537,6 +1701,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "BCH",
     },
     Dash: {
       directions: {
@@ -1548,6 +1713,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -1557,6 +1723,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         Сбербанк: {
           id: "42",
@@ -1566,6 +1733,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1575,6 +1743,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1584,6 +1753,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1593,6 +1763,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1602,6 +1773,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1611,6 +1783,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1620,6 +1793,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1629,6 +1803,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1638,6 +1813,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1647,6 +1823,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Dash (DASH)",
@@ -1656,6 +1833,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "DASH",
     },
     Zcash: {
       directions: {
@@ -1667,6 +1845,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -1676,6 +1855,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Наличные RUB": {
           id: "91",
@@ -1685,6 +1865,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1694,6 +1875,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
       },
       cur_name: "Zcash (ZEC)",
@@ -1703,6 +1885,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "ZEC",
     },
     "Ether Classic": {
       directions: {
@@ -1714,6 +1897,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1723,6 +1907,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1732,6 +1917,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1741,6 +1927,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1750,6 +1937,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1759,6 +1947,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1768,6 +1957,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1777,6 +1967,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1786,6 +1977,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1795,6 +1987,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Ethereum Classic (ETC)",
@@ -1804,6 +1997,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "ETC",
     },
     Tron: {
       directions: {
@@ -1815,6 +2009,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1824,6 +2019,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1833,6 +2029,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1842,6 +2039,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1851,6 +2049,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1860,6 +2059,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1869,6 +2069,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1878,6 +2079,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1887,6 +2089,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1896,6 +2099,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "TRON (TRX)",
@@ -1905,6 +2109,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "TRX",
     },
     Cardano: {
       directions: {
@@ -1916,6 +2121,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -1925,6 +2131,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -1934,6 +2141,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -1943,6 +2151,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -1952,6 +2161,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -1961,6 +2171,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -1970,6 +2181,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -1979,6 +2191,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -1988,6 +2201,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -1997,6 +2211,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Cardano (ADA)",
@@ -2006,6 +2221,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "ADA",
     },
     Dogecoin: {
       directions: {
@@ -2017,6 +2233,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2026,6 +2243,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2035,6 +2253,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2044,6 +2263,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2053,6 +2273,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2062,6 +2283,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2071,6 +2293,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2080,6 +2303,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2089,6 +2313,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2098,6 +2323,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Dogecoin (DOGE)",
@@ -2107,6 +2333,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "DOGE",
     },
     "Binance Coin BEP20": {
       directions: {
@@ -2118,6 +2345,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2127,6 +2355,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2136,6 +2365,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2145,6 +2375,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2154,6 +2385,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2163,6 +2395,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2172,6 +2405,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2181,6 +2415,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2190,6 +2425,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2199,6 +2435,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "BinanceCoin BEP20 (BNB)",
@@ -2208,6 +2445,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "BNB",
     },
     "Chainlink BEP20": {
       directions: {
@@ -2219,6 +2457,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2228,6 +2467,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2237,6 +2477,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2246,6 +2487,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2255,6 +2497,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2264,6 +2507,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2273,6 +2517,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2282,6 +2527,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2291,6 +2537,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2300,6 +2547,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Chainlink (LINK)",
@@ -2309,6 +2557,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "LINK",
     },
     "Uniswap BEP20": {
       directions: {
@@ -2320,6 +2569,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2329,6 +2579,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2338,6 +2589,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2347,6 +2599,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2356,6 +2609,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2365,6 +2619,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2374,6 +2629,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2383,6 +2639,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2392,6 +2649,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2401,6 +2659,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Uniswap (UNI)",
@@ -2410,6 +2669,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "UNI",
     },
     Polkadot: {
       directions: {
@@ -2421,6 +2681,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2430,6 +2691,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2439,6 +2701,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2448,6 +2711,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2457,6 +2721,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2466,6 +2731,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2475,6 +2741,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2484,6 +2751,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2493,6 +2761,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2502,6 +2771,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Polkadot (DOT)",
@@ -2511,6 +2781,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "DOT",
     },
     Polygon: {
       directions: {
@@ -2522,6 +2793,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2531,6 +2803,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2540,6 +2813,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2549,6 +2823,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2558,6 +2833,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2567,6 +2843,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2576,6 +2853,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2585,6 +2863,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2594,6 +2873,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2603,6 +2883,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Polygon (POL)",
@@ -2612,6 +2893,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "POL",
     },
     Solana: {
       directions: {
@@ -2623,6 +2905,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2632,6 +2915,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2641,6 +2925,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2650,6 +2935,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2659,6 +2945,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2668,6 +2955,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2677,6 +2965,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2686,6 +2975,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2695,6 +2985,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2704,6 +2995,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Solana (SOL)",
@@ -2713,6 +3005,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "SOL",
     },
     "SHIBA INU ERC20": {
       directions: {
@@ -2724,6 +3017,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2733,6 +3027,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2742,6 +3037,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2751,6 +3047,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2760,6 +3057,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2769,6 +3067,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2778,6 +3077,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2787,6 +3087,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2796,6 +3097,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2805,6 +3107,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Shiba BEP20 (SHIB)",
@@ -2814,6 +3117,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "SHIB",
     },
     Tezos: {
       directions: {
@@ -2825,6 +3129,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2834,6 +3139,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2843,6 +3149,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2852,6 +3159,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2861,6 +3169,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2870,6 +3179,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2879,6 +3189,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2888,6 +3199,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2897,6 +3209,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -2906,6 +3219,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Tezos (XTZ)",
@@ -2915,6 +3229,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "XTZ",
     },
     Algorand: {
       directions: {
@@ -2926,6 +3241,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -2935,6 +3251,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -2944,6 +3261,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -2953,6 +3271,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -2962,6 +3281,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -2971,6 +3291,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -2980,6 +3301,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -2989,6 +3311,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -2998,6 +3321,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -3007,6 +3331,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Algorand (ALGO)",
@@ -3016,6 +3341,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "ALGO",
     },
     Avalanche: {
       directions: {
@@ -3027,6 +3353,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -3036,6 +3363,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -3045,6 +3373,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3054,6 +3383,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -3063,6 +3393,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -3072,6 +3403,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -3081,6 +3413,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -3090,6 +3423,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -3099,6 +3433,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -3108,6 +3443,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Tether AVALANCHE (USDT)",
@@ -3117,6 +3453,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "USDT",
     },
     VeChain: {
       directions: {
@@ -3128,6 +3465,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -3137,6 +3475,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -3146,6 +3485,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3155,6 +3495,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -3164,6 +3505,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -3173,6 +3515,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -3182,6 +3525,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -3191,6 +3535,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -3200,6 +3545,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -3209,6 +3555,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "VeChain (VET)",
@@ -3218,6 +3565,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "VET",
     },
     NEO: {
       directions: {
@@ -3229,6 +3577,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -3238,6 +3587,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -3247,6 +3597,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3256,6 +3607,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -3265,6 +3617,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -3274,6 +3627,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -3283,6 +3637,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -3292,6 +3647,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -3301,6 +3657,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -3310,6 +3667,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "NEO (NEO)",
@@ -3319,6 +3677,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "NEO",
     },
     "NEAR Protocol": {
       directions: {
@@ -3330,6 +3689,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -3339,6 +3699,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -3348,6 +3709,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3357,6 +3719,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -3366,6 +3729,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -3375,6 +3739,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -3384,6 +3749,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -3393,6 +3759,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -3402,6 +3769,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -3411,6 +3779,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "NEAR Protocol (NEAR)",
@@ -3420,6 +3789,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "NEAR",
     },
     Verge: {
       directions: {
@@ -3431,6 +3801,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Tinkoff-банк": {
           id: "105",
@@ -3440,6 +3811,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "bank",
+          code: "RUB",
         },
         "Наличные RUB": {
           id: "91",
@@ -3449,6 +3821,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3458,6 +3831,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
         "Альфа-банк": {
           id: "52",
@@ -3467,6 +3841,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         Райффайзен: {
           id: "157",
@@ -3476,6 +3851,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Карта Мир": {
           id: "17",
@@ -3485,6 +3861,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Visa/Mastercard RUB": {
           id: "59",
@@ -3494,6 +3871,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         СБП: {
           id: "21",
@@ -3503,6 +3881,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
         "Любой Банк": {
           id: "0",
@@ -3512,6 +3891,7 @@ const FormExchanger: FC = observer(() => {
           min: "1",
           max: "100",
           reserve: "999",
+          code: "RUB",
         },
       },
       cur_name: "Verge (XVG)",
@@ -3521,6 +3901,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "XVG",
     },
     Ripple: {
       directions: {
@@ -3532,6 +3913,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -3541,6 +3923,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Наличные RUB": {
           id: "91",
@@ -3550,6 +3933,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3559,6 +3943,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
       },
       cur_name: "Ripple (XRP)",
@@ -3568,6 +3953,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "XRP",
     },
     Stellar: {
       directions: {
@@ -3579,6 +3965,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -3588,6 +3975,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Наличные RUB": {
           id: "91",
@@ -3597,6 +3985,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3606,6 +3995,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
       },
       cur_name: "Stellar (XLM)",
@@ -3615,6 +4005,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "XLM",
     },
     Cosmos: {
       directions: {
@@ -3626,6 +4017,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -3635,6 +4027,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Наличные RUB": {
           id: "91",
@@ -3644,6 +4037,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "RUB",
         },
         "Наличные USD": {
           id: "89",
@@ -3653,6 +4047,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "cash",
+          code: "USD",
         },
       },
       cur_name: "Cosmos (ATOM)",
@@ -3662,6 +4057,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "crypto",
       rate: "999",
+      code: "ATOM",
     },
     Сбербанк: {
       directions: {
@@ -3673,6 +4069,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTC",
         },
         "Bitcoin BEP20": {
           id: "43",
@@ -3682,6 +4079,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTCB",
         },
         Monero: {
           id: "149",
@@ -3691,6 +4089,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XMR",
         },
         Ethereum: {
           id: "139",
@@ -3700,6 +4099,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Ethereum BEP20": {
           id: "212",
@@ -3709,6 +4109,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Tether ERC20": {
           id: "36",
@@ -3718,6 +4119,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether TRC20": {
           id: "10",
@@ -3727,6 +4129,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -3736,6 +4139,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether Solana": {
           id: "180",
@@ -3745,6 +4149,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "USD Coin ERC20": {
           id: "23",
@@ -3754,6 +4159,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDC",
         },
         "Bitcoin Cash": {
           id: "172",
@@ -3763,6 +4169,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BCH",
         },
         Dash: {
           id: "140",
@@ -3772,6 +4179,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DASH",
         },
         Zcash: {
           id: "162",
@@ -3781,6 +4189,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ZEC",
         },
         "Ether Classic": {
           id: "160",
@@ -3790,6 +4199,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETC",
         },
         Tron: {
           id: "185",
@@ -3799,6 +4209,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "TRX",
         },
         Cardano: {
           id: "181",
@@ -3808,6 +4219,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ADA",
         },
         Dogecoin: {
           id: "115",
@@ -3817,6 +4229,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOGE",
         },
         "Binance Coin BEP20": {
           id: "19",
@@ -3826,6 +4239,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BNB",
         },
         "Chainlink BEP20": {
           id: "197",
@@ -3835,6 +4249,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "LINK",
         },
         "Uniswap BEP20": {
           id: "202",
@@ -3844,6 +4259,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "UNI",
         },
         Polkadot: {
           id: "201",
@@ -3853,6 +4269,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOT",
         },
         Polygon: {
           id: "138",
@@ -3862,6 +4279,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "POL",
         },
         Solana: {
           id: "82",
@@ -3871,6 +4289,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SOL",
         },
         "SHIBA INU ERC20": {
           id: "32",
@@ -3880,6 +4299,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SHIB",
         },
         Tezos: {
           id: "175",
@@ -3889,6 +4309,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XTZ",
         },
         Algorand: {
           id: "216",
@@ -3898,6 +4319,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ALGO",
         },
         Avalanche: {
           id: "169",
@@ -3907,6 +4329,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         NEO: {
           id: "177",
@@ -3916,6 +4339,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEO",
         },
         "NEAR Protocol": {
           id: "76",
@@ -3925,6 +4349,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEAR",
         },
         Verge: {
           id: "124",
@@ -3934,6 +4359,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XVG",
         },
         Ripple: {
           id: "161",
@@ -3943,6 +4369,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XRP",
         },
         Stellar: {
           id: "182",
@@ -3952,6 +4379,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XLM",
         },
         Cosmos: {
           id: "198",
@@ -3961,6 +4389,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ATOM",
         },
       },
       cur_name: "Sberbank RUB",
@@ -3970,6 +4399,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "bank",
       rate: "999",
+      code: "RUB",
     },
     "Tinkoff-банк": {
       directions: {
@@ -3981,6 +4411,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTC",
         },
         "Bitcoin BEP20": {
           id: "43",
@@ -3990,6 +4421,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTCB",
         },
         Monero: {
           id: "149",
@@ -3999,6 +4431,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XMR",
         },
         Ethereum: {
           id: "139",
@@ -4008,6 +4441,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Ethereum BEP20": {
           id: "212",
@@ -4017,6 +4451,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Tether ERC20": {
           id: "36",
@@ -4026,6 +4461,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether TRC20": {
           id: "10",
@@ -4035,6 +4471,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -4044,6 +4481,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether Solana": {
           id: "180",
@@ -4053,6 +4491,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "USD Coin ERC20": {
           id: "23",
@@ -4062,6 +4501,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDC",
         },
         "Bitcoin Cash": {
           id: "172",
@@ -4071,6 +4511,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BCH",
         },
         Dash: {
           id: "140",
@@ -4080,6 +4521,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DASH",
         },
         Zcash: {
           id: "162",
@@ -4089,6 +4531,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ZEC",
         },
         "Ether Classic": {
           id: "160",
@@ -4098,6 +4541,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETC",
         },
         Tron: {
           id: "185",
@@ -4107,6 +4551,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "TRX",
         },
         Cardano: {
           id: "181",
@@ -4116,6 +4561,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ADA",
         },
         Dogecoin: {
           id: "115",
@@ -4125,6 +4571,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOGE",
         },
         "Binance Coin BEP20": {
           id: "19",
@@ -4134,6 +4581,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BNB",
         },
         "Chainlink BEP20": {
           id: "197",
@@ -4143,6 +4591,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "LINK",
         },
         "Uniswap BEP20": {
           id: "202",
@@ -4152,6 +4601,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "UNI",
         },
         Polkadot: {
           id: "201",
@@ -4161,6 +4611,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOT",
         },
         Polygon: {
           id: "138",
@@ -4170,6 +4621,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "POL",
         },
         Solana: {
           id: "82",
@@ -4179,6 +4631,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SOL",
         },
         "SHIBA INU ERC20": {
           id: "32",
@@ -4188,6 +4641,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SHIB",
         },
         Tezos: {
           id: "175",
@@ -4197,6 +4651,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XTZ",
         },
         Algorand: {
           id: "216",
@@ -4206,6 +4661,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ALGO",
         },
         Avalanche: {
           id: "169",
@@ -4215,6 +4671,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         NEO: {
           id: "177",
@@ -4224,6 +4681,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEO",
         },
         "NEAR Protocol": {
           id: "76",
@@ -4233,6 +4691,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEAR",
         },
         Verge: {
           id: "124",
@@ -4242,6 +4701,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XVG",
         },
         Ripple: {
           id: "161",
@@ -4251,6 +4711,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XRP",
         },
         Stellar: {
           id: "182",
@@ -4260,6 +4721,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XLM",
         },
         Cosmos: {
           id: "198",
@@ -4269,6 +4731,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ATOM",
         },
       },
       cur_name: "T-Bank (Tinkoff) RUB",
@@ -4278,6 +4741,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "bank",
       rate: "999",
+      code: "RUB",
     },
     "Наличные RUB": {
       directions: {
@@ -4289,6 +4753,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTC",
         },
         "Bitcoin BEP20": {
           id: "43",
@@ -4298,6 +4763,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTCB",
         },
         Monero: {
           id: "149",
@@ -4307,6 +4773,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XMR",
         },
         Toncoin: {
           id: "209",
@@ -4316,6 +4783,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "TON",
         },
         Ethereum: {
           id: "139",
@@ -4325,6 +4793,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Ethereum BEP20": {
           id: "212",
@@ -4334,6 +4803,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Tether ERC20": {
           id: "36",
@@ -4343,6 +4813,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether TRC20": {
           id: "10",
@@ -4352,6 +4823,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -4361,6 +4833,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether Solana": {
           id: "180",
@@ -4370,6 +4843,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "USD Coin ERC20": {
           id: "23",
@@ -4379,6 +4853,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDC",
         },
         Litecoin: {
           id: "99",
@@ -4388,6 +4863,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "LTC",
         },
         "Bitcoin Cash": {
           id: "172",
@@ -4397,6 +4873,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BCH",
         },
         Dash: {
           id: "140",
@@ -4406,6 +4883,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DASH",
         },
         Zcash: {
           id: "162",
@@ -4415,6 +4893,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ZEC",
         },
         "Ether Classic": {
           id: "160",
@@ -4424,6 +4903,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETC",
         },
         Tron: {
           id: "185",
@@ -4433,6 +4913,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "TRX",
         },
         Cardano: {
           id: "181",
@@ -4442,6 +4923,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ADA",
         },
         Dogecoin: {
           id: "115",
@@ -4451,6 +4933,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOGE",
         },
         "Binance Coin BEP20": {
           id: "19",
@@ -4460,6 +4943,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BNB",
         },
         "Chainlink BEP20": {
           id: "197",
@@ -4469,6 +4953,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "LINK",
         },
         "Uniswap BEP20": {
           id: "202",
@@ -4478,6 +4963,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "UNI",
         },
         Polkadot: {
           id: "201",
@@ -4487,6 +4973,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOT",
         },
         Polygon: {
           id: "138",
@@ -4496,6 +4983,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "POL",
         },
         Solana: {
           id: "82",
@@ -4505,6 +4993,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SOL",
         },
         "SHIBA INU ERC20": {
           id: "32",
@@ -4514,6 +5003,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SHIB",
         },
         Tezos: {
           id: "175",
@@ -4523,6 +5013,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XTZ",
         },
         Algorand: {
           id: "216",
@@ -4532,6 +5023,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ALGO",
         },
         Avalanche: {
           id: "169",
@@ -4541,6 +5033,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         VeChain: {
           id: "8",
@@ -4550,6 +5043,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "VET",
         },
         NEO: {
           id: "177",
@@ -4559,6 +5053,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEO",
         },
         "NEAR Protocol": {
           id: "76",
@@ -4568,6 +5063,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEAR",
         },
         Verge: {
           id: "124",
@@ -4577,6 +5073,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XVG",
         },
         Ripple: {
           id: "161",
@@ -4586,6 +5083,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XRP",
         },
         Stellar: {
           id: "182",
@@ -4595,6 +5093,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XLM",
         },
         Cosmos: {
           id: "198",
@@ -4604,6 +5103,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ATOM",
         },
       },
       cur_name: "Cash RUB",
@@ -4613,6 +5113,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "cash",
       rate: "999",
+      code: "RUB",
     },
     "Наличные USD": {
       directions: {
@@ -4624,6 +5125,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTC",
         },
         "Bitcoin BEP20": {
           id: "43",
@@ -4633,6 +5135,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BTCB",
         },
         Monero: {
           id: "149",
@@ -4642,6 +5145,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XMR",
         },
         Toncoin: {
           id: "209",
@@ -4651,6 +5155,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "TON",
         },
         Ethereum: {
           id: "139",
@@ -4660,6 +5165,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Ethereum BEP20": {
           id: "212",
@@ -4669,6 +5175,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETH",
         },
         "Tether ERC20": {
           id: "36",
@@ -4678,6 +5185,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether TRC20": {
           id: "10",
@@ -4687,6 +5195,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether BEP20": {
           id: "208",
@@ -4696,6 +5205,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "Tether Solana": {
           id: "180",
@@ -4705,6 +5215,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         "USD Coin ERC20": {
           id: "23",
@@ -4714,6 +5225,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDC",
         },
         Litecoin: {
           id: "99",
@@ -4723,6 +5235,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "LTC",
         },
         "Bitcoin Cash": {
           id: "172",
@@ -4732,6 +5245,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BCH",
         },
         Dash: {
           id: "140",
@@ -4741,6 +5255,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DASH",
         },
         Zcash: {
           id: "162",
@@ -4750,6 +5265,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ZEC",
         },
         "Ether Classic": {
           id: "160",
@@ -4759,6 +5275,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ETC",
         },
         Tron: {
           id: "185",
@@ -4768,6 +5285,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "TRX",
         },
         Cardano: {
           id: "181",
@@ -4777,6 +5295,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ADA",
         },
         Dogecoin: {
           id: "115",
@@ -4786,6 +5305,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOGE",
         },
         "Binance Coin BEP20": {
           id: "19",
@@ -4795,6 +5315,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "BNB",
         },
         "Chainlink BEP20": {
           id: "197",
@@ -4804,6 +5325,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "LINK",
         },
         "Uniswap BEP20": {
           id: "202",
@@ -4813,6 +5335,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "UNI",
         },
         Polkadot: {
           id: "201",
@@ -4822,6 +5345,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "DOT",
         },
         Polygon: {
           id: "138",
@@ -4831,6 +5355,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "POL",
         },
         Solana: {
           id: "82",
@@ -4840,6 +5365,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SOL",
         },
         "SHIBA INU ERC20": {
           id: "32",
@@ -4849,6 +5375,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "SHIB",
         },
         Tezos: {
           id: "175",
@@ -4858,6 +5385,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XTZ",
         },
         Algorand: {
           id: "216",
@@ -4867,6 +5395,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ALGO",
         },
         Avalanche: {
           id: "169",
@@ -4876,6 +5405,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "USDT",
         },
         VeChain: {
           id: "8",
@@ -4885,6 +5415,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "VET",
         },
         NEO: {
           id: "177",
@@ -4894,6 +5425,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEO",
         },
         "NEAR Protocol": {
           id: "76",
@@ -4903,6 +5435,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "NEAR",
         },
         Verge: {
           id: "124",
@@ -4912,6 +5445,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XVG",
         },
         Ripple: {
           id: "161",
@@ -4921,6 +5455,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XRP",
         },
         Stellar: {
           id: "182",
@@ -4930,6 +5465,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "XLM",
         },
         Cosmos: {
           id: "198",
@@ -4939,6 +5475,7 @@ const FormExchanger: FC = observer(() => {
           max: "100",
           reserve: "999",
           type: "crypto",
+          code: "ATOM",
         },
       },
       cur_name: "Cash USD",
@@ -4948,6 +5485,7 @@ const FormExchanger: FC = observer(() => {
       max: "100",
       type: "cash",
       rate: "999",
+      code: "USD",
     },
   };
 
@@ -4977,6 +5515,8 @@ const FormExchanger: FC = observer(() => {
   }, [formStore.formCourse]);
 
   const getCourse = async () => {
+    const requestId = Date.now();
+    console.log("передаю", formStore.formCourse);
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/exchange/rate", {
         method: "POST",
@@ -4989,7 +5529,9 @@ const FormExchanger: FC = observer(() => {
       const result = await res.json();
 
       let minReserve = result.inmin * result.rate;
+
       setLimitsPay({ min: result.inmin || "", max: result.inmax || "" });
+
       setReductionCurr({
         pay: result.from_cur_code,
         receive: result.to_cur_code,
@@ -5001,7 +5543,7 @@ const FormExchanger: FC = observer(() => {
       formStore.updateConvert("response", result);
       formStore.updateField("changer_id", result.changer_id);
       setLimitsReceive({
-        min: minReserve.toString() || "",
+        min: minReserve || 0,
         max: result.max_reserve || "",
       });
     } catch {
@@ -5084,20 +5626,20 @@ const FormExchanger: FC = observer(() => {
       formStore.updateForm("payValue", value);
       getCourse();
       formStore.updateInput("paySelect", numericValue);
-      if(parseFloat(numericValue) !== 0){
+      if (parseFloat(numericValue) !== 0) {
         const calculatedValue =
-        parseFloat(numericValue) * formStore.formConvert.rate;
-        if(!isNaN(calculatedValue)){
+          parseFloat(numericValue) * formStore.formConvert.rate;
+        if (!isNaN(calculatedValue)) {
           formStore.updateInput("receiveSelect", calculatedValue.toString());
           console.log(formStore.formData.receiveSelect);
-        }else{
+        } else {
           formStore.updateInput("receiveSelect", 0);
-        }  
-      }else{
+        }
+      } else {
         formStore.updateInput("receiveSelect", 0);
       }
     }
-  }
+  };
 
   const handleReceiveSelect = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -5107,22 +5649,20 @@ const FormExchanger: FC = observer(() => {
       formStore.updateForm("receiveSelect", value);
       getCourse();
       formStore.updateInput("receiveSelect", numericValue);
-      if(parseFloat(numericValue) !== 0){
+      if (parseFloat(numericValue) !== 0) {
         const calculatedValue =
-        formStore.formConvert.rate / parseFloat(numericValue);
-        if(!isNaN(calculatedValue)){
+          formStore.formConvert.rate / parseFloat(numericValue);
+        if (!isNaN(calculatedValue)) {
           formStore.updateInput("paySelect", calculatedValue.toString());
           console.log(formStore.formData.receiveSelect);
-        }else{
+        } else {
           formStore.updateInput("paySelect", 0);
-        }  
-      }else{
+        }
+      } else {
         formStore.updateInput("paySelect", 0);
       }
     }
-  }
-
-
+  };
 
   const handlePaySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -5174,7 +5714,7 @@ const FormExchanger: FC = observer(() => {
     const value = event.target.value;
     const name = event.target.name;
     formStore.updateField(name, value);
-
+    getCourse();
     setSelectedReceive(value);
 
     const selectedDirection = jsonData[selectedPay]?.directions[value];
@@ -5219,7 +5759,6 @@ const FormExchanger: FC = observer(() => {
         formStore.updateForm("direction", direction);
       }
 
-      getCourse();
       console.log("Полученный курс", formStore.formConvert);
     }
   };
@@ -5286,16 +5825,27 @@ const FormExchanger: FC = observer(() => {
                 <div className={styles.form__payExchangeRate}>
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
-                    1 {reductionCurr.pay} = <br></br> {curseRate}{" "}
-                    {reductionCurr.receive}
+                    1 {jsonData[selectedPay]?.code} = <br></br>{" "}
+                    {parseFloat(curseRate)
+                      .toFixed(10)
+                      .replace(/\.?0+$/, "")}{" "}
+                    {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                   </div>
                 </div>
                 <div className={styles.form__payLimits}>
                   <div>
-                    min.: {limitsPay.min} {reductionCurr.pay}
+                    min.:{" "}
+                    {parseFloat(limitsPay.min)
+                      .toFixed(5)
+                      .replace(/\.?0+$/, "")}{" "}
+                    {jsonData[selectedPay]?.code}
                   </div>
                   <div>
-                    max.: {limitsPay.max} {reductionCurr.pay}
+                    max.:{" "}
+                    {parseFloat(limitsPay.max)
+                      .toFixed(5)
+                      .replace(/\.?0+$/, "")}{" "}
+                    {jsonData[selectedPay]?.code}
                   </div>
                 </div>
               </div>
@@ -5343,10 +5893,15 @@ const FormExchanger: FC = observer(() => {
               </div>
               <div className={styles.form__receiveLimits}>
                 <div>
-                  min.: {limitsReceive.min} {reductionCurr.receive}
+                  min.: {limitsReceive.min.toFixed(5).replace(/\.?0+$/, "")}{" "}
+                  {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                 </div>
                 <div>
-                  max.: {limitsReceive.max} {reductionCurr.receive}
+                  max.:{" "}
+                  {parseFloat(limitsReceive.max)
+                    .toFixed(5)
+                    .replace(/\.?0+$/, "")}{" "}
+                  {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                 </div>
               </div>
             </div>
