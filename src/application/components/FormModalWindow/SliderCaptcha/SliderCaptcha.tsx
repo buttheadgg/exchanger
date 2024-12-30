@@ -14,9 +14,7 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
   const [dragging, setDragging] = useState(false);
   const [offsetX, setOffsetX] = useState(0);
   const [startX, setStartX] = useState(0);
-  const [status, setStatus] = useState<"default" | "success" | "error">(
-    "default"
-  );
+  const [status, setStatus] = useState<"default" | "success" | "error">("default");
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const correctPosition = 200;
@@ -37,13 +35,25 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     }
   };
 
+  const handleMouseUp = () => {
+    setDragging(false);
+    if (Math.abs(offsetX - correctPosition) <= tolerance) {
+      setStatus("success");
+      onSuccess();
+    } else {
+      setStatus("error");
+      onFailure();
+      setOffsetX(0);
+    }
+  };
+
   const handleTouchStart = (e: React.TouchEvent) => {
     setDragging(true);
     setStartX(e.touches[0].clientX); // Получаем координату первого касания
     setStatus("default");
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
+  const handleTouchMove = (e: TouchEvent) => {  // Используем тип TouchEvent для нативного события
     if (dragging && sliderRef.current) {
       const rect = sliderRef.current.getBoundingClientRect();
       let newX = e.touches[0].clientX - startX; // Работаем с первой точкой касания
@@ -64,27 +74,27 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     }
   };
 
-  const handleMouseUp = () => {
-    setDragging(false);
-    if (Math.abs(offsetX - correctPosition) <= tolerance) {
-      setStatus("success");
-      onSuccess();
-    } else {
-      setStatus("error");
-      onFailure();
-      setOffsetX(0);
-    }
-  };
-
   useEffect(() => {
     const handleMouseUpGlobal = () => setDragging(false);
-    window.addEventListener("mouseup", handleMouseUpGlobal);
-    window.addEventListener("touchend", handleTouchEnd); // Глобально отслеживаем тач-события
-    return () => {
-      window.removeEventListener("mouseup", handleMouseUpGlobal);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, []);
+    const sliderElement = sliderRef.current;
+
+    if (sliderElement) {
+      // Привязываем нативные события на элемент слайдера
+      sliderElement.addEventListener("touchmove", handleTouchMove, { passive: false });
+      sliderElement.addEventListener("touchend", handleTouchEnd);
+
+      // Для мыши
+      window.addEventListener("mouseup", handleMouseUpGlobal);
+
+      return () => {
+        // Очистка событий при удалении компонента
+        window.removeEventListener("mouseup", handleMouseUpGlobal);
+        sliderElement.removeEventListener("touchmove", handleTouchMove);
+        sliderElement.removeEventListener("touchend", handleTouchEnd);
+      };
+    }
+  }, [dragging, startX, offsetX]);
+
   return (
     <div className={styles.slider__container}>
       <div className={styles.slider__captcha}>
@@ -105,7 +115,7 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
         ref={sliderRef}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        onTouchMove={handleTouchMove}
+        onTouchStart={handleTouchStart}
       >
         <span className={styles.slider__text}>
           Slide to complete the puzzle
@@ -116,7 +126,6 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
           }`}
           style={{ left: `${offsetX}px` }}
           onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
         >
           {status === "default" && (
             <img src={PUBLIC_IMAGE + "capchaArrow.svg"} alt="Arrow" />
