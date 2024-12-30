@@ -108,7 +108,7 @@ const Header = () => {
                     className={`${styles.menu__dropdownContent} ${styles.dropdown__sheepy}`}
                   >
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -124,7 +124,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg" }alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -141,7 +141,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -158,7 +158,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -175,7 +175,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -192,7 +192,7 @@ const Header = () => {
                   </div>
                 </a>
                 <img
-                  src="./image/Header-arrowImageDown.svg"
+                  src={{PUBLIC_IMAGE}+"Header-arrowImageDown.svg"}
                   alt=""
                   className={styles.menu__itemArrow}
                 />
@@ -208,7 +208,7 @@ const Header = () => {
                     className={`${styles.menu__dropdownContent} ${styles.dropdown__company}`}
                   >
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a href="#">
                         <div className={styles.menu__dropdownTitle}>
                           About us/Company
@@ -219,7 +219,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -236,7 +236,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -253,7 +253,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -270,7 +270,7 @@ const Header = () => {
                       </a>
                     </div>
                     <div className={styles.menu__dropdownWrapper}>
-                      <img src="./image/dropdown-iconImage.svg" alt="" />
+                      <img src={{PUBLIC_IMAGE}+"dropdown-iconImage.svg"} alt="" />
                       <a
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
@@ -287,7 +287,7 @@ const Header = () => {
                   </div>
                 </a>
                 <img
-                  src="./image/Header-arrowImageDown.svg"
+                  src={{PUBLIC_IMAGE}+"Header-arrowImageDown.svg"}
                   alt=""
                   className={styles.menu__itemArrow}
                 />
