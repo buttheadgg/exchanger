@@ -101,6 +101,7 @@ const Header = () => {
                 <a
                   onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
                   className={styles.menu__listLink}
+                  href="http://alfa-crypto.com/sheepy"
                 >
                   Sheepy
                   <div
@@ -112,7 +113,7 @@ const Header = () => {
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
                         }
-                        href="./Company.html"
+                        href="http://alfa-crypto.com/company"
                       >
                         <div className={styles.menu__dropdownTitle}>
                           About us/Company
@@ -128,7 +129,7 @@ const Header = () => {
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
                         }
-                        href="#"
+                        href="http://alfa-crypto.com/sheepy"
                       >
                         <div className={styles.menu__dropdownTitle}>
                           Business
@@ -145,7 +146,7 @@ const Header = () => {
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
                         }
-                        href="./Fundraising.html"
+                        href="http://alfa-crypto.com/fundraising"
                       >
                         <div className={styles.menu__dropdownTitle}>
                           Fundraising
@@ -162,7 +163,7 @@ const Header = () => {
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
                         }
-                        href="./Merchant.html"
+                        href="http://alfa-crypto.com/merchant"
                       >
                         <div className={styles.menu__dropdownTitle}>
                           Merchant
@@ -179,7 +180,7 @@ const Header = () => {
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
                         }
-                        href="#"
+                        href="http://alfa-crypto.com/demo"
                       >
                         <div className={styles.menu__dropdownTitle}>Demo</div>
                         <div className={styles.menu__dropdownText}>
@@ -199,7 +200,7 @@ const Header = () => {
               <li className={styles.menu__listItem}>
                 <a
                   onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
-                  href="#"
+                  href="http://alfa-crypto.com/company"
                   className={styles.menu__listLink}
                 >
                   Company
@@ -257,7 +258,7 @@ const Header = () => {
                         onClick={() =>
                           handleLinkClick(RouteNames.EXCHANGER_ROUTE)
                         }
-                        href="#"
+                        href="http://alfa-crypto.com/vacancies"
                       >
                         <div className={styles.menu__dropdownTitle}>
                           Vacancies
@@ -294,7 +295,7 @@ const Header = () => {
               <li className={styles.menu__listItem}>
                 <a
                   onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
-                  href="#"
+                  href="http://alfa-crypto.com/#tokenomics"
                   className={styles.menu__listLink}
                 >
                   Tokens
@@ -303,7 +304,7 @@ const Header = () => {
               <li className={styles.menu__listItem}>
                 <a
                   onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
-                  href="#"
+                  href="http://alfa-crypto.com/account"
                   className={styles.menu__listLink}
                 >
                   Account

@@ -37,6 +37,33 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     }
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setDragging(true);
+    setStartX(e.touches[0].clientX); // Получаем координату первого касания
+    setStatus("default");
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (dragging && sliderRef.current) {
+      const rect = sliderRef.current.getBoundingClientRect();
+      let newX = e.touches[0].clientX - startX; // Работаем с первой точкой касания
+      newX = Math.max(0, Math.min(newX, rect.width - 40));
+      setOffsetX(newX);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setDragging(false);
+    if (Math.abs(offsetX - correctPosition) <= tolerance) {
+      setStatus("success");
+      onSuccess();
+    } else {
+      setStatus("error");
+      onFailure();
+      setOffsetX(0);
+    }
+  };
+
   const handleMouseUp = () => {
     setDragging(false);
     if (Math.abs(offsetX - correctPosition) <= tolerance) {
@@ -52,9 +79,12 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
   useEffect(() => {
     const handleMouseUpGlobal = () => setDragging(false);
     window.addEventListener("mouseup", handleMouseUpGlobal);
-    return () => window.removeEventListener("mouseup", handleMouseUpGlobal);
+    window.addEventListener("touchend", handleTouchEnd); // Глобально отслеживаем тач-события
+    return () => {
+      window.removeEventListener("mouseup", handleMouseUpGlobal);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
   }, []);
-
   return (
     <div className={styles.slider__container}>
       <div className={styles.slider__captcha}>
@@ -75,6 +105,7 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
         ref={sliderRef}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
+        onTouchMove={handleTouchMove}
       >
         <span className={styles.slider__text}>
           Slide to complete the puzzle
@@ -85,6 +116,7 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
           }`}
           style={{ left: `${offsetX}px` }}
           onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
         >
           {status === "default" && (
             <img src={PUBLIC_IMAGE + "capchaArrow.svg"} alt="Arrow" />

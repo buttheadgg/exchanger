@@ -46,6 +46,7 @@
 .modal__amount{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 468px;
     width: 100%;
     border-radius: 16px;
@@ -66,12 +67,13 @@
 .amount__value{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     font-family: 'Popins';
     font-size: 16px;
     font-weight: 600;
     color: #C4CBF5;
     text-align: right;
+    justify-content: center;
 }
 
 
@@ -130,6 +132,7 @@
     font-size: 20px;
     font-weight: 600;
     color: #EAEDFF;
+    display: flex;
 }
 
 .timestatus__dateTimeCanceled{
@@ -204,3 +207,12 @@
     display: none;
 }
 
+@media(max-width:431px){
+    .modal__window{
+        min-width: 400px;
+        width: 100%;
+    }
+    .timestatus__dateTime{
+        text-align: center;
+    }
+}

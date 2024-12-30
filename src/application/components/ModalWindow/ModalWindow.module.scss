@@ -7,6 +7,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   z-index: 900;
+  overflow-x: hidden;
 }
 
 .modal__overlayNone {
@@ -23,4 +24,10 @@
 
 .modal__wrapperNone {
   display: none;
+}
+
+@media (max-width: 450) {
+  .modal__wrapper {
+    top: 30%;
+  }
 }
