@@ -10,7 +10,7 @@ const Footer = observer(() => {
   const navigate = useNavigate();
 
   const handleLinkClick = (route: string) => {
-    navigate(route); // Переходим на выбранную страницу
+    navigate(route);
   };
 
   return (

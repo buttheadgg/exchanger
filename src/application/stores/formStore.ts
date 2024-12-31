@@ -45,6 +45,7 @@ class FormStore {
   dataValid: boolean = false;
   isPaid: boolean | undefined = undefined;
   newCourse  = 0;
+  minReserve = 0;
 
   constructor() {
     makeAutoObservable(this);
@@ -82,6 +83,29 @@ class FormStore {
       this.finalData[name] = value;
     }
   }
+
+  async getCourse()  {
+    
+    console.log("передаю", formStore.formCourse);
+    try {
+      const res = await fetch("http://alfa-crypto.com/api/v1/exchange/rate", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formStore.formCourse),
+      });
+
+      const result = await res.json();
+      console.log(result);
+      this.formConvert = result;
+      this.minReserve = result.inmin * result.rate
+      this.newCourse = 1 / this.formConvert.rate;
+    } catch {
+      console.error("Ошибка при выполнении fetch-запроса rate:");
+    }
+  };
+
 
   updateInput(name: string, value: string | number) {
     this.formData[name] = value;
