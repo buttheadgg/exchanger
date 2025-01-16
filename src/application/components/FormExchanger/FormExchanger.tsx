@@ -17,7 +17,6 @@ const FormExchanger: FC = observer(() => {
   const formHeaderImage = PUBLIC_IMAGE + "Main-logoImage.svg";
   const [selectedPay, setSelectedPay] = useState("");
   const [selectedReceive, setSelectedReceive] = useState("");
-  //const [updateCourse, setupdateCourse] = useState(0);
 
   const jsonData: JsonData = {
     Bitcoin: {
@@ -5497,29 +5496,13 @@ const FormExchanger: FC = observer(() => {
     const handleBeforeUnload = () => {
       formStore.getCourse();
     };
-  
-    window.addEventListener('beforeunload', handleBeforeUnload);
-  
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
-
-  const options = payOptions.map((option: string) => ({
-    value: option,
-    label: (
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <img
-          src={jsonData[option]?.icon}
-          alt={jsonData[option]?.cur_name}
-          style={{ width: "24px", height: "24px", marginRight: "8px" }}
-        />
-        {option}
-      </div>
-    ),
-  }));
- 
-
 
   const sendData = async () => {
     let newCourse = 0;
@@ -5580,15 +5563,16 @@ const FormExchanger: FC = observer(() => {
     }
   }, [selectedPay, receiveOptions]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    formStore.updateField(name, value);
-  };
+  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = event.target;
+  //   formStore.updateField(name, value);
+  // };
 
   const handlePaySelect = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
     const numericValue = value;
+    formStore.getCourse();
     if (name === "paySelect") {
       formStore.updateForm("payValue", value);
       formStore.getCourse();
@@ -5611,6 +5595,7 @@ const FormExchanger: FC = observer(() => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
     const numericValue = value;
+    formStore.getCourse();
     if (name === "receiveSelect") {
       formStore.updateForm("receiveSelect", value);
       formStore.getCourse();
@@ -5736,6 +5721,7 @@ const FormExchanger: FC = observer(() => {
       console.log("Данные на курс:", formStore.formCourse);
       console.log("Полученный курс", formStore.formConvert);
       formStore.setDataValid(true);
+      formStore.setIsPaid(0)
       sendData();
     } else {
       console.log("Ошибки валидации:", formStore.invalidInputs);
@@ -5791,23 +5777,27 @@ const FormExchanger: FC = observer(() => {
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
                     1 {jsonData[selectedPay]?.code} = <br></br>{" "}
-                    {formStore.newCourse}{" "}
+                    {formStore.isLoading ? "Загрузка" : formStore.newCourse}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                   </div>
                 </div>
                 <div className={styles.form__payLimits}>
                   <div>
                     min.:{" "}
-                    {parseFloat(formStore.formConvert.inmin)
-                      .toFixed(5)
-                      .replace(/\.?0+$/, "")}{" "}
+                    {formStore.isLoading
+                      ? "Загрузка"
+                      : parseFloat(formStore.formConvert.inmin)
+                          .toFixed(5)
+                          .replace(/\.?0+$/, "")}{" "}
                     {jsonData[selectedPay]?.code}
                   </div>
                   <div>
                     max.:{" "}
-                    {parseFloat(formStore.formConvert.inmax)
-                      .toFixed(5)
-                      .replace(/\.?0+$/, "")}{" "}
+                    {formStore.isLoading
+                      ? "Загрузка"
+                      : parseFloat(formStore.formConvert.inmax)
+                          .toFixed(5)
+                          .replace(/\.?0+$/, "")}{" "}
                     {jsonData[selectedPay]?.code}
                   </div>
                 </div>
@@ -5856,14 +5846,21 @@ const FormExchanger: FC = observer(() => {
               </div>
               <div className={styles.form__receiveLimits}>
                 <div>
-                  min.: {(formStore.minReserve).toFixed(5).replace(/\.?0+$/, "")}{" "}{" "}
+                  min.:{" "}
+                  {formStore.isLoading
+                    ? "Загрузка"
+                    : formStore.minReserve
+                        .toFixed(5)
+                        .replace(/\.?0+$/, "")}{" "}
                   {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                 </div>
                 <div>
                   max.:{" "}
-                  {parseFloat(formStore.formConvert.max_reserve)
-                    .toFixed(5)
-                    .replace(/\.?0+$/, "")}{" "}
+                  {formStore.isLoading
+                    ? "Загрузка"
+                    : parseFloat(formStore.formConvert.max_reserve)
+                        .toFixed(5)
+                        .replace(/\.?0+$/, "")}{" "}
                   {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                 </div>
               </div>

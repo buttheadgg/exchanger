@@ -3,7 +3,6 @@ import { Pools } from "../components/types/types";
 
 class PoolsStore {
   formData: Pools = {};
-  isLoading = false;
   error: string | null = null;
   formDataPools: { [key: string]: any } = {
     coin: "",
@@ -18,12 +17,13 @@ class PoolsStore {
     walletAdress: "",
     qrHash: "",
     minValue: "",
-    predictAmount: ""
+    predictAmount: "",
   };
   isSubscribe: boolean | undefined = undefined;
   isConfirm: Number | undefined = undefined;
   invalidInputs: { [key: string]: boolean } = {};
   dataValid: boolean = false;
+  isLoading: boolean = false;
   periods: {
     period: string;
     apy: string;
@@ -83,17 +83,22 @@ class PoolsStore {
     if (
       !this.formDataPools.amount ||
       isNaN(parseFloat(this.formDataPools.amount)) ||
-      parseFloat(this.formDataPools.amount) < parseFloat(this.formDataPools.minValue) ||
+      parseFloat(this.formDataPools.amount) <
+        parseFloat(this.formDataPools.minValue) ||
       parseFloat(this.formDataPools.amount) === 0
     ) {
       newInvalidInputs.amount = true;
+    }
+
+    if (!this.formDataPools.walletAdress) {
+      newInvalidInputs.walletAdress = true;
     }
 
     this.invalidInputs = newInvalidInputs;
     return Object.values(newInvalidInputs).every((isValid) => !isValid);
   }
 
-  setIsConfirm(component: Number) {
+  setIsConfirm(component: Number | undefined) {
     this.isConfirm = component;
   }
 }

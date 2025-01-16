@@ -38,14 +38,14 @@ class FormStore {
   };
   formConvert: { [key: string]: any } = {};
   finalData: { [key: string]: any } = {};
-
   receiveMin: string = "";
   invalidInputs: { [key: string]: boolean } = {};
   activeComponent: string = "crypto-crypto";
   dataValid: boolean = false;
-  isPaid: boolean | undefined = undefined;
+  isPaid: Number | undefined = undefined;
   newCourse  = 0;
   minReserve = 0;
+  isLoading: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -56,6 +56,10 @@ class FormStore {
   }
   updateForm(name: string, value: string | boolean) {
     this.formCourse[name] = value;
+  }
+
+  setIsLoading(value: boolean){
+    this.isLoading = value;
   }
 
   updateConvert(name: string, value: string | boolean | Record<string, any>) {
@@ -87,6 +91,7 @@ class FormStore {
   async getCourse()  {
     
     console.log("передаю", formStore.formCourse);
+    this.setIsLoading(true)
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/exchange/rate", {
         method: "POST",
@@ -101,8 +106,10 @@ class FormStore {
       this.formConvert = result;
       this.minReserve = result.inmin * result.rate
       this.newCourse = 1 / this.formConvert.rate;
-    } catch {
+    } catch(error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
+    } finally{
+      this.setIsLoading(false)
     }
   };
 
@@ -120,7 +127,7 @@ class FormStore {
     this.activeComponent = component;
   }
 
-  setIsPaid(component: boolean | undefined) {
+  setIsPaid(component: Number | undefined) {
     this.isPaid = component;
   }
 

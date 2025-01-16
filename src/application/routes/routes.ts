@@ -1,6 +1,7 @@
+import Exchanger from "../pages/exchanger/Exchanger";
+import Pools from "../pages/pools/Pools";
 
-import Pools from '../pages/Pools/Pools'
-import Exchanger from '../pages/Exchanger/Exchanger'
+
 
 export enum RouteNames {
     POOLS_ROUTE = "/exchanger/pools",

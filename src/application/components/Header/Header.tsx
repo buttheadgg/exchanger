@@ -3,6 +3,9 @@ import styles from "./Header.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { publicRoutes, RouteNames } from "../../routes/routes";
+import { observer } from "mobx-react-lite";
+import poolsStore from "../../stores/poolsStore";
+import formStore from "../../stores/formStore";
 
 const Header = () => {
   const mainLogoPath = PUBLIC_IMAGE + "main-logo.svg";
@@ -82,6 +85,7 @@ const Header = () => {
                   onClick={() => {
                     navigate(RouteNames.POOLS_ROUTE);
                     handleLinkClick(RouteNames.POOLS_ROUTE);
+                    poolsStore.setIsSubscribe(false)
                   }}
                   className={styles.menu__listLink}
                 >
@@ -207,7 +211,7 @@ const Header = () => {
                   </div>
                 </a>
                 <img
-                  src={{ PUBLIC_IMAGE } +"Header-arrowImageDown.svg"}
+                  src={PUBLIC_IMAGE + "Header-arrowImageDown.svg"}
                   alt=""
                   className={styles.menu__itemArrow}
                 />
@@ -317,14 +321,17 @@ const Header = () => {
                   </div>
                 </a>
                 <img
-                  src={PUBLIC_IMAGE+"Header-arrowImageDown.svg"}
+                  src={PUBLIC_IMAGE + "Header-arrowImageDown.svg"}
                   alt=""
                   className={styles.menu__itemArrow}
                 />
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  onClick={() => {
+                    handleLinkClick(RouteNames.EXCHANGER_ROUTE);
+                    poolsStore.setIsConfirm(undefined);
+                  }}
                   href="http://alfa-crypto.com/#tokenomics"
                   className={styles.menu__listLink}
                 >
@@ -353,4 +360,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default observer(Header);

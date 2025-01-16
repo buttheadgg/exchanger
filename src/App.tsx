@@ -24,13 +24,13 @@ const App = () => {
   let modalContent;
 
   switch (formStore.isPaid) {
-    case true:
+    case 1:
       modalContent = <FormModalWindowDone />;
       break;
-    case false:
+    case 2:
       modalContent = <FormModalWindowСanceled />;
       break;
-    default:
+    case 0:
       modalContent = <FormModalWindow />;
       break;
   }

@@ -13,18 +13,32 @@ const PoolsModalSubscribe = () => {
   const selectedCoin = formDataPools.coin;
   const selectedPeriod = formDataPools.period;
 
-  const thisData = new Date().toISOString().slice(0, 19).replace("T", " ");
-  const dateObj = new Date(thisData.replace(" ", "T"));
-  const periodToStr = Number(poolsStore.formDataPools.period);
-  dateObj.setDate(dateObj.getDate() + periodToStr);
-  const newData = dateObj.toISOString().slice(0, 19).replace("T", " ");
-  poolsStore.updateField("predictDateTime", newData);
+  // const thisData = new Date().toISOString().slice(0, 19).replace("T", " ");
+  // const dateObj = new Date(thisData.replace(" ", "T"));
+  // const periodToStr = Number(poolsStore.formDataPools.period);
+  // dateObj.setDate(dateObj.getDate() + periodToStr);
+  // const newData = dateObj.toISOString().slice(0, 19).replace("T", " ");
+  // poolsStore.updateField("predictDateTime", newData);
 
-  poolsStore.updateField("dateTime", thisData);
+  // poolsStore.updateField("dateTime", thisData);
+
+  const thisData = new Date();
+  const periodToStr = Number(poolsStore.formDataPools.period);
+  const dateObj = new Date(thisData);
+  dateObj.setDate(dateObj.getDate() + periodToStr);
+  const formatDate = (date: Date) =>
+    date.toLocaleString("en-CA", { hour12: false }).replace(",", "");
+  const newData = formatDate(dateObj);
+  const thisDataStr = formatDate(thisData);
+
+  // Обновляем поля в сторе
+  poolsStore.updateField("predictDateTime", newData);
+  poolsStore.updateField("dateTime", thisDataStr);
 
   const coinData = formData[selectedCoin]?.detail;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    // const validationResult = poolsStore.validateFields();
     const { name, value } = event.target;
     let calculatedValue = 0;
     if (name == "amount") {
@@ -34,6 +48,11 @@ const PoolsModalSubscribe = () => {
       setPerdictValue(calculatedValue);
     }
     poolsStore.updateField(name, value);
+    // if(validationResult){
+    //   poolsStore.setDataValid(true);
+    // }else{
+    //   poolsStore.setDataValid(false);
+    // }
   };
 
   const postFormDataPools = async () => {

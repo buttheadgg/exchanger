@@ -20,7 +20,7 @@ const FormModalWindow: FC = observer(() => {
 
   const handleButtonPaid = async () => {
     if (captchaDone) {
-      formStore.setIsPaid(true);
+      formStore.setIsPaid(1);
       await formStore.updateField("isPayd", "yes");
       try {
         const res = await fetch("http://alfa-crypto.com/api/v1/exchange/payd", {
@@ -33,7 +33,7 @@ const FormModalWindow: FC = observer(() => {
         if (res.ok) {
           const timerId = setTimeout(() => {}, 1000);
           console.log(timerId);
-          formStore.setIsPaid(true);
+          formStore.setIsPaid(1);
         } else {
           Error(`Ошибка передачи post payd: ${res.status}`);
         }
@@ -44,7 +44,7 @@ const FormModalWindow: FC = observer(() => {
   };
 
   const handleButtonCancel = () => {
-    formStore.setIsPaid(false);
+    formStore.setIsPaid(2);
   };
 
   const handleReload = () => {
