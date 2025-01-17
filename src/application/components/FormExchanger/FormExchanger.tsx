@@ -5765,9 +5765,10 @@ const FormExchanger: FC = observer(() => {
                 <div className={styles.form__payExchangeRate}>
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
-                    1 {jsonData[selectedPay]?.code} = <br></br>{" "}
-                    {formStore.isLoading ? "Загрузка" : (formStore.newCourse===0 ? "Курс не получен" : formStore.newCourse)}{" "}
+                    1 {jsonData[selectedPay]?.code} = {" "}
+                    {formStore.isLoading ? "Загрузка" : (formStore.newCourse===0 ? "Курс не получен" : (jsonData[selectedPay]?.directions[selectedReceive]?.code === "BTC" ? formStore.newCourse.toFixed(0)  : formStore.newCourse))}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
+                    
                   </div>
                 </div>
                 <div className={styles.form__payLimits}>
