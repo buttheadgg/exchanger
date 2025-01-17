@@ -35,6 +35,7 @@ const FormBodyCashCrypto: React.FC = () => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
+    formStore.setHandleChange();
   };
 
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";

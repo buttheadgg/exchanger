@@ -1,11 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from "./Reliability.module.scss";
 import MyButton from "../UI/MyButton/MyButton";
 import { PUBLIC_IMAGE } from "../../constants";
 import { observer } from "mobx-react-lite";
 import formStore from "../../stores/formStore";
 
-const Reliability = observer(() => {
+interface ReliabilityProps {
+  onScrollToForm: () => void
+}
+
+const Reliability: FC<ReliabilityProps> = observer(({ onScrollToForm }) => {
+
   return (
     <div
       className={`${
@@ -36,7 +41,7 @@ const Reliability = observer(() => {
           <li>See all your previous donations</li>
           <li>Mobile-friendly page</li>
         </div>
-        <MyButton className={styles.reliability__button}>exchange</MyButton>
+        <MyButton onClick={onScrollToForm} className={styles.reliability__button}>exchange</MyButton>
       </div>
     </div>
   );

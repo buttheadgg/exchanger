@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import styles from "./Exchanger.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
 import FormExchanger from "../../components/FormExchanger/FormExchanger";
@@ -12,6 +12,13 @@ import Footer from "../../components/Footer/Footer";
 
 const Exchanger: FC = observer(() => {
   const formImage = PUBLIC_IMAGE + "Exchanger-form-img.svg";
+
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className={styles.main}>
       <div className={styles.main__wrapper}>
@@ -19,11 +26,13 @@ const Exchanger: FC = observer(() => {
           <div className={styles.form__imageWrapper}>
             <img src={formImage} alt="formImage" />
           </div>
-          <FormExchanger />
+          <div ref={formRef}>
+            <FormExchanger />
+          </div>
         </div>
         <RecentExchanges />
         <Advantages />
-        <Reliability />
+        <Reliability onScrollToForm={scrollToForm} />
       </div>
     </div>
   );

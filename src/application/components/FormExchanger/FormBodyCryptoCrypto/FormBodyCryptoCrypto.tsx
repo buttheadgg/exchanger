@@ -33,6 +33,7 @@ const FormBodyCryptoCrypto = () => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
+    formStore.setHandleChange();
   };
 
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";
@@ -49,9 +50,9 @@ const FormBodyCryptoCrypto = () => {
             <MyInput
               placeHolder={`${formStore.formData.receive} Wallet address`}
               className={styles.form__walletInput}
-              name="walletAddress"
+              name="btcWalletAddress"
               onChange={handleChange}
-              isInvalid={formStore.invalidInputs.walletAddress}
+              isInvalid={formStore.invalidInputs.btcWalletAddress}
             />
           </div>
           <div className={styles.form__receiveInputWrapper}></div>

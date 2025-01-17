@@ -56,6 +56,7 @@ const Header = () => {
                   onClick={() => {
                     navigate(RouteNames.EXCHANGER_ROUTE);
                     handleLinkClick(RouteNames.EXCHANGER_ROUTE);
+                    formStore.setDataValid(false)
                   }}
                   className={styles.menu__listLink}
                 >
@@ -86,6 +87,7 @@ const Header = () => {
                     navigate(RouteNames.POOLS_ROUTE);
                     handleLinkClick(RouteNames.POOLS_ROUTE);
                     poolsStore.setIsSubscribe(false)
+                    formStore.setDataValid(false)
                   }}
                   className={styles.menu__listLink}
                 >

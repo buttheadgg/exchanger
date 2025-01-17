@@ -95,6 +95,11 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     }
   }, [dragging, startX, offsetX]);
 
+
+  const handleCopyClick = () => {
+    navigator.clipboard.writeText("987CS65456xwwCWW78sw")
+  };
+
   return (
     <div className={styles.slider__container}>
       <div className={styles.slider__captcha}>
@@ -107,6 +112,9 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
 
         <div className={styles.slider__puzzle} style={{ left: `${offsetX}px` }}>
           <img src={PUBLIC_IMAGE + "puzzlePieceImage.svg"} alt="Puzzle Piece" />
+          <div className={styles.slider__puzzleImgCopy} onClick={handleCopyClick}>
+            <img src={PUBLIC_IMAGE + "copyIconForm.svg"} />
+          </div>
         </div>
       </div>
 

@@ -28,11 +28,11 @@ class FormStore {
   };
   formCourse: { [key: string]: any } = {
     pay: "",
-    payValue: "",
+    payValue: "0",
     receiveValue: "",
-    payId: "",
+    payId: "93",
     receive: "",
-    receiveId: "",
+    receiveId: "10",
     cityId: "",
     direction: "crypto-crypto",
   };
@@ -43,9 +43,11 @@ class FormStore {
   activeComponent: string = "crypto-crypto";
   dataValid: boolean = false;
   isPaid: Number | undefined = undefined;
-  newCourse  = 0;
+  newCourse = 0;
   minReserve = 0;
   isLoading: boolean = false;
+  captchaToken: string | null = null;
+  isValidate: boolean | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -58,12 +60,11 @@ class FormStore {
     this.formCourse[name] = value;
   }
 
-  setIsLoading(value: boolean){
+  setIsLoading(value: boolean) {
     this.isLoading = value;
   }
 
   updateConvert(name: string, value: string | boolean | Record<string, any>) {
-    
     if (typeof value === "object" && value !== null) {
       this.formConvert = {
         ...this.formConvert,
@@ -72,7 +73,7 @@ class FormStore {
     } else {
       this.formConvert[name] = value;
     }
-    if(this.formConvert.rate){
+    if (this.formConvert.rate) {
       this.newCourse = 1 / this.formConvert.rate;
     }
   }
@@ -88,10 +89,9 @@ class FormStore {
     }
   }
 
-  async getCourse()  {
-    
+  async getCourse() {
     console.log("передаю", formStore.formCourse);
-    this.setIsLoading(true)
+    this.setIsLoading(true);
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/exchange/rate", {
         method: "POST",
@@ -104,15 +104,15 @@ class FormStore {
       const result = await res.json();
       console.log(result);
       this.formConvert = result;
-      this.minReserve = result.inmin * result.rate
-      this.newCourse = 1 / this.formConvert.rate;
-    } catch(error) {
+      this.minReserve = result.inmin * result.rate;
+      this.newCourse =
+        this.formConvert.rate > 0 ? 1 / this.formConvert.rate : 0;
+    } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
-    } finally{
-      this.setIsLoading(false)
+    } finally {
+      this.setIsLoading(false);
     }
-  };
-
+  }
 
   updateInput(name: string, value: string | number) {
     this.formData[name] = value;
@@ -208,6 +208,12 @@ class FormStore {
       }
     }
 
+    if (this.activeComponent === "crypto-crypto") {
+      if (!this.formData.btcWalletAddress) {
+        newInvalidInputs.btcWalletAddress = true;
+      }
+    }
+
     this.invalidInputs = newInvalidInputs;
     return Object.values(newInvalidInputs).every((isValid) => !isValid);
   }
@@ -215,6 +221,13 @@ class FormStore {
   validateEmail(email: string): boolean {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  }
+
+  setHandleChange() {
+    this.isValidate = this.validateFields();
+    if (!this.isValidate) {
+      this.dataValid = false;
+    }
   }
 }
 

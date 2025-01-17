@@ -5485,24 +5485,16 @@ const FormExchanger: FC = observer(() => {
     },
   };
 
+  useEffect(() => {
+    formStore.getCourse();
+  }, []);
+
   const payOptions = Object.keys(jsonData);
   const receiveOptions = useMemo(() => {
     return selectedPay
       ? Object.keys(jsonData[selectedPay]?.directions || {})
       : [];
   }, [selectedPay]);
-
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      formStore.getCourse();
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, []);
 
   const sendData = async () => {
     let newCourse = 0;
@@ -5545,7 +5537,6 @@ const FormExchanger: FC = observer(() => {
       formStore.updateField("payId", jsonData[defaultPay].id);
       formStore.updateForm("pay", defaultPay);
       formStore.updateForm("payId", jsonData[defaultPay].id);
-      formStore.getCourse();
       console.log("Полученный курс", formStore.formConvert);
     }
   }, [payOptions]);
@@ -5558,7 +5549,6 @@ const FormExchanger: FC = observer(() => {
       formStore.updateField("receiveId", jsonData[defaultReceive].id);
       formStore.updateForm("receive", defaultReceive);
       formStore.updateForm("receiveId", jsonData[defaultReceive].id);
-      formStore.getCourse();
       console.log("Полученный курс", formStore.formConvert);
     }
   }, [selectedPay, receiveOptions]);
@@ -5569,13 +5559,13 @@ const FormExchanger: FC = observer(() => {
   // };
 
   const handlePaySelect = (event: ChangeEvent<HTMLInputElement>) => {
+    formStore.getCourse();
     const { name, value } = event.target;
     formStore.updateField(name, value);
     const numericValue = value;
-    formStore.getCourse();
+    formStore.setHandleChange()
     if (name === "paySelect") {
       formStore.updateForm("payValue", value);
-      formStore.getCourse();
       formStore.updateInput("paySelect", numericValue);
       if (parseFloat(numericValue) !== 0) {
         const calculatedValue = parseFloat(numericValue) * formStore.newCourse;
@@ -5592,13 +5582,13 @@ const FormExchanger: FC = observer(() => {
   };
 
   const handleReceiveSelect = (event: ChangeEvent<HTMLInputElement>) => {
+    formStore.getCourse();
     const { name, value } = event.target;
     formStore.updateField(name, value);
     const numericValue = value;
-    formStore.getCourse();
+    formStore.setHandleChange()
     if (name === "receiveSelect") {
       formStore.updateForm("receiveSelect", value);
-      formStore.getCourse();
       formStore.updateInput("receiveSelect", numericValue);
       if (parseFloat(numericValue) !== 0) {
         const calculatedValue = parseFloat(numericValue) / formStore.newCourse;
@@ -5614,7 +5604,7 @@ const FormExchanger: FC = observer(() => {
     }
   };
 
-  const handlePaySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handlePaySelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     const name = event.target.name;
     const selectedPay = jsonData[value];
@@ -5623,6 +5613,8 @@ const FormExchanger: FC = observer(() => {
     formStore.updateField("payId", selectedPay.id);
     formStore.updateForm(name, value);
     formStore.updateForm("payId", selectedPay.id);
+    await Promise.resolve();
+    formStore.getCourse();
 
     const firstReceiveOption = Object.keys(jsonData[value]?.directions)[0];
     const firstReceiveType = jsonData[firstReceiveOption].type;
@@ -5656,20 +5648,19 @@ const FormExchanger: FC = observer(() => {
       formStore.updateForm("direction", direction);
     }
 
-    formStore.getCourse();
     console.log("Полученный курс", formStore.formConvert);
   };
 
-  const handleReceiveSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleReceiveSelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
     const name = event.target.name;
     formStore.updateField(name, value);
-    formStore.getCourse();
     setSelectedReceive(value);
-
     const selectedDirection = jsonData[selectedPay]?.directions[value];
     formStore.updateField("receiveId", selectedDirection.id);
     formStore.updateForm("receiveId", selectedDirection.id);
+    await Promise.resolve();
+    formStore.getCourse();
 
     if (selectedDirection) {
       setSelectedReceive(value);
@@ -5708,8 +5699,6 @@ const FormExchanger: FC = observer(() => {
         formStore.updateField("direction", direction);
         formStore.updateForm("direction", direction);
       }
-
-      console.log("Полученный курс", formStore.formConvert);
     }
   };
 
@@ -5721,7 +5710,7 @@ const FormExchanger: FC = observer(() => {
       console.log("Данные на курс:", formStore.formCourse);
       console.log("Полученный курс", formStore.formConvert);
       formStore.setDataValid(true);
-      formStore.setIsPaid(0)
+      formStore.setIsPaid(0);
       sendData();
     } else {
       console.log("Ошибки валидации:", formStore.invalidInputs);
@@ -5777,7 +5766,7 @@ const FormExchanger: FC = observer(() => {
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
                     1 {jsonData[selectedPay]?.code} = <br></br>{" "}
-                    {formStore.isLoading ? "Загрузка" : formStore.newCourse}{" "}
+                    {formStore.isLoading ? "Загрузка" : (formStore.newCourse===0 ? "Курс не получен" : formStore.newCourse)}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                   </div>
                 </div>

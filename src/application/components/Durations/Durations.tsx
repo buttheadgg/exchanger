@@ -44,7 +44,7 @@ const Durations = () => {
     console.log(poolsStore.formDataPools);
     poolsStore.setIsSubscribe(true);
     poolsStore.setIsConfirm(0);
-  };
+  };  
 
   return (
     <div className={styles.durations__wrapper}>
