@@ -5711,6 +5711,7 @@ const FormExchanger: FC = observer(() => {
       console.log("Полученный курс", formStore.formConvert);
       formStore.setDataValid(true);
       formStore.setIsPaid(0);
+      poolsStore.setIsSubscribe(false);
       sendData();
     } else {
       console.log("Ошибки валидации:", formStore.invalidInputs);
@@ -5830,7 +5831,6 @@ const FormExchanger: FC = observer(() => {
                   className={styles.form__receiveInputValue}
                   onChange={handleReceiveSelect}
                   placeHolder="0"
-                  isInvalid={formStore.invalidInputs.receiveSelect}
                   value={formStore.formCourse.receiveSelect}
                 />
               </div>

@@ -34,6 +34,7 @@
 
 .form__header {
   display: flex;
+  gap:10px;
   justify-content: space-between;
   padding-top: 36px;
   position: relative;
@@ -147,7 +148,7 @@
   display: flex;
   flex-direction: column;
   font-family: "Gilroy";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 700;
   color: #c4cbf5;
 }
@@ -247,8 +248,8 @@
     width: 2px;
     height: 11px;
     position: absolute;
-    top: 15%;
-    left: -2px;
+    top: 12%;
+    left: -1px;
     background: #2ef2ff;
   }
 }
@@ -363,7 +364,7 @@
     left: 49%;
   }
   .form__payExchangeRateText {
-    font-size: 15px;
+    font-size: 14px;
   }
   .form__receiveLimits{
     padding-right: 2px;

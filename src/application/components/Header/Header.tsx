@@ -56,7 +56,8 @@ const Header = () => {
                   onClick={() => {
                     navigate(RouteNames.EXCHANGER_ROUTE);
                     handleLinkClick(RouteNames.EXCHANGER_ROUTE);
-                    formStore.setDataValid(false)
+                    formStore.setDataValid(false);
+                    poolsStore.setIsSubscribe(false);
                   }}
                   className={styles.menu__listLink}
                 >
@@ -65,7 +66,7 @@ const Header = () => {
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  onClick={() => {handleLinkClick(RouteNames.EXCHANGER_ROUTE); poolsStore.setIsSubscribe(false);}}
                   href="#"
                   className={styles.menu__listLink}
                 >
@@ -86,8 +87,8 @@ const Header = () => {
                   onClick={() => {
                     navigate(RouteNames.POOLS_ROUTE);
                     handleLinkClick(RouteNames.POOLS_ROUTE);
-                    poolsStore.setIsSubscribe(false)
-                    formStore.setDataValid(false)
+                    poolsStore.setIsSubscribe(false);
+                    formStore.setDataValid(false);
                   }}
                   className={styles.menu__listLink}
                 >
@@ -96,7 +97,10 @@ const Header = () => {
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                  onClick={() => {
+                    handleLinkClick(RouteNames.EXCHANGER_ROUTE);
+                    
+                  }}
                   href="#"
                   className={styles.menu__listLink}
                 >

@@ -10,7 +10,7 @@ class PoolsStore {
     мatchAssets: "",
     amount: "",
     agreeConditions: "",
-    autoSubscribe: "",
+    autoSubscribe: "true",
     dateTime: "",
     predictDateTime: "",
     selectedProcent: "",

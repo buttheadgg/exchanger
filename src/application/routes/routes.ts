@@ -4,7 +4,7 @@ import Pools from "../pages/pools/Pools";
 
 
 export enum RouteNames {
-    POOLS_ROUTE = "/exchanger/pools",
+    POOLS_ROUTE = "/pools",
     EXCHANGER_ROUTE = '/exchanger',
   }
 

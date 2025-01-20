@@ -140,6 +140,7 @@ const PoolsModalSubscribe = () => {
                 className={styles.amount__checkbox1}
                 id="checkbox1"
                 onChange={handleChange}
+                defaultChecked={true}
               />
               <div className={styles.durations__checkboxText}>
                 Auto-Subscribe
