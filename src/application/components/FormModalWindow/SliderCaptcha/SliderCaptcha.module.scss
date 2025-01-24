@@ -42,9 +42,10 @@
 
 .slider__puzzleImgCopy {
   position: absolute;
-  top: 30%;
-  left:30%;
+  top: 33%;
+  left:5%;
   cursor: pointer;
+  z-index: 1;
 }
 
 .slider__track {

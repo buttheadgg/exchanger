@@ -6,6 +6,11 @@ import { observer } from "mobx-react-lite";
 import formStore from "../../stores/formStore";
 
 const Advantages = observer(() => {
+
+  const handleCreateClick = () => {
+    window.location.href = 'http://alfa-crypto.com/account';
+  };
+
   return (
     <div
       className={`${
@@ -106,7 +111,7 @@ const Advantages = observer(() => {
           </div>
         </div>
       </div>
-      <MyButton className={styles.advantages__button}>Create account</MyButton>
+      <MyButton className={styles.advantages__button} onClick={handleCreateClick}>Create account</MyButton>
     </div>
   );
 });

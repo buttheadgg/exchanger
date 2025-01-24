@@ -22,7 +22,7 @@ class PoolsStore {
   isSubscribe: boolean | undefined = undefined;
   isConfirm: Number | undefined = undefined;
   invalidInputs: { [key: string]: boolean } = {};
-  dataValid: boolean = false;
+  dataValid: boolean | undefined = false;
   isLoading: boolean = false;
   periods: {
     period: string;
@@ -65,11 +65,11 @@ class PoolsStore {
     this.formDataPools[name] = value;
   }
 
-  setDataValid(component: boolean) {
+  setDataValid(component: boolean | undefined) {
     this.dataValid = component;
   }
 
-  setIsSubscribe(component: boolean) {
+  setIsSubscribe(component: boolean | undefined) {
     this.isSubscribe = component;
   }
 

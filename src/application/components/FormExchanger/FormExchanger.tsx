@@ -5498,11 +5498,12 @@ const FormExchanger: FC = observer(() => {
 
   const sendData = async () => {
     let newCourse = 0;
+    console.log('Отправляю на бек',formStore.formData)
     try {
       const res = await fetch(
         "http://alfa-crypto.com/api/v1/exchange/confirm",
         {
-          method: "POST",
+          method: "POST", 
           headers: {
             "Content-Type": "application/json",
           },
@@ -5767,7 +5768,7 @@ const FormExchanger: FC = observer(() => {
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
                     1 {jsonData[selectedPay]?.code} = {" "}
-                    {formStore.isLoading ? "Загрузка" : (formStore.newCourse===0 ? "Курс не получен" : (jsonData[selectedPay]?.directions[selectedReceive]?.code === "BTC" ? formStore.newCourse.toFixed(0)  : formStore.newCourse))}{" "}
+                    {formStore.isLoading ? "Загрузка" : (formStore.newCourse===0 ? "Курс не получен" : formStore.newCourse.toFixed(2))}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                     
                   </div>

@@ -205,6 +205,30 @@
   background-size: contain;
 }
 
+.form__checkbox2 {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color:rgba(255, 255, 255, 0.04);
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form__checkbox2:checked::after {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: #2ef2ff;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../../../../../public/image/checkboxAfter.svg");
+  background-size: contain;
+}
+
 .form__checkboxText {
   font-family: "Popins";
   font-size: 16px;

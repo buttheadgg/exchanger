@@ -97,6 +97,7 @@ const FormBodyCryptoCrypto = () => {
                   className={styles.form__checkbox}
                   name="agreeToRules"
                   onChange={handleChange}
+                  defaultChecked={true}
                 />
                 <div className={styles.form__checkboxText}>
                   By clicking the Exchange button,<br></br>I agree to the{" "}

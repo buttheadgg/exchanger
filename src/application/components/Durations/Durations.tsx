@@ -44,7 +44,7 @@ const Durations = () => {
     console.log(poolsStore.formDataPools);
     poolsStore.setIsSubscribe(true);
     poolsStore.setIsConfirm(0);
-  };  
+  };
 
   return (
     <div className={styles.durations__wrapper}>
@@ -143,7 +143,10 @@ const Durations = () => {
                     onClick={() => {
                       handleSelectPeriod(coin, period.period);
                       poolsStore.updateField("selectedProcent", period.apy);
-                      poolsStore.updateField("minValue", period.minPurchaseAmount);
+                      poolsStore.updateField(
+                        "minValue",
+                        period.minPurchaseAmount
+                      );
                     }}
                     className={`${
                       isActiveCoin && selectedPeriod === period.period
@@ -155,18 +158,19 @@ const Durations = () => {
                   </div>
                 ))}
               </div>
-
-              <button
-                className={`${styles.durations__bodyLineButton} ${
-                  isActiveCoin && selectedPeriod
-                    ? styles.durations__bodyLineDurationActive
-                    : ""
-                }`}
-                disabled={!isActiveCoin || !selectedPeriod}
-                onClick={handleSubscribe}
-              >
-                Subscribe
-              </button>
+              <div className={styles.durations__bodyLineButtonBack}>
+                <button
+                  className={`${styles.durations__bodyLineButton} ${
+                    isActiveCoin && selectedPeriod
+                      ? styles.durations__bodyLineDurationActive
+                      : ""
+                  }`}
+                  disabled={!isActiveCoin || !selectedPeriod}
+                  onClick={handleSubscribe}
+                >
+                  Subscribe
+                </button>
+              </div>
             </div>
           );
         })}
@@ -219,7 +223,10 @@ const Durations = () => {
                       onClick={() => {
                         handleSelectPeriod(coin, period.period);
                         poolsStore.updateField("selectedProcent", period.apy);
-                        poolsStore.updateField("minValue", period.minPurchaseAmount);
+                        poolsStore.updateField(
+                          "minValue",
+                          period.minPurchaseAmount
+                        );
                       }}
                       className={`${
                         selectedPeriod === period.period

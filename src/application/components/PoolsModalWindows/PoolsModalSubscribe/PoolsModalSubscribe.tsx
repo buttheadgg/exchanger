@@ -159,7 +159,7 @@ const PoolsModalSubscribe = () => {
             />
             <MyInput
               className={styles.amount__input}
-              placeHolder={`Wallet addres`}
+              placeHolder={`Your wallet addres`}
               name="walletAdress"
               onChange={handleChange}
               isInvalid={poolsStore.invalidInputs.walletAdress}

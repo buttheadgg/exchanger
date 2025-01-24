@@ -109,12 +109,11 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
             alt="Background"
           />
         </div>
-
-        <div className={styles.slider__puzzle} style={{ left: `${offsetX}px` }}>
-          <img src={PUBLIC_IMAGE + "puzzlePieceImage.svg"} alt="Puzzle Piece" />
-          <div className={styles.slider__puzzleImgCopy} onClick={handleCopyClick}>
+        <div className={styles.slider__puzzleImgCopy} onClick={handleCopyClick}>
             <img src={PUBLIC_IMAGE + "copyIconForm.svg"} />
           </div>
+        <div className={styles.slider__puzzle} style={{ left: `${offsetX}px` }}>
+          <img src={PUBLIC_IMAGE + "puzzlePieceImage.svg"} alt="Puzzle Piece" />
         </div>
       </div>
 

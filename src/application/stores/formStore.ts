@@ -22,7 +22,7 @@ class FormStore {
     rememberData: "",
     agreeToRules: "",
     direction: "crypto-crypto",
-    changer_id: "",
+    changer_id: "1071",
     isPayd: "no",
     transactionId: "",
   };
@@ -41,7 +41,7 @@ class FormStore {
   receiveMin: string = "";
   invalidInputs: { [key: string]: boolean } = {};
   activeComponent: string = "crypto-crypto";
-  dataValid: boolean = false;
+  dataValid: boolean | undefined = false;
   isPaid: Number | undefined = undefined;
   newCourse = 0;
   minReserve = 0;
@@ -131,7 +131,7 @@ class FormStore {
     this.isPaid = component;
   }
 
-  setDataValid(component: boolean) {
+  setDataValid(component: boolean | undefined) {
     this.dataValid = component;
   }
 
@@ -143,10 +143,6 @@ class FormStore {
       !this.validateEmail(this.formData.email as string)
     ) {
       newInvalidInputs.email = true;
-    }
-
-    if (!this.formData.agreeToRules) {
-      newInvalidInputs.agreeToRules = true;
     }
 
     if (
