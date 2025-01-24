@@ -46,11 +46,15 @@ class FormStore {
   newCourse = 0;
   minReserve = 0;
   isLoading: boolean = false;
-  captchaToken: string | null = null;
   isValidate: boolean | null = null;
+  captchaToken: string | null = null;
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  setCaptchaToken(value: string | null){
+    this.captchaToken = value;
   }
 
   updateField(name: string, value: string | boolean) {
@@ -143,6 +147,10 @@ class FormStore {
       !this.validateEmail(this.formData.email as string)
     ) {
       newInvalidInputs.email = true;
+    }
+
+    if(this.captchaToken == null){
+      newInvalidInputs.captcha = true;
     }
 
     if (

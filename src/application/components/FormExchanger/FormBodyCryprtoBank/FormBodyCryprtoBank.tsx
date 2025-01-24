@@ -5,10 +5,16 @@ import MyInput from "../../UI/MyInput/MyInput";
 import { observer } from "mobx-react-lite";
 import formStore from "../../../stores/formStore";
 import locationStore from "../../../stores/locationStore";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const FormBodyCryprtoBank: FC = ({}) => {
   const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
     locationStore;
+
+  const handleCaptchaChange = (token: string | null) => {
+    formStore.setCaptchaToken(token);
+    console.log("CAPTCHA token:", token);
+  };
 
   useEffect(() => {
     locationStore.initializeDefaults();
@@ -147,7 +153,11 @@ const FormBodyCryprtoBank: FC = ({}) => {
         </div>
       </div>
       <div className={styles.form__reCapcha}>
-        <img src={recaptchaImage} alt="captcha" />
+        <ReCAPTCHA
+          sitekey="6LffE8IqAAAAAM3RixTIrXWK--794V01rKbaJCio"
+          onChange={handleCaptchaChange}
+          theme="light"
+        />
       </div>
     </div>
   );

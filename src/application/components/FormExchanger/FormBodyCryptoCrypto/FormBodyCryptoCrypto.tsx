@@ -9,10 +9,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 const FormBodyCryptoCrypto = () => {
   const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
     locationStore;
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-
+    
   const handleCaptchaChange = (token: string | null) => {
-    setCaptchaToken(token);
+    formStore.setCaptchaToken(token);
     console.log("CAPTCHA token:", token);
   };
 

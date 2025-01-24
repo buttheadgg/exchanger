@@ -5,10 +5,16 @@ import { PUBLIC_IMAGE } from "../../../constants";
 import formStore from "../../../stores/formStore";
 import { observer } from "mobx-react-lite";
 import locationStore from "../../../stores/locationStore";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const FormBodyBankCrypto: FC = ({}) => {
   const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
     locationStore;
+
+  const handleCaptchaChange = (token: string | null) => {
+    formStore.setCaptchaToken(token);
+    console.log("CAPTCHA token:", token);
+  };
 
   useEffect(() => {
     locationStore.fetchLocationData();
@@ -57,7 +63,10 @@ const FormBodyBankCrypto: FC = ({}) => {
             />
           </div>
           <div className={styles.form__payInput}>
-            <p className={styles.form__payInputLable}> {formStore.formData.receive} wallet address*</p>
+            <p className={styles.form__payInputLable}>
+              {" "}
+              {formStore.formData.receive} wallet address*
+            </p>
             <MyInput
               className={styles.form__payInputTelegram}
               placeHolder={`${formStore.formData.receive} wallet address`}
@@ -130,7 +139,11 @@ const FormBodyBankCrypto: FC = ({}) => {
         </div>
       </div>
       <div className={styles.form__reCapcha}>
-        <img src={recaptchaImage} alt="captcha" />
+        <ReCAPTCHA
+          sitekey="6LffE8IqAAAAAM3RixTIrXWK--794V01rKbaJCio"
+          onChange={handleCaptchaChange}
+          theme="light"
+        />
       </div>
     </div>
   );
