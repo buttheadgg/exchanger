@@ -1,13 +1,20 @@
-import React, { ChangeEvent, useEffect } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import styles from "./FormBodyCryptoCrypto.module.scss";
 import MyInput from "../../UI/MyInput/MyInput";
 import locationStore from "../../../stores/locationStore";
 import formStore from "../../../stores/formStore";
 import { PUBLIC_IMAGE } from "../../../constants";
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const FormBodyCryptoCrypto = () => {
   const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
     locationStore;
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+    console.log("CAPTCHA token:", token);
+  };
 
   useEffect(() => {
     locationStore.initializeDefaults();
@@ -111,7 +118,11 @@ const FormBodyCryptoCrypto = () => {
         </div>
       </div>
       <div className={styles.form__reCapcha}>
-        <img src={recaptchaImage} alt="captcha" />
+      <ReCAPTCHA
+        sitekey="6LffE8IqAAAAAM3RixTIrXWK--794V01rKbaJCio" 
+        onChange={handleCaptchaChange}
+        theme="light" 
+      />
       </div>
     </div>
   );
