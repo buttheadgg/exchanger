@@ -101,9 +101,28 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
   }, [dragging, startX, offsetX]);
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText("987CS65456xwwCWW78sw");
+    const textToCopy = "987CS65456xwwCWW78sw";
+    
+    const textarea = document.createElement("textarea");
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    
+    textarea.select();
+    textarea.setSelectionRange(0, textToCopy.length); // Для iOS
+    
+    try {
+      document.execCommand("copy");
+      alert("Текст скопирован в буфер обмена!");
+    } catch (error) {
+      console.error("Ошибка при копировании текста:", error);
+      alert("Не удалось скопировать текст.");
+    }
+    
+    // Удаляем временной элемент
+    document.body.removeChild(textarea);
   };
-
+  
+  
   return (
     <div className={styles.slider__container}>
       <div className={styles.slider__captcha}>
