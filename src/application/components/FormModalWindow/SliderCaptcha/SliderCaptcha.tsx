@@ -14,7 +14,9 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
   const [dragging, setDragging] = useState(false);
   const [offsetX, setOffsetX] = useState(0);
   const [startX, setStartX] = useState(0);
-  const [status, setStatus] = useState<"default" | "success" | "error">("default");
+  const [status, setStatus] = useState<"default" | "success" | "error">(
+    "default"
+  );
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const correctPosition = 200;
@@ -53,7 +55,8 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     setStatus("default");
   };
 
-  const handleTouchMove = (e: TouchEvent) => {  // Используем тип TouchEvent для нативного события
+  const handleTouchMove = (e: TouchEvent) => {
+    // Используем тип TouchEvent для нативного события
     if (dragging && sliderRef.current) {
       const rect = sliderRef.current.getBoundingClientRect();
       let newX = e.touches[0].clientX - startX; // Работаем с первой точкой касания
@@ -80,7 +83,9 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
 
     if (sliderElement) {
       // Привязываем нативные события на элемент слайдера
-      sliderElement.addEventListener("touchmove", handleTouchMove, { passive: false });
+      sliderElement.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
       sliderElement.addEventListener("touchend", handleTouchEnd);
 
       // Для мыши
@@ -95,9 +100,8 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     }
   }, [dragging, startX, offsetX]);
 
-
   const handleCopyClick = () => {
-    navigator.clipboard.writeText("987CS65456xwwCWW78sw")
+    navigator.clipboard.writeText("987CS65456xwwCWW78sw");
   };
 
   return (
@@ -110,8 +114,8 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
           />
         </div>
         <div className={styles.slider__puzzleImgCopy} onClick={handleCopyClick}>
-            <img src={PUBLIC_IMAGE + "copyIconForm.svg"} />
-          </div>
+          <img src={PUBLIC_IMAGE + "copyIconForm.svg"} />
+        </div>
         <div className={styles.slider__puzzle} style={{ left: `${offsetX}px` }}>
           <img src={PUBLIC_IMAGE + "puzzlePieceImage.svg"} alt="Puzzle Piece" />
         </div>
