@@ -108,14 +108,12 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     document.body.appendChild(textarea);
     
     textarea.select();
-    textarea.setSelectionRange(0, textToCopy.length); // Для iOS
+    textarea.setSelectionRange(0, textToCopy.length); 
     
     try {
       document.execCommand("copy");
-      alert("Текст скопирован в буфер обмена!");
     } catch (error) {
       console.error("Ошибка при копировании текста:", error);
-      alert("Не удалось скопировать текст.");
     }
     
     // Удаляем временной элемент
