@@ -5,17 +5,20 @@ import poolsStore from "../../../stores/poolsStore";
 import { observer } from "mobx-react-lite";
 
 const PoolsModalHoldings = () => {
+  const { formData, formDataPools } = poolsStore;
+  const selectedCoin = formDataPools.coin;
+  const selectedPeriod = formDataPools.period;
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     poolsStore.updateField(name, value);
   };
 
   const handleButtonBack = () => {
-    poolsStore.setIsConfirm(4);
+    poolsStore.setIsConfirm(0);
   };
 
   const handleButtonSubscribe = () => {
-    poolsStore.setIsConfirm(3);
+    poolsStore.setIsConfirm(1);
   };
 
   return (
@@ -23,18 +26,21 @@ const PoolsModalHoldings = () => {
       <div className={styles.holdings__wrapperHead}>
         <div className={styles.holdings__coin}>
           <div className={styles.holdings__coinImg}>
-            <img src={PUBLIC_ICON + "tether.svg"} alt="" />
+            <img
+              src={`${PUBLIC_ICON}${selectedCoin.toLowerCase()}.svg`}
+              alt={selectedCoin}
+            />
           </div>
           <div className={styles.holdings__CoinNameWrapper}>
-            <div className={styles.holdings__CoinNameTitle}>ETH</div>
+            <div className={styles.holdings__CoinNameTitle}>{selectedCoin }</div>
             <div className={styles.holdings__CoinNameText}>
               Simple Earn Locked
             </div>
           </div>
         </div>
         <div className={styles.holdings__valueWrapper}>
-          <div className={styles.holdings__valueHeader}>0.10000000</div>
-          <div className={styles.holdings__valueEquils}>≈ $ 0.10000000</div>
+          <div className={styles.holdings__valueHeader}>{poolsStore.formDataPools.predictAmount}</div>
+          <div className={styles.holdings__valueEquils}>≈ $ {101*poolsStore.formDataPools.predictAmount}</div>
         </div>
         <div className={styles.holdings__buttonWrapper}>
           <button
@@ -63,6 +69,7 @@ const PoolsModalHoldings = () => {
               className={styles.amount__checkbox1}
               id="checkbox1"
               onChange={handleChange}
+              defaultChecked={true}
             />
             <div className={styles.durations__checkboxText}>Auto-Subscribe</div>
           </div>
@@ -85,14 +92,25 @@ const PoolsModalHoldings = () => {
           <div>--</div>
           <div className={styles.holdings__rerwardValueGroup}>
             <div className={styles.holdings__rerwardValueGroupImg}>
-              <img src={PUBLIC_ICON + "tether.svg"} alt="" />
+              <img
+                src={`${PUBLIC_ICON}${selectedCoin.toLowerCase()}.svg`}
+                alt={selectedCoin}
+              />
             </div>
-            <div>3.1%</div>
+            <div>
+              {" "}
+              <span>
+                {(
+                  parseFloat(poolsStore.formDataPools.selectedProcent) * 100
+                ).toFixed(2)}
+                % 
+              </span>
+            </div>
           </div>
-          <div>21 days</div>
+          <div>{poolsStore.formDataPools.period} Days</div>
           <div>0 days</div>
           <div className={styles.holdings__rerwardValueUSD}>
-            0.00000849 USDT
+            {poolsStore.formDataPools.predictAmount} {selectedCoin}
           </div>
         </div>
       </div>

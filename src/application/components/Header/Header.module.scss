@@ -161,14 +161,16 @@ header {
   justify-content: flex-end;
   width: 20px;
   height: 18px;
+  overflow-y: none;
 }
+
 .burger {
   span {
     border-radius: 2px;
     height: 3px;
     width: 100%;
     background-color: #2ef2ff;
-    transition: transform 0.3s ease; // Уточнили transition, применяется только к transform
+    transition: transform 0.3s ease; 
     transform: scale(1);
   }
 
@@ -970,6 +972,7 @@ header {
     opacity: 1;
   }
 }
+
 /*---------FOOTER END---------*/
 
 /*---------Media---------------*/

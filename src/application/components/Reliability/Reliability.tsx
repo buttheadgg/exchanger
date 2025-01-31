@@ -32,7 +32,7 @@ const Reliability: FC<ReliabilityProps> = observer(({ onScrollToForm }) => {
       </div>
       <div className={styles.reliability__content}>
         <div className={styles.reliability__title}>
-          Reliability and <br></br> safety
+          Reliability and safety
         </div>
         <div className={styles.reliability__list}>
           <li>Set your unique name on donation page</li>

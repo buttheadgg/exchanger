@@ -48,12 +48,16 @@ class FormStore {
   isLoading: boolean = false;
   isValidate: boolean | null = null;
   captchaToken: string | null = null;
+  validatePaySelectMax: boolean = false;
+  validatePaySelectMin: boolean = false;
+  validateReceiveSelectMax: boolean = false;
+  validateReceiveSelectMin: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  setCaptchaToken(value: string | null){
+  setCaptchaToken(value: string | null) {
     this.captchaToken = value;
   }
 
@@ -94,7 +98,7 @@ class FormStore {
   }
 
   async getCourse() {
-    console.log("передаю", formStore.formCourse);
+    console.log("передаю", this.formCourse);
     this.setIsLoading(true);
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/exchange/rate", {
@@ -149,28 +153,46 @@ class FormStore {
       newInvalidInputs.email = true;
     }
 
-    if(this.captchaToken == null){
-      newInvalidInputs.captcha = true;
-    }
+    // if (this.captchaToken == null) {
+    //   newInvalidInputs.captcha = true;
+    // }
 
     if (
+      parseFloat(this.formData.paySelect) > parseFloat(this.formConvert.inmax)
+    ) {
+      newInvalidInputs.paySelect = true;
+      this.validatePaySelectMax = true;
+      this.validatePaySelectMin = false;
+    } else if (
       !this.formData.paySelect ||
       isNaN(parseFloat(this.formData.paySelect)) ||
-      parseFloat(this.formData.paySelect) < this.formConvert.inmin ||
-      parseFloat(this.formData.paySelect) > this.formConvert.inmax ||
+      parseFloat(this.formData.paySelect) < 0  ||
       parseFloat(this.formData.paySelect) === 0
     ) {
       newInvalidInputs.paySelect = true;
+      this.validatePaySelectMin = true;
+      this.validatePaySelectMax = false;
+    }else{
+      this.validatePaySelectMin = false;
+      this.validatePaySelectMax = false;
     }
 
     if (
-      !this.formData.receiveSelect ||
-      isNaN(parseFloat(this.formData.receiveSelect)) ||
-      parseFloat(this.formData.receiveSelect) < parseFloat(this.receiveMin) ||
-      parseFloat(this.formData.receiveSelect) > this.formConvert.max_reserve ||
-      parseFloat(this.formData.paySelect) === 0
+      parseFloat(this.formData.receiveSelect) > parseFloat(this.formConvert.max_reserve)
     ) {
       newInvalidInputs.receiveSelect = true;
+      this.validateReceiveSelectMax = true;
+      this.validateReceiveSelectMin = false;
+    }else if (
+      parseFloat(this.formData.receiveSelect) < parseFloat(this.receiveMin) ||
+      parseFloat(this.formData.paySelect) === 0
+    ){
+      newInvalidInputs.receiveSelect = true;
+      this.validateReceiveSelectMax = false;
+      this.validateReceiveSelectMin = true;
+    }else{
+      this.validateReceiveSelectMax = false;
+      this.validateReceiveSelectMin = false;
     }
 
     if (this.activeComponent === "cash-crypto") {

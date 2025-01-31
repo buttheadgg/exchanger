@@ -11,7 +11,7 @@ const PoolsModalSuccessfulFinal = () => {
   };
 
   const handleButtonHoldings = () => {
-    poolsStore.setIsConfirm(3);
+    poolsStore.setIsConfirm(2);
   };
 
   return (

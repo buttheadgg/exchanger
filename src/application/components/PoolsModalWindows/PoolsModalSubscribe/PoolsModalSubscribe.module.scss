@@ -253,17 +253,13 @@
   color: #c4cbf5;
 }
 
-/*.personal {
+.personal {
   display: flex;
   gap: 5px;
   font-family: "Popins";
   font-size: 14px;
   font-weight: 400;
   color: #c4cbf5;
-}*/
-
-.personal {
-  display: none;
 }
 
 .personal__text {
@@ -418,6 +414,11 @@
   display: none;
 }
 
+.personal__graph{
+  position: absolute;
+  top: 59%;
+}
+
 @media (max-width: 1217px) {
   .durations__checkboxTextWrapper {
     display: none;
@@ -466,6 +467,13 @@
   .window__wrapper {
     min-width: 500px;
   }
+  .personal__graph{
+    top: 53%;
+  }
+  .personal__graph img{
+    max-width: 450px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 519px) {
@@ -477,7 +485,17 @@
     gap: 5px;
   }
   .summary__rightText {
-    display: none;
+    font-size: 14px;
+  }
+  .summary__discribRules{
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .summary__body{
+    gap: 15px;
+  }
+  .summary__discrib{
+    align-items:start;
   }
 }
 

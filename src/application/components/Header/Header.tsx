@@ -14,12 +14,21 @@ const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = useCallback(() => {
+    if (document.body.style.overflowY === 'hidden') {
+      document.body.style.overflowY = ''; // Разблокировать прокрутку на body
+      document.documentElement.style.overflowY = ''; // Разблокировать прокрутку на html
+    } else {
+      document.body.style.overflowY = 'hidden'; // Блокировать прокрутку на body
+      document.documentElement.style.overflowY = 'hidden'; // Блокировать прокрутку на html
+    }
     burgerRef.current?.classList.toggle("active");
     menuRef.current?.classList.toggle("open");
     document.body.classList.toggle("active");
   }, []);
 
   const closeMenu = useCallback(() => {
+    document.body.style.overflowY = ''; // Сбросить стиль прокрутки для body
+    document.documentElement.style.overflowY = ''; 
     burgerRef.current?.classList.remove("active");
     menuRef.current?.classList.remove("open");
     document.body.classList.remove("active");
@@ -37,6 +46,9 @@ const Header = () => {
   const handleLinkClick = (route: string) => {
     closeMenu(); // Закрываем меню
     navigate(route); // Переходим на выбранную страницу
+    if (formStore.formData.rememberData === "on") {
+      window.location.reload();
+    }
   };
 
   return (
@@ -67,7 +79,10 @@ const Header = () => {
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  onClick={() => {handleLinkClick(RouteNames.EXCHANGER_ROUTE); poolsStore.setIsSubscribe(false);}}
+                  onClick={() => {
+                    handleLinkClick(RouteNames.EXCHANGER_ROUTE);
+                    poolsStore.setIsSubscribe(false);
+                  }}
                   href="#"
                   className={styles.menu__listLink}
                 >
@@ -100,7 +115,6 @@ const Header = () => {
                 <a
                   onClick={() => {
                     handleLinkClick(RouteNames.EXCHANGER_ROUTE);
-                    
                   }}
                   href="#"
                   className={styles.menu__listLink}

@@ -174,3 +174,20 @@
     height: 3px;
     background: #2EF2FF;
 }
+
+@media(max-width:431px){
+    .modal__timeStatus{
+        gap: 10px;
+        max-width: 382px;
+    }
+    .timestatus__dateTime{
+        font-size: 16px;
+    }
+    .modal__window{
+        min-width: 412px;
+        gap: 10px;
+    }
+    .amount__value{
+       gap: 24px;
+    }
+}

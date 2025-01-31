@@ -17,10 +17,16 @@
   position: absolute;
   z-index: 901;
   top: 0;
-  left: 53%;
+  left: 50%;
   transform: translate(-50%, 4%);
 }
 
 .modal__wrapperNone {
   display: none;
+}
+
+@media(max-width:431px){
+  .modal__wrapper{
+    left: 50%;
+  }
 }

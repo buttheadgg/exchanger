@@ -5498,12 +5498,12 @@ const FormExchanger: FC = observer(() => {
 
   const sendData = async () => {
     let newCourse = 0;
-    console.log('Отправляю на бек',formStore.formData)
+    console.log("Отправляю на бек", formStore.formData);
     try {
       const res = await fetch(
         "http://alfa-crypto.com/api/v1/exchange/confirm",
         {
-          method: "POST", 
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -5540,6 +5540,7 @@ const FormExchanger: FC = observer(() => {
       formStore.updateForm("payId", jsonData[defaultPay].id);
       console.log("Полученный курс", formStore.formConvert);
     }
+    
   }, [payOptions]);
 
   useEffect(() => {
@@ -5554,6 +5555,7 @@ const FormExchanger: FC = observer(() => {
     }
   }, [selectedPay, receiveOptions]);
 
+
   // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
   //   const { name, value } = event.target;
   //   formStore.updateField(name, value);
@@ -5564,7 +5566,7 @@ const FormExchanger: FC = observer(() => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
     const numericValue = value;
-    formStore.setHandleChange()
+    formStore.setHandleChange();
     if (name === "paySelect") {
       formStore.updateForm("payValue", value);
       formStore.updateInput("paySelect", numericValue);
@@ -5583,11 +5585,12 @@ const FormExchanger: FC = observer(() => {
   };
 
   const handleReceiveSelect = (event: ChangeEvent<HTMLInputElement>) => {
-    formStore.getCourse();
+    
     const { name, value } = event.target;
     formStore.updateField(name, value);
+    formStore.getCourse();
     const numericValue = value;
-    formStore.setHandleChange()
+    formStore.setHandleChange();
     if (name === "receiveSelect") {
       formStore.updateForm("receiveSelect", value);
       formStore.updateInput("receiveSelect", numericValue);
@@ -5605,7 +5608,9 @@ const FormExchanger: FC = observer(() => {
     }
   };
 
-  const handlePaySelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
+  const handlePaySelectChange = async (
+    event: ChangeEvent<HTMLSelectElement>
+  ) => {
     const value = event.target.value;
     const name = event.target.name;
     const selectedPay = jsonData[value];
@@ -5614,15 +5619,17 @@ const FormExchanger: FC = observer(() => {
     formStore.updateField("payId", selectedPay.id);
     formStore.updateForm(name, value);
     formStore.updateForm("payId", selectedPay.id);
-    await Promise.resolve();
-    formStore.getCourse();
+
 
     const firstReceiveOption = Object.keys(jsonData[value]?.directions)[0];
     const firstReceiveType = jsonData[firstReceiveOption].type;
     setSelectedReceive(firstReceiveOption);
     formStore.updateField("receive", firstReceiveOption);
     formStore.updateForm("receive", firstReceiveOption);
-
+    formStore.updateField("receiveId", jsonData[firstReceiveOption].id);
+    formStore.updateForm("receiveId", jsonData[firstReceiveOption].id);
+    await Promise.resolve();
+    formStore.getCourse();
     let activeComponent = "";
     let direction = "";
 
@@ -5652,7 +5659,9 @@ const FormExchanger: FC = observer(() => {
     console.log("Полученный курс", formStore.formConvert);
   };
 
-  const handleReceiveSelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleReceiveSelectChange = async (
+    event: ChangeEvent<HTMLSelectElement>
+  ) => {
     const value = event.target.value;
     const name = event.target.name;
     formStore.updateField(name, value);
@@ -5662,6 +5671,7 @@ const FormExchanger: FC = observer(() => {
     formStore.updateForm("receiveId", selectedDirection.id);
     await Promise.resolve();
     formStore.getCourse();
+
 
     if (selectedDirection) {
       setSelectedReceive(value);
@@ -5767,13 +5777,48 @@ const FormExchanger: FC = observer(() => {
                 <div className={styles.form__payExchangeRate}>
                   Exchange rate
                   <div className={styles.form__payExchangeRateText}>
-                    1 {jsonData[selectedPay]?.code} = {" "}
-                    {formStore.isLoading ? "Загрузка" : (formStore.newCourse===0 ? "Курс не получен" : formStore.newCourse.toFixed(2))}{" "}
+                    1 {jsonData[selectedPay]?.code} ={" "}
+                    {formStore.isLoading
+                      ? "Загрузка"
+                      : formStore.newCourse === 0
+                      ? "Курс не получен"
+                      : formStore.newCourse.toFixed(2)}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
-                    
                   </div>
                 </div>
                 <div className={styles.form__payLimits}>
+                <div className={styles.from__payInputWarning}>
+                  <div
+                    className={
+                      formStore.validatePaySelectMin
+                        ? styles.from__payInputWarningMin
+                        : styles.from__payInputWarningMinNone
+                    }
+                  >
+                    min.:{" "}
+                    {formStore.isLoading
+                      ? "Загрузка"
+                      : parseFloat(formStore.formConvert.inmin)
+                          .toFixed(5)
+                          .replace(/\.?0+$/, "")}{" "}
+                    {jsonData[selectedPay]?.code}
+                  </div>
+                  <div
+                    className={
+                      formStore.validatePaySelectMax
+                        ? styles.from__payInputWarningMax
+                        : styles.from__payInputWarningMaxNone
+                    }
+                  >
+                    max.:{" "}
+                    {formStore.isLoading
+                      ? "Загрузка"
+                      : parseFloat(formStore.formConvert.inmax)
+                          .toFixed(5)
+                          .replace(/\.?0+$/, "")}{" "}
+                    {jsonData[selectedPay]?.code}
+                  </div>
+                </div>
                   <div>
                     min.:{" "}
                     {formStore.isLoading
@@ -5833,9 +5878,46 @@ const FormExchanger: FC = observer(() => {
                   onChange={handleReceiveSelect}
                   placeHolder="0"
                   value={formStore.formCourse.receiveSelect}
+                  isInvalid={formStore.invalidInputs.receiveSelect}
                 />
               </div>
               <div className={styles.form__receiveLimits}>
+                <div className={styles.form__receiveInputWarning}>
+                  <div
+                    className={
+                      formStore.validateReceiveSelectMax
+                        ? styles.form__receiveInputWarningMax
+                        : styles.form__receiveInputWarningMaxNone
+                    }
+                  >
+                    <div>
+                      max.:{" "}
+                      {formStore.isLoading
+                        ? "Загрузка"
+                        : parseFloat(formStore.formConvert.max_reserve)
+                            .toFixed(5)
+                            .replace(/\.?0+$/, "")}{" "}
+                      {jsonData[selectedPay]?.directions[selectedReceive]?.code}
+                    </div>
+                  </div>
+                  <div
+                    className={
+                      formStore.validateReceiveSelectMin
+                        ? styles.form__receiveInputWarningMin
+                        : styles.form__receiveInputWarningMinNone
+                    }
+                  >
+                    <div>
+                      min.:{" "}
+                      {formStore.isLoading
+                        ? "Загрузка"
+                        : formStore.minReserve
+                            .toFixed(5)
+                            .replace(/\.?0+$/, "")}{" "}
+                      {jsonData[selectedPay]?.directions[selectedReceive]?.code}
+                    </div>
+                  </div>
+                </div>
                 <div>
                   min.:{" "}
                   {formStore.isLoading

@@ -58,6 +58,11 @@ const RecentExchanges = observer(() => {
               src={PUBLIC_IMAGE + "RecentExchangeImg.svg"}
               className={styles.headerStat__dailyDistributionImg}
             />
+            <img
+            src={PUBLIC_IMAGE + "recentGraf.svg"}
+            className={styles.headerStat__dailyDistributionImgPhone}
+            />
+            
           </div>
         </div>
         <div

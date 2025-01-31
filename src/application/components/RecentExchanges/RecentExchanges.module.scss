@@ -383,6 +383,9 @@
 .recentExchanges__dataInformationMobButton{
   display: none;
 }
+.headerStat__dailyDistributionImgPhone{
+  display: none;
+}
 
 @media (max-width: 833px) {
   .recentExchanges__headerStat {
@@ -391,7 +394,7 @@
   .headerStat__count {
     flex-direction: column;
     position: relative;
-    padding: 10px 10px 10px 0px;
+    padding: 20px;
   }
   .headerStat__volume {
     flex-direction: column;
@@ -403,7 +406,20 @@
     top: 10%;
     right: 5%;
   }
+  .headerStat__dailyDistribution{
+    order: 1;
+  }
+  .headerStat__dailyDistributionImgPhone{
+    display: flex;
+  }
+  .headerStat__dailyDistributionImg{
+    display: none;
+  }
+  .headerStat__countVolume{
+    order: 2;
+  }
 }
+
 
 @media (max-width: 780px) {
   .recentExchanges__sortLine {
@@ -427,6 +443,9 @@
   }
   .recentExchanges__dataInformationMobButton{
     display: flex;
+    width: 100%;
+    max-width: 179px;
+    margin-left: 80px;
   }
 }
 
@@ -434,10 +453,26 @@
   .recentExchanges__sortLine {
     display: none;
   }
+  .recentExchanges__box{
+    padding: 5px 5px;
+    width: 350px;
+  }
+  .recentExchanges__wrapper{
+    padding: 0 20px;
+  }
+  .headerStat__leftData{
+    gap: 0px;
+    margin-right: auto;
+  }
+  .headerStat__rightData{
+    gap: 0px;
+    margin-right: auto;
+  }
 }
 
 @media (max-width: 530px) {
   .recentExchangesText {
+    padding-left: 15px;
     font-family: "Popins";
     font-size: 32px;
     font-weight: 700;

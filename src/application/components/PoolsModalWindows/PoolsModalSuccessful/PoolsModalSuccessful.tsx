@@ -8,7 +8,7 @@ import { observer } from "mobx-react-lite";
 const PoolsModalSuccessful = () => {
 
   const handleButtonBack = () => {
-    poolsStore.setIsConfirm(0);
+    poolsStore.setIsConfirm(2);
   }
 
   const handleButtonHoldings = () => {

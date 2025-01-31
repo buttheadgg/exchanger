@@ -18,7 +18,8 @@
 
 .reliability__imageWrapper {
   display: flex;
-  z-index: 1;
+  z-index: 0;
+ 
 }
 
 .reliability__imageWrapper img {
@@ -108,7 +109,23 @@
 
 @media(max-width:920px){
   .reliability__line{
+    
+  }
+  .reliability__leftShadow{
     display: none;
+  }
+  .reliability__rightShadow{
+    display: none;
+  }
+  .reliability__line{
+    width: 0px;
+    height: 0px;
+  }
+  .reliability__image{
+    transform: translate(400%, -650%);
+  }
+  .reliability__lightBox{
+    transform: translate(45%, -200%);
   }
   .reliability__imageWrapper{
     display: flex;
@@ -118,5 +135,18 @@
   .reliability__wrapper{
     flex-direction: column;
     padding-left: 20px;
+  }
+}
+
+@media(max-width: 450px){
+  .reliability__image{
+    transform: translate(185%, -500%);
+  }
+  .reliability__lightBox{
+    transform: translate(15%, -150%);
+  }
+  .reliability__title{
+    font-size: 24px;
+    white-space: nowrap;
   }
 }

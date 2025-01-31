@@ -123,7 +123,12 @@
     min-width: 500px;
   }
   .window__buttonWrapper{
-    gap: 5px;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .window__buttonBack{
+    width: 240px;
   }
 }
 
@@ -136,6 +141,7 @@
 @media (max-width: 465px) {
   .window__wrapper {
     max-width: 400px;
+    margin-top: 400px;
   }
 }
 

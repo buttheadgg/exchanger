@@ -6,9 +6,10 @@ import MyInput from "../../UI/MyInput/MyInput";
 import poolsStore from "../../../stores/poolsStore";
 import { observer } from "mobx-react-lite";
 
-const PoolsModalSubscribe = () => {
+const PoolsModalSubscribe = () => { 
   const { formData, formDataPools } = poolsStore;
   const [perdictValue, setPerdictValue] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   const selectedCoin = formDataPools.coin;
   const selectedPeriod = formDataPools.period;
@@ -36,6 +37,16 @@ const PoolsModalSubscribe = () => {
   poolsStore.updateField("dateTime", thisDataStr);
 
   const coinData = formData[selectedCoin]?.detail;
+
+  const handleChangePeriod = () => {
+    let calculatedValue = 0;
+    
+      calculatedValue =
+        Number(formDataPools.amount) +
+        Number(formDataPools.amount) * Number(poolsStore.formDataPools.selectedProcent);
+      setPerdictValue(calculatedValue);
+    
+  }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     // const validationResult = poolsStore.validateFields();
@@ -77,7 +88,7 @@ const PoolsModalSubscribe = () => {
     if (validationResult) {
       postFormDataPools();
       poolsStore.setDataValid(true);
-      poolsStore.setIsConfirm(1);
+      poolsStore.setIsConfirm(2);
       console.log(poolsStore.formDataPools);
     } else {
       console.log("Ошибки валидации:", poolsStore.invalidInputs);
@@ -108,6 +119,7 @@ const PoolsModalSubscribe = () => {
                   poolsStore.updateField("period", period.period);
                   poolsStore.updateField("selectedProcent", period.apy);
                   poolsStore.updateField("minValue", period.minPurchaseAmount);
+                  handleChangePeriod();
                 }}
               >
                 <div className={styles.wrapper__durationTitle}>
@@ -184,10 +196,19 @@ const PoolsModalSubscribe = () => {
               </div>
             </div>
             <div className={styles.personal}>
-              <div className={styles.personal__text}>
-                Personal Remaining Quota:{" "}
+              <div
+                className={styles.personal__text}
+                onClick={() => setIsVisible(!isVisible)} // Переключаем состояние при клике
+                style={{ cursor: "pointer" }} // Делаем текст кликабельным
+              >
+                Personal Remaining Quota{" "}
               </div>
-              <div className={styles.personal__value}>300 GMX</div>
+
+              {isVisible && (
+                <div className={styles.personal__graph}>
+                  <img src={PUBLIC_IMAGE + "poolsGraph.svg"} alt="Graph" />
+                </div>
+              )}
             </div>
           </div>
           <div className={styles.summary_wrapper}>
