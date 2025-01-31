@@ -48,6 +48,8 @@ const PoolsModalSubscribe = () => {
     
   }
 
+  
+
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     // const validationResult = poolsStore.validateFields();
     const { name, value } = event.target;
@@ -168,6 +170,7 @@ const PoolsModalSubscribe = () => {
               name="amount"
               onChange={handleChange}
               isInvalid={poolsStore.invalidInputs.amount}
+              value={poolsStore.formDataPools.amount}
             />
             <MyInput
               className={styles.amount__input}
@@ -175,6 +178,7 @@ const PoolsModalSubscribe = () => {
               name="walletAdress"
               onChange={handleChange}
               isInvalid={poolsStore.invalidInputs.walletAdress}
+              value={poolsStore.formDataPools.walletAdress}
             />
             <div className={styles.amount__inputImg}>
               <img src={`${PUBLIC_IMAGE}${selectedCoin}.JPG`} alt="qr" />
@@ -272,6 +276,7 @@ const PoolsModalSubscribe = () => {
               className={styles.durations__checkbox}
               id="checkboxDuration"
               onChange={handleChange}
+              
             />
             <div className={styles.durations__checkboxTextWrapper}>
               <div className={styles.durations__checkboxText}>

@@ -141,18 +141,6 @@
 @media (max-width: 465px) {
   .window__wrapper {
     max-width: 400px;
-    margin-top: 400px;
   }
 }
 
-@media (max-width: 419px) {
-  .window__wrapper {
-    max-width: 250px;
-    width: 100%;
-  }
-}
-  @media (max-width: 391px) {
-    .window__wrapper {
-      min-width: 370px;
-    }
-}
