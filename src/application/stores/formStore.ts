@@ -28,7 +28,7 @@ class FormStore {
   };
   formCourse: { [key: string]: any } = {
     pay: "",
-    payValue: "0",
+    payValue: "",
     receiveValue: "",
     payId: "93",
     receive: "",
@@ -164,15 +164,22 @@ class FormStore {
       this.validatePaySelectMax = true;
       this.validatePaySelectMin = false;
     } else if (
-      !this.formData.paySelect ||
-      isNaN(parseFloat(this.formData.paySelect)) ||
       parseFloat(this.formData.paySelect) < 0  ||
-      parseFloat(this.formData.paySelect) === 0
+      parseFloat(this.formData.paySelect) === 0 || 
+      parseFloat(this.formData.paySelect) < parseFloat(this.formConvert.inmin)
     ) {
       newInvalidInputs.paySelect = true;
       this.validatePaySelectMin = true;
       this.validatePaySelectMax = false;
-    }else{
+    }else if (
+      !this.formData.paySelect ||
+      isNaN(parseFloat(this.formData.paySelect))
+    ){
+      newInvalidInputs.paySelect = true;
+      this.validatePaySelectMin = false;
+      this.validatePaySelectMax = false;
+    }else
+    {
       this.validatePaySelectMin = false;
       this.validatePaySelectMax = false;
     }

@@ -148,6 +148,10 @@
   justify-content: center;
 }
 
+.form__payExchangeRateNone{
+  display: none;
+}
+
 .form__payExchangeRateText {
   display: flex;
   flex-direction: column;
@@ -328,6 +332,13 @@
   display: none;
 }
 
+.form__iminExchanger{
+  display: visible;
+}
+
+.form__iminExchangerNone{
+  display: none;
+}
 
 
 .from__payInputWarningMin{

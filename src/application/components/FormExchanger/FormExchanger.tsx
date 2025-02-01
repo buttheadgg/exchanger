@@ -5774,8 +5774,8 @@ const FormExchanger: FC = observer(() => {
                 />
               </div>
               <div className={styles.form__payBottomInput}>
-                <div className={styles.form__payExchangeRate}>
-                  Exchange rate
+                <div className={formStore.formData.paySelect==="" ? styles.form__payExchangeRateNone  :  styles.form__payExchangeRate }>
+                   Exchange rate  
                   <div className={styles.form__payExchangeRateText}>
                     1 {jsonData[selectedPay]?.code} ={" "}
                     {formStore.isLoading
@@ -5819,7 +5819,7 @@ const FormExchanger: FC = observer(() => {
                     {jsonData[selectedPay]?.code}
                   </div>
                 </div>
-                  <div>
+                  <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                     min.:{" "}
                     {formStore.isLoading
                       ? "Загрузка"
@@ -5828,7 +5828,7 @@ const FormExchanger: FC = observer(() => {
                           .replace(/\.?0+$/, "")}{" "}
                     {jsonData[selectedPay]?.code}
                   </div>
-                  <div>
+                  <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                     max.:{" "}
                     {formStore.isLoading
                       ? "Загрузка"
@@ -5890,7 +5890,7 @@ const FormExchanger: FC = observer(() => {
                         : styles.form__receiveInputWarningMaxNone
                     }
                   >
-                    <div>
+                    <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                       max.:{" "}
                       {formStore.isLoading
                         ? "Загрузка"
@@ -5907,7 +5907,7 @@ const FormExchanger: FC = observer(() => {
                         : styles.form__receiveInputWarningMinNone
                     }
                   >
-                    <div>
+                    <div >
                       min.:{" "}
                       {formStore.isLoading
                         ? "Загрузка"
@@ -5918,7 +5918,7 @@ const FormExchanger: FC = observer(() => {
                     </div>
                   </div>
                 </div>
-                <div>
+                <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                   min.:{" "}
                   {formStore.isLoading
                     ? "Загрузка"
@@ -5927,7 +5927,7 @@ const FormExchanger: FC = observer(() => {
                         .replace(/\.?0+$/, "")}{" "}
                   {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                 </div>
-                <div>
+                <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                   max.:{" "}
                   {formStore.isLoading
                     ? "Загрузка"
