@@ -80,10 +80,9 @@ const Header = () => {
               <li className={styles.menu__listItem}>
                 <a
                   onClick={() => {
-                    handleLinkClick(RouteNames.EXCHANGER_ROUTE);
                     poolsStore.setIsSubscribe(false);
                   }}
-                  href="#"
+                  href="http://alfa-crypto.com/#debit-cards"
                   className={styles.menu__listLink}
                 >
                   Debit cards
@@ -91,8 +90,7 @@ const Header = () => {
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
-                  href="#"
+                  href="http://alfa-crypto.com/#bots"
                   className={styles.menu__listLink}
                 >
                   Bots
@@ -113,10 +111,7 @@ const Header = () => {
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  onClick={() => {
-                    handleLinkClick(RouteNames.EXCHANGER_ROUTE);
-                  }}
-                  href="#"
+                  href="http://alfa-crypto.com/#credits"
                   className={styles.menu__listLink}
                 >
                   Credits
