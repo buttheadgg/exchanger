@@ -153,9 +153,9 @@ class FormStore {
       newInvalidInputs.email = true;
     }
 
-    if (this.captchaToken == null) {
-      newInvalidInputs.captcha = true;
-    }
+    // if (this.captchaToken == null) {
+    //   newInvalidInputs.captcha = true;
+    // }
 
     if (
       parseFloat(this.formData.paySelect) > parseFloat(this.formConvert.inmax)

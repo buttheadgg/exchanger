@@ -5742,6 +5742,7 @@ const FormExchanger: FC = observer(() => {
         <div className={styles.form__header}>
           <div className={styles.pay__wrapper}>
             <div className={styles.form__headerPay}>Pay</div>
+            <div className={styles.form__headerPayLine}></div>
             <div className={styles.form__pay}>
               <div className={styles.form__payValue}>
                 <select
@@ -5779,9 +5780,9 @@ const FormExchanger: FC = observer(() => {
                   <div className={styles.form__payExchangeRateText}>
                     1 {jsonData[selectedPay]?.code} ={" "}
                     {formStore.isLoading
-                      ? "Загрузка"
+                      ? "Loading"
                       : formStore.newCourse === 0
-                      ? "Курс не получен"
+                      ? "There is no exchange rate"
                       : formStore.newCourse.toFixed(2)}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                   </div>
@@ -5797,7 +5798,7 @@ const FormExchanger: FC = observer(() => {
                   >
                     min.:{" "}
                     {formStore.isLoading
-                      ? "Загрузка"
+                      ? "Loading"
                       : parseFloat(formStore.formConvert.inmin)
                           .toFixed(5)
                           .replace(/\.?0+$/, "")}{" "}
@@ -5812,7 +5813,7 @@ const FormExchanger: FC = observer(() => {
                   >
                     max.:{" "}
                     {formStore.isLoading
-                      ? "Загрузка"
+                      ? "Loading"
                       : parseFloat(formStore.formConvert.inmax)
                           .toFixed(5)
                           .replace(/\.?0+$/, "")}{" "}
@@ -5822,7 +5823,7 @@ const FormExchanger: FC = observer(() => {
                   <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                     min.:{" "}
                     {formStore.isLoading
-                      ? "Загрузка"
+                      ? "Loading"
                       : parseFloat(formStore.formConvert.inmin)
                           .toFixed(5)
                           .replace(/\.?0+$/, "")}{" "}
@@ -5831,7 +5832,7 @@ const FormExchanger: FC = observer(() => {
                   <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                     max.:{" "}
                     {formStore.isLoading
-                      ? "Загрузка"
+                      ? "Loading"
                       : parseFloat(formStore.formConvert.inmax)
                           .toFixed(5)
                           .replace(/\.?0+$/, "")}{" "}
@@ -5845,7 +5846,9 @@ const FormExchanger: FC = observer(() => {
           <div className={styles.form__headerLine2}></div>
           <div className={styles.form__headerLine3}></div>
           <div className={styles.receive__wrapper}>
+          <div className={styles.form__headerReceiveLine}></div>
             <div className={styles.form__headerReceive}>Receive</div>
+            <div className={styles.form__headerReceiveLine}></div>
             <div className={styles.form__receive}>
               <div className={styles.form__receiveValue}>
                 <select
@@ -5893,7 +5896,7 @@ const FormExchanger: FC = observer(() => {
                     <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                       max.:{" "}
                       {formStore.isLoading
-                        ? "Загрузка"
+                        ? "Loading"
                         : parseFloat(formStore.formConvert.max_reserve)
                             .toFixed(5)
                             .replace(/\.?0+$/, "")}{" "}
@@ -5910,7 +5913,7 @@ const FormExchanger: FC = observer(() => {
                     <div >
                       min.:{" "}
                       {formStore.isLoading
-                        ? "Загрузка"
+                        ? "Loading"
                         : formStore.minReserve
                             .toFixed(5)
                             .replace(/\.?0+$/, "")}{" "}
@@ -5921,7 +5924,7 @@ const FormExchanger: FC = observer(() => {
                 <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                   min.:{" "}
                   {formStore.isLoading
-                    ? "Загрузка"
+                    ? "Loading"
                     : formStore.minReserve
                         .toFixed(5)
                         .replace(/\.?0+$/, "")}{" "}
@@ -5930,7 +5933,7 @@ const FormExchanger: FC = observer(() => {
                 <div className={formStore.formData.paySelect==="" ? styles.form__iminExchangerNone  :  styles.form__iminExchanger }>
                   max.:{" "}
                   {formStore.isLoading
-                    ? "Загрузка"
+                    ? "Loading"
                     : parseFloat(formStore.formConvert.max_reserve)
                         .toFixed(5)
                         .replace(/\.?0+$/, "")}{" "}

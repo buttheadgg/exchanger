@@ -61,6 +61,7 @@
     font-size: 14px;
     font-weight: 400;
     color: #C4CBF5;
+    white-space: nowrap;
 }
 
 .amount__value{
@@ -189,5 +190,8 @@
     }
     .amount__value{
        gap: 24px;
+    }
+    .amount__text{
+        gap: 38px;
     }
 }

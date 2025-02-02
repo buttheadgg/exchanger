@@ -60,6 +60,7 @@
   font-size: 14px;
   font-weight: 400;
   color: #c4cbf5;
+  white-space: nowrap;
 }
 
 .amount__value {
@@ -208,5 +209,8 @@
   }
   .timestatus__dateTime {
     text-align: center;
+  }
+  .amount__text{
+    gap: 33px;
   }
 }

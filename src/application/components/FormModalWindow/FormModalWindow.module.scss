@@ -76,6 +76,7 @@
 .amount__text {
   display: flex;
   flex-direction: column;
+  white-space: nowrap;
   gap: 10px;
   font-family: "Popins";
   font-size: 14px;
@@ -115,6 +116,7 @@
 
 .modal__buttonPaid{
   border: 1px solid #2ef2ff;
+  width: 175px;
 }
 
 .modal__timeStatus {
@@ -206,6 +208,12 @@
   }
   .modal__window{
     gap: 10px;
+  }
+}
+
+@media(max-width: 901px){
+  .amount__text{
+    gap: 25px;
   }
 }
 

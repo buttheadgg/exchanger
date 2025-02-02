@@ -51,7 +51,7 @@ const PoolsModalSubscribe = () => {
   
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // const validationResult = poolsStore.validateFields();
+    const validationResult = poolsStore.validateFields();
     const { name, value } = event.target;
     let calculatedValue = 0;
     if (name == "amount") {
@@ -59,13 +59,15 @@ const PoolsModalSubscribe = () => {
         Number(value) +
         Number(value) * Number(poolsStore.formDataPools.selectedProcent);
       setPerdictValue(calculatedValue);
+      poolsStore.updateField("predictAmount", calculatedValue.toString());
     }
     poolsStore.updateField(name, value);
-    // if(validationResult){
-    //   poolsStore.setDataValid(true);
-    // }else{
-    //   poolsStore.setDataValid(false);
-    // }
+    
+    if(validationResult){
+      poolsStore.setDataValid(true);
+    }else{
+      poolsStore.setDataValid(false);
+    }
   };
 
   const postFormDataPools = async () => {
@@ -84,9 +86,13 @@ const PoolsModalSubscribe = () => {
     }
   };
 
+  const scrollToTop = () => {
+    const offset = (window.innerHeight * 20) / 100;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  };
+
   const handleConfirm = () => {
     const validationResult = poolsStore.validateFields();
-    poolsStore.updateField("predictAmount", perdictValue.toString());
     if (validationResult) {
       postFormDataPools();
       poolsStore.setDataValid(true);
@@ -96,6 +102,7 @@ const PoolsModalSubscribe = () => {
       console.log("Ошибки валидации:", poolsStore.invalidInputs);
       poolsStore.setDataValid(false);
     }
+    scrollToTop();
   };
 
   return (
@@ -231,7 +238,7 @@ const PoolsModalSubscribe = () => {
               </div>
               <div className={styles.summaty__lockedValue}>
                 {" "}
-                {perdictValue} {poolsStore.formDataPools.coin}
+                {perdictValue ? perdictValue : poolsStore.formDataPools.predictAmount} {poolsStore.formDataPools.coin}
               </div>
             </div>
             <div className={styles.summary__body}>
@@ -276,7 +283,6 @@ const PoolsModalSubscribe = () => {
               className={styles.durations__checkbox}
               id="checkboxDuration"
               onChange={handleChange}
-              
             />
             <div className={styles.durations__checkboxTextWrapper}>
               <div className={styles.durations__checkboxText}>

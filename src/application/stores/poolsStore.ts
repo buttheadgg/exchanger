@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { Pools } from "../components/types/types";
+import { useRef } from "react";
 
 class PoolsStore {
   formData: Pools = {};
@@ -24,6 +25,7 @@ class PoolsStore {
   invalidInputs: { [key: string]: boolean } = {};
   dataValid: boolean | undefined = false;
   isLoading: boolean = false;
+  formRef: HTMLDivElement | null = null;
   periods: {
     period: string;
     apy: string;
@@ -34,6 +36,7 @@ class PoolsStore {
   constructor() {
     makeAutoObservable(this);
   }
+
 
   async fetchFormData() {
     this.isLoading = true;

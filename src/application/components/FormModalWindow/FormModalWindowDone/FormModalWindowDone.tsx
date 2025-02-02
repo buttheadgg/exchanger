@@ -59,12 +59,12 @@ const FormModalWindowDone = () => {
         <div className={styles.modal__amount}>
           <div className={styles.amount__text}>
             <div className={styles.amount__textWeaving}>
-              The amount of weaving
+              Sent
             </div>
             <div className={styles.amount__textReceived}>
-              Amount to be received
+            Received
             </div>
-            <div className={styles.amount__textReceipt}>Receipt account</div>
+            <div className={styles.amount__textReceipt}>Transaction ID  </div>
           </div>
           <div className={styles.amount__value}>
             <div className={styles.amount__valueWeaving}>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import styles from "./Durations.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../constants";
 import poolsStore from "../../stores/poolsStore";
@@ -40,11 +40,19 @@ const Durations = () => {
     poolsStore.updateField(name, value);
   };
 
+  const scrollToTop = () => {
+    const offset = (window.innerHeight * 20) / 100;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  };
+
   const handleSubscribe = () => {
     console.log(poolsStore.formDataPools);
     poolsStore.setIsSubscribe(true);
     poolsStore.setIsConfirm(0);
+    scrollToTop();
   };
+
+
 
   return (
     <div className={styles.durations__wrapper}>

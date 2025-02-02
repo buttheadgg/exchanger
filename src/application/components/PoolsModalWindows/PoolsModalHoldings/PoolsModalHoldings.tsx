@@ -13,12 +13,20 @@ const PoolsModalHoldings = () => {
     poolsStore.updateField(name, value);
   };
 
+  const scrollToTop = () => {
+    const offset = (window.innerHeight * 20) / 100;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  };
+
+
   const handleButtonBack = () => {
     poolsStore.setIsConfirm(0);
+    poolsStore.updateField("agreeConditions", "");
   };
 
   const handleButtonSubscribe = () => {
     poolsStore.setIsConfirm(1);
+    scrollToTop();
   };
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./Pools.module.scss";
 import LearnMore from "../../components/LearnMore/LearnMore";
 import FrequentlyQuestions from "../../components/FrequentlyQuestions/FrequentlyQuestions";
@@ -10,10 +10,15 @@ import PoolsModalCancel from "../../components/PoolsModalWindows/PoolsModalCance
 import PoolsModalSuccessfulFinal from "../../components/PoolsModalWindows/PoolsModalSuccessfulFinal/PoolsModalSuccessfulFinal";
 
 const Pools = () => {
+    const formRef = useRef<HTMLDivElement>(null);
+  
+    const scrollToForm = () => {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
   return (
     <div className={styles.main__pools}>
       <div className={styles.main__wrapper}>
-        <Durations />
+        <Durations/>
         <LearnMore />
         <FrequentlyQuestions />
       </div>

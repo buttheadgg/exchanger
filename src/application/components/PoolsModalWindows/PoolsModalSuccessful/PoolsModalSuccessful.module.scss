@@ -140,7 +140,13 @@
 
 @media (max-width: 465px) {
   .window__wrapper {
-    max-width: 400px;
+    min-width: 408px;
+  }
+}
+
+@media (max-width: 391px) {
+  .window__wrapper {
+    min-width: 373px;
   }
 }
 

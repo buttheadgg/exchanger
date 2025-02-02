@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./App.module.scss";
 import "./application/styles/global.scss";
 import Header from "./application/components/Header/Header";
@@ -21,6 +21,8 @@ import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./application/routes/AppRoutes";
 
 const App = () => {
+
+
   let modalContent;
 
   switch (formStore.isPaid) {
@@ -37,19 +39,19 @@ const App = () => {
 
   switch (poolsStore.isConfirm) {
     case 1:
-      modalContent = <PoolsModalSuccessful />;
+      modalContent =  <PoolsModalSuccessful /> ;
       break;
     case 2:
-      modalContent = <PoolsModalHoldings />;
+      modalContent =  <PoolsModalHoldings /> ;
       break;
     case 3:
-      modalContent = <PoolsModalSuccessfulFinal />;
+      modalContent = <PoolsModalSuccessfulFinal /> ;
       break;
     case 4:
-      modalContent = <PoolsModalCancel />;
+      modalContent =  <PoolsModalCancel />;
       break;
     case 0:
-      modalContent = <PoolsModalSubscribe />;
+      modalContent =  <PoolsModalSubscribe />  ;
       break;
   }
 

@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 
 const LearnMore = () => {
   return (
-    <div className={`${styles.LearnMore}`}>
+    <div className={`${poolsStore.isSubscribe? styles.LearnMoreNone :  styles.LearnMore}`}>
       <div className={styles.LearnMore__borderTop}></div>
       <div className={styles.LearnMore__content}>
         <div className={styles.LearnMore__image}>
