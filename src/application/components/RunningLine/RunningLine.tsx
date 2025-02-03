@@ -78,7 +78,7 @@ const RunningLIne = () => {
             return (
               <RateCoin
                 key={key}
-                image={PUBLIC_ICON + "S&P.svg"}
+                image={PUBLIC_ICON + "spx.svg"}
                 coinName={key}
                 coinSecondName={key}
                 coinPrice={value}
