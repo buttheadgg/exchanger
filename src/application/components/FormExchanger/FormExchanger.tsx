@@ -5562,9 +5562,11 @@ const FormExchanger: FC = observer(() => {
   // };
 
   const handlePaySelect = (event: ChangeEvent<HTMLInputElement>) => {
-    formStore.getCourse();
     const { name, value } = event.target;
     formStore.updateField(name, value);
+    formStore.getCourse();
+    formStore.updateForm("payValue", value);
+    formStore.updateField("payValue", value);
     const numericValue = value;
     formStore.setHandleChange();
     if (name === "paySelect") {
@@ -5585,9 +5587,9 @@ const FormExchanger: FC = observer(() => {
   };
 
   const handleReceiveSelect = (event: ChangeEvent<HTMLInputElement>) => {
-    
     const { name, value } = event.target;
     formStore.updateField(name, value);
+    formStore.updateForm("receiveValue", value);
     formStore.getCourse();
     const numericValue = value;
     formStore.setHandleChange();
@@ -5611,6 +5613,11 @@ const FormExchanger: FC = observer(() => {
   const handlePaySelectChange = async (
     event: ChangeEvent<HTMLSelectElement>
   ) => {
+    formStore.updateField("receiveValue", "0");
+    formStore.updateForm("receiveSelect", "");
+    formStore.updateField("payValue", "");
+    formStore.updateForm("paySelect", "");
+    formStore.formData.paySelect = "";
     const value = event.target.value;
     const name = event.target.name;
     const selectedPay = jsonData[value];
@@ -5630,6 +5637,7 @@ const FormExchanger: FC = observer(() => {
     formStore.updateForm("receiveId", jsonData[firstReceiveOption].id);
     await Promise.resolve();
     formStore.getCourse();
+    
     let activeComponent = "";
     let direction = "";
 
@@ -5662,6 +5670,11 @@ const FormExchanger: FC = observer(() => {
   const handleReceiveSelectChange = async (
     event: ChangeEvent<HTMLSelectElement>
   ) => {
+    formStore.updateField("receiveValue", "0");
+    formStore.updateForm("receiveSelect", "");
+    formStore.updateField("payValue", "");
+    formStore.updateForm("paySelect", "");
+    formStore.formData.paySelect = "";
     const value = event.target.value;
     const name = event.target.name;
     formStore.updateField(name, value);
@@ -5671,7 +5684,6 @@ const FormExchanger: FC = observer(() => {
     formStore.updateForm("receiveId", selectedDirection.id);
     await Promise.resolve();
     formStore.getCourse();
-
 
     if (selectedDirection) {
       setSelectedReceive(value);
@@ -5781,7 +5793,7 @@ const FormExchanger: FC = observer(() => {
                     1 {jsonData[selectedPay]?.code} ={" "}
                     {formStore.isLoading
                       ? "Loading"
-                      : formStore.newCourse === 0
+                      : formStore.newCourse == 0
                       ? "There is no exchange rate"
                       : formStore.newCourse.toFixed(2)}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
@@ -5964,6 +5976,13 @@ const FormExchanger: FC = observer(() => {
         }`}
       >
         The amount of cash must be at least $ 150,00
+      </div>
+      <div className={styles.form__bottomLine}>
+        <div className={styles.form__externalLine}>
+          <div className={styles.form__externalInsideLine}>
+
+          </div>
+        </div>
       </div>
     </div>
   );

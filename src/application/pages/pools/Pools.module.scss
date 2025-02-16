@@ -10,3 +10,9 @@
     align-content: center;
     gap: 110px;
   }
+
+  @media(max-width: 450px) {
+    .main__pools {
+      padding-top: 30px;
+    }
+  }

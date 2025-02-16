@@ -137,10 +137,21 @@ const FrequentlyQuestions = () => {
           alt=""
           className={styles.faq__imageLeft}
         />
+          <img
+            src={PUBLIC_IMAGE + "faq-left-borderMob.png"}
+            alt=""
+            className={styles.faq__imageLeftMob}
+          />
+
         <img
           src={PUBLIC_IMAGE + "faq-right-borderImage.svg"}
           alt=""
           className={styles.faq__imageRight}
+        />
+        <img
+          src={PUBLIC_IMAGE + "faq-right-borderMob.png"}
+          alt=""
+          className={styles.faq__imageRightMob}
         />
       </div>
       <div className={`${styles.faq__imageLeft} ${styles.faq__backgroundLeft}`}>

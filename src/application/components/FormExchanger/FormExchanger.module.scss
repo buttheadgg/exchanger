@@ -156,7 +156,7 @@
   display: flex;
   flex-direction: column;
   font-family: "Gilroy";
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   color: #c4cbf5;
 }
@@ -367,8 +367,35 @@
 .form__headerReceiveLine{
   display: none;
 }
-
+.form__bottomLine{
+  width: 30px;
+  height: 3px;
+  background-color: #2EF2FF;
+  position: relative;
+}
+.form__externalLine{
+  position: absolute;
+  height: 55px;
+  width: 3px;
+  background-color: #0C1838;
+  top: 200%;
+  left: 45%;
+}
+.form__externalInsideLine{
+  width: 2px;
+  height: 11px;
+  background-color: #2EF2FF;
+  position: absolute;
+  top: 50%;
+  left: 1px;
+}
 @media (max-width: 763px) {
+  .form__externalLine{
+    height: 40px;
+  }
+  .form__externalInsideLine{
+    top: 40%;
+  }
   .form__headerPay{
     color: #EAEDFF;
   }
@@ -465,7 +492,7 @@
     left: 49%;
   }
   .form__payExchangeRateText {
-    font-size: 14px;
+    font-size: 13px;
   }
   .form__receiveLimits{
     padding-right: 1px;

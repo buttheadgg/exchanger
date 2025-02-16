@@ -83,6 +83,9 @@ details {
   color: #c4cbf5;
   margin-left: 5px;
 }
+.faq__imageLeftMob{
+  display: none;
+}
 .faq__icon {
   position: absolute;
   top: 0;
@@ -104,6 +107,9 @@ details[open].faq__details .faq__icon {
   display: flex;
   position: relative;
 }
+.faq__imageRightMob{
+  display: none;
+}
 
 @media (max-width: 1181px) {
   .faq {
@@ -122,11 +128,27 @@ details[open].faq__details .faq__icon {
     right: -10%;
     top: 40%;
   }
+  .faq__imageLeft{
+    display: none;
+  }
+  .faq__imageLeftMob{
+    display: flex;
+    position: absolute;
+    top: -7%;
+  }
+  .faq__imageRight{
+    display: none;
+  }
+  .faq__imageRightMob{
+    display: flex;
+    position: absolute;
+    top: 93%;
+  }
 }
 
 @media (max-width: 835px) {
   .faq {
-    margin-top: 150px;
+    margin-top: 5px;
   }
   .faq__imageLeft {
     position: absolute;

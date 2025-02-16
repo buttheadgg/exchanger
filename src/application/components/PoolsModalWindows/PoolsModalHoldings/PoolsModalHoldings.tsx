@@ -115,8 +115,8 @@ const PoolsModalHoldings = () => {
               </span>
             </div>
           </div>
-          <div>{poolsStore.formDataPools.period} Days</div>
-          <div>0 days</div>
+          <div className={styles.holdings__rewardValueDays}>{poolsStore.formDataPools.period} Days</div>
+          <div >0 days</div>
           <div className={styles.holdings__rerwardValueUSD}>
             {poolsStore.formDataPools.predictAmount} {selectedCoin}
           </div>

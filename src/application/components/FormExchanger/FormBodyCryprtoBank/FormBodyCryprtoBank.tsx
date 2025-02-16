@@ -28,6 +28,7 @@ const FormBodyCryprtoBank: FC = ({}) => {
     const name = event.target.name;
     setCountry(value);
     formStore.updateField(name, value);
+    formStore.getCourse();
   };
 
   const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -35,6 +36,7 @@ const FormBodyCryprtoBank: FC = ({}) => {
     const name = event.target.name;
     setCity(value);
     formStore.updateField(name, value);
+    formStore.getCourse();
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

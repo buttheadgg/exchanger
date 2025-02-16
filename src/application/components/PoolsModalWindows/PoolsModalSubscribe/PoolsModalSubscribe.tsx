@@ -248,7 +248,7 @@ const PoolsModalSubscribe = () => {
                 </div>
                 <div className={styles.summary__textWrapper}>
                   <div className={styles.summary__discrib}>
-                    ETH Discribution Date{" "}
+                  {poolsStore.formDataPools.coin} Discribution Date{" "}
                     <div className={styles.summary__discribRules}>
                       View Rules
                     </div>

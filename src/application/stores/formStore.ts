@@ -29,7 +29,7 @@ class FormStore {
   formCourse: { [key: string]: any } = {
     pay: "",
     payValue: "",
-    receiveValue: "",
+    receiveValue: "0",
     payId: "93",
     receive: "",
     receiveId: "10",
@@ -114,7 +114,7 @@ class FormStore {
       this.formConvert = result;
       this.minReserve = result.inmin * result.rate;
       this.newCourse =
-        this.formConvert.rate > 0 ? 1 / this.formConvert.rate : 0;
+        result.rate ? 1 / result.rate : 0;
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
     } finally {
@@ -153,9 +153,9 @@ class FormStore {
       newInvalidInputs.email = true;
     }
 
-    if (this.captchaToken == null) {
-      newInvalidInputs.captcha = true;
-    }
+    // if (this.captchaToken == null) {
+    //   newInvalidInputs.captcha = true;
+    // }
 
     if (
       parseFloat(this.formData.paySelect) > parseFloat(this.formConvert.inmax)
