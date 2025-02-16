@@ -5564,9 +5564,9 @@ const FormExchanger: FC = observer(() => {
   const handlePaySelect = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
-    formStore.getCourse();
     formStore.updateForm("payValue", value);
     formStore.updateField("payValue", value);
+    formStore.getCourse();
     const numericValue = value;
     formStore.setHandleChange();
     if (name === "paySelect") {
