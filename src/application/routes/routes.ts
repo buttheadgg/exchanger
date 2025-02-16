@@ -17,4 +17,4 @@ export enum RouteNames {
       path: RouteNames.EXCHANGER_ROUTE,
       element: Exchanger,
     },
-  ];
+  ]; 

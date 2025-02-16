@@ -484,14 +484,26 @@
     flex-direction: column;
     gap: 5px;
   }
-  .summary__rightText {
+  // .summary__rightText {
+  //   position: absolute;
+  //   font-size: 14px;
+  //   top: 36%;
+  //   left: 6%;
+  // }
+  .disc__data{
     position: absolute;
     font-size: 14px;
-    top: 36%;
-    left: 6%;
+    top: 92%;
+    left: 7%;
+  }
+  .sub__data{
+    position: absolute;
+    font-size: 14px;
+    top: 27%;
+    left: 7%;
   }
   .summary__discribRules{
-    font-size: 12px;
+    font-size: 16px;
     white-space: nowrap;
   }
   .summary__body{
@@ -499,10 +511,10 @@
     position: relative;
   }
   .summary__discrib{
-    align-items:start;
+    gap: 60px;
   }
   .summary__textWrapper{
-    gap: 15px;
+    gap: 17px;
   }
 }
 
