@@ -78,7 +78,9 @@
   align-items: start;
   border-radius: 14px;
   border: 1px solid rgba(46, 242, 255, 0.5);
-  padding: 20px 68px 20px 20px;
+  height: 70px;
+  width: 132px;
+  padding: 10px;
 }
 
 .wrapper__durationTitle {
@@ -539,5 +541,8 @@
 @media (max-width: 391px) {
   .window__wrapper {
     min-width: 380px;
+  }
+  .duration__wrapper{
+    margin-left: 25px;
   }
 }

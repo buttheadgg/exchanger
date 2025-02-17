@@ -382,12 +382,12 @@
   left: 45%;
 }
 .form__externalInsideLine{
-  width: 2px;
+  width: 3px;
   height: 11px;
   background-color: #2EF2FF;
   position: absolute;
   top: 50%;
-  left: 1px;
+  left: 0px;
 }
 @media (max-width: 763px) {
   .form__externalLine{

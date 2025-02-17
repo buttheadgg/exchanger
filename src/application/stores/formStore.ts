@@ -108,7 +108,6 @@ class FormStore {
         },
         body: JSON.stringify(formStore.formCourse),
       });
-
       const result = await res.json();
       console.log(result);
       this.formConvert = result;

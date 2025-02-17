@@ -138,9 +138,9 @@
   }
 }
 
-@media(max-width: 450px){
+@media(max-width: 431px){
   .reliability__image{
-    transform: translate(185%, -500%);
+    transform: translate(197%, -500%);
   }
   .reliability__lightBox{
     transform: translate(15%, -150%);
@@ -153,3 +153,22 @@
     border-top: none
   }
 }
+
+@media(max-width: 415px){
+  .reliability__image{
+    transform: translate(186%, -500%);
+  }
+}
+
+@media(max-width: 391px){
+  .reliability__image{
+    transform: translate(172%, -500%);
+  }
+}
+
+@media(max-width: 376px){
+  .reliability__image{
+    transform: translate(163%, -500%);
+  }
+}
+
