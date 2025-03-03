@@ -28,7 +28,7 @@ class FormStore {
   };
   formCourse: { [key: string]: any } = {
     pay: "",
-    payValue: "",
+    payValue: "0",
     receiveValue: "0",
     payId: "93",
     receive: "",
@@ -49,7 +49,7 @@ class FormStore {
   isValidate: boolean | null = null;
   captchaToken: string | null = null;
   validatePaySelectMax: boolean = false;
-  validatePaySelectMin: boolean = false;
+  validatePaySelectMin: boolean | undefined = false;
   validateReceiveSelectMax: boolean = false;
   validateReceiveSelectMin: boolean = false;
 

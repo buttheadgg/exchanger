@@ -5571,7 +5571,6 @@ const FormExchanger: FC = observer(() => {
       formStore.updateForm("payValue", value);
       formStore.updateInput("paySelect", numericValue);
       if (parseFloat(numericValue) !== 0) {
-        await formStore.getCourse();
         const calculatedValue = parseFloat(numericValue) * formStore.newCourse;
         if (!isNaN(calculatedValue)) {
           formStore.updateInput("receiveSelect", calculatedValue.toString());
@@ -5583,6 +5582,7 @@ const FormExchanger: FC = observer(() => {
         formStore.updateInput("receiveSelect", 0);
       }
     }
+    await formStore.getCourse();
   };
 
   const handleReceiveSelect = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -5591,7 +5591,7 @@ const FormExchanger: FC = observer(() => {
     formStore.updateForm("receiveValue", value);
     const numericValue = value;
     formStore.setHandleChange();
-    formStore.getCourse();
+    await formStore.getCourse();
     if (name === "receiveSelect") {
       formStore.updateForm("receiveSelect", value);
       formStore.updateInput("receiveSelect", numericValue);
@@ -5607,12 +5607,12 @@ const FormExchanger: FC = observer(() => {
         formStore.updateInput("paySelect", 0);
       }
     }
+    await formStore.getCourse();
   };
 
   const handlePaySelectChange = async (
     event: ChangeEvent<HTMLSelectElement>
   ) => {
-    formStore.getCourse();
     formStore.updateField("receiveValue", "0");
     formStore.updateForm("receiveSelect", "");
     formStore.updateField("payValue", "");
@@ -5634,7 +5634,6 @@ const FormExchanger: FC = observer(() => {
     formStore.updateForm("receive", firstReceiveOption);
     formStore.updateField("receiveId", jsonData[firstReceiveOption].id);
     formStore.updateForm("receiveId", jsonData[firstReceiveOption].id);
-    await formStore.getCourse();
 
     let activeComponent = "";
     let direction = "";
@@ -5661,7 +5660,7 @@ const FormExchanger: FC = observer(() => {
       formStore.updateField("direction", direction);
       formStore.updateForm("direction", direction);
     }
-
+    await formStore.getCourse();
     console.log("Полученный курс", formStore.formConvert);
   };
 
@@ -5681,7 +5680,6 @@ const FormExchanger: FC = observer(() => {
     const selectedDirection = jsonData[selectedPay]?.directions[value];
     formStore.updateField("receiveId", selectedDirection.id);
     formStore.updateForm("receiveId", selectedDirection.id);
-    await formStore.getCourse();
 
     if (selectedDirection) {
       setSelectedReceive(value);
@@ -5720,6 +5718,7 @@ const FormExchanger: FC = observer(() => {
         formStore.updateField("direction", direction);
         formStore.updateForm("direction", direction);
       }
+      await formStore.getCourse();
     }
   };
 
