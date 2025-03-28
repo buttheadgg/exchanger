@@ -236,6 +236,7 @@ const Footer = observer(() => {
                     Tokens
                   </a>
                 </li>
+                <div className={styles.menu__listItemLine}></div>
                 <li className={styles.menu__listItem}>
                   <a
                     href="http://alfa-crypto.com/account"
@@ -247,6 +248,14 @@ const Footer = observer(() => {
                 <li className={styles.menu__listItem}>
                   <a href="#" className={styles.menu__listLink}>
                     En
+                  </a>
+                </li>
+                <li className={styles.menu__listItem}>
+                  <a
+                    href="http://alfa-crypto.com/account"
+                    className={styles.menu__listLink}
+                  >
+                    Account
                   </a>
                 </li>
               </ul>

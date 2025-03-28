@@ -5538,6 +5538,8 @@ const FormExchanger: FC = observer(() => {
       formStore.updateField("payId", jsonData[defaultPay].id);
       formStore.updateForm("pay", defaultPay);
       formStore.updateForm("payId", jsonData[defaultPay].id);
+      formStore.updateFormReceive("pay", defaultPay);
+      formStore.updateFormReceive("payId", jsonData[defaultPay].id);
       console.log("Полученный курс", formStore.formConvert);
     }
   }, [payOptions]);
@@ -5550,6 +5552,8 @@ const FormExchanger: FC = observer(() => {
       formStore.updateField("receiveId", jsonData[defaultReceive].id);
       formStore.updateForm("receive", defaultReceive);
       formStore.updateForm("receiveId", jsonData[defaultReceive].id);
+      formStore.updateFormReceive("receive", defaultReceive);
+      formStore.updateFormReceive("receiveId", jsonData[defaultReceive].id);
       console.log("Полученный курс", formStore.formConvert);
     }
   }, [selectedPay, receiveOptions]);
@@ -5563,13 +5567,13 @@ const FormExchanger: FC = observer(() => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
     formStore.updateForm("payValue", value);
-    formStore.updateField("payValue", value);
+    formStore.updateFormReceive("payValue", value);
     const numericValue = value;
     formStore.setHandleChange();
-    formStore.getCourse();
     if (name === "paySelect") {
       formStore.updateForm("payValue", value);
       formStore.updateInput("paySelect", numericValue);
+      formStore.updateFormReceive("payValue", value);
       if (parseFloat(numericValue) !== 0) {
         const calculatedValue = parseFloat(numericValue) * formStore.newCourse;
         if (!isNaN(calculatedValue)) {
@@ -5582,18 +5586,18 @@ const FormExchanger: FC = observer(() => {
         formStore.updateInput("receiveSelect", 0);
       }
     }
-    await formStore.getCourse();
   };
 
   const handleReceiveSelect = async (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
-    formStore.updateForm("receiveValue", value);
+    formStore.updateForm("payValue", value);
+    formStore.updateFormReceive("receiveValue", value);
     const numericValue = value;
     formStore.setHandleChange();
-    await formStore.getCourse();
+    formStore.getCourseReceive();
     if (name === "receiveSelect") {
-      formStore.updateForm("receiveSelect", value);
+      formStore.updateFormReceive("receiveSelect", value);
       formStore.updateInput("receiveSelect", numericValue);
       if (parseFloat(numericValue) !== 0) {
         const calculatedValue = parseFloat(numericValue) / formStore.newCourse;
@@ -5607,16 +5611,17 @@ const FormExchanger: FC = observer(() => {
         formStore.updateInput("paySelect", 0);
       }
     }
-    await formStore.getCourse();
   };
 
   const handlePaySelectChange = async (
     event: ChangeEvent<HTMLSelectElement>
   ) => {
-    formStore.updateField("receiveValue", "0");
+    formStore.updateField("receiveValue", "");
     formStore.updateForm("receiveSelect", "");
+    formStore.updateFormReceive("receiveSelect", "");
     formStore.updateField("payValue", "");
     formStore.updateForm("paySelect", "");
+    formStore.updateFormReceive("paySelect", "");
     formStore.formData.paySelect = "";
     const value = event.target.value;
     const name = event.target.name;
@@ -5626,41 +5631,52 @@ const FormExchanger: FC = observer(() => {
     formStore.updateField("payId", selectedPay.id);
     formStore.updateForm(name, value);
     formStore.updateForm("payId", selectedPay.id);
+    formStore.updateFormReceive(name, value);
+    formStore.updateFormReceive("payId", selectedPay.id);
 
     const firstReceiveOption = Object.keys(jsonData[value]?.directions)[0];
     const firstReceiveType = jsonData[firstReceiveOption].type;
     setSelectedReceive(firstReceiveOption);
     formStore.updateField("receive", firstReceiveOption);
     formStore.updateForm("receive", firstReceiveOption);
+    formStore.updateFormReceive("receive", firstReceiveOption);
     formStore.updateField("receiveId", jsonData[firstReceiveOption].id);
     formStore.updateForm("receiveId", jsonData[firstReceiveOption].id);
+    formStore.updateFormReceive("receiveId", jsonData[firstReceiveOption].id);
 
     let activeComponent = "";
     let direction = "";
+    let directionReceive = "";
 
     if (firstReceiveType === "crypto" && selectedPay.type === "cash") {
       activeComponent = "cash-crypto";
       direction = "cash-crypto";
+      directionReceive = "crypto-cash";
     } else if (firstReceiveType === "cash" && selectedPay.type === "crypto") {
       activeComponent = "crypto-cash";
       direction = "crypto-cash";
+      directionReceive = "cash-crypto";
     } else if (firstReceiveType === "bank" && selectedPay.type === "crypto") {
       activeComponent = "crypto-bank";
       direction = "crypto-bank";
+      directionReceive = "bank-crypto";
     } else if (firstReceiveType === "crypto" && selectedPay.type === "bank") {
       activeComponent = "bank-crypto";
       direction = "bank-crypto";
+      directionReceive = "crypto-bank";
     } else if (firstReceiveType === "crypto" && selectedPay.type === "crypto") {
       activeComponent = "crypto-crypto";
       direction = "crypto-crypto";
+      directionReceive = "crypto-crypto";
     }
 
     if (activeComponent && direction) {
       formStore.setActiveComponent(activeComponent);
       formStore.updateField("direction", direction);
       formStore.updateForm("direction", direction);
+      formStore.updateFormReceive("direction", directionReceive);
     }
-    await formStore.getCourse();
+    formStore.getCourse();
     console.log("Полученный курс", formStore.formConvert);
   };
 
@@ -5668,7 +5684,7 @@ const FormExchanger: FC = observer(() => {
     event: ChangeEvent<HTMLSelectElement>
   ) => {
     formStore.getCourse();
-    formStore.updateField("receiveValue", "0");
+    formStore.updateField("receiveValue", "");
     formStore.updateForm("receiveSelect", "");
     formStore.updateField("payValue", "");
     formStore.updateForm("paySelect", "");
@@ -5686,6 +5702,7 @@ const FormExchanger: FC = observer(() => {
 
       let activeComponent = "";
       let direction = "";
+      let directionReceive = "";
 
       if (
         selectedDirection.type === "crypto" &&
@@ -5693,32 +5710,37 @@ const FormExchanger: FC = observer(() => {
       ) {
         activeComponent = "cash-crypto";
         direction = "cash-crypto";
+        directionReceive = "crypto-cash";
       } else if (
         selectedDirection.type === "cash" &&
         jsonData[selectedPay].type === "crypto"
       ) {
         activeComponent = "crypto-cash";
         direction = "crypto-cash";
+        directionReceive = "cash-crypto";
       } else if (
         selectedDirection.type === "bank" &&
         jsonData[selectedPay].type === "crypto"
       ) {
         activeComponent = "crypto-bank";
         direction = "crypto-bank";
+        directionReceive = "bank-crypto";
       } else if (
         selectedDirection.type === "crypto" &&
         jsonData[selectedPay].type === "bank"
       ) {
         activeComponent = "bank-crypto";
         direction = "bank-crypto";
+        directionReceive = "crypto-bank";
       }
 
       if (activeComponent && direction) {
         formStore.setActiveComponent(activeComponent);
         formStore.updateField("direction", direction);
         formStore.updateForm("direction", direction);
+        formStore.updateFormReceive("direction", directionReceive);
       }
-      await formStore.getCourse();
+      formStore.getCourse();
     }
   };
 

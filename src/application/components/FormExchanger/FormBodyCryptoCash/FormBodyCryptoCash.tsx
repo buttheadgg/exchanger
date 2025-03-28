@@ -29,6 +29,7 @@ const FormBodyCryptoCash: FC = ({}) => {
     setCountry(value);
     formStore.updateField(name, value);
     formStore.getCourse();
+    formStore.getCourseReceive();
   };
 
   const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -36,12 +37,14 @@ const FormBodyCryptoCash: FC = ({}) => {
     const name = event.target.name;
     setCity(value);
     formStore.updateField(name, value);
+    formStore.updateForm(name, value)
+    formStore.updateFormReceive(name, value)
     formStore.getCourse();
+    formStore.getCourseReceive();
   };
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
-    formStore.setHandleChange();
   };
 
   const recaptchaImage = PUBLIC_IMAGE + "reCAPTCHA.svg";

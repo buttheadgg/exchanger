@@ -28,11 +28,21 @@ class FormStore {
   };
   formCourse: { [key: string]: any } = {
     pay: "",
-    payValue: "0",
-    receiveValue: "0",
     payId: "93",
+    payValue: "",
     receive: "",
     receiveId: "10",
+    receiveValue: "",
+    cityId: "",
+    direction: "crypto-crypto",
+  };
+  formCourseReceive: { [key: string]: any } = {
+    pay: "",
+    payId: "93",
+    payValue: "",
+    receive: "",
+    receiveId: "10",
+    receiveValue: "",
     cityId: "",
     direction: "crypto-crypto",
   };
@@ -67,6 +77,9 @@ class FormStore {
   updateForm(name: string, value: string | boolean) {
     this.formCourse[name] = value;
   }
+  updateFormReceive(name: string, value: string | boolean) {
+    this.formCourseReceive[name] = value;
+  }
 
   setIsLoading(value: boolean) {
     this.isLoading = value;
@@ -98,10 +111,14 @@ class FormStore {
   }
 
   async getCourse() {
-    console.log("передаю", this.formCourse);
+    if (this.formCourse.direction == "crypto-bank" || this.formCourse.direction == "bank-crypto" || this.formCourse.direction == "crypto-crypto"  ){
+      console.log("Вывод направления-----:"+this.formCourse.direction)
+      this.formCourse.cityId = "";
+    }
+    console.log("передаю2", this.formCourse);
     this.setIsLoading(true);
     try {
-      const res = await fetch("http://alfa-crypto.com/api/v1/exchange/rate", {
+      const res = await fetch("http://alfa-crypto.com/api/v1/exchange/get_rate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -109,11 +126,35 @@ class FormStore {
         body: JSON.stringify(formStore.formCourse),
       });
       const result = await res.json();
-      console.log(result);
+      console.log("ответ по getCourse:",result);
       this.formConvert = result;
       this.minReserve = result.inmin * result.rate;
-      this.newCourse =
-        result.rate ? 1 / result.rate : 0;
+    } catch (error) {
+      console.error("Ошибка при выполнении fetch-запроса rate:");
+    } finally {
+      this.setIsLoading(false);
+    }
+  }
+
+  async getCourseReceive() {
+    if (this.formCourseReceive.direction == "crypto-bank" || this.formCourseReceive.direction == "bank-crypto" || this.formCourseReceive.direction == "crypto-crypto" ){
+      console.log("Вывод направления-----:"+this.formCourseReceive.direction)
+      this.formCourseReceive.cityId = "";
+    }
+    console.log("передаю", this.formCourseReceive);
+    this.setIsLoading(true);
+    try {
+      const res = await fetch("http://alfa-crypto.com/api/v1/exchange/get_rate_receive", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formStore.formCourseReceive),
+      });
+      const result = await res.json();
+      console.log("ответ по getCourse:",result);
+      this.formConvert = result;
+      this.minReserve = result.inmin * result.rate;
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
     } finally {
@@ -124,6 +165,7 @@ class FormStore {
   updateInput(name: string, value: string | number) {
     this.formData[name] = value;
     this.formCourse[name] = value;
+    this.formCourseReceive[name] = value;
   }
 
   setReceiveMin(component: string) {

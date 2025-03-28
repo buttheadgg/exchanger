@@ -14,12 +14,12 @@ const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = useCallback(() => {
-    if (document.body.style.overflowY === 'hidden') {
-      document.body.style.overflowY = ''; // Разблокировать прокрутку на body
-      document.documentElement.style.overflowY = ''; // Разблокировать прокрутку на html
+    if (document.body.style.overflowY === "hidden") {
+      document.body.style.overflowY = ""; // Разблокировать прокрутку на body
+      document.documentElement.style.overflowY = ""; // Разблокировать прокрутку на html
     } else {
-      document.body.style.overflowY = 'hidden'; // Блокировать прокрутку на body
-      document.documentElement.style.overflowY = 'hidden'; // Блокировать прокрутку на html
+      document.body.style.overflowY = "hidden"; // Блокировать прокрутку на body
+      document.documentElement.style.overflowY = "hidden"; // Блокировать прокрутку на html
     }
     burgerRef.current?.classList.toggle("active");
     menuRef.current?.classList.toggle("open");
@@ -27,8 +27,8 @@ const Header = () => {
   }, []);
 
   const closeMenu = useCallback(() => {
-    document.body.style.overflowY = ''; // Сбросить стиль прокрутки для body
-    document.documentElement.style.overflowY = ''; 
+    document.body.style.overflowY = ""; // Сбросить стиль прокрутки для body
+    document.documentElement.style.overflowY = "";
     burgerRef.current?.classList.remove("active");
     menuRef.current?.classList.remove("open");
     document.body.classList.remove("active");
@@ -354,19 +354,20 @@ const Header = () => {
                   Tokens
                 </a>
               </li>
-              <li className={styles.menu__listItem}>
-                <a
-                  onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
-                  href="http://alfa-crypto.com/account"
-                  className={styles.menu__listLink}
-                >
-                  Account
-                </a>
-              </li>
             </div>
+            <div className={styles.menu__listItemLine}></div>
             <li className={`${styles.menu__listItem} ${styles.En}`}>
               <a href="#" className={styles.menu__listLink}>
                 En
+              </a>
+            </li>
+            <li className={styles.menu__listItem}>
+              <a
+                onClick={() => handleLinkClick(RouteNames.EXCHANGER_ROUTE)}
+                href="http://alfa-crypto.com/account"
+                className={styles.menu__listLink}
+              >
+                Account
               </a>
             </li>
           </nav>

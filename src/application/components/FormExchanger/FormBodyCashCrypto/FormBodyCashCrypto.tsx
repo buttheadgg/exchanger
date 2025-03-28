@@ -30,6 +30,7 @@ const FormBodyCashCrypto: React.FC = () => {
     setCountry(value);
     formStore.updateField(name, value);
     formStore.getCourse();
+    formStore.getCourseReceive();
   };
 
   const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -37,7 +38,10 @@ const FormBodyCashCrypto: React.FC = () => {
     const name = event.target.name;
     setCity(value);
     formStore.updateField(name, value);
+    formStore.updateForm(name, value);
+    formStore.updateFormReceive(name, value);
     formStore.getCourse();
+    formStore.getCourseReceive();
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

@@ -75,9 +75,21 @@ header {
     opacity: 1;
   }
 }
+.menu__listItemLine{
+  content: '';
+  width: 2px;
+  height: 16px;
+  border-radius: 16px;
+  background: #C4CBF5;
+  opacity: 20%;
+}
 .menu__listItem {
-  width: 101px;
-  height: 40px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(234, 237, 255, 1);
+  padding-left:25px;
+  padding-right: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1071,14 +1083,18 @@ header {
     -webkit-backdrop-filter: blur(10px);
     margin: 5px 0;
     white-space: nowrap;
-    gap: 10px;
+    gap: 8px;
   }
 
   .menu__listLink {
     opacity: 1;
     font-family: 'Popins';
-    font-size: 24px;
+    font-size: 14px;
     font-weight: 900;
+  }
+  .menu__listItem{
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   .menu_list {

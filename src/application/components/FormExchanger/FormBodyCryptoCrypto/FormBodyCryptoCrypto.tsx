@@ -7,8 +7,6 @@ import { PUBLIC_IMAGE } from "../../../constants";
 import ReCAPTCHA from 'react-google-recaptcha';
 
 const FormBodyCryptoCrypto = () => {
-  const { selectedCountry, selectedCity, setCountry, setCity, locationData } =
-    locationStore;
     
   const handleCaptchaChange = (token: string | null) => {
     formStore.setCaptchaToken(token);
@@ -18,23 +16,6 @@ const FormBodyCryptoCrypto = () => {
   useEffect(() => {
     locationStore.initializeDefaults();
   }, []);
-
-  const countryOptions = Object.keys(locationData);
-  const cityOptions = locationStore.cityOptions;
-
-  const handleCountrySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    setCountry(value);
-    formStore.updateField(name, value);
-  };
-
-  const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    setCity(value);
-    formStore.updateField(name, value);
-  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;

@@ -21,26 +21,6 @@ const FormBodyBankCrypto: FC = ({}) => {
     locationStore.initializeDefaults();
   }, []);
 
-  const countryOptions = Object.keys(locationData);
-  const cityOptions = locationStore.cityOptions;
-
-  useEffect(() => {
-    setCountry(countryOptions[0]);
-  }, [countryOptions]);
-
-  const handleCountrySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    setCountry(value);
-    console.log(selectedCountry);
-  };
-
-  const handleCitySelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const value = event.target.value;
-    const name = event.target.name;
-    setCity(value);
-  };
-
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
