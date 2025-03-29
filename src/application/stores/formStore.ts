@@ -26,6 +26,7 @@ class FormStore {
     isPayd: "no",
     transactionId: "",
   };
+
   formCourse: { [key: string]: any } = {
     pay: "",
     payId: "93",
@@ -33,7 +34,7 @@ class FormStore {
     receive: "",
     receiveId: "10",
     receiveValue: "",
-    cityId: "",
+    cityId: " ",
     direction: "crypto-crypto",
   };
   formCourseReceive: { [key: string]: any } = {
@@ -74,6 +75,7 @@ class FormStore {
   updateField(name: string, value: string | boolean) {
     this.formData[name] = value;
   }
+  
   updateForm(name: string, value: string | boolean) {
     this.formCourse[name] = value;
   }
@@ -85,19 +87,13 @@ class FormStore {
     this.isLoading = value;
   }
 
-  updateConvert(name: string, value: string | boolean | Record<string, any>) {
-    if (typeof value === "object" && value !== null) {
-      this.formConvert = {
-        ...this.formConvert,
-        ...value,
-      };
-    } else {
-      this.formConvert[name] = value;
-    }
-    if (this.formConvert.rate) {
-      this.newCourse = 1 / this.formConvert.rate;
+  updateFormConvert(newData: { [key: string]: any }) {
+    this.formConvert = newData;
+    if (newData.exchangers) {
+      this.formData.exchangers = newData.exchangers;
     }
   }
+
 
   updateFinalData(name: string, value: string | boolean | Record<string, any>) {
     if (typeof value === "object" && value !== null) {
@@ -110,13 +106,11 @@ class FormStore {
     }
   }
 
-  async getCourse() {
+  async getCourse() { 
     if (this.formCourse.direction == "crypto-bank" || this.formCourse.direction == "bank-crypto" || this.formCourse.direction == "crypto-crypto"  ){
-      console.log("Вывод направления-----:"+this.formCourse.direction)
-      this.formCourse.cityId = "";
+      this.updateForm("cityId","");
     }
-    console.log("передаю2", this.formCourse);
-    this.setIsLoading(true);
+    this.setIsLoading(true); 
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/exchange/get_rate", {
         method: "POST",
@@ -126,9 +120,13 @@ class FormStore {
         body: JSON.stringify(formStore.formCourse),
       });
       const result = await res.json();
-      console.log("ответ по getCourse:",result);
       this.formConvert = result;
-      this.minReserve = result.inmin * result.rate;
+      this.newCourse = this.formConvert.rate_format;
+      this.formCourseReceive.receiveSelect = this.newCourse * this.formCourse.payValue;
+      this.formData.receiveSelect = this.newCourse * this.formCourse.payValue;
+      this.formData.receiveSelect = String(this.formData.receiveSelect)
+      this.updateFormConvert(this.formConvert)
+      console.log("111111111"+this.formData);
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
     } finally {
@@ -138,10 +136,8 @@ class FormStore {
 
   async getCourseReceive() {
     if (this.formCourseReceive.direction == "crypto-bank" || this.formCourseReceive.direction == "bank-crypto" || this.formCourseReceive.direction == "crypto-crypto" ){
-      console.log("Вывод направления-----:"+this.formCourseReceive.direction)
-      this.formCourseReceive.cityId = "";
+      this.updateFormReceive("cityId","");
     }
-    console.log("передаю", this.formCourseReceive);
     this.setIsLoading(true);
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/exchange/get_rate_receive", {
@@ -152,9 +148,11 @@ class FormStore {
         body: JSON.stringify(formStore.formCourseReceive),
       });
       const result = await res.json();
-      console.log("ответ по getCourse:",result);
       this.formConvert = result;
-      this.minReserve = result.inmin * result.rate;
+      this.newCourse = this.formConvert.rate_format;
+      this.formCourse.paySelect = this.newCourse * this.formCourseReceive.receiveValue;
+      this.formData.paySelect = this.newCourse * this.formCourseReceive.receiveValue;
+      this.setHandleChange();
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
     } finally {
@@ -194,20 +192,19 @@ class FormStore {
       newInvalidInputs.email = true;
     }
 
-    if (this.captchaToken == null) {
-      newInvalidInputs.captcha = true;
-    }
+    // if (this.captchaToken == null) {
+    //   newInvalidInputs.captcha = true;
+    // }
 
     if (
-      parseFloat(this.formData.paySelect) > parseFloat(this.formConvert.inmax)
+      parseFloat(this.formData.paySelect) > Number(this.formConvert.l_max)
     ) {
       newInvalidInputs.paySelect = true;
       this.validatePaySelectMax = true;
       this.validatePaySelectMin = false;
     } else if (
-      parseFloat(this.formData.paySelect) < 0  ||
       parseFloat(this.formData.paySelect) === 0 || 
-      parseFloat(this.formData.paySelect) < parseFloat(this.formConvert.inmin)
+      parseFloat(this.formData.paySelect) < Number(this.formConvert.l_min)
     ) {
       newInvalidInputs.paySelect = true;
       this.validatePaySelectMin = true;
@@ -226,14 +223,14 @@ class FormStore {
     }
 
     if (
-      parseFloat(this.formData.receiveSelect) > parseFloat(this.formConvert.max_reserve)
+      parseFloat(this.formCourseReceive.receiveSelect) > Number(this.formConvert.r_max)
     ) {
       newInvalidInputs.receiveSelect = true;
       this.validateReceiveSelectMax = true;
       this.validateReceiveSelectMin = false;
     }else if (
-      parseFloat(this.formData.receiveSelect) < parseFloat(this.receiveMin) ||
-      parseFloat(this.formData.paySelect) === 0
+      parseFloat(this.formData.receiveSelect) < Number(this.formConvert.r_min) ||
+      parseFloat(this.formData.receiveSelect) === 0
     ){
       newInvalidInputs.receiveSelect = true;
       this.validateReceiveSelectMax = false;

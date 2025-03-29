@@ -39,6 +39,7 @@ class LocationStore {
       const cityId = this.findCityId(this.selectedCountry, cities[0]);
       formStore.updateField("cityId", cityId);
       formStore.updateForm("cityId", cityId);
+      formStore.updateFormReceive("cityId", cityId);
     }
     formStore.updateField("country", country);
   }
@@ -49,6 +50,7 @@ class LocationStore {
     formStore.updateField("city", city);
     formStore.updateField("cityId", cityId);
    formStore.updateForm("cityId", cityId);
+   formStore.updateFormReceive("cityId", cityId);
   }
 
   findCityId(country: string, city: string): string {

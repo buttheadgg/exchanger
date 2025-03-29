@@ -84,6 +84,7 @@
   flex-direction: column;
   gap: 1px;
   padding-left: 24px;
+  height: 15vh;
 }
 
 .form__payValue {
@@ -105,6 +106,8 @@
   color: rgba(255, 255, 255, 0.45);
   background-color: rgba(255, 255, 255, 0.04);
   border: none;
+  height: 52px;
+  padding-left: 40px;
 }
 
 .form__paySelectImg {
@@ -112,7 +115,7 @@
   width: 24px;
   height: 24px;
   top: 50%;
-  left: 46%;
+  left: 0%;
   transform: translate(50%, -50%);
 }
 
@@ -182,7 +185,7 @@
   align-items: end;
   gap: 8px;
   margin-top: 5px;
-  padding-right: 24px;
+  padding-right: 28px;
   font-family: "Gilroy";
   font-size: 12px;
   font-weight: 500;
@@ -216,6 +219,7 @@
   background-color: rgba(255, 255, 255, 0.04);
   border: none;
   min-width: 220px;
+  padding-left: 40px;
 }
 
 .form__receiveSelectImg {
@@ -223,7 +227,7 @@
   height: 24px;
   position: absolute;
   top: 50%;
-  left: 45%;
+  left: 0%;
   transform: translate(50%, -50%);
 }
 
@@ -265,6 +269,8 @@
   font-family: "Roboto";
   font-size: 11px;
   font-weight: 500;
+  margin-right: auto;
+  padding-right: 5px;
 }
 .form__receiveInputWarningMinNone{
   display: none;
@@ -340,6 +346,15 @@
   display: none;
 }
 
+.form__payInputLimits{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.from__payInputWarning{
+
+}
 
 .from__payInputWarningMin{
   white-space: nowrap;

@@ -22,9 +22,8 @@ const FormModalWindow: FC = observer(() => {
     if (captchaDone) {
       formStore.setIsPaid(1);
       await formStore.updateField("isPayd", "yes");
-      await Promise.resolve();
       try {
-        const res = await fetch("http://alfa-crypto.com/api/v1/exchange/payd", {
+        const res = await fetch("http://alfa-crypto.com/api/v1/exchange/newpayd", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
