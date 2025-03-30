@@ -18,7 +18,7 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
     "default"
   );
   const sliderRef = useRef<HTMLDivElement>(null);
-
+  const [isClicked, setIsClicked] = useState(false);
   const correctPosition = 200;
   const tolerance = 50;
 
@@ -101,8 +101,10 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
   }, [dragging, startX, offsetX]);
 
   const handleCopyClick = () => {
+
+    setIsClicked(true);
+
     const textToCopy = "987CS65456xwwCWW78sw";
-    
     const textarea = document.createElement("textarea");
     textarea.value = textToCopy;
     document.body.appendChild(textarea);
@@ -131,7 +133,11 @@ const SliderCaptcha: React.FC<SliderCaptchaProps> = ({
           />
         </div>
         <div className={styles.slider__puzzleImgCopy} onClick={handleCopyClick}>
-          <img src={PUBLIC_IMAGE + "copyIconForm.svg"} />
+        {isClicked ? (
+          <img src={PUBLIC_IMAGE + "copyIconFormClick.svg"} />
+          ) : (
+            <img src={PUBLIC_IMAGE + "copyIconForm.svg"} />
+          )}
         </div>
         <div className={styles.slider__puzzle} style={{ left: `${offsetX}px` }}>
           <img src={PUBLIC_IMAGE + "puzzlePieceImage.svg"} alt="Puzzle Piece" />

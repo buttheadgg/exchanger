@@ -135,15 +135,16 @@
   .reliability__wrapper{
     flex-direction: column;
     padding-left: 20px;
+    align-items: center;
   }
 }
 
 @media(max-width: 431px){
   .reliability__image{
-    transform: translate(197%, -500%);
+    transform: translate(-20%, -500%);
   }
   .reliability__lightBox{
-    transform: translate(15%, -150%);
+    transform: translate(-40%, -150%);
   }
   .reliability__title{
     font-size: 24px;
@@ -152,23 +153,30 @@
   .reliability__wrapper{
     border-top: none
   }
+  .reliability__content{
+    margin: 0;
+  }
+  .reliability__button{
+    margin-left: 70px;
+  }
+  
 }
 
 @media(max-width: 415px){
   .reliability__image{
-    transform: translate(186%, -500%);
+    transform: translate(-20%, -500%);
   }
 }
 
 @media(max-width: 391px){
   .reliability__image{
-    transform: translate(172%, -500%);
+    transform: translate(-20%, -500%);
   }
 }
 
 @media(max-width: 376px){
   .reliability__image{
-    transform: translate(163%, -500%);
+    transform: translate(-20%, -500%);
   }
 }
 

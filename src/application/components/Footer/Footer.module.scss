@@ -377,7 +377,7 @@ footer {
 .footer__contactInput{
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 10px;
 }
 
 @media (max-width: 1135px) {
@@ -937,6 +937,11 @@ footer {
   }
   .info__boxLeft {
     top: 1%;
+  }
+}
+@media (max-width: 390px) {
+  .footer__inputForm {
+    width: 280px;
   }
 }
 @media (max-width: 335px) {

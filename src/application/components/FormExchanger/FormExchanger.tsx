@@ -5770,7 +5770,6 @@ const FormExchanger: FC = observer(() => {
                     className={styles.form__paySelectImg}
                   />
                 )}
-                <div className={styles.form__payInputLimits}>
                   <MyInput
                     name="paySelect"
                     className={styles.form__payInputValue}
@@ -5779,7 +5778,6 @@ const FormExchanger: FC = observer(() => {
                     isInvalid={formStore.invalidInputs.paySelect}
                     value={formStore.formCourse.paySelect}
                   />
-                </div>
               </div>
               <div className={styles.form__payBottomInput}>
                 <div

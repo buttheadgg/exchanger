@@ -40,12 +40,17 @@ const FormModalWindowDone = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const handleButtonClose = () => {
+    formStore.setDataValid(undefined);
+  };
+
   const handleReload = () => {
     window.location.reload();
   };
 
   return (
     <div className={styles.modal__window}>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.modal__windowWrapper}>
         <div className={styles.modal__howToPlay}>Application ID 0134453</div>
         <div className={styles.modal__canceled}>
@@ -119,6 +124,13 @@ const FormModalWindowDone = () => {
           alt="left wallet"
           className={styles.wallet__imagesLeft}
         />
+        <div className={`${
+          isExchanged ? styles.loaderDone : styles.loader
+        }`}>
+          <div className={styles.dot}></div>
+          <div className={styles.dot}></div>
+          <div className={styles.dot}></div>
+        </div>
         <img src={PUBLIC_IMAGE + "modalWalletRight.svg"} alt="right wallet" />
       </div>
       {/* <div className={styles.modal__attention}>

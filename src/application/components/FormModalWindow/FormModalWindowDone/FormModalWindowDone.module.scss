@@ -11,6 +11,13 @@
   gap: 24px;
 }
 
+.modal__widowClose{
+  position: absolute;
+  top: 2%;
+  left: 85%;
+  width: 30px;
+}
+
 .modal__windowWrapper {
   display: flex;
   flex-direction: column;
@@ -85,7 +92,7 @@
   border: 1px solid #2ef2ff;
 }
 
-.modal__timeStatus {
+.modal__timeStatus{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +104,7 @@
   border-top: 1px solid #243474;
   border-left: 1px solid #243474;
   border-right: 1px solid #243474;
-  border-bottom: 1px solid #0f1434;
+  border-bottom: 1px solid #243474;
   border-radius: 40px;
 }
 
@@ -191,7 +198,7 @@
 
 .wallet__images {
   display: flex;
-  gap: 62px;
+  gap: 10px;
 }
 
 .wallet__imagesDone {
@@ -202,7 +209,47 @@
   display: none;
 }
 
+.loader {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.loaderDone{
+  display: none;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #2EF2FF;
+  border-radius: 50%;
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
 @media (max-width: 431px) {
+  .timestatus__ExchangeDone{
+    margin-top: 15px;
+  }
+  .modal__timeStatus{
+    gap: 10px;
+    max-width: 382px;
+    align-items: normal;
+}
+  .timestatus__wrapper{
+    align-items: center;
+    max-width: 160px;
+    gap: 10px;
+  }
   .modal__window {
     min-width: 400px;
     width: 100%;
@@ -212,5 +259,11 @@
   }
   .amount__text{
     gap: 33px;
+  }
+  .timestatus__statusText{
+    white-space: nowrap;
+  }
+  .timestatus__dateTimeCanceled{
+    margin-top: 10px;
   }
 }

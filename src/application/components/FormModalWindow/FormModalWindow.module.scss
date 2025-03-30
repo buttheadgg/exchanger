@@ -10,6 +10,14 @@
   border: 3px solid #334679;
   border-radius: 40px;
   gap: 34px;
+  position: relative;
+}
+
+.modal__widowClose{
+  position: absolute;
+  top: 2%;
+  left: 85%;
+  width: 30px;
 }
 
 .modal__windowWrapper {
@@ -123,21 +131,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 90%;
   gap: 40px;
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: 1px solid #243474;
   border-left: 1px solid #243474;
   border-right: 1px solid #243474;
-  border-bottom: 1px solid #0f1434;
+  border-bottom: 1px solid #243474;
   border-radius: 40px;
 }
 
 .timestatus__wrapper {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 8px;
 }
 
 .timestatus__timeText {
@@ -205,6 +214,8 @@
   }
   .modal__timeStatus{
     margin-top: 20px;
+    gap: 20px;
+    width: 97%;
   }
   .modal__window{
     gap: 10px;

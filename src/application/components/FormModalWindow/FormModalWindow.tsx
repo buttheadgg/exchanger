@@ -41,6 +41,10 @@ const FormModalWindow: FC = observer(() => {
     }
   };
 
+  const handleButtonClose = () => {
+    formStore.setDataValid(undefined);
+  };
+
   const handleButtonCancel = () => {
     formStore.setIsPaid(2);
   };
@@ -51,6 +55,7 @@ const FormModalWindow: FC = observer(() => {
 
   return (
     <div className={styles.modal__window}>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.modal__windowWrapper}>
         <div className={styles.modal__howToPlay}>How to pay</div>
         <div className={styles.modal__canceled}>
@@ -101,12 +106,12 @@ const FormModalWindow: FC = observer(() => {
         </div>
       </div>
       <div className={styles.modal__buttonGroup}>
-        <MyButton
+        {/* <MyButton
           className={styles.modal__buttonCancel}
           onClick={handleButtonCancel}
         >
           cancel
-        </MyButton>
+        </MyButton> */}
         <MyButton
           className={styles.modal__buttonPaid}
           onClick={handleButtonPaid}

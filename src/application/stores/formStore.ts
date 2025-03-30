@@ -126,7 +126,7 @@ class FormStore {
       this.formData.receiveSelect = this.newCourse * this.formCourse.payValue;
       this.formData.receiveSelect = String(this.formData.receiveSelect)
       this.updateFormConvert(this.formConvert)
-      console.log("111111111"+this.formData);
+      this.setHandleChange();
     } catch (error) {
       console.error("Ошибка при выполнении fetch-запроса rate:");
     } finally {

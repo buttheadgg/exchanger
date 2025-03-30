@@ -5,13 +5,25 @@ $text-color: rgba(234, 237, 255, 1);
 $light-text-color: rgba(255, 255, 255, 0.2);
 $accent-color: #2ef2ff;
 
+body{
+  padding-top: 70px;
+}
+
 header {
   height: 70px;
   width: 100%;
   background-color: #05091d;
   display: flex;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 9999;
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .container {
