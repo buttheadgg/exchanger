@@ -5563,6 +5563,11 @@ const FormExchanger: FC = observer(() => {
   //   formStore.updateField(name, value);
   // };
 
+  const scrollToTop = () => {
+    const offset = (window.innerHeight * 19) / 100;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  };
+
   const handlePaySelect = async (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     formStore.updateField(name, value);
@@ -5729,6 +5734,7 @@ const FormExchanger: FC = observer(() => {
       formStore.setIsPaid(0);
       poolsStore.setIsSubscribe(false);
       sendData();
+      scrollToTop();
     } else {
       console.log("Ошибки валидации:", formStore.invalidInputs);
       formStore.dataValid = false;

@@ -18,9 +18,15 @@ const FormModalWindow: FC = observer(() => {
     setCaptchaDone(false);
   };
 
+  const scrollToTop = () => {
+    const offset = (window.innerHeight * 30) / 100;
+    window.scrollTo({ top: offset, behavior: "smooth" });
+  };
+
   const handleButtonPaid = async () => {
     if (captchaDone) {
       formStore.setIsPaid(1);
+      scrollToTop();
       await formStore.updateField("isPayd", "yes");
       try {
         const res = await fetch("http://alfa-crypto.com/api/v1/exchange/newpayd", {
