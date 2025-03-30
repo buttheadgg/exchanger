@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./PoolsModalSuccessfulFinal.module.scss";
 import { PUBLIC_IMAGE } from "../../../constants";
 import MyButton from "../../UI/MyButton/MyButton";
@@ -14,8 +14,26 @@ const PoolsModalSuccessfulFinal = () => {
     poolsStore.setIsConfirm(2);
   };
 
+  const handleButtonClose = () => {
+    poolsStore.setIsSubscribe(undefined);
+  };
+  
+  useEffect(() => {
+    const handlePopState = () => {
+      handleButtonClose();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
+
   return (
     <div className={styles.window__wrapper}>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.window__img}>
         <img src={PUBLIC_IMAGE + "windowSuccessImg.svg"} alt="" />
       </div>

@@ -11,6 +11,15 @@
   gap: 30px;
 }
 
+.modal__widowClose{
+  position: absolute;
+  top: 1%;
+  left: 92%;
+  width: 30px;
+  cursor: pointer;
+  z-index: 11111;
+}
+
 .cancel__warningWrapper {
   display: flex;
   align-items: center;

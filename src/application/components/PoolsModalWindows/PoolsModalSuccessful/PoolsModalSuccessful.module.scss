@@ -10,6 +10,15 @@
   padding: 20px;
 }
 
+.modal__widowClose{
+  position: absolute;
+  top: 2%;
+  left: 90%;
+  width: 30px;
+  cursor: pointer;
+  z-index: 11111;
+}
+
 .window__img {
   display: flex;
   align-items: center;

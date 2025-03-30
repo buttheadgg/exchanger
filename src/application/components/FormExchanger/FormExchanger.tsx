@@ -5485,9 +5485,6 @@ const FormExchanger: FC = observer(() => {
     },
   };
 
-  useEffect(() => {
-    formStore.getCourse();
-  }, []);
 
   const payOptions = Object.keys(jsonData);
   const receiveOptions = useMemo(() => {

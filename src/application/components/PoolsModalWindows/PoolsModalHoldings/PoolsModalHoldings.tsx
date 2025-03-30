@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useEffect } from "react";
 import styles from "./PoolsModalHoldings.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../../constants";
 import poolsStore from "../../../stores/poolsStore";
@@ -29,8 +29,26 @@ const PoolsModalHoldings = () => {
     scrollToTop();
   };
 
+  const handleButtonClose = () => {
+    poolsStore.setIsSubscribe(undefined);
+  };
+  
+  useEffect(() => {
+    const handlePopState = () => {
+      handleButtonClose();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
+
   return (
     <div className={styles.holdings__wrapper}>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.holdings__wrapperHead}>
         <div className={styles.holdings__coin}>
           <div className={styles.holdings__coinImg}>

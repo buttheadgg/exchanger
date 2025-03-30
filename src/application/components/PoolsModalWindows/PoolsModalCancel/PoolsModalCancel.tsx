@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./PoolsModalCancel.module.scss";
 import { PUBLIC_IMAGE } from "../../../constants";
 import MyButton from "../../UI/MyButton/MyButton";
+import poolsStore from "../../../stores/poolsStore";
+import { observer } from "mobx-react-lite";
 
 const PoolsModalCancel = () => {
+
+  const handleButtonClose = () => {
+    poolsStore.setIsSubscribe(undefined);
+  };
+  
+  useEffect(() => {
+    const handlePopState = () => {
+      handleButtonClose();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
   return (
     <div className={styles.cancel__wrapper}>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.cancel__headText}>Cancellation Successful</div>
       <div className={styles.cancel__warningWrapper}>
         <div className={styles.cancel__warningImg}>
@@ -30,4 +50,4 @@ const PoolsModalCancel = () => {
   );
 };
 
-export default PoolsModalCancel;
+export default observer(PoolsModalCancel);

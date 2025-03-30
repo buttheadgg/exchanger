@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import styles from "./PoolsModalSubscribe.module.scss";
 import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../../constants";
 import MyButton from "../../UI/MyButton/MyButton";
@@ -70,6 +70,23 @@ const PoolsModalSubscribe = () => {
     }
   };
 
+  const handleButtonClose = () => {
+    poolsStore.setIsSubscribe(undefined);
+  };
+  
+  useEffect(() => {
+    const handlePopState = () => {
+      handleButtonClose();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, []);
+
+
   const postFormDataPools = async () => {
     try {
       const res = await fetch("http://alfa-crypto.com/api/v1/pool/confirm", {
@@ -105,8 +122,10 @@ const PoolsModalSubscribe = () => {
     scrollToTop();
   };
 
+
   return (
     <div className={styles.window__wrapper}>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.window__header}>
         <div className={styles.window__bottomLine}></div>{" "}
         <div className={styles.window__subscribe}>Subscribe</div>
@@ -169,6 +188,9 @@ const PoolsModalSubscribe = () => {
             </div>
           </div>
           <div className={styles.amount__inputWrapper}>
+            <div className={styles.amount__inputImg}>
+              <img src={`${PUBLIC_IMAGE}${selectedCoin}.JPG`} alt="qr" />
+            </div>
             <MyInput
               className={styles.amount__input}
               placeHolder={`Min ${parseFloat(
@@ -187,9 +209,6 @@ const PoolsModalSubscribe = () => {
               isInvalid={poolsStore.invalidInputs.walletAdress}
               value={poolsStore.formDataPools.walletAdress}
             />
-            <div className={styles.amount__inputImg}>
-              <img src={`${PUBLIC_IMAGE}${selectedCoin}.JPG`} alt="qr" />
-            </div>
             <button className={styles.amount__inputButton}>MAX</button>
           </div>
           <div className={styles.available__wrapper}>
@@ -214,12 +233,9 @@ const PoolsModalSubscribe = () => {
               >
                 Personal Remaining Quota{" "}
               </div>
-
-              {isVisible && (
                 <div className={styles.personal__graph}>
                   <img src={PUBLIC_IMAGE + "poolsGraph.svg"} alt="Graph" />
                 </div>
-              )}
             </div>
           </div>
           <div className={styles.summary_wrapper}>

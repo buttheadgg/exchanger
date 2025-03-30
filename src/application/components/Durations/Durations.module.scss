@@ -225,23 +225,23 @@
 .durations__bodyLineDuration {
   padding: 10px 16px;
   border-radius: 14px;
-  border: 1px solid rgba(46, 242, 255, 0.5);
+  color: rgba(46, 242, 255, 0.3);
+  border: 1px solid rgba(46, 242, 255, 0.9);
   font-family: "Popins";
   font-size: 16px;
   font-weight: 700;
-  color: rgba(46, 242, 255, 0.3);
   cursor: pointer;
 }
 
 .durations__bodyLineDurationActive {
   padding: 10px 16px;
   border-radius: 14px;
-  color: #2ef2ff;
-  border: 1px solid rgba(46, 242, 255, 0.5);
+  border: 1px solid rgba(46, 242, 255, 0.9);
   font-family: "Popins";
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+  color: #2ef2ff;
 }
 
 .durations__bodyLineButtonBack{

@@ -12,6 +12,14 @@ const Durations = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDuration, setSelectedDuration] = useState("All Durations");
+
+  const autoSelectPeriod = (coin: string, period: string) => {
+    runInAction(() => {
+      poolsStore.updateField("coin", coin);
+      poolsStore.updateField("period", period);
+    });
+  };
+
   const handleSelectPeriod = (coin: string, period: string) => {
     runInAction(() => {
       poolsStore.updateField("coin", coin);
@@ -51,6 +59,7 @@ const Durations = () => {
     poolsStore.setIsConfirm(0);
     scrollToTop();
   };
+
 
 
 
@@ -146,6 +155,7 @@ const Durations = () => {
 
               <div className={styles.durations__bodyLineDurationWrapper}>
                 {detail.periods.map((period, index) => (
+                  
                   <div
                     key={`${coin}-${index}`}
                     onClick={() => {
