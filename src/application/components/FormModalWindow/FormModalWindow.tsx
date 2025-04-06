@@ -41,7 +41,7 @@ const FormModalWindow: FC = observer(() => {
         } else {
           Error(`Ошибка передачи post payd: ${res.status}`);
         }
-      } catch {}
+      } catch { }
     } else {
       alert("The Captcha has not been solved");
     }
@@ -61,19 +61,19 @@ const FormModalWindow: FC = observer(() => {
 
   return (
     <div className={styles.modal__window}>
-      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE + "closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.modal__windowWrapper}>
-        <div className={styles.modal__howToPlay}>How to pay</div>
+        <div className={styles.modal__howToPlay}></div>
         <div className={styles.modal__canceled}>
-          You have canceled the request
+
         </div>
         <div className={styles.modal__QrWrapper}>
           <div className={styles.qr__imageWrapper}>
             <img src={qrImage} className={styles.qr__image}></img>
           </div>
           <div className={styles.qr__text}>
-            To carry out the exchange, transfer the amount specified in your
-            application in Bitcoin (BTC) to this wallet
+            Please note that the rate is fixed after 12 network confirmations.
+            Attention! Your transaction will be checked according to the AML Policy of the exchange office.
           </div>
         </div>
         <div>
@@ -92,7 +92,7 @@ const FormModalWindow: FC = observer(() => {
               Sent
             </div>
             <div className={styles.amount__textReceived}>
-            Received
+              Received
             </div>
             <div className={styles.amount__textReceipt}>Transaction ID</div>
           </div>

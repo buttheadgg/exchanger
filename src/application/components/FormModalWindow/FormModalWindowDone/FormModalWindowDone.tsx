@@ -50,16 +50,15 @@ const FormModalWindowDone = () => {
 
   return (
     <div className={styles.modal__window}>
-      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE+"closeForm.svg"} onClick={handleButtonClose}></img>
+      <img className={styles.modal__widowClose} src={PUBLIC_IMAGE + "closeForm.svg"} onClick={handleButtonClose}></img>
       <div className={styles.modal__windowWrapper}>
-        <div className={styles.modal__howToPlay}>Application ID 0134453</div>
+        <div className={styles.modal__howToPlay}></div>
         <div className={styles.modal__canceled}>
-          You have canceled the request
+
         </div>
         <div className={styles.modal__application}>
-          The application has been canceled by you.<br></br> If there is a
-          transfer, contact the operator.<br></br> We are waiting for you again
-          for an exchange at favorable rates
+          Please note that the rate is fixed after 12 network confirmations.
+          Attention! Your transaction will be checked according to the AML Policy of the exchange office.
         </div>
         <div className={styles.modal__amount}>
           <div className={styles.amount__text}>
@@ -67,7 +66,7 @@ const FormModalWindowDone = () => {
               Sent
             </div>
             <div className={styles.amount__textReceived}>
-            Received
+              Received
             </div>
             <div className={styles.amount__textReceipt}>Transaction ID  </div>
           </div>
@@ -95,38 +94,34 @@ const FormModalWindowDone = () => {
             Application status
           </div>
           <div
-            className={`${
-              isExchanged
+            className={`${isExchanged
                 ? styles.timestatus__dateTimeCanceledDone
                 : styles.timestatus__dateTimeCanceled
-            }`}
+              }`}
           >
             In proccess
           </div>
           <div
-            className={`${
-              isExchanged
+            className={`${isExchanged
                 ? styles.timestatus__ExchangeDone
                 : styles.timestatus__ExchangeDefault
-            }`}
+              }`}
           >
             Done
           </div>
         </div>
       </div>
       <div
-        className={`${
-          isExchanged ? styles.wallet__imagesDone : styles.wallet__images
-        }`}
+        className={`${isExchanged ? styles.wallet__imagesDone : styles.wallet__images
+          }`}
       >
         <img
           src={PUBLIC_IMAGE + "modalWalletLeft.svg"}
           alt="left wallet"
           className={styles.wallet__imagesLeft}
         />
-        <div className={`${
-          isExchanged ? styles.loaderDone : styles.loader
-        }`}>
+        <div className={`${isExchanged ? styles.loaderDone : styles.loader
+          }`}>
           <div className={styles.dot}></div>
           <div className={styles.dot}></div>
           <div className={styles.dot}></div>
