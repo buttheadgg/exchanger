@@ -34,7 +34,7 @@
 
 .form__header {
   display: flex;
-  gap:10px;
+  gap: 10px;
   justify-content: space-between;
   padding-top: 36px;
   position: relative;
@@ -150,7 +150,7 @@
   justify-content: center;
 }
 
-.form__payExchangeRateNone{
+.form__payExchangeRateNone {
   display: none;
 }
 
@@ -246,23 +246,25 @@
   position: relative;
 }
 
-.form__receiveInputWarning{
+.form__receiveInputWarning {
   display: flex;
   flex-direction: column;
   align-items: end;
 }
 
-.form__receiveInputWarningMax{
+.form__receiveInputWarningMax {
   white-space: nowrap;
   color: #F8005B;
   font-family: "Roboto";
   font-size: 11px;
   font-weight: 500;
 }
-.form__receiveInputWarningMaxNone{
+
+.form__receiveInputWarningMaxNone {
   display: none;
 }
-.form__receiveInputWarningMin{
+
+.form__receiveInputWarningMin {
   white-space: nowrap;
   color: #F8005B;
   font-family: "Roboto";
@@ -271,7 +273,8 @@
   margin-right: auto;
   padding-right: 5px;
 }
-.form__receiveInputWarningMinNone{
+
+.form__receiveInputWarningMinNone {
   display: none;
 }
 
@@ -284,6 +287,7 @@
   border-left: 2px solid rgba(12, 24, 56, 1);
   position: absolute;
   z-index: 0;
+
   &::after {
     content: "";
     width: 2px;
@@ -337,57 +341,62 @@
   display: none;
 }
 
-.form__iminExchanger{
+.form__iminExchanger {
   display: visible;
 }
 
-.form__iminExchangerNone{
+.form__iminExchangerNone {
   display: none;
 }
 
-.form__payInputLimits{
+.form__payInputLimits {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.from__payInputWarning{
+.from__payInputWarning {}
 
-}
-
-.from__payInputWarningMin{
+.from__payInputWarningMin {
   white-space: nowrap;
-  color:#F8005B;
+  color: #F8005B;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 11px;
 }
-.from__payInputWarningMax{
+
+.from__payInputWarningMax {
   white-space: nowrap;
-  color:#F8005B;
+  color: #F8005B;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 12px;
 }
-.from__payInputWarningMaxNone{
- display: none;
-}
-.from__payInputWarningMinNone{
+
+.from__payInputWarningMaxNone {
   display: none;
 }
-.form__headerPayLine{
+
+.from__payInputWarningMinNone {
   display: none;
 }
-.form__headerReceiveLine{
+
+.form__headerPayLine {
   display: none;
 }
-.form__bottomLine{
+
+.form__headerReceiveLine {
+  display: none;
+}
+
+.form__bottomLine {
   width: 30px;
   height: 3px;
   background-color: #2EF2FF;
   position: relative;
 }
-.form__externalLine{
+
+.form__externalLine {
   position: absolute;
   height: 55px;
   width: 3px;
@@ -395,7 +404,8 @@
   top: 200%;
   left: 45%;
 }
-.form__externalInsideLine{
+
+.form__externalInsideLine {
   width: 3px;
   height: 11px;
   background-color: #2EF2FF;
@@ -403,45 +413,55 @@
   top: 50%;
   left: 0px;
 }
+
 @media (max-width: 763px) {
-  .form__externalLine{
+  .form__externalLine {
     height: 40px;
   }
-  .form__externalInsideLine{
+
+  .form__externalInsideLine {
     top: 40%;
   }
-  .form__headerPay{
+
+  .form__headerPay {
     color: #EAEDFF;
   }
-  .form__headerReceiveLine{
+
+  .form__headerReceiveLine {
     display: flex;
     content: "";
     width: 100%;
     height: 1px;
     background-color: #0e1434;
   }
-  .form__headerPayLine{
+
+  .form__headerPayLine {
     display: flex;
     content: "";
     width: 100%;
     height: 1px;
     background-color: #0e1434;
   }
-  .form__exchanger{
+
+  .form__exchanger {
     margin-top: 20px;
   }
+
   .form__header {
     flex-direction: column;
     padding-top: 15px;
   }
+
   .information__line {
     display: none;
   }
+
   .form__headerLine {
     display: none;
     // top: 16%;
     // transform: translate(0, 55%);
   }
+
   .form__headerLine2 {
     // display: flex;
     // width: 100%;
@@ -451,6 +471,7 @@
     // top: 55%;
     // transform: translate(0, 50%);
   }
+
   .form__headerLine3 {
     // display: flex;
     // width: 100%;
@@ -460,34 +481,46 @@
     // top: 66%;
     // transform: translate(0, 50%);
   }
+
   .pay__wrapper {
     gap: 20px;
   }
+
   .receive__wrapper {
     gap: 20px;
   }
+
   .form__receiveValue {
     padding: 0;
   }
+
   .form__payInputValue {
     width: 120px;
   }
+
   .form__pay {
     padding-left: 0px;
   }
-  .form__receiveLimits{
-    padding-right: 1px; 
+
+  .form__receiveLimits {
+    padding-right: 1px;
   }
 }
 
 @media (max-width: 431px) {
   .form__receiveSelectImg {
-    left: 47%;
+    left: 46%;
   }
-  .form__receiveLimits{
+
+  .form__paySelectImg {
+    left: 46%;
+  }
+
+  .form__receiveLimits {
     padding-right: 1px;
   }
-  .form__exchanger{
+
+  .form__exchanger {
     margin-top: 20px;
   }
 }
@@ -496,22 +529,28 @@
   .form__paySelectImg {
     left: 47%;
   }
+
   .form__paySelectImg {
     max-width: 190px;
   }
+
   .form__receiveValue {
     gap: 5px;
   }
+
   .form__receiveSelectImg {
     left: 49%;
   }
+
   .form__payExchangeRateText {
     font-size: 13px;
   }
-  .form__receiveLimits{
+
+  .form__receiveLimits {
     padding-right: 1px;
   }
-  .form__wrapper{
+
+  .form__wrapper {
     max-width: 382px;
   }
 }

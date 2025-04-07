@@ -5,7 +5,7 @@ $text-color: rgba(234, 237, 255, 1);
 $light-text-color: rgba(255, 255, 255, 0.2);
 $accent-color: #2ef2ff;
 
-body{
+body {
   padding-top: 70px;
 }
 
@@ -20,7 +20,7 @@ header {
   z-index: 9999;
 }
 
-.header{
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -40,15 +40,18 @@ header {
   justify-content: space-between;
   width: 100%;
 }
+
 .header__inner-footerMain {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
+
 .header__inner-footerPhone {
   display: none;
 }
+
 .logo__text {
   font-family: "DM Sans", sans-serif;
   font-size: 20px;
@@ -76,18 +79,20 @@ header {
     font-weight: 900;
   }
 }
+
 .menu__listLink {
   opacity: 0.6;
   position: relative;
   cursor: pointer;
 
-  &.menu__dropdownText {
-  }
+  &.menu__dropdownText {}
+
   &:hover {
     opacity: 1;
   }
 }
-.menu__listItemLine{
+
+.menu__listItemLine {
   content: '';
   width: 2px;
   height: 16px;
@@ -95,12 +100,13 @@ header {
   background: #C4CBF5;
   opacity: 20%;
 }
+
 .menu__listItem {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: rgba(234, 237, 255, 1);
-  padding-left:25px;
+  padding-left: 25px;
   padding-right: 25px;
   display: flex;
   align-items: center;
@@ -125,9 +131,11 @@ header {
     transform: translateY(0);
   }
 }
+
 .menu__itemArrow {
   transition: 0.3s;
 }
+
 .menu__dropdownContent {
   border-top: 1px solid #2ef2ff;
   opacity: 0;
@@ -143,20 +151,24 @@ header {
   top: 110%;
   left: -150%;
 }
+
 .menu__dropdownContent.dropdown__company-footer {
   top: -311px;
   z-index: 999;
 }
+
 .menu__dropdownContent.dropdown__sheepy-footer {
   top: -311px;
   z-index: 999;
 }
+
 .menu__dropdownWrapper {
   display: flex;
   gap: 5px;
   padding: 12px 0px;
   color: #eaedff;
 }
+
 .menu__dropdownWrapper {
   &:hover {
     opacity: 1;
@@ -171,12 +183,14 @@ header {
   line-height: 20px;
   transition: 0.3s;
 }
+
 .menu__dropdownText {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 8px;
   line-height: 10px;
 }
+
 .burger {
   display: none;
   position: relative;
@@ -194,7 +208,7 @@ header {
     height: 3px;
     width: 100%;
     background-color: #2ef2ff;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
     transform: scale(1);
   }
 
@@ -233,6 +247,7 @@ header {
     }
   }
 }
+
 .menu__phone {
   display: none;
 }
@@ -450,6 +465,7 @@ header {
   cursor: pointer;
   box-shadow: 0 -14px 48px #28336f70, 0 16px 24px;
 }
+
 /*---------Company END---------*/
 
 /*---------Merchant---------*/
@@ -833,6 +849,7 @@ header {
   border-radius: 14px;
   border: 1px solid #2ef2ff;
 }
+
 /*---------Fundraising END---------*/
 
 /*---------FOOTER---------*/
@@ -1090,7 +1107,7 @@ header {
     left: 0;
     z-index: 2;
     overflow: hidden;
-    padding: 15px 40px;
+    padding: 50px 40px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     margin: 5px 0;
@@ -1101,10 +1118,11 @@ header {
   .menu__listLink {
     opacity: 1;
     font-family: 'Popins';
-    font-size: 14px;
+    font-size: 24px;
     font-weight: 900;
   }
-  .menu__listItem{
+
+  .menu__listItem {
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -1318,4 +1336,3 @@ header {
     font-size: 18px;
   }
 }
-
