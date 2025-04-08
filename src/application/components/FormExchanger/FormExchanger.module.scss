@@ -95,9 +95,11 @@
 .form__paySelect {
   position: relative;
   display: flex;
-  //min-width: 220px;
+  min-width: 220px;
   border-radius: 14px;
-  padding: 12px 0px 12px 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px !important;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
@@ -106,7 +108,6 @@
   background-color: rgba(255, 255, 255, 0.04);
   border: none;
   height: 52px;
-  padding-left: 40px !important;
 }
 
 .form__paySelectImg {
@@ -209,7 +210,9 @@
   position: relative;
   display: flex;
   border-radius: 14px;
-  padding: 12px 0px 12px 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 40px !important;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 16px;
@@ -218,7 +221,6 @@
   background-color: rgba(255, 255, 255, 0.04);
   border: none;
   min-width: 220px;
-  padding-left: 40px !important;
 }
 
 .form__receiveSelectImg {
