@@ -5766,6 +5766,13 @@ const FormExchanger: FC = observer(() => {
                     </option>
                   ))}
                 </select>
+                <img
+                  src={PUBLIC_IMAGE + "arrowRight.svg"}
+                  alt={
+                    'arrow'
+                  }
+                  className={styles.form__receiveSelectImgArrow}
+                />
                 {selectedPay && (
                   <img
                     src={jsonData[selectedPay]?.icon}
@@ -5773,20 +5780,20 @@ const FormExchanger: FC = observer(() => {
                     className={styles.form__paySelectImg}
                   />
                 )}
-                  <MyInput
-                    name="paySelect"
-                    className={styles.form__payInputValue}
-                    onChange={handlePaySelect}
-                    placeHolder="0"
-                    isInvalid={formStore.invalidInputs.paySelect}
-                    value={formStore.formCourse.paySelect}
-                  />
+                <MyInput
+                  name="paySelect"
+                  className={styles.form__payInputValue}
+                  onChange={handlePaySelect}
+                  placeHolder="0"
+                  isInvalid={formStore.invalidInputs.paySelect}
+                  value={formStore.formCourse.paySelect}
+                />
               </div>
               <div className={styles.form__payBottomInput}>
                 <div
                   className={
                     formStore.formData.paySelect === "" ||
-                    formStore.formData.receiveSelect === ""
+                      formStore.formData.receiveSelect === ""
                       ? styles.form__payExchangeRateNone
                       : styles.form__payExchangeRate
                   }
@@ -5797,8 +5804,8 @@ const FormExchanger: FC = observer(() => {
                     {formStore.isLoading
                       ? "Loading"
                       : (!formStore.newCourse || formStore.newCourse == 0)
-                      ? "There is no exchange rate"
-                      : parseFloat(formStore.formConvert.xxx_rate).toFixed(
+                        ? "There is no exchange rate"
+                        : parseFloat(formStore.formConvert.xxx_rate).toFixed(
                           8
                         )}{" "}
                     {jsonData[selectedPay]?.directions[selectedReceive]?.code}
@@ -5817,8 +5824,8 @@ const FormExchanger: FC = observer(() => {
                       {formStore.isLoading
                         ? "Loading"
                         : parseFloat(formStore.formConvert.l_min)
-                            .toFixed(5)
-                            .replace(/\.?0+$/, "")}{" "}
+                          .toFixed(5)
+                          .replace(/\.?0+$/, "")}{" "}
                       {jsonData[selectedPay]?.code}
                     </div>
                     <div
@@ -5832,15 +5839,15 @@ const FormExchanger: FC = observer(() => {
                       {formStore.isLoading
                         ? "Loading"
                         : parseFloat(formStore.formConvert.l_max)
-                            .toFixed(5)
-                            .replace(/\.?0+$/, "")}{" "}
+                          .toFixed(5)
+                          .replace(/\.?0+$/, "")}{" "}
                       {jsonData[selectedPay]?.code}
                     </div>
                   </div>
                   <div
                     className={
                       formStore.formData.paySelect === "" ||
-                      formStore.formData.receiveSelect === ""
+                        formStore.formData.receiveSelect === ""
                         ? styles.form__iminExchangerNone
                         : styles.form__iminExchanger
                     }
@@ -5849,14 +5856,14 @@ const FormExchanger: FC = observer(() => {
                     {formStore.isLoading
                       ? "Loading"
                       : parseFloat(formStore.formConvert.l_min)
-                          .toFixed(5)
-                          .replace(/\.?0+$/, "")}{" "}
+                        .toFixed(5)
+                        .replace(/\.?0+$/, "")}{" "}
                     {jsonData[selectedPay]?.code}
                   </div>
                   <div
                     className={
                       formStore.formData.paySelect === "" ||
-                      formStore.formData.receiveSelect === ""
+                        formStore.formData.receiveSelect === ""
                         ? styles.form__iminExchangerNone
                         : styles.form__iminExchanger
                     }
@@ -5865,8 +5872,8 @@ const FormExchanger: FC = observer(() => {
                     {formStore.isLoading
                       ? "Loading"
                       : parseFloat(formStore.formConvert.l_max)
-                          .toFixed(5)
-                          .replace(/\.?0+$/, "")}{" "}
+                        .toFixed(5)
+                        .replace(/\.?0+$/, "")}{" "}
                     {jsonData[selectedPay]?.code}
                   </div>
                 </div>
@@ -5895,6 +5902,13 @@ const FormExchanger: FC = observer(() => {
                     </option>
                   ))}
                 </select>
+                <img
+                  src={PUBLIC_IMAGE + "arrowRight.svg"}
+                  alt={
+                    'arrow'
+                  }
+                  className={styles.form__receiveSelectImgArrow}
+                />
                 {selectedReceive && (
                   <img
                     src={
@@ -5935,8 +5949,8 @@ const FormExchanger: FC = observer(() => {
                       {formStore.isLoading
                         ? "Loading"
                         : parseFloat(formStore.formConvert.r_max).toFixed(
-                            5
-                          )}{" "}
+                          5
+                        )}{" "}
                       {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                     </div>
                   </div>
@@ -5952,8 +5966,8 @@ const FormExchanger: FC = observer(() => {
                       {formStore.isLoading
                         ? "Loading"
                         : parseFloat(formStore.formConvert.r_min).toFixed(
-                            5
-                          )}{" "}
+                          5
+                        )}{" "}
                       {jsonData[selectedPay]?.directions[selectedReceive]?.code}
                     </div>
                   </div>
@@ -5961,7 +5975,7 @@ const FormExchanger: FC = observer(() => {
                 <div
                   className={
                     formStore.formData.paySelect === "" ||
-                    formStore.formData.receiveSelect === ""
+                      formStore.formData.receiveSelect === ""
                       ? styles.form__iminExchangerNone
                       : styles.form__iminExchanger
                   }
@@ -5975,7 +5989,7 @@ const FormExchanger: FC = observer(() => {
                 <div
                   className={
                     formStore.formData.paySelect === "" ||
-                    formStore.formData.receiveSelect === ""
+                      formStore.formData.receiveSelect === ""
                       ? styles.form__iminExchangerNone
                       : styles.form__iminExchanger
                   }
@@ -6003,12 +6017,11 @@ const FormExchanger: FC = observer(() => {
         EXCHANGE
       </MyButton>
       <div
-        className={`${
-          formStore.activeComponent === "cashCrypto" &&
+        className={`${formStore.activeComponent === "cashCrypto" &&
           formStore.invalidInputs.paySelect
-            ? styles.form__formBottomText
-            : styles.form__formBottomTextNone
-        }`}
+          ? styles.form__formBottomText
+          : styles.form__formBottomTextNone
+          }`}
       >
         The amount of cash must be at least $ 150,00
       </div>
