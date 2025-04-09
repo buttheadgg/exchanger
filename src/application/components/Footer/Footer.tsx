@@ -28,7 +28,7 @@ const Footer = observer(() => {
                 </li>
                 <li className={styles.menu__listItem}>
                   <a
-                    href="http://alfa-crypto.com/#debit-cards"
+                    href="http://alfa-crypto.com/coming_soon"
                     className={styles.menu__listLink}
                   >
                     Debit cards
@@ -36,7 +36,7 @@ const Footer = observer(() => {
                 </li>
                 <li className={styles.menu__listItem}>
                   <a
-                    href="http://alfa-crypto.com/#bots"
+                    href="http://alfa-crypto.com/coming_soon"
                     className={styles.menu__listLink}
                   >
                     Bots
@@ -56,7 +56,7 @@ const Footer = observer(() => {
                 </li>
                 <li className={styles.menu__listItem}>
                   <a
-                    href="http://alfa-crypto.com/#credits"
+                    href="http://alfa-crypto.com/coming_soon"
                     className={styles.menu__listLink}
                   >
                     Credits
@@ -71,20 +71,6 @@ const Footer = observer(() => {
                     <div
                       className={`${styles.menu__dropdownContent} ${styles.dropdown__sheepyBurger} ${styles.dropdown__sheepyFooter}`}
                     >
-                      <div className={styles.menu__dropdownWrapper}>
-                        <img
-                          src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
-                          alt=""
-                        />
-                        <a href="http://alfa-crypto.com/company">
-                          <div className={styles.menu__dropdownTitle}>
-                            About us/Company
-                          </div>
-                          <div className={styles.menu__dropdownText}>
-                            Road map.
-                          </div>
-                        </a>
-                      </div>
                       <div className={styles.menu__dropdownWrapper}>
                         <img src="./image/dropdown-iconImage.svg" alt="" />
                         <a href="http://alfa-crypto.com/sheepy">
@@ -155,10 +141,10 @@ const Footer = observer(() => {
                         />
                         <a href="#">
                           <div className={styles.menu__dropdownTitle}>
-                            About us/Company
+                            About us
                           </div>
                           <div className={styles.menu__dropdownText}>
-                            Road map.
+
                           </div>
                         </a>
                       </div>
@@ -230,7 +216,7 @@ const Footer = observer(() => {
                 </li>
                 <li className={styles.menu__listItem}>
                   <a
-                    href="http://alfa-crypto.com/#tokenomics"
+                    href="http://alfa-crypto.com/coming_soon"
                     className={styles.menu__listLink}
                   >
                     Tokens

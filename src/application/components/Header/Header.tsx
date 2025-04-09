@@ -82,7 +82,7 @@ const Header = () => {
                   onClick={() => {
                     poolsStore.setIsSubscribe(false);
                   }}
-                  href="http://alfa-crypto.com/#debit-cards"
+                  href="http://alfa-crypto.com/coming_soon"
                   className={styles.menu__listLink}
                 >
                   Debit cards
@@ -90,7 +90,7 @@ const Header = () => {
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  href="http://alfa-crypto.com/#bots"
+                  href="http://alfa-crypto.com/coming_soon"
                   className={styles.menu__listLink}
                 >
                   Bots
@@ -111,7 +111,7 @@ const Header = () => {
               </li>
               <li className={styles.menu__listItem}>
                 <a
-                  href="http://alfa-crypto.com/#credits"
+                  href="http://alfa-crypto.com/coming_soon"
                   className={styles.menu__listLink}
                 >
                   Credits
@@ -127,25 +127,6 @@ const Header = () => {
                   <div
                     className={`${styles.menu__dropdownContent} ${styles.dropdown__sheepy}`}
                   >
-                    <div className={styles.menu__dropdownWrapper}>
-                      <img
-                        src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
-                        alt=""
-                      />
-                      <a
-                        onClick={() =>
-                          handleLinkClick(RouteNames.EXCHANGER_ROUTE)
-                        }
-                        href="http://alfa-crypto.com/company"
-                      >
-                        <div className={styles.menu__dropdownTitle}>
-                          About us/Company
-                        </div>
-                        <div className={styles.menu__dropdownText}>
-                          Road map.
-                        </div>
-                      </a>
-                    </div>
                     <div className={styles.menu__dropdownWrapper}>
                       <img
                         src={PUBLIC_IMAGE + "dropdown-iconImage.svg"}
@@ -249,10 +230,10 @@ const Header = () => {
                       />
                       <a href="#">
                         <div className={styles.menu__dropdownTitle}>
-                          About us/Company
+                          About us
                         </div>
                         <div className={styles.menu__dropdownText}>
-                          Road map.
+
                         </div>
                       </a>
                     </div>
@@ -348,7 +329,7 @@ const Header = () => {
                     handleLinkClick(RouteNames.EXCHANGER_ROUTE);
                     poolsStore.setIsConfirm(undefined);
                   }}
-                  href="http://alfa-crypto.com/#tokenomics"
+                  href="http://alfa-crypto.com/coming_soon"
                   className={styles.menu__listLink}
                 >
                   Tokens
