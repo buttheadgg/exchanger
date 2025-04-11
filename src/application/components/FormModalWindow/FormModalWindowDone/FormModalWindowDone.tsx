@@ -9,7 +9,7 @@ const FormModalWindowDone = () => {
   const handleStatusCheck = async () => {
     try {
       const res = await fetch(
-        "http://alfa-crypto.com/api/v1/exchange/newcheckPayd",
+        "https://alfa-crypto.com/api/v1/exchange/newcheckPayd",
         {
           method: "POST",
           headers: {

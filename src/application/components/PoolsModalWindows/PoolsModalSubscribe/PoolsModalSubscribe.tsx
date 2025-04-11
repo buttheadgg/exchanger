@@ -89,7 +89,7 @@ const PoolsModalSubscribe = () => {
 
   const postFormDataPools = async () => {
     try {
-      const res = await fetch("http://alfa-crypto.com/api/v1/pool/confirm", {
+      const res = await fetch("https://alfa-crypto.com/api/v1/pool/confirm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

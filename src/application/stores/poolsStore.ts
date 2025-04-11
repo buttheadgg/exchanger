@@ -44,7 +44,7 @@ class PoolsStore {
 
     try {
       const response = await fetch(
-        "http://alfa-crypto.com/api/v1/pool/currencies",
+        "https://alfa-crypto.com/api/v1/pool/currencies",
         {
           method: "GET",
         }

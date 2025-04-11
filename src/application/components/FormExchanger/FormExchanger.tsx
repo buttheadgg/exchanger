@@ -5498,7 +5498,7 @@ const FormExchanger: FC = observer(() => {
     console.log("Отправляю на бек", formStore.formData);
     try {
       const res = await fetch(
-        "http://alfa-crypto.com/api/v1/exchange/confirmation",
+        "https://alfa-crypto.com/api/v1/exchange/confirmation",
         {
           method: "POST",
           headers: {

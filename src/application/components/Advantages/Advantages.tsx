@@ -8,7 +8,7 @@ import formStore from "../../stores/formStore";
 const Advantages = observer(() => {
 
   const handleCreateClick = () => {
-    window.location.href = 'http://alfa-crypto.com/account';
+    window.location.href = 'https://alfa-crypto.com/account';
   };
 
   return (

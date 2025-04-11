@@ -37,7 +37,7 @@ const RunningLIne = () => {
   const getCourse = async () => {
     try {
       const res = await fetch(
-        "http://alfa-crypto.com/api/v1/exchange/currencies_header",
+        "https://alfa-crypto.com/api/v1/exchange/currencies_header",
         {
           method: "GET",
         }

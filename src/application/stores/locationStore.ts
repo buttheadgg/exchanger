@@ -18,7 +18,7 @@ class LocationStore {
     this.error = null;
     try {
       const response = await window.fetch(
-        "http://alfa-crypto.com/api/v1/exchange/cities"
+        "https://alfa-crypto.com/api/v1/exchange/cities"
       );
 
       const data: LocationData = await response.json();

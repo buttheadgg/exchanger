@@ -112,7 +112,7 @@ class FormStore {
     }
     this.setIsLoading(true); 
     try {
-      const res = await fetch("http://alfa-crypto.com/api/v1/exchange/get_rate", {
+      const res = await fetch("https://alfa-crypto.com/api/v1/exchange/get_rate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -140,7 +140,7 @@ class FormStore {
     }
     this.setIsLoading(true);
     try {
-      const res = await fetch("http://alfa-crypto.com/api/v1/exchange/get_rate_receive", {
+      const res = await fetch("https://alfa-crypto.com/api/v1/exchange/get_rate_receive", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
