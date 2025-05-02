@@ -71,3 +71,18 @@ export interface Pools {
     detail: Detail;
   };
 }
+
+export interface Transaction {
+  datetime: string;
+  sender: string;
+  receiver: string;
+  currency_from: string;
+  amount_from: string;
+  currency_to: string;
+  amount_to: string;
+  exchange_rate: string;
+}
+
+export interface TransactionsData {
+  [key: string]: Transaction;
+}

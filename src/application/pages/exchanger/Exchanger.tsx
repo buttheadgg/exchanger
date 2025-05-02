@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import styles from "./Exchanger.module.scss";
 import { PUBLIC_IMAGE } from "../../constants";
 import FormExchanger from "../../components/FormExchanger/FormExchanger";
@@ -9,8 +9,11 @@ import RecentExchanges from "../../components/RecentExchanges/RecentExchanges";
 import Advantages from "../../components/Advantages/Advantages";
 import Reliability from "../../components/Reliability/Reliability";
 import Footer from "../../components/Footer/Footer";
+import recentExchangesStore from "../../stores/recentExchagesStore";
 
 const Exchanger: FC = observer(() => {
+
+
   const formImage = PUBLIC_IMAGE + "Exchanger-form-img.svg";
 
   const formRef = useRef<HTMLDivElement>(null);

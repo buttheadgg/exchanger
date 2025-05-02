@@ -127,6 +127,7 @@
   font-weight: 500;
   color: rgba(255, 255, 255, 0.45);
 }
+
 .headerStat__dailyDistribution {
   max-width: 531px;
   width: 100%;
@@ -164,13 +165,18 @@
   left: 22%;
 }
 
+.cryptoWrapper__img img {
+  width: 24px;
+  height: 24px;
+}
+
 .recentExchanges__dataInformation {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 16px;
   border: 1px solid #172662;
-  padding: 1px 12px;
+  padding: 10px 12px;
 }
 
 .dataInformation__name {
@@ -183,12 +189,18 @@
 .dataInformation__wrapper {
   display: flex;
   align-items: center;
+  max-width: 100px;
   gap: 10px;
 }
 
 .dataInformation__img {
   display: flex;
   align-items: center;
+}
+
+.dataInformation__img img {
+  width: 24px;
+  height: 24px;
 }
 
 .dataInformation__value {
@@ -231,21 +243,27 @@
   font-size: 16px;
   font-weight: 700;
   color: #c4cbf5;
+  width: 100px;
 }
 
 .dataInformation__txHashWrapper {
   display: flex;
   gap: 10px;
 }
+
 .xHashWrapper__image {
   max-width: 109px;
 }
 
 .txHashWrapper__value {
+  display: flex;
+  align-items: center;
   font-family: "Gilroy";
   font-size: 12px;
   font-weight: 500;
   color: #c4cbf5;
+  text-align: start;
+  width: 100px;
 }
 
 .dataInformation__time {
@@ -291,81 +309,97 @@
   color: #c4cbf5;
   margin-left: auto;
 }
+
 .recentExchanges__PayMob {
   font-size: 12px;
   font-family: "Gilroy";
   font-weight: 500;
   color: #2ef2ff;
 }
+
 .recentExchanges__CountryTextMob {
   font-family: "Gilroy";
   font-size: 16px;
   font-weight: 700;
   color: #c4cbf5;
 }
+
 .recentExchanges__CountryValueMob {
   font-family: "Gilroy";
   font-size: 16px;
   font-weight: 700;
   color: #c4cbf5;
 }
+
 .recentExchanges__wrapperCountryMob {
   display: flex;
   flex-direction: column;
   gap: 5px;
   padding-right: 20px;
 }
+
 .recentExchanges__wrapperCountryMob1 {
   display: flex;
   gap: 10px;
   align-items: center;
 }
+
 .recentExchanges__wrapperCoinMob1 {
   display: flex;
   gap: 10px;
 }
+
 .dataInformation__arrowMob img {
   transform: rotate(90deg);
 }
+
 .recentExchanges__ReceiveMob {
   font-size: 12px;
   font-family: "Gilroy";
   font-weight: 500;
   color: #2ef2ff;
 }
+
 .recentExchanges__wrapperCoinMob {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
+
 .recentExchanges__CoinWrapperMob {
   font-family: "Gilroy";
   color: #c4cbf5;
 }
+
 .recentExchanges__CoinTextMob {
   font-size: 16px;
   font-weight: 700;
 }
+
 .recentExchanges__CoinNameMob {
   font-size: 12px;
   font-weight: 500;
 }
+
 .recentExchanges__CoinValueMob {
   font-family: "Gilroy";
   font-size: 16px;
   font-weight: 700;
   color: #c4cbf5;
 }
+
 .recentExchanges__dataInformationMobWrapper {
   display: flex;
   flex-direction: column;
   margin-right: auto;
   align-items: center;
 }
+
 .recentExchanges__wrapeprHashMob {
   display: flex;
   gap: 7px;
 }
+
 .recentExchanges__txHashMob {
   font-size: 12px;
   font-family: "Gilroy";
@@ -380,10 +414,12 @@
   font-size: 12px;
   font-weight: 500;
 }
-.recentExchanges__dataInformationMobButton{
+
+.recentExchanges__dataInformationMobButton {
   display: none;
 }
-.headerStat__dailyDistributionImgPhone{
+
+.headerStat__dailyDistributionImgPhone {
   display: none;
 }
 
@@ -391,31 +427,38 @@
   .recentExchanges__headerStat {
     flex-direction: column;
   }
+
   .headerStat__count {
     flex-direction: column;
     position: relative;
     padding: 20px;
   }
+
   .headerStat__volume {
     flex-direction: column;
     position: relative;
     width: 100%;
   }
+
   .headerStat__more {
     position: absolute;
     top: 10%;
     right: 5%;
   }
-  .headerStat__dailyDistribution{
+
+  .headerStat__dailyDistribution {
     order: 1;
   }
-  .headerStat__dailyDistributionImgPhone{
+
+  .headerStat__dailyDistributionImgPhone {
     display: flex;
   }
-  .headerStat__dailyDistributionImg{
+
+  .headerStat__dailyDistributionImg {
     display: none;
   }
-  .headerStat__countVolume{
+
+  .headerStat__countVolume {
     order: 2;
   }
 }
@@ -425,23 +468,24 @@
   .recentExchanges__sortLine {
     display: none;
   }
+
   .recentExchanges__dataInformation {
     display: none;
   }
+
   .recentExchanges__dataInformationMob {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: linear-gradient(
-      180deg,
-      rgba(27, 39, 90, 0.2) 0%,
-      rgba(15, 21, 53, 0.2) 100%
-    );
+    background: linear-gradient(180deg,
+        rgba(27, 39, 90, 0.2) 0%,
+        rgba(15, 21, 53, 0.2) 100%);
     border-radius: 16px;
     border: 1px solid #253575;
     padding: 10px;
   }
-  .recentExchanges__dataInformationMobButton{
+
+  .recentExchanges__dataInformationMobButton {
     display: flex;
     width: 100%;
     max-width: 179px;
@@ -453,18 +497,22 @@
   .recentExchanges__sortLine {
     display: none;
   }
-  .recentExchanges__box{
+
+  .recentExchanges__box {
     padding: 5px 5px;
     width: 350px;
   }
-  .recentExchanges__wrapper{
+
+  .recentExchanges__wrapper {
     padding: 0 20px;
   }
-  .headerStat__leftData{
+
+  .headerStat__leftData {
     gap: 0px;
     margin-right: auto;
   }
-  .headerStat__rightData{
+
+  .headerStat__rightData {
     gap: 0px;
     margin-right: auto;
   }

@@ -1,18 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./RecentExchanges.module.scss";
-import { PUBLIC_IMAGE } from "../../constants";
+import { PUBLIC_ICON, PUBLIC_IMAGE } from "../../constants";
 import { observer } from "mobx-react-lite";
 import formStore from "../../stores/formStore";
 import MyButton from "../UI/MyButton/MyButton";
+import recentExchangesStore from "../../stores/recentExchagesStore";
+import { formatDistanceToNow, parse } from "date-fns";
 
-const RecentExchanges = observer(() => {
+const RecentExchanges = () => {
+
+  useEffect(() => {
+    recentExchangesStore.fetchLitsExchanges();
+    console.log('recent data' + recentExchangesStore.exchangesData)
+  }, [])
+
+  const shortenAddress = (address: string, start: number = 8, end: number = 8): string => {
+    if (!address || address.length < start + end + 2) return address;
+    return `${address.slice(2, 2 + start)}...${address.slice(-end)}`;
+  }
+
+  const formatRelativeTime = (dateStr: string): string => {
+    try {
+      const parsedDate = parse(dateStr, "yyyy-MM-dd HH:mm:ss", new Date());
+      return formatDistanceToNow(parsedDate, { addSuffix: true });
+    } catch (e) {
+      console.error("Invalid date format:", dateStr);
+      return dateStr;
+    }
+  }
+
+
   return (
     <div
-      className={`${
-        formStore.dataValid
-          ? styles.recentExchanges__wrapperNone
-          : styles.recentExchanges__wrapper
-      }`}
+      className={`${formStore.dataValid
+        ? styles.recentExchanges__wrapperNone
+        : styles.recentExchanges__wrapper
+        }`}
     >
       <div className={styles.recentExchangesText}>
         Recent exchanges of our customers
@@ -59,10 +82,10 @@ const RecentExchanges = observer(() => {
               className={styles.headerStat__dailyDistributionImg}
             />
             <img
-            src={PUBLIC_IMAGE + "recentGraf.svg"}
-            className={styles.headerStat__dailyDistributionImgPhone}
+              src={PUBLIC_IMAGE + "recentGraf.svg"}
+              className={styles.headerStat__dailyDistributionImgPhone}
             />
-            
+
           </div>
         </div>
         <div
@@ -74,346 +97,39 @@ const RecentExchanges = observer(() => {
           <div className={styles.sortLine__date}>Date</div>
         </div>
         <div className={styles.recentExchanges__dataInformationWrapper}>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
+          {Object.entries(recentExchangesStore.exchangesData).map(([id, transaction]) => (
+            <div key={id} className={styles.recentExchanges__dataInformation}>
+              <div className={styles.dataInformation__wrapper}>
+                <div className={styles.dataInformation__img}>
+                  <img src={`${PUBLIC_ICON}${transaction.currency_from.toLowerCase()}.svg`} />
                 </div>
+                <div className={styles.dataInformation__name}>{transaction.currency_from}</div>
+                <div className={styles.dataInformation__value}>{transaction.amount_from}</div>
               </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
+              <div className={styles.dataInformation__arrow}>
+                <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
               </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
+              <div className={styles.dataInformation__cryptoWrapper}>
+                <div className={styles.cryptoWrapper__img}>
+                  <img src={`${PUBLIC_ICON}${transaction.currency_to.toLowerCase()}.svg`} />
                 </div>
-              </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
+                <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
+                  <div className={styles.cryptoWrapper__cryptoName}>{transaction.currency_to}</div>
                 </div>
+                <div className={styles.cryptoWrapper__value}>{transaction.amount_to}</div>
               </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
+              <div className={styles.dataInformation__txHashWrapper}>
+                <div className={styles.txHashWrapper__value}>
+                  {shortenAddress(transaction.sender)}
                 </div>
+                {/* <div className={styles.xHashWrapper__image}>
+                  {" "}
+                  <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
+                </div> */}
               </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
+              <div className={styles.dataInformation__time}>{formatRelativeTime(transaction.datetime)}</div>
             </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
-                </div>
-              </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
-                </div>
-              </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
-                </div>
-              </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
-                </div>
-              </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
-                </div>
-              </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
-          <div className={styles.recentExchanges__dataInformation}>
-            <div className={styles.dataInformation__wrapper}>
-              <div className={styles.dataInformation__img}>
-                <img src={PUBLIC_IMAGE + "dataInformationEU.svg"} />
-              </div>
-              <div className={styles.dataInformation__name}>Euro</div>
-              <div className={styles.dataInformation__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__arrow}>
-              <img src={PUBLIC_IMAGE + "dataInformationArrow.svg"} />
-            </div>
-            <div className={styles.dataInformation__cryptoWrapper}>
-              <div>
-                <img src={PUBLIC_IMAGE + "ETHEthereum.svg"} />
-              </div>
-              <div className={styles.cryptoWrapper__cryptoNameWrapepr}>
-                <div className={styles.cryptoWrapper__cryptoName}>ETH</div>
-                <div className={styles.cryptoWrapper__cryptoSecName}>
-                  Ethereum
-                </div>
-              </div>
-              <div className={styles.cryptoWrapper__value}>0,3044816</div>
-            </div>
-            <div className={styles.dataInformation__txHashWrapper}>
-              <div className={styles.txHashWrapper__value}>
-                7c8297c8...c7c34c7c
-              </div>
-              <div className={styles.xHashWrapper__image}>
-                {" "}
-                <img src={PUBLIC_IMAGE + "copy.svg"} />{" "}
-              </div>
-            </div>
-            <div className={styles.dataInformation__time}>1 second ago</div>
-          </div>
+          ))}
           <div className={styles.recentExchanges__dataInformationMob}>
             <div className={styles.recentExchanges__TimeMob}>1 second ago</div>
 
@@ -460,7 +176,7 @@ const RecentExchanges = observer(() => {
               </div>
             </div>
             <div className={styles.recentExchanges__wrapeprHashMob}>
-            <div className={styles.recentExchanges__txHashMob}>Tx Hash</div>
+              <div className={styles.recentExchanges__txHashMob}>Tx Hash</div>
               <div className={styles.recentExchanges__HashTextMob}>7c8297c8...c7c34c7c</div>
               <div className={styles.recentExchanges__txHashMobImg}> <img src={PUBLIC_IMAGE + "copy.svg"} alt="" /></div>
             </div>
@@ -511,7 +227,7 @@ const RecentExchanges = observer(() => {
               </div>
             </div>
             <div className={styles.recentExchanges__wrapeprHashMob}>
-            <div className={styles.recentExchanges__txHashMob}>Tx Hash</div>
+              <div className={styles.recentExchanges__txHashMob}>Tx Hash</div>
               <div className={styles.recentExchanges__HashTextMob}>7c8297c8...c7c34c7c</div>
               <div className={styles.recentExchanges__txHashMobImg}> <img src={PUBLIC_IMAGE + "copy.svg"} alt="" /></div>
             </div>
@@ -562,35 +278,16 @@ const RecentExchanges = observer(() => {
               </div>
             </div>
             <div className={styles.recentExchanges__wrapeprHashMob}>
-            <div className={styles.recentExchanges__txHashMob}>Tx Hash</div>
+              <div className={styles.recentExchanges__txHashMob}>Tx Hash</div>
               <div className={styles.recentExchanges__HashTextMob}>7c8297c8...c7c34c7c</div>
               <div className={styles.recentExchanges__txHashMobImg}> <img src={PUBLIC_IMAGE + "copy.svg"} alt="" /></div>
             </div>
           </div>
           <MyButton className={styles.recentExchanges__dataInformationMobButton}>See all</MyButton>
         </div>
-        <div className={styles.recentExchanges__steps}>
-          <div className={styles.steps__arrowLeft}>
-            <img src={PUBLIC_IMAGE + "arrowLeft.svg"} />
-          </div>
-          <div className={styles.steps__itemsWrapper}>
-            <div className={`${styles.steps__item} ${styles.steps__select}`}>
-              1
-            </div>
-            <div className={styles.steps__item}>...</div>
-            <div className={styles.steps__item}>3</div>
-            <div className={styles.steps__item}>4</div>
-            <div className={styles.steps__item}>5</div>
-            <div className={styles.steps__item}>...</div>
-            <div className={styles.steps__item}>11</div>
-          </div>
-          <div className={styles.steps__arrowRight}>
-            <img src={PUBLIC_IMAGE + "arrowRight.svg"} />
-          </div>
-        </div>
       </div>
     </div>
   );
-});
+};
 
-export default RecentExchanges;
+export default observer(RecentExchanges);
