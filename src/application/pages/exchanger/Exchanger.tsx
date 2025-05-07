@@ -10,10 +10,9 @@ import Advantages from "../../components/Advantages/Advantages";
 import Reliability from "../../components/Reliability/Reliability";
 import Footer from "../../components/Footer/Footer";
 import recentExchangesStore from "../../stores/recentExchagesStore";
+import { Helmet } from "react-helmet";
 
 const Exchanger: FC = observer(() => {
-
-
   const formImage = PUBLIC_IMAGE + "Exchanger-form-img.svg";
 
   const formRef = useRef<HTMLDivElement>(null);
@@ -23,21 +22,26 @@ const Exchanger: FC = observer(() => {
   };
 
   return (
-    <div className={styles.main}>
-      <div className={styles.main__wrapper}>
-        <div className={styles.from__wrapper}>
-          <div className={styles.form__imageWrapper}>
-            <img src={formImage} alt="formImage" />
+    <>
+      <Helmet>
+        <title>Exchanger</title>
+      </Helmet>
+      <div className={styles.main}>
+        <div className={styles.main__wrapper}>
+          <div className={styles.from__wrapper}>
+            <div className={styles.form__imageWrapper}>
+              <img src={formImage} alt="formImage" />
+            </div>
+            <div ref={formRef}>
+              <FormExchanger />
+            </div>
           </div>
-          <div ref={formRef}>
-            <FormExchanger />
-          </div>
+          <RecentExchanges />
+          <Advantages />
+          <Reliability onScrollToForm={scrollToForm} />
         </div>
-        <RecentExchanges />
-        <Advantages />
-        <Reliability onScrollToForm={scrollToForm} />
       </div>
-    </div>
+    </>
   );
 });
 export default Exchanger;

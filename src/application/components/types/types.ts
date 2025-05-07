@@ -86,3 +86,16 @@ export interface Transaction {
 export interface TransactionsData {
   [key: string]: Transaction;
 }
+
+export interface DiagramItem {
+  name: string;
+  value: string;
+}
+
+export interface StatisticsData {
+  yesterday_count: string;
+  total_volumes: string;
+  total_count: string;
+  yesterday_volumes: string;
+  diagram: DiagramItem[];
+}

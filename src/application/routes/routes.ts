@@ -1,5 +1,5 @@
-import Exchanger from "../pages/exchanger/Exchanger";
-import Pools from "../pages/pools/Pools";
+import Exchanger from "../pages/Exchanger/Exchanger";
+import Pools from "../pages/Pools/Pools";
 
 
 
