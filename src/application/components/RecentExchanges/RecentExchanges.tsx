@@ -250,11 +250,6 @@ const RecentExchanges = () => {
                 </div>
               </div>
             ))}
-          <MyButton
-            className={styles.recentExchanges__dataInformationMobButton}
-          >
-            See all
-          </MyButton>
         </div>
       </div>
     </div>
